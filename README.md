@@ -8,15 +8,15 @@ Este proyecto se desarrolla en el marco de la cátedra **Ingeniería de Software
 
 ## 👥 Integrantes y Cátedra
 
-* **Institución:** Universidad de la Cuenca del Plata – Sede Formosa
-* **Carrera:** Licenciatura en Sistemas de Información
-* **Cátedra:** Ingeniería de Software III
-* **Profesor Titular:** Dr. Marcelo Toledo
-* **Equipo de Desarrollo:**
-  * Aranda, Santiago Nicolás – DNI 45.901.018
-  * Bordón Sbardella, Lourdes Antonella – DNI 42.993.948
-  * Luján, Sofía Antonela – DNI 44.464.918
-* **Fecha:** Septiembre – Noviembre 2026
+- **Institución:** Universidad de la Cuenca del Plata – Sede Formosa
+- **Carrera:** Licenciatura en Sistemas de Información
+- **Cátedra:** Ingeniería de Software III
+- **Profesor Titular:** Dr. Marcelo Toledo
+- **Equipo de Desarrollo:**
+    - Aranda, Santiago Nicolás – DNI 45.901.018
+    - Bordón Sbardella, Lourdes Antonella – DNI 42.993.948
+    - Luján, Sofía Antonela – DNI 44.464.918
+- **Fecha:** Septiembre – Noviembre 2026
 
 ---
 
@@ -25,20 +25,24 @@ Este proyecto se desarrolla en el marco de la cátedra **Ingeniería de Software
 El **Tiro Federal Formosa**, fundado el **1 de septiembre de 1911**, es una de las instituciones civiles y deportivas más antiguas y prestigiosas de la provincia de Formosa (más de 115 años de vida institucional). Su predio actual se ubica en el Lote Rural 18, sobre la Ruta Nacional N.º 11 (Km 1134).
 
 ### Problemática Detectada
+
 A pesar de contar con un padrón activo de más de 100 socios, la administración cotidiana del club dependía enteramente de registros manuales (cuadernos y planillas físicas):
-* Dificultad en la trazabilidad del padrón social y estados de cuotas/aranceles.
-* Complejidad en la fiscalización de la **Credencial de Legítimo Usuario (CLU)** y normativas exigidas por la **ANMaC**.
-* Falta de un sistema de turnos para optimizar el uso de las líneas de tiro y la disponibilidad limitada de instructores matriculados.
-* Ausencia de presencia digital formal que difunda la historia, decálogo de seguridad y disciplinas formativas.
+
+- Dificultad en la trazabilidad del padrón social y estados de cuotas/aranceles.
+- Complejidad en la fiscalización de la **Credencial de Legítimo Usuario (CLU)** y normativas exigidas por la **ANMaC**.
+- Falta de un sistema de turnos para optimizar el uso de las líneas de tiro y la disponibilidad limitada de instructores matriculados.
+- Ausencia de presencia digital formal que difunda la historia, decálogo de seguridad y disciplinas formativas.
 
 ---
 
 ## 🎯 Objetivos
 
 ### Objetivo General
+
 Desarrollar e implementar una solución web integral para el Tiro Federal Formosa, compuesta por un portal público informativo y un sistema de gestión interna modular con arquitectura SPA moderna, que permita centralizar la administración de socios, optimizar la coordinación de turnos en las líneas de tiro, transparentar el control de pagos y fortalecer la presencia institucional y la difusión del manejo seguro del armamento.
 
 ### Objetivos Específicos
+
 1. **Modelar la arquitectura relacional y de dominio** para dar soporte a socios, instructores, turnos de tiro, membresías, eventos, insumos y pagos garantizando integridad transaccional ACID.
 2. **Construir el portal institucional público** con información histórica, comisiones, catálogo de disciplinas deportivas, decálogo de seguridad y canales de contacto.
 3. **Implementar un sistema de gestión interna con control de acceso basado en roles (RBAC)**: Presidente (Administrador), Instructor y Socio.
@@ -52,21 +56,21 @@ Desarrollar e implementar una solución web integral para el Tiro Federal Formos
 
 El proyecto está construido bajo una arquitectura monolítica moderna desacoplada con **Laravel + Inertia.js + React**:
 
-* **Backend:** [PHP 8.2+] con [Laravel 11+]
-  * Lógica de negocio bajo POO rigurosa.
-  * Autenticación segura y RBAC (Policies & Gates / Middleware).
-  * Generación de comprobantes en PDF con `barryvdh/laravel-dompdf`.
-  * Notificaciones por email con Mailables / Markdown.
-* **Frontend:** [React 18+] sobre [Inertia.js v2]
-  * Arquitectura SPA sin necesidad de crear APIs REST desacopladas ni lidiar con tokens cliente manuales.
-  * Ruteo e intercambio de estado fluido directo desde los controladores de Laravel.
-  * Componentes modulares, tipados y reutilizables.
-* **Estilos & UI:** [Tailwind CSS]
-  * Diseño responsivo (Mobile-First) adaptado a tablets y teléfonos de instructores en el predio.
-  * Iconografía con Lucide React.
-* **Persistencia:** [SQLite] (entorno local y servidor embebido con respaldo ACID de archivo único, ideal para la infraestructura del predio) / Preparado para PostgreSQL / MySQL.
-* **Entorno & Despliegue:** [Docker] & [Docker Compose], Git / GitHub.
-* **Gestión de Proyecto:** Metodología Ágil **Extreme Programming (XP)** coordinada en [Trello](https://trello.com/b/3N14kXfu/tiro-federal).
+- **Backend:** [PHP 8.2+] con [Laravel 11+]
+    - Lógica de negocio bajo POO rigurosa.
+    - Autenticación segura y RBAC (Policies & Gates / Middleware).
+    - Generación de comprobantes en PDF con `barryvdh/laravel-dompdf`.
+    - Notificaciones por email con Mailables / Markdown.
+- **Frontend:** [React 18+] sobre [Inertia.js v2]
+    - Arquitectura SPA sin necesidad de crear APIs REST desacopladas ni lidiar con tokens cliente manuales.
+    - Ruteo e intercambio de estado fluido directo desde los controladores de Laravel.
+    - Componentes modulares, tipados y reutilizables.
+- **Estilos & UI:** [Tailwind CSS]
+    - Diseño responsivo (Mobile-First) adaptado a tablets y teléfonos de instructores en el predio.
+    - Iconografía con Lucide React.
+- **Persistencia:** [SQLite] (entorno local y servidor embebido con respaldo ACID de archivo único, ideal para la infraestructura del predio) / Preparado para PostgreSQL / MySQL.
+- **Entorno & Despliegue:** [Docker] & [Docker Compose], Git / GitHub.
+- **Gestión de Proyecto:** Metodología Ágil **Extreme Programming (XP)** coordinada en [Trello](https://trello.com/b/3N14kXfu/tiro-federal).
 
 ---
 
@@ -132,48 +136,54 @@ tirofederal-fsa/
 ## 🚀 Puesta en Marcha (Entorno de Desarrollo)
 
 ### Prerrequisitos
-* PHP >= 8.2
-* Composer
-* Node.js >= 18.x y npm
-* SQLite3 o Docker
+
+- PHP >= 8.2
+- Composer
+- Node.js >= 18.x y npm
+- SQLite3 o Docker
 
 ### Instalación Local
 
 1. **Clonar el repositorio:**
-   ```bash
-   git clone https://github.com/SantiAranda/tiro-federal-fsa.git
-   cd tiro-federal-fsa
-   ```
+
+    ```bash
+    git clone https://github.com/SantiAranda/tiro-federal-fsa.git
+    cd tiro-federal-fsa
+    ```
 
 2. **Instalar dependencias de PHP y JavaScript:**
-   ```bash
-   composer install
-   npm install
-   ```
+
+    ```bash
+    composer install
+    npm install
+    ```
 
 3. **Configurar el entorno:**
-   ```bash
-   cp .env.example .env
-   php artisan key:generate
-   ```
+
+    ```bash
+    cp .env.example .env
+    php artisan key:generate
+    ```
 
 4. **Configurar la base de datos (SQLite):**
-   ```bash
-   touch database/database.sqlite
-   php artisan migrate --seed
-   ```
+
+    ```bash
+    touch database/database.sqlite
+    php artisan migrate --seed
+    ```
 
 5. **Compilar assets y levantar el servidor:**
-   ```bash
-   # En una terminal:
-   npm run dev
+    ```bash
+    # En una terminal:
+    npm run dev
 
-   # En otra terminal:
-   php artisan serve
-   ```
-   La aplicación estará disponible en `http://localhost:8000`.
+    # En otra terminal:
+    php artisan serve
+    ```
+    La aplicación estará disponible en `http://localhost:8000`.
 
 ### Despliegue con Docker
+
 ```bash
 docker compose up -d --build
 docker compose exec app php artisan migrate --seed
@@ -184,11 +194,12 @@ docker compose exec app php artisan migrate --seed
 ## 📋 Metodología y Planificación (XP)
 
 El proyecto se estructura en 5 iteraciones incrementales bajo la metodología **Extreme Programming**:
-* **Iteración 1:** Relevamiento, entrevistas a directivos e instructores, especificación de requerimientos y configuración de entornos (Trello, Git, Docker).
-* **Iteración 2:** Modelado relacional, autenticación segura RBAC y maquetación del portal institucional público + decálogo.
-* **Iteración 3:** Lógica del turnero en pedanas (9 líneas principales + sector dinámico), asignación de instructores matriculados y módulo de evaluaciones.
-* **Iteración 4:** Administración del padrón social, fiscalización de credenciales ANMaC (CLU), cobranzas, cuenta corriente y eventos/cursos.
-* **Iteración 5:** Pruebas de aceptación con directivos, correcciones de usabilidad, empaquetamiento Docker y defensa de cátedra.
+
+- **Iteración 1:** Relevamiento, entrevistas a directivos e instructores, especificación de requerimientos y configuración de entornos (Trello, Git, Docker).
+- **Iteración 2:** Modelado relacional, autenticación segura RBAC y maquetación del portal institucional público + decálogo.
+- **Iteración 3:** Lógica del turnero en pedanas (9 líneas principales + sector dinámico), asignación de instructores matriculados y módulo de evaluaciones.
+- **Iteración 4:** Administración del padrón social, fiscalización de credenciales ANMaC (CLU), cobranzas, cuenta corriente y eventos/cursos.
+- **Iteración 5:** Pruebas de aceptación con directivos, correcciones de usabilidad, empaquetamiento Docker y defensa de cátedra.
 
 ---
 

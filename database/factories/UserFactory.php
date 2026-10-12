@@ -25,17 +25,39 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
+            'name' => fake()->firstName(),
+            'apellido' => fake()->lastName(),
             'email' => fake()->unique()->safeEmail(),
+            'dni' => (string) fake()->unique()->numberBetween(10000000, 48000000),
+            'fecha_nacimiento' => fake()->date('Y-m-d', '-18 years'),
+            'telefono' => fake()->phoneNumber(),
+            'domicilio' => fake()->address(),
+            'rol' => 'socio',
+            'activo' => true,
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
-            /* @chisel-2fa */
-            'two_factor_secret' => null,
-            'two_factor_recovery_codes' => null,
-            'two_factor_confirmed_at' => null,
-            /* @end-chisel-2fa */
         ];
+    }
+
+    /**
+     * Indicate that the user is presidente.
+     */
+    public function presidente(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'rol' => 'presidente',
+        ]);
+    }
+
+    /**
+     * Indicate that the user is instructor.
+     */
+    public function instructor(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'rol' => 'instructor',
+        ]);
     }
 
     /**
@@ -53,12 +75,6 @@ class UserFactory extends Factory
      */
     public function withTwoFactor(): static
     {
-        /* @chisel-2fa */
-        return $this->state(fn (array $attributes) => [
-            'two_factor_secret' => encrypt('secret'),
-            'two_factor_recovery_codes' => encrypt(json_encode(['recovery-code-1'])),
-            'two_factor_confirmed_at' => now(),
-        ]);
-        /* @end-chisel-2fa */
+        return $this->state(fn (array $attributes) => []);
     }
 }

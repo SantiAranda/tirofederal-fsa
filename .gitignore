@@ -1,0 +1,86 @@
+# ==========================================
+# Laravel & Composer
+# ==========================================
+/vendor/
+/bootstrap/cache/*
+!/bootstrap/cache/.gitignore
+
+# ==========================================
+# Frontend, Node & Builds (Inertia + React + Vite)
+# ==========================================
+/node_modules/
+/public/build/
+/public/hot
+.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+# ==========================================
+# Entorno, Credenciales y Claves
+# ==========================================
+.env
+.env.backup
+.env.production
+.env.local
+.env.*.local
+!/.env.example
+
+# ==========================================
+# Base de Datos SQLite y Backups
+# ==========================================
+/database/*.sqlite
+/database/*.sqlite-journal
+/database/*.sqlite-shm
+/database/*.sqlite-wal
+*.sql
+*.sqlite
+
+# ==========================================
+# Almacenamiento Dinámico y Documentos Sensibles
+# (Fotos de DNI, CLU, comprobantes PDF, uploads)
+# ==========================================
+/storage/app/*
+!/storage/app/public/
+/storage/app/public/*
+!/storage/app/public/.gitignore
+/storage/framework/cache/*
+!/storage/framework/cache/.gitignore
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitignore
+/storage/framework/views/*
+!/storage/framework/views/.gitignore
+/storage/framework/testing/*
+!/storage/framework/testing/.gitignore
+/storage/logs/*
+!/storage/logs/.gitignore
+/storage/inertia-devtools/
+
+# ==========================================
+# Docker & Entornos Locales
+# ==========================================
+docker-compose.override.yml
+.docker-compose.local.yml
+
+# ==========================================
+# IDEs, Editores y Sistema Operativo
+# ==========================================
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# Testing & Cobertura
+# ==========================================
+.phpunit.result.cache
+/tests/coverage/
+phpunit.xml.bak
+phpstan.cache/
