@@ -24,6 +24,22 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
+        $exceptions->render(function (\Illuminate\Session\TokenMismatchException $e, Request $request) {
+            \Illuminate\Support\Facades\Log::warning('CSRF TokenMismatchException DETECTADO', [
+                'url' => $request->fullUrl(),
+                'method' => $request->method(),
+                'origin' => $request->header('Origin'),
+                'referer' => $request->header('Referer'),
+                'sec_fetch_site' => $request->header('Sec-Fetch-Site'),
+                'session_id' => $request->session()?->getId(),
+                'session_token' => $request->session()?->token(),
+                'input_token' => $request->input('_token'),
+                'header_csrf' => $request->header('X-CSRF-TOKEN'),
+                'header_xsrf' => $request->header('X-XSRF-TOKEN') ? substr($request->header('X-XSRF-TOKEN'), 0, 30) . '...' : null,
+                'cookies_presentes' => array_keys($request->cookies->all()),
+            ]);
+        });
+
         $exceptions->shouldRenderJsonWhen(
             fn (Request $request) => $request->is('api/*') || $request->expectsJson(),
         );
