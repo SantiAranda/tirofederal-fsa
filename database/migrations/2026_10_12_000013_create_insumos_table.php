@@ -13,14 +13,11 @@ return new class extends Migration
     {
         Schema::create('insumos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->text('descripcion')->nullable();
-            $table->string('categoria')->comment('municion, blanco, proteccion, accesorio, otro');
-            $table->decimal('precio', 10, 2);
-            $table->integer('stock')->default(0);
+            $table->string('nombre')->comment('municiones, blancos, protectores, etc.');
+            $table->string('categoria');
+            $table->integer('cantidad_stock')->default(0);
             $table->integer('stock_minimo')->default(5);
-            $table->string('unidad_medida')->default('unidad');
-            $table->boolean('disponible')->default(true);
+            $table->decimal('precio_unitario', 10, 2);
             $table->timestamps();
         });
     }

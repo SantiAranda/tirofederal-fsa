@@ -23,16 +23,15 @@ class Turno extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'socio_id',
+        'socio_profile_id',
         'linea_de_tiro_id',
-        'instructor_id',
+        'instructor_profile_id',
         'fecha',
         'hora_inicio',
         'hora_fin',
-        'estado',
-        'es_practica_individual',
-        'requiere_instructor',
+        'es_practica_individual_dia',
         'monto_arancel',
+        'estado',
         'observaciones',
     ];
 
@@ -45,18 +44,55 @@ class Turno extends Model
     {
         return [
             'fecha' => 'date',
-            'es_practica_individual' => 'boolean',
-            'requiere_instructor' => 'boolean',
+            'es_practica_individual_dia' => 'boolean',
             'monto_arancel' => 'decimal:2',
         ];
     }
 
     /**
-     * Socio que reservó el turno.
+     * Aliases backward-compatible.
      */
+    public function getSocioIdAttribute(): ?int
+    {
+        return $this->socio_profile_id;
+    }
+
+    public function setSocioIdAttribute($value): void
+    {
+        $this->attributes['socio_profile_id'] = $value;
+    }
+
+    public function getInstructorIdAttribute(): ?int
+    {
+        return $this->instructor_profile_id;
+    }
+
+    public function setInstructorIdAttribute($value): void
+    {
+        $this->attributes['instructor_profile_id'] = $value;
+    }
+
+    public function getEsPracticaIndividualAttribute(): ?bool
+    {
+        return $this->es_practica_individual_dia;
+    }
+
+    public function setEsPracticaIndividualAttribute($value): void
+    {
+        $this->attributes['es_practica_individual_dia'] = $value;
+    }
+
+    /**
+     * Perfil de socio que reservó el turno.
+     */
+    public function socioProfile(): BelongsTo
+    {
+        return $this->belongsTo(SocioProfile::class, 'socio_profile_id');
+    }
+
     public function socio(): BelongsTo
     {
-        return $this->belongsTo(Socio::class);
+        return $this->socioProfile();
     }
 
     /**
@@ -64,14 +100,19 @@ class Turno extends Model
      */
     public function lineaDeTiro(): BelongsTo
     {
-        return $this->belongsTo(LineaDeTiro::class);
+        return $this->belongsTo(LineaDeTiro::class, 'linea_de_tiro_id');
     }
 
     /**
-     * Instructor asignado al turno (opcional).
+     * Perfil de instructor asignado al turno (opcional u obligatorio sin CLU).
      */
+    public function instructorProfile(): BelongsTo
+    {
+        return $this->belongsTo(InstructorProfile::class, 'instructor_profile_id');
+    }
+
     public function instructor(): BelongsTo
     {
-        return $this->belongsTo(Instructor::class);
+        return $this->instructorProfile();
     }
 }

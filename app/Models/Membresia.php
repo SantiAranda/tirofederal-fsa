@@ -45,10 +45,15 @@ class Membresia extends Model
     }
 
     /**
-     * Socios asociados a este plan de membresía.
+     * Perfiles de socios asociados a este plan de membresía (SPECS 3.2).
      */
+    public function socioProfiles(): HasMany
+    {
+        return $this->hasMany(SocioProfile::class, 'membresia_id');
+    }
+
     public function socios(): HasMany
     {
-        return $this->hasMany(Socio::class);
+        return $this->socioProfiles();
     }
 }

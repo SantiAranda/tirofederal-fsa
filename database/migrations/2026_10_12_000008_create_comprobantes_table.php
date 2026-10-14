@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('comprobantes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pago_id')->unique()->constrained('pagos')->cascadeOnDelete();
-            $table->string('numero_comprobante')->unique();
-            $table->string('ruta_pdf')->nullable();
-            $table->timestamp('emitido_en');
+            $table->string('codigo_transaccion')->unique()->comment('ej. TFF-2026-000145');
+            $table->dateTime('fecha_emision');
+            $table->string('pdf_path')->nullable();
             $table->timestamps();
         });
     }

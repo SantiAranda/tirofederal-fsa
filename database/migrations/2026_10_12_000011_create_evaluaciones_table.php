@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('evaluaciones', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('socio_id')->constrained('socios')->cascadeOnDelete();
-            $table->string('evaluable_type');
-            $table->unsignedBigInteger('evaluable_id');
-            $table->integer('calificacion')->comment('1 to 5');
+            $table->foreignId('socio_profile_id')->constrained('socio_profiles')->cascadeOnDelete();
+            $table->string('evaluado_type')->comment('App\Models\InstructorProfile, App\Models\Evento, o Sistema');
+            $table->unsignedBigInteger('evaluado_id')->nullable();
+            $table->tinyInteger('puntaje_numerico')->comment('Escala 1 a 5');
             $table->text('comentario')->nullable();
+            $table->boolean('aprobada_publicacion')->default(false)->comment('Exhibir en testimonios portal publico');
             $table->timestamps();
 
-            $table->index(['evaluable_type', 'evaluable_id']);
-            $table->unique(['socio_id', 'evaluable_type', 'evaluable_id']);
+            $table->index(['evaluado_type', 'evaluado_id']);
         });
     }
 

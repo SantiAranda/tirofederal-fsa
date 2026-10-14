@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('noticias', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete()->comment('autor/Presidente');
             $table->string('titulo');
+            $table->string('slug')->unique();
             $table->text('contenido');
-            $table->string('extracto')->nullable();
-            $table->string('imagen')->nullable();
+            $table->string('imagen_portada')->nullable();
             $table->boolean('publicada')->default(false);
-            $table->timestamp('fecha_publicacion')->nullable();
-            $table->foreignId('autor_id')->nullable()->constrained('users')->nullOnDelete();
+            $table->dateTime('fecha_publicacion')->nullable();
             $table->timestamps();
         });
     }

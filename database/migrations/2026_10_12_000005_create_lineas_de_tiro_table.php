@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('lineas_de_tiro', function (Blueprint $table) {
             $table->id();
-            $table->integer('numero')->unique();
-            $table->string('nombre');
-            $table->string('tipo_sector')->comment('edificio_principal, tiro_practico_dinamico');
+            $table->integer('numero_linea')->unique()->comment('1-9 edificio principal, 10+ sector dinamico');
+            $table->string('tipo_sector')->comment('edificio_principal, tiro_practico_dinamico, neumatico');
             $table->string('calibre_permitido')->nullable();
-            $table->integer('distancia_metros')->nullable();
+            $table->integer('capacidad_simultanea')->default(1);
             $table->boolean('disponible')->default(true);
+            $table->string('nombre')->nullable();
+            $table->integer('distancia_metros')->nullable();
             $table->text('descripcion')->nullable();
             $table->timestamps();
         });

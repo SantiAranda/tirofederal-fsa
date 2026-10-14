@@ -13,18 +13,20 @@ return new class extends Migration
     {
         Schema::create('turnos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('socio_id')->constrained('socios')->cascadeOnDelete();
+            $table->foreignId('socio_profile_id')->constrained('socio_profiles')->cascadeOnDelete();
             $table->foreignId('linea_de_tiro_id')->constrained('lineas_de_tiro')->cascadeOnDelete();
-            $table->foreignId('instructor_id')->nullable()->constrained('instructores')->nullOnDelete();
-            $table->date('fecha');
+            $table->foreignId('instructor_profile_id')->nullable()->constrained('instructor_profiles')->nullOnDelete();
+            $table->date('fecha')->index();
             $table->time('hora_inicio');
             $table->time('hora_fin');
-            $table->string('estado')->default('reservado')->comment('reservado, confirmado, cancelado, completado, no_asistio');
-            $table->boolean('es_practica_individual')->default(false);
-            $table->boolean('requiere_instructor')->default(false);
-            $table->decimal('monto_arancel', 10, 2)->default(0);
+            $table->boolean('es_practica_individual_dia')->default(false);
+            $table->decimal('monto_arancel', 10, 2)->default(0.00);
+            $table->string('estado')->default('reservado')->comment('reservado, confirmado, asistido, cancelado');
             $table->text('observaciones')->nullable();
             $table->timestamps();
+
+            // Restriccion de concurrencia e indice de busqueda de disponibilidad (RF15)
+            $table->index(['linea_de_tiro_id', 'fecha', 'hora_inicio']);
         });
     }
 

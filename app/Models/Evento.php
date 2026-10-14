@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
@@ -27,17 +26,12 @@ class Evento extends Model
     protected $fillable = [
         'titulo',
         'descripcion',
-        'tipo',
-        'fecha_inicio',
-        'fecha_fin',
-        'hora_inicio',
-        'hora_fin',
-        'lugar',
+        'tipo_evento',
+        'fecha_evento',
         'cupo_maximo',
-        'arancel',
-        'estado',
-        'imagen',
-        'creado_por',
+        'cupos_disponibles',
+        'costo_inscripcion',
+        'publicado',
     ];
 
     /**
@@ -48,10 +42,35 @@ class Evento extends Model
     protected function casts(): array
     {
         return [
-            'fecha_inicio' => 'date',
-            'fecha_fin' => 'date',
-            'arancel' => 'decimal:2',
+            'fecha_evento' => 'datetime',
+            'costo_inscripcion' => 'decimal:2',
+            'publicado' => 'boolean',
+            'cupo_maximo' => 'integer',
+            'cupos_disponibles' => 'integer',
         ];
+    }
+
+    /**
+     * Aliases backward-compatible.
+     */
+    public function getTipoAttribute(): ?string
+    {
+        return $this->tipo_evento;
+    }
+
+    public function setTipoAttribute($value): void
+    {
+        $this->attributes['tipo_evento'] = $value;
+    }
+
+    public function getArancelAttribute(): ?float
+    {
+        return (float) $this->costo_inscripcion;
+    }
+
+    public function setArancelAttribute($value): void
+    {
+        $this->attributes['costo_inscripcion'] = $value;
     }
 
     /**
@@ -59,39 +78,15 @@ class Evento extends Model
      */
     public function inscripciones(): HasMany
     {
-        return $this->hasMany(InscripcionEvento::class);
+        return $this->hasMany(InscripcionEvento::class, 'evento_id');
     }
 
     /**
-     * Usuario que creó el evento.
-     */
-    public function creador(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'creado_por');
-    }
-
-    /**
-     * Evaluaciones recibidas por el evento.
+     * Evaluaciones recibidas por el evento (SPECS 3.10).
      */
     public function evaluaciones(): MorphMany
     {
-        return $this->morphMany(Evaluacion::class, 'evaluable');
-    }
-
-    /**
-     * Cantidad de cupos disponibles para el evento.
-     */
-    public function cuposDisponibles(): ?int
-    {
-        if ($this->cupo_maximo === null) {
-            return null;
-        }
-
-        $ocupados = $this->inscripciones()
-            ->whereIn('estado', ['inscripto', 'confirmado'])
-            ->count();
-
-        return max(0, $this->cupo_maximo - $ocupados);
+        return $this->morphMany(Evaluacion::class, 'evaluado');
     }
 
     /**
@@ -99,6 +94,6 @@ class Evento extends Model
      */
     public function tieneCupo(): bool
     {
-        return $this->cupo_maximo === null || $this->cuposDisponibles() > 0;
+        return $this->cupos_disponibles > 0;
     }
 }

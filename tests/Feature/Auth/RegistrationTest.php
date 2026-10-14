@@ -29,11 +29,37 @@ class RegistrationTest extends TestCase
         $response = $this->post(route('register.store'), [
             'name' => 'Test User',
             'email' => 'test@example.com',
-            'password' => 'password',
-            'password_confirmation' => 'password',
+            'password' => 'P@ssword123!',
+            'password_confirmation' => 'P@ssword123!',
         ]);
 
         $this->assertAuthenticated();
         $response->assertRedirect(route('dashboard', absolute: false));
+    }
+
+    public function test_weak_passwords_are_rejected(): void
+    {
+        $response = $this->post(route('register.store'), [
+            'name' => 'Test User',
+            'email' => 'weak@example.com',
+            'password' => 'simple',
+            'password_confirmation' => 'simple',
+        ]);
+
+        $response->assertSessionHasErrors('password');
+        $this->assertGuest();
+    }
+
+    public function test_passwords_with_spaces_are_rejected(): void
+    {
+        $response = $this->post(route('register.store'), [
+            'name' => 'Test User',
+            'email' => 'spaces@example.com',
+            'password' => 'P@ss word 123!',
+            'password_confirmation' => 'P@ss word 123!',
+        ]);
+
+        $response->assertSessionHasErrors('password');
+        $this->assertGuest();
     }
 }

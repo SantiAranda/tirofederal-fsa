@@ -24,9 +24,9 @@ class Comprobante extends Model
      */
     protected $fillable = [
         'pago_id',
-        'numero_comprobante',
-        'ruta_pdf',
-        'emitido_en',
+        'codigo_transaccion',
+        'fecha_emision',
+        'pdf_path',
     ];
 
     /**
@@ -37,15 +37,48 @@ class Comprobante extends Model
     protected function casts(): array
     {
         return [
-            'emitido_en' => 'datetime',
+            'fecha_emision' => 'datetime',
         ];
     }
 
     /**
-     * Pago respaldado por el comprobante.
+     * Aliases backward-compatible.
+     */
+    public function getNumeroComprobanteAttribute(): ?string
+    {
+        return $this->codigo_transaccion;
+    }
+
+    public function setNumeroComprobanteAttribute($value): void
+    {
+        $this->attributes['codigo_transaccion'] = $value;
+    }
+
+    public function getRutaPdfAttribute(): ?string
+    {
+        return $this->pdf_path;
+    }
+
+    public function setRutaPdfAttribute($value): void
+    {
+        $this->attributes['pdf_path'] = $value;
+    }
+
+    public function getEmitidoEnAttribute(): ?\Carbon\CarbonInterface
+    {
+        return $this->fecha_emision;
+    }
+
+    public function setEmitidoEnAttribute($value): void
+    {
+        $this->attributes['fecha_emision'] = $value;
+    }
+
+    /**
+     * Pago respaldado por el comprobante (1:1).
      */
     public function pago(): BelongsTo
     {
-        return $this->belongsTo(Pago::class);
+        return $this->belongsTo(Pago::class, 'pago_id');
     }
 }

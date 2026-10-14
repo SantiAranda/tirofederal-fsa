@@ -15,17 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('titulo');
             $table->text('descripcion')->nullable();
-            $table->string('tipo')->comment('torneo, capacitacion, tirada_nocturna, jornada_abierta, otro');
-            $table->date('fecha_inicio');
-            $table->date('fecha_fin')->nullable();
-            $table->time('hora_inicio')->nullable();
-            $table->time('hora_fin')->nullable();
-            $table->string('lugar')->nullable();
-            $table->integer('cupo_maximo')->nullable();
-            $table->decimal('arancel', 10, 2)->default(0);
-            $table->string('estado')->default('programado')->comment('programado, en_curso, finalizado, cancelado');
-            $table->string('imagen')->nullable();
-            $table->foreignId('creado_por')->nullable()->constrained('users')->nullOnDelete();
+            $table->string('tipo_evento')->comment('torneo, tirada_nocturna, curso_capacitacion');
+            $table->dateTime('fecha_evento');
+            $table->integer('cupo_maximo');
+            $table->integer('cupos_disponibles');
+            $table->decimal('costo_inscripcion', 10, 2)->default(0.00);
+            $table->boolean('publicado')->default(false);
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\MetodoPago;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -24,16 +25,13 @@ class Pago extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'socio_id',
+        'socio_profile_id',
         'monto',
         'fecha_pago',
         'tipo_concepto',
-        'descripcion_concepto',
+        'periodo_imputado',
         'metodo_pago',
         'estado',
-        'periodo_mes',
-        'periodo_anio',
-        'registrado_por',
     ];
 
     /**
@@ -45,31 +43,42 @@ class Pago extends Model
     {
         return [
             'monto' => 'decimal:2',
-            'fecha_pago' => 'date',
+            'fecha_pago' => 'datetime',
+            'metodo_pago' => MetodoPago::class,
         ];
     }
 
     /**
-     * Socio que efectuó el pago.
+     * Alias backward-compatible.
      */
-    public function socio(): BelongsTo
+    public function getSocioIdAttribute(): ?int
     {
-        return $this->belongsTo(Socio::class);
+        return $this->socio_profile_id;
+    }
+
+    public function setSocioIdAttribute($value): void
+    {
+        $this->attributes['socio_profile_id'] = $value;
     }
 
     /**
-     * Comprobante asociado al pago.
+     * Perfil de socio que efectuó el pago.
+     */
+    public function socioProfile(): BelongsTo
+    {
+        return $this->belongsTo(SocioProfile::class, 'socio_profile_id');
+    }
+
+    public function socio(): BelongsTo
+    {
+        return $this->socioProfile();
+    }
+
+    /**
+     * Comprobante asociado al pago (1:1).
      */
     public function comprobante(): HasOne
     {
-        return $this->hasOne(Comprobante::class);
-    }
-
-    /**
-     * Usuario que registró el pago.
-     */
-    public function registradoPor(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'registrado_por');
+        return $this->hasOne(Comprobante::class, 'pago_id');
     }
 }

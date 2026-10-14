@@ -24,10 +24,11 @@ class InscripcionEvento extends Model
      */
     protected $fillable = [
         'evento_id',
-        'socio_id',
-        'fecha_inscripcion',
-        'estado',
+        'socio_profile_id',
         'pago_id',
+        'fecha_inscripcion',
+        'asistencia_confirmada',
+        'estado',
     ];
 
     /**
@@ -39,7 +40,21 @@ class InscripcionEvento extends Model
     {
         return [
             'fecha_inscripcion' => 'datetime',
+            'asistencia_confirmada' => 'boolean',
         ];
+    }
+
+    /**
+     * Alias backward-compatible.
+     */
+    public function getSocioIdAttribute(): ?int
+    {
+        return $this->socio_profile_id;
+    }
+
+    public function setSocioIdAttribute($value): void
+    {
+        $this->attributes['socio_profile_id'] = $value;
     }
 
     /**
@@ -47,15 +62,20 @@ class InscripcionEvento extends Model
      */
     public function evento(): BelongsTo
     {
-        return $this->belongsTo(Evento::class);
+        return $this->belongsTo(Evento::class, 'evento_id');
     }
 
     /**
-     * Socio inscripto en el evento.
+     * Perfil de socio inscripto en el evento.
      */
+    public function socioProfile(): BelongsTo
+    {
+        return $this->belongsTo(SocioProfile::class, 'socio_profile_id');
+    }
+
     public function socio(): BelongsTo
     {
-        return $this->belongsTo(Socio::class);
+        return $this->socioProfile();
     }
 
     /**
@@ -63,6 +83,6 @@ class InscripcionEvento extends Model
      */
     public function pago(): BelongsTo
     {
-        return $this->belongsTo(Pago::class);
+        return $this->belongsTo(Pago::class, 'pago_id');
     }
 }

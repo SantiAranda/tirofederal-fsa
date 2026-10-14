@@ -23,13 +23,10 @@ class Insumo extends Model
      */
     protected $fillable = [
         'nombre',
-        'descripcion',
         'categoria',
-        'precio',
-        'stock',
+        'cantidad_stock',
         'stock_minimo',
-        'unidad_medida',
-        'disponible',
+        'precio_unitario',
     ];
 
     /**
@@ -40,16 +37,40 @@ class Insumo extends Model
     protected function casts(): array
     {
         return [
-            'precio' => 'decimal:2',
-            'disponible' => 'boolean',
+            'precio_unitario' => 'decimal:2',
+            'cantidad_stock' => 'integer',
+            'stock_minimo' => 'integer',
         ];
     }
 
     /**
-     * Determina si el insumo se encuentra en nivel crítico o bajo de stock.
+     * Aliases backward-compatible.
+     */
+    public function getStockAttribute(): ?int
+    {
+        return $this->cantidad_stock;
+    }
+
+    public function setStockAttribute($value): void
+    {
+        $this->attributes['cantidad_stock'] = $value;
+    }
+
+    public function getPrecioAttribute(): ?float
+    {
+        return (float) $this->precio_unitario;
+    }
+
+    public function setPrecioAttribute($value): void
+    {
+        $this->attributes['precio_unitario'] = $value;
+    }
+
+    /**
+     * Determina si el insumo se encuentra en nivel crítico o bajo de stock (RF11).
      */
     public function stockBajo(): bool
     {
-        return $this->stock <= $this->stock_minimo;
+        return $this->cantidad_stock <= $this->stock_minimo;
     }
 }

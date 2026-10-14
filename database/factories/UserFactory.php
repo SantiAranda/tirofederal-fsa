@@ -24,9 +24,15 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $nombre = fake()->firstName();
+        $username = fake()->unique()->regexify('[a-z0-9]{8,15}');
+
         return [
-            'name' => fake()->firstName(),
+            'nombre' => $nombre,
+            'name' => $nombre,
             'apellido' => fake()->lastName(),
+            'username' => $username,
+            'usuario' => $username,
             'email' => fake()->unique()->safeEmail(),
             'dni' => (string) fake()->unique()->numberBetween(10000000, 48000000),
             'fecha_nacimiento' => fake()->date('Y-m-d', '-18 years'),

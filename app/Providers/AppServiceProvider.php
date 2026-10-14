@@ -24,6 +24,19 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configureDefaults();
+
+        // RNF05: Integridad Transaccional SQLite (WAL, Foreign Keys y Timeout de Concurrencia)
+        if (DB::getDriverName() === 'sqlite') {
+            DB::statement('PRAGMA foreign_keys = ON;');
+            if (! app()->runningUnitTests() && config('database.connections.sqlite.database') !== ':memory:') {
+                DB::statement('PRAGMA journal_mode = WAL;');
+                DB::statement('PRAGMA busy_timeout = 5000;');
+            }
+        }
+
+        \Illuminate\Support\Facades\Route::model('socio', \App\Models\SocioProfile::class);
+        \Illuminate\Support\Facades\Route::model('instructor', \App\Models\InstructorProfile::class);
+        \Illuminate\Support\Facades\Route::model('credencial', \App\Models\CredencialLu::class);
     }
 
     /**

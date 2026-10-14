@@ -24,13 +24,13 @@ class Noticia extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'user_id',
         'titulo',
+        'slug',
         'contenido',
-        'extracto',
-        'imagen',
+        'imagen_portada',
         'publicada',
         'fecha_publicacion',
-        'autor_id',
     ];
 
     /**
@@ -47,11 +47,39 @@ class Noticia extends Model
     }
 
     /**
-     * Usuario autor de la noticia.
+     * Aliases backward-compatible.
      */
+    public function getAutorIdAttribute(): ?int
+    {
+        return $this->user_id;
+    }
+
+    public function setAutorIdAttribute($value): void
+    {
+        $this->attributes['user_id'] = $value;
+    }
+
+    public function getImagenAttribute(): ?string
+    {
+        return $this->imagen_portada;
+    }
+
+    public function setImagenAttribute($value): void
+    {
+        $this->attributes['imagen_portada'] = $value;
+    }
+
+    /**
+     * Usuario autor de la noticia (Presidente / Administración - SPECS 3.11).
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
     public function autor(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'autor_id');
+        return $this->user();
     }
 
     /**

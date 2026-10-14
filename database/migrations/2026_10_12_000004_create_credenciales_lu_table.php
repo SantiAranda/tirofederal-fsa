@@ -13,19 +13,18 @@ return new class extends Migration
     {
         Schema::create('credenciales_lu', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('socio_id')->constrained('socios')->cascadeOnDelete();
-            $table->string('numero_clu')->unique();
-            $table->string('categoria')->nullable()->comment('e.g. Legítimo Usuario, Tirador Deportivo');
-            $table->date('fecha_emision');
-            $table->date('fecha_vencimiento');
-            $table->string('foto_dni_frente')->nullable();
-            $table->string('foto_dni_dorso')->nullable();
-            $table->string('foto_clu_frente')->nullable();
-            $table->string('foto_clu_dorso')->nullable();
+            $table->foreignId('socio_profile_id')->unique()->constrained('socio_profiles')->cascadeOnDelete();
+            $table->string('numero_clu')->unique()->nullable()->comment('Nullable si es principiante sin CLU');
+            $table->date('fecha_emision')->nullable();
+            $table->date('fecha_vencimiento')->nullable();
+            $table->string('foto_dni_frente_path')->nullable()->comment('Almacenado en storage/app/private/legajos');
+            $table->string('foto_dni_dorso_path')->nullable();
+            $table->string('foto_clu_frente_path')->nullable();
+            $table->string('foto_clu_dorso_path')->nullable();
             $table->boolean('apto_psicofisico')->default(false);
             $table->boolean('certificado_idoneidad')->default(false);
-            $table->string('estado_validacion')->default('pendiente')->comment('pendiente, aprobada, rechazada, vencida');
-            $table->text('observaciones')->nullable();
+            $table->string('estado_validacion')->default('pendiente')->comment('pendiente, aprobado, rechazado, vencido, sin_clu');
+            $table->text('observaciones_auditoria')->nullable();
             $table->timestamps();
         });
     }

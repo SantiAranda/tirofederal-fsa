@@ -14,13 +14,14 @@ return new class extends Migration
         Schema::create('inscripciones_evento', function (Blueprint $table) {
             $table->id();
             $table->foreignId('evento_id')->constrained('eventos')->cascadeOnDelete();
-            $table->foreignId('socio_id')->constrained('socios')->cascadeOnDelete();
-            $table->timestamp('fecha_inscripcion');
-            $table->string('estado')->default('inscripto')->comment('inscripto, confirmado, cancelado');
+            $table->foreignId('socio_profile_id')->constrained('socio_profiles')->cascadeOnDelete();
             $table->foreignId('pago_id')->nullable()->constrained('pagos')->nullOnDelete();
+            $table->dateTime('fecha_inscripcion');
+            $table->boolean('asistencia_confirmada')->default(false);
+            $table->string('estado')->default('preinscripto')->comment('preinscripto, confirmado, anulado');
             $table->timestamps();
 
-            $table->unique(['evento_id', 'socio_id']);
+            $table->unique(['evento_id', 'socio_profile_id']);
         });
     }
 

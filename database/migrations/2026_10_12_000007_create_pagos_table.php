@@ -13,16 +13,13 @@ return new class extends Migration
     {
         Schema::create('pagos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('socio_id')->constrained('socios')->cascadeOnDelete();
+            $table->foreignId('socio_profile_id')->constrained('socio_profiles')->cascadeOnDelete();
             $table->decimal('monto', 10, 2);
-            $table->date('fecha_pago');
-            $table->string('tipo_concepto')->comment('cuota_mensual, cuota_ingreso, arancel_turno, inscripcion_evento, insumo, otro');
-            $table->string('descripcion_concepto')->nullable();
-            $table->string('metodo_pago')->comment('efectivo, transferencia, tarjeta, otro');
-            $table->string('estado')->default('completado')->comment('completado, pendiente, anulado');
-            $table->integer('periodo_mes')->nullable()->comment('1-12');
-            $table->integer('periodo_anio')->nullable();
-            $table->foreignId('registrado_por')->nullable()->constrained('users')->nullOnDelete();
+            $table->dateTime('fecha_pago');
+            $table->string('tipo_concepto')->comment('cuota_mensual, plan_inicial, derecho_linea_diario, inscripcion_evento, compra_insumos');
+            $table->string('periodo_imputado')->nullable()->comment('ej. 2026-10');
+            $table->string('metodo_pago')->comment('efectivo, transferencia, tarjeta, pasarela_online');
+            $table->string('estado')->default('pendiente')->comment('pendiente, aprobado, anulado');
             $table->timestamps();
         });
     }
