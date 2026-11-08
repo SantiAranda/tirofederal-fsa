@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Socio\PagoController::index
-* @see Http/Controllers/Socio/PagoController.php:19
+* @see app/Http/Controllers/Socio/PagoController.php:19
 * @route '/pagos'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,16 +16,20 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\Socio\PagoController::index
-* @see Http/Controllers/Socio/PagoController.php:19
+* @see app/Http/Controllers/Socio/PagoController.php:19
 * @route '/pagos'
 */
 index.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return index.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Socio\PagoController::index
-* @see Http/Controllers/Socio/PagoController.php:19
+* @see app/Http/Controllers/Socio/PagoController.php:19
 * @route '/pagos'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +39,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Socio\PagoController::index
-* @see Http/Controllers/Socio/PagoController.php:19
+* @see app/Http/Controllers/Socio/PagoController.php:19
 * @route '/pagos'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +49,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Socio\PagoController::index
-* @see Http/Controllers/Socio/PagoController.php:19
+* @see app/Http/Controllers/Socio/PagoController.php:19
 * @route '/pagos'
 */
 const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +59,7 @@ const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\Socio\PagoController::index
-* @see Http/Controllers/Socio/PagoController.php:19
+* @see app/Http/Controllers/Socio/PagoController.php:19
 * @route '/pagos'
 */
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -65,7 +69,7 @@ indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Socio\PagoController::index
-* @see Http/Controllers/Socio/PagoController.php:19
+* @see app/Http/Controllers/Socio/PagoController.php:19
 * @route '/pagos'
 */
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -82,10 +86,10 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\Socio\PagoController::pdf
-* @see Http/Controllers/Socio/PagoController.php:42
+* @see app/Http/Controllers/Socio/PagoController.php:42
 * @route '/pagos/{pago}/pdf'
 */
-export const pdf = (args: { pago: string | number | { id: string | number } } | [pago: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const pdf = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: pdf.url(args, options),
     method: 'get',
 })
@@ -97,10 +101,10 @@ pdf.definition = {
 
 /**
 * @see \App\Http\Controllers\Socio\PagoController::pdf
-* @see Http/Controllers/Socio/PagoController.php:42
+* @see app/Http/Controllers/Socio/PagoController.php:42
 * @route '/pagos/{pago}/pdf'
 */
-pdf.url = (args: { pago: string | number | { id: string | number } } | [pago: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+pdf.url = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { pago: args }
     }
@@ -117,6 +121,7 @@ pdf.url = (args: { pago: string | number | { id: string | number } } | [pago: st
 
     args = applyUrlDefaults(args)
 
+
     const parsedArgs = {
         pago: typeof args.pago === 'object'
         ? args.pago.id
@@ -130,50 +135,50 @@ pdf.url = (args: { pago: string | number | { id: string | number } } | [pago: st
 
 /**
 * @see \App\Http\Controllers\Socio\PagoController::pdf
-* @see Http/Controllers/Socio/PagoController.php:42
+* @see app/Http/Controllers/Socio/PagoController.php:42
 * @route '/pagos/{pago}/pdf'
 */
-pdf.get = (args: { pago: string | number | { id: string | number } } | [pago: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+pdf.get = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: pdf.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Http\Controllers\Socio\PagoController::pdf
-* @see Http/Controllers/Socio/PagoController.php:42
+* @see app/Http/Controllers/Socio/PagoController.php:42
 * @route '/pagos/{pago}/pdf'
 */
-pdf.head = (args: { pago: string | number | { id: string | number } } | [pago: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+pdf.head = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: pdf.url(args, options),
     method: 'head',
 })
 
 /**
 * @see \App\Http\Controllers\Socio\PagoController::pdf
-* @see Http/Controllers/Socio/PagoController.php:42
+* @see app/Http/Controllers/Socio/PagoController.php:42
 * @route '/pagos/{pago}/pdf'
 */
-const pdfForm = (args: { pago: string | number | { id: string | number } } | [pago: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const pdfForm = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: pdf.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Http\Controllers\Socio\PagoController::pdf
-* @see Http/Controllers/Socio/PagoController.php:42
+* @see app/Http/Controllers/Socio/PagoController.php:42
 * @route '/pagos/{pago}/pdf'
 */
-pdfForm.get = (args: { pago: string | number | { id: string | number } } | [pago: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+pdfForm.get = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: pdf.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Http\Controllers\Socio\PagoController::pdf
-* @see Http/Controllers/Socio/PagoController.php:42
+* @see app/Http/Controllers/Socio/PagoController.php:42
 * @route '/pagos/{pago}/pdf'
 */
-pdfForm.head = (args: { pago: string | number | { id: string | number } } | [pago: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+pdfForm.head = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: pdf.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -184,6 +189,8 @@ pdfForm.head = (args: { pago: string | number | { id: string | number } } | [pag
 })
 
 pdf.form = pdfForm
+
+
 
 const pagos = {
     index: Object.assign(index, index),

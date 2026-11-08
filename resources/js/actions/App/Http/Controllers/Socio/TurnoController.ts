@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Socio\TurnoController::index
-* @see Http/Controllers/Socio/TurnoController.php:24
+* @see app/Http/Controllers/Socio/TurnoController.php:24
 * @route '/turnos'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,16 +16,20 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\Socio\TurnoController::index
-* @see Http/Controllers/Socio/TurnoController.php:24
+* @see app/Http/Controllers/Socio/TurnoController.php:24
 * @route '/turnos'
 */
 index.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return index.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Socio\TurnoController::index
-* @see Http/Controllers/Socio/TurnoController.php:24
+* @see app/Http/Controllers/Socio/TurnoController.php:24
 * @route '/turnos'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +39,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Socio\TurnoController::index
-* @see Http/Controllers/Socio/TurnoController.php:24
+* @see app/Http/Controllers/Socio/TurnoController.php:24
 * @route '/turnos'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +49,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Socio\TurnoController::index
-* @see Http/Controllers/Socio/TurnoController.php:24
+* @see app/Http/Controllers/Socio/TurnoController.php:24
 * @route '/turnos'
 */
 const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +59,7 @@ const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\Socio\TurnoController::index
-* @see Http/Controllers/Socio/TurnoController.php:24
+* @see app/Http/Controllers/Socio/TurnoController.php:24
 * @route '/turnos'
 */
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -65,7 +69,7 @@ indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Socio\TurnoController::index
-* @see Http/Controllers/Socio/TurnoController.php:24
+* @see app/Http/Controllers/Socio/TurnoController.php:24
 * @route '/turnos'
 */
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -82,7 +86,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\Socio\TurnoController::store
-* @see Http/Controllers/Socio/TurnoController.php:47
+* @see app/Http/Controllers/Socio/TurnoController.php:47
 * @route '/turnos'
 */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -97,16 +101,20 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\Socio\TurnoController::store
-* @see Http/Controllers/Socio/TurnoController.php:47
+* @see app/Http/Controllers/Socio/TurnoController.php:47
 * @route '/turnos'
 */
 store.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return store.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Socio\TurnoController::store
-* @see Http/Controllers/Socio/TurnoController.php:47
+* @see app/Http/Controllers/Socio/TurnoController.php:47
 * @route '/turnos'
 */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -116,7 +124,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\Socio\TurnoController::store
-* @see Http/Controllers/Socio/TurnoController.php:47
+* @see app/Http/Controllers/Socio/TurnoController.php:47
 * @route '/turnos'
 */
 const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -126,7 +134,7 @@ const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => 
 
 /**
 * @see \App\Http\Controllers\Socio\TurnoController::store
-* @see Http/Controllers/Socio/TurnoController.php:47
+* @see app/Http/Controllers/Socio/TurnoController.php:47
 * @route '/turnos'
 */
 storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -138,10 +146,10 @@ store.form = storeForm
 
 /**
 * @see \App\Http\Controllers\Socio\TurnoController::cancel
-* @see Http/Controllers/Socio/TurnoController.php:67
+* @see app/Http/Controllers/Socio/TurnoController.php:67
 * @route '/turnos/{turno}/cancelar'
 */
-export const cancel = (args: { turno: string | number | { id: string | number } } | [turno: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+export const cancel = (args: { turno: number | { id: number } } | [turno: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: cancel.url(args, options),
     method: 'patch',
 })
@@ -153,10 +161,10 @@ cancel.definition = {
 
 /**
 * @see \App\Http\Controllers\Socio\TurnoController::cancel
-* @see Http/Controllers/Socio/TurnoController.php:67
+* @see app/Http/Controllers/Socio/TurnoController.php:67
 * @route '/turnos/{turno}/cancelar'
 */
-cancel.url = (args: { turno: string | number | { id: string | number } } | [turno: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+cancel.url = (args: { turno: number | { id: number } } | [turno: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { turno: args }
     }
@@ -173,6 +181,7 @@ cancel.url = (args: { turno: string | number | { id: string | number } } | [turn
 
     args = applyUrlDefaults(args)
 
+
     const parsedArgs = {
         turno: typeof args.turno === 'object'
         ? args.turno.id
@@ -186,20 +195,20 @@ cancel.url = (args: { turno: string | number | { id: string | number } } | [turn
 
 /**
 * @see \App\Http\Controllers\Socio\TurnoController::cancel
-* @see Http/Controllers/Socio/TurnoController.php:67
+* @see app/Http/Controllers/Socio/TurnoController.php:67
 * @route '/turnos/{turno}/cancelar'
 */
-cancel.patch = (args: { turno: string | number | { id: string | number } } | [turno: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+cancel.patch = (args: { turno: number | { id: number } } | [turno: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: cancel.url(args, options),
     method: 'patch',
 })
 
 /**
 * @see \App\Http\Controllers\Socio\TurnoController::cancel
-* @see Http/Controllers/Socio/TurnoController.php:67
+* @see app/Http/Controllers/Socio/TurnoController.php:67
 * @route '/turnos/{turno}/cancelar'
 */
-const cancelForm = (args: { turno: string | number | { id: string | number } } | [turno: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const cancelForm = (args: { turno: number | { id: number } } | [turno: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: cancel.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PATCH',
@@ -211,10 +220,10 @@ const cancelForm = (args: { turno: string | number | { id: string | number } } |
 
 /**
 * @see \App\Http\Controllers\Socio\TurnoController::cancel
-* @see Http/Controllers/Socio/TurnoController.php:67
+* @see app/Http/Controllers/Socio/TurnoController.php:67
 * @route '/turnos/{turno}/cancelar'
 */
-cancelForm.patch = (args: { turno: string | number | { id: string | number } } | [turno: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+cancelForm.patch = (args: { turno: number | { id: number } } | [turno: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: cancel.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PATCH',

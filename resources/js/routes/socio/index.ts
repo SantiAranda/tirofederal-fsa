@@ -7,7 +7,7 @@ import evaluaciones from './evaluaciones'
 import clu from './clu'
 /**
 * @see \App\Http\Controllers\Socio\DashboardController::dashboard
-* @see Http/Controllers/Socio/DashboardController.php:15
+* @see app/Http/Controllers/Socio/DashboardController.php:15
 * @route '/panel'
 */
 export const dashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -22,16 +22,20 @@ dashboard.definition = {
 
 /**
 * @see \App\Http\Controllers\Socio\DashboardController::dashboard
-* @see Http/Controllers/Socio/DashboardController.php:15
+* @see app/Http/Controllers/Socio/DashboardController.php:15
 * @route '/panel'
 */
 dashboard.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return dashboard.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Socio\DashboardController::dashboard
-* @see Http/Controllers/Socio/DashboardController.php:15
+* @see app/Http/Controllers/Socio/DashboardController.php:15
 * @route '/panel'
 */
 dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -41,7 +45,7 @@ dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Socio\DashboardController::dashboard
-* @see Http/Controllers/Socio/DashboardController.php:15
+* @see app/Http/Controllers/Socio/DashboardController.php:15
 * @route '/panel'
 */
 dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -51,7 +55,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Socio\DashboardController::dashboard
-* @see Http/Controllers/Socio/DashboardController.php:15
+* @see app/Http/Controllers/Socio/DashboardController.php:15
 * @route '/panel'
 */
 const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -61,7 +65,7 @@ const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 
 /**
 * @see \App\Http\Controllers\Socio\DashboardController::dashboard
-* @see Http/Controllers/Socio/DashboardController.php:15
+* @see app/Http/Controllers/Socio/DashboardController.php:15
 * @route '/panel'
 */
 dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -71,7 +75,7 @@ dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 
 /**
 * @see \App\Http\Controllers\Socio\DashboardController::dashboard
-* @see Http/Controllers/Socio/DashboardController.php:15
+* @see app/Http/Controllers/Socio/DashboardController.php:15
 * @route '/panel'
 */
 dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -85,6 +89,8 @@ dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 })
 
 dashboard.form = dashboardForm
+
+
 
 const socio = {
     dashboard: Object.assign(dashboard, dashboard),

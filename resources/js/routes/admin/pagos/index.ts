@@ -1,10 +1,10 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Admin\PagoController::pdf
-* @see Http/Controllers/Admin/PagoController.php:102
+* @see app/Http/Controllers/Admin/PagoController.php:102
 * @route '/admin/pagos/{pago}/pdf'
 */
-export const pdf = (args: { pago: string | number | { id: string | number } } | [pago: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const pdf = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: pdf.url(args, options),
     method: 'get',
 })
@@ -16,10 +16,10 @@ pdf.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::pdf
-* @see Http/Controllers/Admin/PagoController.php:102
+* @see app/Http/Controllers/Admin/PagoController.php:102
 * @route '/admin/pagos/{pago}/pdf'
 */
-pdf.url = (args: { pago: string | number | { id: string | number } } | [pago: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+pdf.url = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { pago: args }
     }
@@ -35,6 +35,7 @@ pdf.url = (args: { pago: string | number | { id: string | number } } | [pago: st
     }
 
     args = applyUrlDefaults(args)
+
 
     const parsedArgs = {
         pago: typeof args.pago === 'object'
@@ -49,50 +50,50 @@ pdf.url = (args: { pago: string | number | { id: string | number } } | [pago: st
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::pdf
-* @see Http/Controllers/Admin/PagoController.php:102
+* @see app/Http/Controllers/Admin/PagoController.php:102
 * @route '/admin/pagos/{pago}/pdf'
 */
-pdf.get = (args: { pago: string | number | { id: string | number } } | [pago: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+pdf.get = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: pdf.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::pdf
-* @see Http/Controllers/Admin/PagoController.php:102
+* @see app/Http/Controllers/Admin/PagoController.php:102
 * @route '/admin/pagos/{pago}/pdf'
 */
-pdf.head = (args: { pago: string | number | { id: string | number } } | [pago: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+pdf.head = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: pdf.url(args, options),
     method: 'head',
 })
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::pdf
-* @see Http/Controllers/Admin/PagoController.php:102
+* @see app/Http/Controllers/Admin/PagoController.php:102
 * @route '/admin/pagos/{pago}/pdf'
 */
-const pdfForm = (args: { pago: string | number | { id: string | number } } | [pago: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const pdfForm = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: pdf.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::pdf
-* @see Http/Controllers/Admin/PagoController.php:102
+* @see app/Http/Controllers/Admin/PagoController.php:102
 * @route '/admin/pagos/{pago}/pdf'
 */
-pdfForm.get = (args: { pago: string | number | { id: string | number } } | [pago: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+pdfForm.get = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: pdf.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::pdf
-* @see Http/Controllers/Admin/PagoController.php:102
+* @see app/Http/Controllers/Admin/PagoController.php:102
 * @route '/admin/pagos/{pago}/pdf'
 */
-pdfForm.head = (args: { pago: string | number | { id: string | number } } | [pago: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+pdfForm.head = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: pdf.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -106,10 +107,10 @@ pdf.form = pdfForm
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::anular
-* @see Http/Controllers/Admin/PagoController.php:119
+* @see app/Http/Controllers/Admin/PagoController.php:119
 * @route '/admin/pagos/{pago}/anular'
 */
-export const anular = (args: { pago: string | number | { id: string | number } } | [pago: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+export const anular = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: anular.url(args, options),
     method: 'patch',
 })
@@ -121,10 +122,10 @@ anular.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::anular
-* @see Http/Controllers/Admin/PagoController.php:119
+* @see app/Http/Controllers/Admin/PagoController.php:119
 * @route '/admin/pagos/{pago}/anular'
 */
-anular.url = (args: { pago: string | number | { id: string | number } } | [pago: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+anular.url = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { pago: args }
     }
@@ -141,6 +142,7 @@ anular.url = (args: { pago: string | number | { id: string | number } } | [pago:
 
     args = applyUrlDefaults(args)
 
+
     const parsedArgs = {
         pago: typeof args.pago === 'object'
         ? args.pago.id
@@ -154,20 +156,20 @@ anular.url = (args: { pago: string | number | { id: string | number } } | [pago:
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::anular
-* @see Http/Controllers/Admin/PagoController.php:119
+* @see app/Http/Controllers/Admin/PagoController.php:119
 * @route '/admin/pagos/{pago}/anular'
 */
-anular.patch = (args: { pago: string | number | { id: string | number } } | [pago: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+anular.patch = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: anular.url(args, options),
     method: 'patch',
 })
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::anular
-* @see Http/Controllers/Admin/PagoController.php:119
+* @see app/Http/Controllers/Admin/PagoController.php:119
 * @route '/admin/pagos/{pago}/anular'
 */
-const anularForm = (args: { pago: string | number | { id: string | number } } | [pago: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const anularForm = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: anular.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PATCH',
@@ -179,10 +181,10 @@ const anularForm = (args: { pago: string | number | { id: string | number } } | 
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::anular
-* @see Http/Controllers/Admin/PagoController.php:119
+* @see app/Http/Controllers/Admin/PagoController.php:119
 * @route '/admin/pagos/{pago}/anular'
 */
-anularForm.patch = (args: { pago: string | number | { id: string | number } } | [pago: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+anularForm.patch = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: anular.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PATCH',
@@ -196,7 +198,7 @@ anular.form = anularForm
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::index
-* @see Http/Controllers/Admin/PagoController.php:22
+* @see app/Http/Controllers/Admin/PagoController.php:22
 * @route '/admin/pagos'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -211,16 +213,20 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::index
-* @see Http/Controllers/Admin/PagoController.php:22
+* @see app/Http/Controllers/Admin/PagoController.php:22
 * @route '/admin/pagos'
 */
 index.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return index.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::index
-* @see Http/Controllers/Admin/PagoController.php:22
+* @see app/Http/Controllers/Admin/PagoController.php:22
 * @route '/admin/pagos'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -230,7 +236,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::index
-* @see Http/Controllers/Admin/PagoController.php:22
+* @see app/Http/Controllers/Admin/PagoController.php:22
 * @route '/admin/pagos'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -240,7 +246,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::index
-* @see Http/Controllers/Admin/PagoController.php:22
+* @see app/Http/Controllers/Admin/PagoController.php:22
 * @route '/admin/pagos'
 */
 const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -250,7 +256,7 @@ const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::index
-* @see Http/Controllers/Admin/PagoController.php:22
+* @see app/Http/Controllers/Admin/PagoController.php:22
 * @route '/admin/pagos'
 */
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -260,7 +266,7 @@ indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::index
-* @see Http/Controllers/Admin/PagoController.php:22
+* @see app/Http/Controllers/Admin/PagoController.php:22
 * @route '/admin/pagos'
 */
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -277,7 +283,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::create
-* @see Http/Controllers/Admin/PagoController.php:63
+* @see app/Http/Controllers/Admin/PagoController.php:63
 * @route '/admin/pagos/create'
 */
 export const create = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -292,16 +298,20 @@ create.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::create
-* @see Http/Controllers/Admin/PagoController.php:63
+* @see app/Http/Controllers/Admin/PagoController.php:63
 * @route '/admin/pagos/create'
 */
 create.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return create.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::create
-* @see Http/Controllers/Admin/PagoController.php:63
+* @see app/Http/Controllers/Admin/PagoController.php:63
 * @route '/admin/pagos/create'
 */
 create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -311,7 +321,7 @@ create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::create
-* @see Http/Controllers/Admin/PagoController.php:63
+* @see app/Http/Controllers/Admin/PagoController.php:63
 * @route '/admin/pagos/create'
 */
 create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -321,7 +331,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::create
-* @see Http/Controllers/Admin/PagoController.php:63
+* @see app/Http/Controllers/Admin/PagoController.php:63
 * @route '/admin/pagos/create'
 */
 const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -331,7 +341,7 @@ const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::create
-* @see Http/Controllers/Admin/PagoController.php:63
+* @see app/Http/Controllers/Admin/PagoController.php:63
 * @route '/admin/pagos/create'
 */
 createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -341,7 +351,7 @@ createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::create
-* @see Http/Controllers/Admin/PagoController.php:63
+* @see app/Http/Controllers/Admin/PagoController.php:63
 * @route '/admin/pagos/create'
 */
 createForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -358,7 +368,7 @@ create.form = createForm
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::store
-* @see Http/Controllers/Admin/PagoController.php:77
+* @see app/Http/Controllers/Admin/PagoController.php:77
 * @route '/admin/pagos'
 */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -373,16 +383,20 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::store
-* @see Http/Controllers/Admin/PagoController.php:77
+* @see app/Http/Controllers/Admin/PagoController.php:77
 * @route '/admin/pagos'
 */
 store.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return store.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::store
-* @see Http/Controllers/Admin/PagoController.php:77
+* @see app/Http/Controllers/Admin/PagoController.php:77
 * @route '/admin/pagos'
 */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -392,7 +406,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::store
-* @see Http/Controllers/Admin/PagoController.php:77
+* @see app/Http/Controllers/Admin/PagoController.php:77
 * @route '/admin/pagos'
 */
 const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -402,7 +416,7 @@ const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => 
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::store
-* @see Http/Controllers/Admin/PagoController.php:77
+* @see app/Http/Controllers/Admin/PagoController.php:77
 * @route '/admin/pagos'
 */
 storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -414,7 +428,7 @@ store.form = storeForm
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::show
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}'
 */
 export const show = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -429,13 +443,14 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::show
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}'
 */
 show.url = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { pago: args }
     }
+
 
     if (Array.isArray(args)) {
         args = {
@@ -444,6 +459,7 @@ show.url = (args: { pago: string | number } | [pago: string | number ] | string 
     }
 
     args = applyUrlDefaults(args)
+
 
     const parsedArgs = {
         pago: args.pago,
@@ -456,7 +472,7 @@ show.url = (args: { pago: string | number } | [pago: string | number ] | string 
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::show
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}'
 */
 show.get = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -466,7 +482,7 @@ show.get = (args: { pago: string | number } | [pago: string | number ] | string 
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::show
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}'
 */
 show.head = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -476,7 +492,7 @@ show.head = (args: { pago: string | number } | [pago: string | number ] | string
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::show
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}'
 */
 const showForm = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -486,7 +502,7 @@ const showForm = (args: { pago: string | number } | [pago: string | number ] | s
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::show
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}'
 */
 showForm.get = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -496,7 +512,7 @@ showForm.get = (args: { pago: string | number } | [pago: string | number ] | str
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::show
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}'
 */
 showForm.head = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -513,7 +529,7 @@ show.form = showForm
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::edit
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}/edit'
 */
 export const edit = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -528,13 +544,14 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::edit
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}/edit'
 */
 edit.url = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { pago: args }
     }
+
 
     if (Array.isArray(args)) {
         args = {
@@ -543,6 +560,7 @@ edit.url = (args: { pago: string | number } | [pago: string | number ] | string 
     }
 
     args = applyUrlDefaults(args)
+
 
     const parsedArgs = {
         pago: args.pago,
@@ -555,7 +573,7 @@ edit.url = (args: { pago: string | number } | [pago: string | number ] | string 
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::edit
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}/edit'
 */
 edit.get = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -565,7 +583,7 @@ edit.get = (args: { pago: string | number } | [pago: string | number ] | string 
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::edit
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}/edit'
 */
 edit.head = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -575,7 +593,7 @@ edit.head = (args: { pago: string | number } | [pago: string | number ] | string
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::edit
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}/edit'
 */
 const editForm = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -585,7 +603,7 @@ const editForm = (args: { pago: string | number } | [pago: string | number ] | s
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::edit
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}/edit'
 */
 editForm.get = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -595,7 +613,7 @@ editForm.get = (args: { pago: string | number } | [pago: string | number ] | str
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::edit
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}/edit'
 */
 editForm.head = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -612,7 +630,7 @@ edit.form = editForm
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::update
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}'
 */
 export const update = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -627,13 +645,14 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::update
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}'
 */
 update.url = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { pago: args }
     }
+
 
     if (Array.isArray(args)) {
         args = {
@@ -642,6 +661,7 @@ update.url = (args: { pago: string | number } | [pago: string | number ] | strin
     }
 
     args = applyUrlDefaults(args)
+
 
     const parsedArgs = {
         pago: args.pago,
@@ -654,7 +674,7 @@ update.url = (args: { pago: string | number } | [pago: string | number ] | strin
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::update
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}'
 */
 update.put = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -664,7 +684,7 @@ update.put = (args: { pago: string | number } | [pago: string | number ] | strin
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::update
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}'
 */
 update.patch = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -674,7 +694,7 @@ update.patch = (args: { pago: string | number } | [pago: string | number ] | str
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::update
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}'
 */
 const updateForm = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -689,7 +709,7 @@ const updateForm = (args: { pago: string | number } | [pago: string | number ] |
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::update
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}'
 */
 updateForm.put = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -704,7 +724,7 @@ updateForm.put = (args: { pago: string | number } | [pago: string | number ] | s
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::update
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}'
 */
 updateForm.patch = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -721,7 +741,7 @@ update.form = updateForm
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::destroy
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}'
 */
 export const destroy = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -736,13 +756,14 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::destroy
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}'
 */
 destroy.url = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { pago: args }
     }
+
 
     if (Array.isArray(args)) {
         args = {
@@ -751,6 +772,7 @@ destroy.url = (args: { pago: string | number } | [pago: string | number ] | stri
     }
 
     args = applyUrlDefaults(args)
+
 
     const parsedArgs = {
         pago: args.pago,
@@ -763,7 +785,7 @@ destroy.url = (args: { pago: string | number } | [pago: string | number ] | stri
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::destroy
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}'
 */
 destroy.delete = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -773,7 +795,7 @@ destroy.delete = (args: { pago: string | number } | [pago: string | number ] | s
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::destroy
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}'
 */
 const destroyForm = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -788,7 +810,7 @@ const destroyForm = (args: { pago: string | number } | [pago: string | number ] 
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::destroy
-* @see Http/Controllers/Admin/PagoController.php:0
+* @see app/Http/Controllers/Admin/PagoController.php:0
 * @route '/admin/pagos/{pago}'
 */
 destroyForm.delete = (args: { pago: string | number } | [pago: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -802,6 +824,8 @@ destroyForm.delete = (args: { pago: string | number } | [pago: string | number ]
 })
 
 destroy.form = destroyForm
+
+
 
 const pagos = {
     pdf: Object.assign(pdf, pdf),
