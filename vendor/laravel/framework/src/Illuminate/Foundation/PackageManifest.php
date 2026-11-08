@@ -175,8 +175,18 @@ class PackageManifest
      */
     protected function write(array $manifest)
     {
-        if (! is_writable($dirname = dirname($this->manifestPath))) {
-            throw new Exception("The {$dirname} directory must be present and writable.");
+        $dirname = dirname($this->manifestPath);
+        if (! is_dir($dirname) || (! is_writable($dirname) && ! @file_put_contents($dirname.'/writable_test', '') === false)) {
+            if (! is_dir($dirname)) {
+                throw new Exception("The {$dirname} directory must be present and writable.");
+            }
+            // On Windows, is_writable() can return false even when the directory is writable.
+            // We perform an actual write test instead.
+            $testFile = $dirname.'/writable_test_'.uniqid();
+            if (@file_put_contents($testFile, '') === false) {
+                throw new Exception("The {$dirname} directory must be present and writable.");
+            }
+            @unlink($testFile);
         }
 
         $this->files->replace(
