@@ -7,6 +7,8 @@ import insumos from './insumos'
 import pagos from './pagos'
 import eventos from './eventos'
 import noticias from './noticias'
+import reportes from './reportes'
+import configuracion from './configuracion'
 /**
 * @see \App\Http\Controllers\Admin\DashboardController::dashboard
 * @see app/Http/Controllers/Admin/DashboardController.php:19
@@ -104,6 +106,8 @@ const admin = {
     pagos: Object.assign(pagos, pagos),
     eventos: Object.assign(eventos, eventos),
     noticias: Object.assign(noticias, noticias),
+    reportes: Object.assign(reportes, reportes),
+    configuracion: Object.assign(configuracion, configuracion),
 }
 
 export default admin

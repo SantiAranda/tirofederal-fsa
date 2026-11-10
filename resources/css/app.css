@@ -68,8 +68,9 @@
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
+    /* Color primario: azul club #2563eb */
+    --primary: #2563eb;
+    --primary-foreground: oklch(0.98 0 0);
     --secondary: oklch(0.97 0 0);
     --secondary-foreground: oklch(0.205 0 0);
     --muted: oklch(0.97 0 0);
@@ -87,14 +88,15 @@
     --chart-4: oklch(0.828 0.189 84.429);
     --chart-5: oklch(0.769 0.188 70.08);
     --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.87 0 0);
+    /* Sidebar: dark navy como en la maqueta del backoffice */
+    --sidebar: #0f1729;
+    --sidebar-foreground: oklch(0.96 0 0);
+    --sidebar-primary: #2563eb;
+    --sidebar-primary-foreground: oklch(0.98 0 0);
+    --sidebar-accent: #1e2d4a;
+    --sidebar-accent-foreground: oklch(0.96 0 0);
+    --sidebar-border: #1e2d4a;
+    --sidebar-ring: #2563eb;
 }
 
 .dark {

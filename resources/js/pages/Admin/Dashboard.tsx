@@ -154,3 +154,8 @@ export default function AdminDashboard({ metricas }: AdminDashboardProps) {
     );
 }
 
+
+
+AdminDashboard.layout = {
+    breadcrumbs: [{ title: 'Inicio', href: '/admin/dashboard' }],
+};

@@ -87,3 +87,8 @@ export default function InstructorAgenda({ turnosHoy = [] }: InstructorAgendaPro
     );
 }
 
+
+
+InstructorAgenda.layout = {
+    breadcrumbs: [{ title: 'Agenda de Pedanas', href: '/instructor/agenda' }],
+};

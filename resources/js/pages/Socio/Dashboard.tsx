@@ -234,3 +234,8 @@ export default function SocioDashboard({ socio, turnosProximos, ultimosPagos, al
     );
 }
 
+
+
+SocioDashboard.layout = {
+    breadcrumbs: [{ title: 'Mi Panel', href: '/panel' }],
+};

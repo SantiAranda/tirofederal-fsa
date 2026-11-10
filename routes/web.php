@@ -123,6 +123,14 @@ Route::middleware(['auth', 'role:presidente'])->prefix('admin')->name('admin.')-
     Route::resource('eventos', AdminEventoController::class);
 
     Route::resource('noticias', AdminNoticiaController::class);
+
+    Route::get('/reportes', function () {
+        return \Inertia\Inertia::render('Admin/Reportes/Index');
+    })->name('reportes.index');
+
+    Route::get('/configuracion', function () {
+        return \Inertia\Inertia::render('Admin/Configuracion/Index');
+    })->name('configuracion.index');
 });
 
 require __DIR__.'/settings.php';
