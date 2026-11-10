@@ -12,8 +12,12 @@ export default function PublicFooter() {
                     {/* Logo + descripción */}
                     <div className="md:col-span-2">
                         <div className="flex items-center gap-3 mb-4">
-                            <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center">
-                                <Target className="w-5 h-5 text-white" />
+                            <div className="bg-white/10 p-1.5 rounded-lg flex items-center justify-center">
+                                <img 
+                                    src="/images/logo.png" 
+                                    alt="Tiro Federal Formosa" 
+                                    className="h-10 w-auto object-contain"
+                                />
                             </div>
                             <div>
                                 <span className="block text-xs font-semibold text-gray-400 uppercase tracking-wider">Tiro Federal</span>

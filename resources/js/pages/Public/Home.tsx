@@ -109,30 +109,27 @@ export default function Home({ eventosProximos, testimonios, noticiasRecientes }
 
                 {/* Contenido */}
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-                    <div className="max-w-2xl">
-                        <span className="inline-block px-3 py-1 rounded-full bg-blue-600/20 text-blue-300 text-xs font-semibold uppercase tracking-widest mb-6 border border-blue-500/30">
-                            Club institucional · Formosa, Argentina
-                        </span>
+                    <div className="max-w-2xl animate-fade-in-up">
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
                             Bienvenidos al{' '}
                             <span className="text-blue-400">Tiro Federal</span>{' '}
                             Formosa
                         </h1>
-                        <p className="text-lg text-gray-300 leading-relaxed mb-10 max-w-xl">
+                        <p className="text-lg text-gray-300 leading-relaxed mb-10 max-w-xl animate-fade-in-up-delay">
                             Promovemos la práctica responsable del tiro deportivo, el espíritu
                             de superación y los valores del deporte.
                         </p>
-                        <div className="flex flex-wrap gap-4">
+                        <div className="flex flex-wrap gap-4 animate-fade-in-up-delay">
                             <Link
                                 href="/login"
-                                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl transition-all shadow-lg hover:shadow-blue-500/30"
+                                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-blue-500/40 hover:-translate-y-0.5 active:translate-y-0"
                             >
                                 <UserPlus className="w-5 h-5" />
                                 Volvete miembro
                             </Link>
                             <Link
                                 href="/eventos"
-                                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-xl border border-white/20 backdrop-blur-sm transition-all"
+                                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-xl border border-white/20 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
                             >
                                 <CalendarDays className="w-5 h-5" />
                                 Ver eventos
@@ -250,11 +247,11 @@ export default function Home({ eventosProximos, testimonios, noticiasRecientes }
                         {DISCIPLINAS.map((disc) => {
                             const Icon = disc.icono;
                             return (
-                                <div key={disc.nombre} className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-100">
-                                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-5 ${disc.color}`}>
+                                <div key={disc.nombre} className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 border border-gray-100 group">
+                                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-5 ${disc.color} group-hover:scale-110 transition-transform duration-300`}>
                                         <Icon className="w-7 h-7" />
                                     </div>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-3">{disc.nombre}</h3>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">{disc.nombre}</h3>
                                     <p className="text-gray-500 leading-relaxed text-sm">{disc.descripcion}</p>
                                 </div>
                             );
@@ -311,14 +308,14 @@ export default function Home({ eventosProximos, testimonios, noticiasRecientes }
                         ].map((item) => {
                             const Icon = item.icono;
                             return (
-                                <div key={item.paso} className="flex flex-col items-center text-center">
-                                    <div className="relative w-20 h-20 bg-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-200">
+                                <div key={item.paso} className="flex flex-col items-center text-center group">
+                                    <div className="relative w-20 h-20 bg-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-200 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                                         <Icon className="w-9 h-9 text-white" />
-                                        <span className="absolute -top-2 -right-2 w-6 h-6 bg-white border-2 border-blue-600 rounded-full text-xs font-bold text-blue-600 flex items-center justify-center">
+                                        <span className="absolute -top-2 -right-2 w-6 h-6 bg-white border-2 border-blue-600 rounded-full text-xs font-bold text-blue-600 flex items-center justify-center shadow">
                                             {item.paso.slice(-1)}
                                         </span>
                                     </div>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{item.titulo}</h3>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-200">{item.titulo}</h3>
                                     <p className="text-gray-500 text-sm leading-relaxed">{item.descripcion}</p>
                                 </div>
                             );

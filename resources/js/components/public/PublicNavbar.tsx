@@ -21,9 +21,15 @@ export default function PublicNavbar() {
 
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-3 shrink-0">
-                        <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center">
-                            <Target className="w-5 h-5 text-white" />
-                        </div>
+                        <img 
+                            src="/images/logo.png" 
+                            alt="Tiro Federal Formosa" 
+                            className="h-10 w-auto object-contain"
+                            onError={(e) => {
+                                // Fallback si no carga la imagen
+                                (e.target as HTMLElement).style.display = 'none';
+                            }}
+                        />
                         <div className="leading-tight">
                             <span className="block text-xs font-semibold text-gray-500 uppercase tracking-wider">Tiro Federal</span>
                             <span className="block text-sm font-bold text-blue-700 uppercase tracking-wide">Formosa</span>
@@ -48,7 +54,7 @@ export default function PublicNavbar() {
                         {auth?.user ? (
                             <Link
                                 href="/dashboard"
-                                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
                             >
                                 <User className="w-4 h-4" />
                                 Mi panel
@@ -56,7 +62,7 @@ export default function PublicNavbar() {
                         ) : (
                             <Link
                                 href="/login"
-                                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
                             >
                                 <LogIn className="w-4 h-4" />
                                 Iniciar sesión
