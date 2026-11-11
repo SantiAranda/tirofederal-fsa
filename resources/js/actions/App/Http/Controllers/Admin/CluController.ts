@@ -1,10 +1,10 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Admin\CluController::verDocumento
-* @see Http/Controllers/Admin/CluController.php:93
+* @see app/Http/Controllers/Admin/CluController.php:93
 * @route '/legajo/{credencial}/documento/{tipo}'
 */
-const verDocumentoeeb35c9e0b899970c02350a4e8e3a09e = (args: { credencial: string | number | { id: string | number }, tipo: string | number } | [credencial: string | number | { id: string | number }, tipo: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+const verDocumentoeeb35c9e0b899970c02350a4e8e3a09e = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: verDocumentoeeb35c9e0b899970c02350a4e8e3a09e.url(args, options),
     method: 'get',
 })
@@ -16,10 +16,11 @@ verDocumentoeeb35c9e0b899970c02350a4e8e3a09e.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::verDocumento
-* @see Http/Controllers/Admin/CluController.php:93
+* @see app/Http/Controllers/Admin/CluController.php:93
 * @route '/legajo/{credencial}/documento/{tipo}'
 */
-verDocumentoeeb35c9e0b899970c02350a4e8e3a09e.url = (args: { credencial: string | number | { id: string | number }, tipo: string | number } | [credencial: string | number | { id: string | number }, tipo: string | number ], options?: RouteQueryOptions) => {
+verDocumentoeeb35c9e0b899970c02350a4e8e3a09e.url = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions) => {
+
     if (Array.isArray(args)) {
         args = {
             credencial: args[0],
@@ -28,6 +29,7 @@ verDocumentoeeb35c9e0b899970c02350a4e8e3a09e.url = (args: { credencial: string |
     }
 
     args = applyUrlDefaults(args)
+
 
     const parsedArgs = {
         credencial: typeof args.credencial === 'object'
@@ -44,50 +46,50 @@ verDocumentoeeb35c9e0b899970c02350a4e8e3a09e.url = (args: { credencial: string |
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::verDocumento
-* @see Http/Controllers/Admin/CluController.php:93
+* @see app/Http/Controllers/Admin/CluController.php:93
 * @route '/legajo/{credencial}/documento/{tipo}'
 */
-verDocumentoeeb35c9e0b899970c02350a4e8e3a09e.get = (args: { credencial: string | number | { id: string | number }, tipo: string | number } | [credencial: string | number | { id: string | number }, tipo: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+verDocumentoeeb35c9e0b899970c02350a4e8e3a09e.get = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: verDocumentoeeb35c9e0b899970c02350a4e8e3a09e.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::verDocumento
-* @see Http/Controllers/Admin/CluController.php:93
+* @see app/Http/Controllers/Admin/CluController.php:93
 * @route '/legajo/{credencial}/documento/{tipo}'
 */
-verDocumentoeeb35c9e0b899970c02350a4e8e3a09e.head = (args: { credencial: string | number | { id: string | number }, tipo: string | number } | [credencial: string | number | { id: string | number }, tipo: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+verDocumentoeeb35c9e0b899970c02350a4e8e3a09e.head = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: verDocumentoeeb35c9e0b899970c02350a4e8e3a09e.url(args, options),
     method: 'head',
 })
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::verDocumento
-* @see Http/Controllers/Admin/CluController.php:93
+* @see app/Http/Controllers/Admin/CluController.php:93
 * @route '/legajo/{credencial}/documento/{tipo}'
 */
-const verDocumentoeeb35c9e0b899970c02350a4e8e3a09eForm = (args: { credencial: string | number | { id: string | number }, tipo: string | number } | [credencial: string | number | { id: string | number }, tipo: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const verDocumentoeeb35c9e0b899970c02350a4e8e3a09eForm = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: verDocumentoeeb35c9e0b899970c02350a4e8e3a09e.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::verDocumento
-* @see Http/Controllers/Admin/CluController.php:93
+* @see app/Http/Controllers/Admin/CluController.php:93
 * @route '/legajo/{credencial}/documento/{tipo}'
 */
-verDocumentoeeb35c9e0b899970c02350a4e8e3a09eForm.get = (args: { credencial: string | number | { id: string | number }, tipo: string | number } | [credencial: string | number | { id: string | number }, tipo: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+verDocumentoeeb35c9e0b899970c02350a4e8e3a09eForm.get = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: verDocumentoeeb35c9e0b899970c02350a4e8e3a09e.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::verDocumento
-* @see Http/Controllers/Admin/CluController.php:93
+* @see app/Http/Controllers/Admin/CluController.php:93
 * @route '/legajo/{credencial}/documento/{tipo}'
 */
-verDocumentoeeb35c9e0b899970c02350a4e8e3a09eForm.head = (args: { credencial: string | number | { id: string | number }, tipo: string | number } | [credencial: string | number | { id: string | number }, tipo: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+verDocumentoeeb35c9e0b899970c02350a4e8e3a09eForm.head = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: verDocumentoeeb35c9e0b899970c02350a4e8e3a09e.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -100,10 +102,10 @@ verDocumentoeeb35c9e0b899970c02350a4e8e3a09eForm.head = (args: { credencial: str
 verDocumentoeeb35c9e0b899970c02350a4e8e3a09e.form = verDocumentoeeb35c9e0b899970c02350a4e8e3a09eForm
 /**
 * @see \App\Http\Controllers\Admin\CluController::verDocumento
-* @see Http/Controllers/Admin/CluController.php:93
+* @see app/Http/Controllers/Admin/CluController.php:93
 * @route '/admin/clu/{credencial}/documento/{tipo}'
 */
-const verDocumento8d8ea65ec4254586f2528da8c62a190d = (args: { credencial: string | number | { id: string | number }, tipo: string | number } | [credencial: string | number | { id: string | number }, tipo: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+const verDocumento8d8ea65ec4254586f2528da8c62a190d = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: verDocumento8d8ea65ec4254586f2528da8c62a190d.url(args, options),
     method: 'get',
 })
@@ -115,10 +117,11 @@ verDocumento8d8ea65ec4254586f2528da8c62a190d.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::verDocumento
-* @see Http/Controllers/Admin/CluController.php:93
+* @see app/Http/Controllers/Admin/CluController.php:93
 * @route '/admin/clu/{credencial}/documento/{tipo}'
 */
-verDocumento8d8ea65ec4254586f2528da8c62a190d.url = (args: { credencial: string | number | { id: string | number }, tipo: string | number } | [credencial: string | number | { id: string | number }, tipo: string | number ], options?: RouteQueryOptions) => {
+verDocumento8d8ea65ec4254586f2528da8c62a190d.url = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions) => {
+
     if (Array.isArray(args)) {
         args = {
             credencial: args[0],
@@ -127,6 +130,7 @@ verDocumento8d8ea65ec4254586f2528da8c62a190d.url = (args: { credencial: string |
     }
 
     args = applyUrlDefaults(args)
+
 
     const parsedArgs = {
         credencial: typeof args.credencial === 'object'
@@ -143,50 +147,50 @@ verDocumento8d8ea65ec4254586f2528da8c62a190d.url = (args: { credencial: string |
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::verDocumento
-* @see Http/Controllers/Admin/CluController.php:93
+* @see app/Http/Controllers/Admin/CluController.php:93
 * @route '/admin/clu/{credencial}/documento/{tipo}'
 */
-verDocumento8d8ea65ec4254586f2528da8c62a190d.get = (args: { credencial: string | number | { id: string | number }, tipo: string | number } | [credencial: string | number | { id: string | number }, tipo: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+verDocumento8d8ea65ec4254586f2528da8c62a190d.get = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: verDocumento8d8ea65ec4254586f2528da8c62a190d.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::verDocumento
-* @see Http/Controllers/Admin/CluController.php:93
+* @see app/Http/Controllers/Admin/CluController.php:93
 * @route '/admin/clu/{credencial}/documento/{tipo}'
 */
-verDocumento8d8ea65ec4254586f2528da8c62a190d.head = (args: { credencial: string | number | { id: string | number }, tipo: string | number } | [credencial: string | number | { id: string | number }, tipo: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+verDocumento8d8ea65ec4254586f2528da8c62a190d.head = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: verDocumento8d8ea65ec4254586f2528da8c62a190d.url(args, options),
     method: 'head',
 })
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::verDocumento
-* @see Http/Controllers/Admin/CluController.php:93
+* @see app/Http/Controllers/Admin/CluController.php:93
 * @route '/admin/clu/{credencial}/documento/{tipo}'
 */
-const verDocumento8d8ea65ec4254586f2528da8c62a190dForm = (args: { credencial: string | number | { id: string | number }, tipo: string | number } | [credencial: string | number | { id: string | number }, tipo: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const verDocumento8d8ea65ec4254586f2528da8c62a190dForm = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: verDocumento8d8ea65ec4254586f2528da8c62a190d.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::verDocumento
-* @see Http/Controllers/Admin/CluController.php:93
+* @see app/Http/Controllers/Admin/CluController.php:93
 * @route '/admin/clu/{credencial}/documento/{tipo}'
 */
-verDocumento8d8ea65ec4254586f2528da8c62a190dForm.get = (args: { credencial: string | number | { id: string | number }, tipo: string | number } | [credencial: string | number | { id: string | number }, tipo: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+verDocumento8d8ea65ec4254586f2528da8c62a190dForm.get = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: verDocumento8d8ea65ec4254586f2528da8c62a190d.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::verDocumento
-* @see Http/Controllers/Admin/CluController.php:93
+* @see app/Http/Controllers/Admin/CluController.php:93
 * @route '/admin/clu/{credencial}/documento/{tipo}'
 */
-verDocumento8d8ea65ec4254586f2528da8c62a190dForm.head = (args: { credencial: string | number | { id: string | number }, tipo: string | number } | [credencial: string | number | { id: string | number }, tipo: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+verDocumento8d8ea65ec4254586f2528da8c62a190dForm.head = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: verDocumento8d8ea65ec4254586f2528da8c62a190d.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -208,9 +212,10 @@ export const verDocumento = {
     '/admin/clu/{credencial}/documento/{tipo}': verDocumento8d8ea65ec4254586f2528da8c62a190d,
 }
 
+
 /**
 * @see \App\Http\Controllers\Admin\CluController::index
-* @see Http/Controllers/Admin/CluController.php:22
+* @see app/Http/Controllers/Admin/CluController.php:22
 * @route '/admin/clu'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -225,16 +230,20 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::index
-* @see Http/Controllers/Admin/CluController.php:22
+* @see app/Http/Controllers/Admin/CluController.php:22
 * @route '/admin/clu'
 */
 index.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return index.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::index
-* @see Http/Controllers/Admin/CluController.php:22
+* @see app/Http/Controllers/Admin/CluController.php:22
 * @route '/admin/clu'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -244,7 +253,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::index
-* @see Http/Controllers/Admin/CluController.php:22
+* @see app/Http/Controllers/Admin/CluController.php:22
 * @route '/admin/clu'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -254,7 +263,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::index
-* @see Http/Controllers/Admin/CluController.php:22
+* @see app/Http/Controllers/Admin/CluController.php:22
 * @route '/admin/clu'
 */
 const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -264,7 +273,7 @@ const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::index
-* @see Http/Controllers/Admin/CluController.php:22
+* @see app/Http/Controllers/Admin/CluController.php:22
 * @route '/admin/clu'
 */
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -274,7 +283,7 @@ indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::index
-* @see Http/Controllers/Admin/CluController.php:22
+* @see app/Http/Controllers/Admin/CluController.php:22
 * @route '/admin/clu'
 */
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -291,10 +300,10 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::show
-* @see Http/Controllers/Admin/CluController.php:58
+* @see app/Http/Controllers/Admin/CluController.php:58
 * @route '/admin/clu/{credencial}'
 */
-export const show = (args: { credencial: string | number | { id: string | number } } | [credencial: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const show = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
@@ -306,10 +315,10 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::show
-* @see Http/Controllers/Admin/CluController.php:58
+* @see app/Http/Controllers/Admin/CluController.php:58
 * @route '/admin/clu/{credencial}'
 */
-show.url = (args: { credencial: string | number | { id: string | number } } | [credencial: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+show.url = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { credencial: args }
     }
@@ -325,6 +334,7 @@ show.url = (args: { credencial: string | number | { id: string | number } } | [c
     }
 
     args = applyUrlDefaults(args)
+
 
     const parsedArgs = {
         credencial: typeof args.credencial === 'object'
@@ -339,50 +349,50 @@ show.url = (args: { credencial: string | number | { id: string | number } } | [c
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::show
-* @see Http/Controllers/Admin/CluController.php:58
+* @see app/Http/Controllers/Admin/CluController.php:58
 * @route '/admin/clu/{credencial}'
 */
-show.get = (args: { credencial: string | number | { id: string | number } } | [credencial: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+show.get = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::show
-* @see Http/Controllers/Admin/CluController.php:58
+* @see app/Http/Controllers/Admin/CluController.php:58
 * @route '/admin/clu/{credencial}'
 */
-show.head = (args: { credencial: string | number | { id: string | number } } | [credencial: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+show.head = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: show.url(args, options),
     method: 'head',
 })
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::show
-* @see Http/Controllers/Admin/CluController.php:58
+* @see app/Http/Controllers/Admin/CluController.php:58
 * @route '/admin/clu/{credencial}'
 */
-const showForm = (args: { credencial: string | number | { id: string | number } } | [credencial: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const showForm = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: show.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::show
-* @see Http/Controllers/Admin/CluController.php:58
+* @see app/Http/Controllers/Admin/CluController.php:58
 * @route '/admin/clu/{credencial}'
 */
-showForm.get = (args: { credencial: string | number | { id: string | number } } | [credencial: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+showForm.get = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: show.url(args, options),
     method: 'get',
 })
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::show
-* @see Http/Controllers/Admin/CluController.php:58
+* @see app/Http/Controllers/Admin/CluController.php:58
 * @route '/admin/clu/{credencial}'
 */
-showForm.head = (args: { credencial: string | number | { id: string | number } } | [credencial: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+showForm.head = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: show.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -396,10 +406,10 @@ show.form = showForm
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::validar
-* @see Http/Controllers/Admin/CluController.php:72
+* @see app/Http/Controllers/Admin/CluController.php:72
 * @route '/admin/clu/{credencial}/validar'
 */
-export const validar = (args: { credencial: string | number | { id: string | number } } | [credencial: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+export const validar = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: validar.url(args, options),
     method: 'patch',
 })
@@ -411,10 +421,10 @@ validar.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::validar
-* @see Http/Controllers/Admin/CluController.php:72
+* @see app/Http/Controllers/Admin/CluController.php:72
 * @route '/admin/clu/{credencial}/validar'
 */
-validar.url = (args: { credencial: string | number | { id: string | number } } | [credencial: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+validar.url = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { credencial: args }
     }
@@ -431,6 +441,7 @@ validar.url = (args: { credencial: string | number | { id: string | number } } |
 
     args = applyUrlDefaults(args)
 
+
     const parsedArgs = {
         credencial: typeof args.credencial === 'object'
         ? args.credencial.id
@@ -444,20 +455,20 @@ validar.url = (args: { credencial: string | number | { id: string | number } } |
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::validar
-* @see Http/Controllers/Admin/CluController.php:72
+* @see app/Http/Controllers/Admin/CluController.php:72
 * @route '/admin/clu/{credencial}/validar'
 */
-validar.patch = (args: { credencial: string | number | { id: string | number } } | [credencial: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+validar.patch = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: validar.url(args, options),
     method: 'patch',
 })
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::validar
-* @see Http/Controllers/Admin/CluController.php:72
+* @see app/Http/Controllers/Admin/CluController.php:72
 * @route '/admin/clu/{credencial}/validar'
 */
-const validarForm = (args: { credencial: string | number | { id: string | number } } | [credencial: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const validarForm = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: validar.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PATCH',
@@ -469,10 +480,10 @@ const validarForm = (args: { credencial: string | number | { id: string | number
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::validar
-* @see Http/Controllers/Admin/CluController.php:72
+* @see app/Http/Controllers/Admin/CluController.php:72
 * @route '/admin/clu/{credencial}/validar'
 */
-validarForm.patch = (args: { credencial: string | number | { id: string | number } } | [credencial: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+validarForm.patch = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: validar.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PATCH',

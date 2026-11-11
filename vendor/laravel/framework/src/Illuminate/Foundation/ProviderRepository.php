@@ -183,8 +183,17 @@ class ProviderRepository
      */
     public function writeManifest($manifest)
     {
-        if (! is_writable($dirname = dirname($this->manifestPath))) {
+        $dirname = dirname($this->manifestPath);
+        if (! is_dir($dirname)) {
             throw new Exception("The {$dirname} directory must be present and writable.");
+        }
+        if (! is_writable($dirname)) {
+            // On Windows, is_writable() can return false even when the directory is writable.
+            $testFile = $dirname.'/writable_test_'.uniqid();
+            if (@file_put_contents($testFile, '') === false) {
+                throw new Exception("The {$dirname} directory must be present and writable.");
+            }
+            @unlink($testFile);
         }
 
         $this->files->replace(

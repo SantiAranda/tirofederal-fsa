@@ -7,9 +7,11 @@ import insumos from './insumos'
 import pagos from './pagos'
 import eventos from './eventos'
 import noticias from './noticias'
+import reportes from './reportes'
+import configuracion from './configuracion'
 /**
 * @see \App\Http\Controllers\Admin\DashboardController::dashboard
-* @see Http/Controllers/Admin/DashboardController.php:19
+* @see app/Http/Controllers/Admin/DashboardController.php:19
 * @route '/admin/dashboard'
 */
 export const dashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -24,16 +26,20 @@ dashboard.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\DashboardController::dashboard
-* @see Http/Controllers/Admin/DashboardController.php:19
+* @see app/Http/Controllers/Admin/DashboardController.php:19
 * @route '/admin/dashboard'
 */
 dashboard.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return dashboard.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Admin\DashboardController::dashboard
-* @see Http/Controllers/Admin/DashboardController.php:19
+* @see app/Http/Controllers/Admin/DashboardController.php:19
 * @route '/admin/dashboard'
 */
 dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -43,7 +49,7 @@ dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\DashboardController::dashboard
-* @see Http/Controllers/Admin/DashboardController.php:19
+* @see app/Http/Controllers/Admin/DashboardController.php:19
 * @route '/admin/dashboard'
 */
 dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -53,7 +59,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\DashboardController::dashboard
-* @see Http/Controllers/Admin/DashboardController.php:19
+* @see app/Http/Controllers/Admin/DashboardController.php:19
 * @route '/admin/dashboard'
 */
 const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +69,7 @@ const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 
 /**
 * @see \App\Http\Controllers\Admin\DashboardController::dashboard
-* @see Http/Controllers/Admin/DashboardController.php:19
+* @see app/Http/Controllers/Admin/DashboardController.php:19
 * @route '/admin/dashboard'
 */
 dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -73,7 +79,7 @@ dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 
 /**
 * @see \App\Http\Controllers\Admin\DashboardController::dashboard
-* @see Http/Controllers/Admin/DashboardController.php:19
+* @see app/Http/Controllers/Admin/DashboardController.php:19
 * @route '/admin/dashboard'
 */
 dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -88,6 +94,8 @@ dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 
 dashboard.form = dashboardForm
 
+
+
 const admin = {
     dashboard: Object.assign(dashboard, dashboard),
     socios: Object.assign(socios, socios),
@@ -98,6 +106,8 @@ const admin = {
     pagos: Object.assign(pagos, pagos),
     eventos: Object.assign(eventos, eventos),
     noticias: Object.assign(noticias, noticias),
+    reportes: Object.assign(reportes, reportes),
+    configuracion: Object.assign(configuracion, configuracion),
 }
 
 export default admin

@@ -1,10 +1,10 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Admin\EventoController::asistencia
-* @see Http/Controllers/Admin/EventoController.php:136
+* @see app/Http/Controllers/Admin/EventoController.php:136
 * @route '/admin/eventos/inscripciones/{inscripcion}/asistencia'
 */
-export const asistencia = (args: { inscripcion: string | number | { id: string | number } } | [inscripcion: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+export const asistencia = (args: { inscripcion: number | { id: number } } | [inscripcion: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: asistencia.url(args, options),
     method: 'patch',
 })
@@ -16,10 +16,10 @@ asistencia.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\EventoController::asistencia
-* @see Http/Controllers/Admin/EventoController.php:136
+* @see app/Http/Controllers/Admin/EventoController.php:136
 * @route '/admin/eventos/inscripciones/{inscripcion}/asistencia'
 */
-asistencia.url = (args: { inscripcion: string | number | { id: string | number } } | [inscripcion: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+asistencia.url = (args: { inscripcion: number | { id: number } } | [inscripcion: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { inscripcion: args }
     }
@@ -36,6 +36,7 @@ asistencia.url = (args: { inscripcion: string | number | { id: string | number }
 
     args = applyUrlDefaults(args)
 
+
     const parsedArgs = {
         inscripcion: typeof args.inscripcion === 'object'
         ? args.inscripcion.id
@@ -49,20 +50,20 @@ asistencia.url = (args: { inscripcion: string | number | { id: string | number }
 
 /**
 * @see \App\Http\Controllers\Admin\EventoController::asistencia
-* @see Http/Controllers/Admin/EventoController.php:136
+* @see app/Http/Controllers/Admin/EventoController.php:136
 * @route '/admin/eventos/inscripciones/{inscripcion}/asistencia'
 */
-asistencia.patch = (args: { inscripcion: string | number | { id: string | number } } | [inscripcion: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+asistencia.patch = (args: { inscripcion: number | { id: number } } | [inscripcion: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: asistencia.url(args, options),
     method: 'patch',
 })
 
 /**
 * @see \App\Http\Controllers\Admin\EventoController::asistencia
-* @see Http/Controllers/Admin/EventoController.php:136
+* @see app/Http/Controllers/Admin/EventoController.php:136
 * @route '/admin/eventos/inscripciones/{inscripcion}/asistencia'
 */
-const asistenciaForm = (args: { inscripcion: string | number | { id: string | number } } | [inscripcion: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const asistenciaForm = (args: { inscripcion: number | { id: number } } | [inscripcion: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: asistencia.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PATCH',
@@ -74,10 +75,10 @@ const asistenciaForm = (args: { inscripcion: string | number | { id: string | nu
 
 /**
 * @see \App\Http\Controllers\Admin\EventoController::asistencia
-* @see Http/Controllers/Admin/EventoController.php:136
+* @see app/Http/Controllers/Admin/EventoController.php:136
 * @route '/admin/eventos/inscripciones/{inscripcion}/asistencia'
 */
-asistenciaForm.patch = (args: { inscripcion: string | number | { id: string | number } } | [inscripcion: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+asistenciaForm.patch = (args: { inscripcion: number | { id: number } } | [inscripcion: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: asistencia.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PATCH',
@@ -88,6 +89,8 @@ asistenciaForm.patch = (args: { inscripcion: string | number | { id: string | nu
 })
 
 asistencia.form = asistenciaForm
+
+
 
 const inscripciones = {
     asistencia: Object.assign(asistencia, asistencia),

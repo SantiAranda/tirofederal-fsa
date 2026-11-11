@@ -20,6 +20,10 @@ show.definition = {
 * @route '/user/confirm-password'
 */
 show.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return show.definition.url + queryParams(options)
 }
 
@@ -101,6 +105,10 @@ store.definition = {
 * @route '/user/confirm-password'
 */
 store.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return store.definition.url + queryParams(options)
 }
 
