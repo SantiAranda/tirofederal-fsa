@@ -51,8 +51,25 @@ Route::get('/dashboard', function () {
         return redirect()->route('instructor.agenda.index');
     }
 
+    if (! $user->activo) {
+        return redirect()->route('solicitud.tramite');
+    }
+
     return redirect()->route('socio.dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/solicitud-en-tramite', function () {
+    $user = auth()->user();
+    return \Inertia\Inertia::render('auth/solicitud-en-tramite', [
+        'user' => $user ? [
+            'nombre' => $user->nombre ?? $user->name,
+            'apellido' => $user->apellido,
+            'email' => $user->email,
+            'numero_socio' => $user->socioProfile?->numero_socio ?? ('TF-' . str_pad((string) $user->id, 5, '0', STR_PAD_LEFT)),
+            'estado_habilitacion' => $user->socioProfile?->estado_habilitacion ?? 'pendiente_validacion',
+        ] : null,
+    ]);
+})->name('solicitud.tramite');
 
 /*
 |--------------------------------------------------------------------------

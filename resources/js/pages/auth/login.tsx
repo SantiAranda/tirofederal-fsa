@@ -38,16 +38,19 @@ export default function Login({ status, canResetPassword = true }: Props) {
                     {/* Header de la columna */}
                     <div className="w-full flex items-center justify-between">
                         <Link href="/" className="flex items-center gap-3 group">
-                            <div className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/35 group-hover:scale-105 transition-transform">
-                                <img
-                                    src="/images/logo.png"
-                                    alt="Logo Tiro Federal Formosa"
-                                    className="w-6 h-6 object-contain rounded-full"
-                                />
+                            <img
+                                src="/images/logo.png"
+                                alt="Logo Tiro Federal Formosa"
+                                className="w-10 h-10 sm:w-11 sm:h-11 object-contain drop-shadow group-hover:scale-105 transition-transform"
+                            />
+                            <div className="flex flex-col justify-center -space-y-1 select-none">
+                                <span className="text-xs sm:text-sm font-bold tracking-wide text-slate-200 group-hover:text-white transition-colors leading-none">
+                                    Tiro Federal
+                                </span>
+                                <span className="text-lg sm:text-xl font-black tracking-tight text-white uppercase group-hover:text-blue-400 transition-colors leading-none pt-0.5">
+                                    Formosa
+                                </span>
                             </div>
-                            <span className="text-sm font-semibold tracking-wide text-white group-hover:text-blue-400 transition-colors">
-                                Tiro Federal Formosa
-                            </span>
                         </Link>
 
                         <nav className="flex items-center gap-6 text-xs sm:text-sm font-medium text-slate-400">
@@ -168,7 +171,7 @@ export default function Login({ status, canResetPassword = true }: Props) {
                                 {canResetPassword && (
                                     <Link
                                         href="/forgot-password"
-                                        className="hover:text-blue-400 transition-colors"
+                                        className="text-blue-400 hover:text-blue-300 font-medium transition-colors"
                                     >
                                         ¿Olvidaste tu contraseña?
                                     </Link>
@@ -192,6 +195,16 @@ export default function Login({ status, canResetPassword = true }: Props) {
                                     {processing && <Spinner className="w-4 h-4 text-white" />}
                                     <span>Ingresar</span>
                                 </button>
+                            </div>
+
+                            <div className="text-center pt-3 text-xs text-slate-400">
+                                ¿No tenés una cuenta todavía?{' '}
+                                <Link
+                                    href="/register"
+                                    className="text-blue-400 hover:text-blue-300 font-semibold underline underline-offset-4 decoration-blue-500/40 hover:decoration-blue-400 transition-colors"
+                                >
+                                    Asociate acá
+                                </Link>
                             </div>
                         </form>
                     </div>
