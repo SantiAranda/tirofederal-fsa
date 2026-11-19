@@ -57,8 +57,26 @@ function getEstadoBadge(insumo: Insumo) {
     return <Badge className="bg-green-100 text-green-700 border-green-200">Normal</Badge>;
 }
 
-export default function InsumosIndex() {
-    const [insumos, setInsumos] = useState<Insumo[]>(insumosIniciales);
+interface Props {
+    insumos?: { data: any[] } | any[];
+    filtros?: { categoria?: string; q?: string };
+    alertaStockBajo?: number;
+}
+
+export default function InsumosIndex({ insumos: serverInsumos }: Props) {
+    const rawList = Array.isArray(serverInsumos) ? serverInsumos : (serverInsumos?.data || []);
+    const parsedInitial: Insumo[] = rawList.length > 0
+        ? rawList.map((i: any) => ({
+            id: i.id,
+            nombre: i.nombre,
+            categoria: (i.categoria as Categoria) || 'Otros',
+            stock: Number(i.cantidad_stock ?? i.stock ?? 0),
+            stockMinimo: Number(i.stock_minimo ?? i.stockMinimo ?? 0),
+            precioUnitario: Number(i.precio_unitario ?? i.precioUnitario ?? 0),
+        }))
+        : insumosIniciales;
+
+    const [insumos, setInsumos] = useState<Insumo[]>(parsedInitial);
     const [busqueda, setBusqueda] = useState('');
     const [filtroCategoria, setFiltroCategoria] = useState<string>('todas');
     const [filtroStock, setFiltroStock] = useState<string>('todo');

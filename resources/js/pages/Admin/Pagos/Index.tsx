@@ -45,8 +45,43 @@ const mockPagos: Pago[] = [
 const fmt = (n: number) =>
     new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(n);
 
-export default function PagosIndex() {
-    const [pagos, setPagos] = useState<Pago[]>(mockPagos);
+interface Props {
+    pagos?: { data: any[] } | any[];
+    totalRecaudadoMes?: number;
+    filtros?: any;
+}
+
+export default function PagosIndex({ pagos: serverPagos, totalRecaudadoMes }: Props) {
+    const rawList = Array.isArray(serverPagos) ? serverPagos : (serverPagos?.data || []);
+    const parsedInitial: Pago[] = rawList.length > 0
+        ? rawList.map((p: any) => {
+            const user = p.socio_profile?.user || p.socioProfile?.user;
+            const metodoMap: Record<string, Pago['metodo']> = {
+                'efectivo': 'Efectivo',
+                'transferencia': 'Transferencia',
+                'tarjeta': 'Tarjeta',
+                'pasarela_online': 'Transferencia',
+            };
+            const estadoMap: Record<string, Pago['estado']> = {
+                'aprobado': 'Pagado',
+                'pendiente': 'Pendiente',
+                'anulado': 'Anulado',
+            };
+            return {
+                id: p.id,
+                recibo: p.comprobante?.codigo_transaccion || `REC-${new Date().getFullYear()}-${String(p.id).padStart(4, '0')}`,
+                socio: user ? `${user.nombre} ${user.apellido}` : 'Socio #' + p.id,
+                dni: user?.dni || '-',
+                concepto: p.tipo_concepto ? p.tipo_concepto.replace('_', ' ').toUpperCase() : 'Cuota Social',
+                monto: Number(p.monto ?? 0),
+                metodo: metodoMap[p.metodo_pago] || 'Transferencia',
+                fecha: p.fecha_pago ? new Date(p.fecha_pago).toLocaleDateString('es-AR') : new Date().toLocaleDateString('es-AR'),
+                estado: estadoMap[p.estado] || 'Pagado',
+            };
+        })
+        : mockPagos;
+
+    const [pagos, setPagos] = useState<Pago[]>(parsedInitial);
     const [search, setSearch] = useState('');
     const [filtroMetodo, setFiltroMetodo] = useState('todos');
     const [filtroEstado, setFiltroEstado] = useState('todos');

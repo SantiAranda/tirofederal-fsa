@@ -57,9 +57,30 @@ const defaultLineas: LineaPoligono[] = [
     { numero: 9, nombre: 'Línea 9', disciplina: 'Tiro Neumático y Escuela', capacidad: 3, activa: true },
 ];
 
-export default function EventosIndex() {
+interface Props {
+    eventos?: { data: any[] } | any[];
+    filtros?: any;
+}
+
+export default function EventosIndex({ eventos: serverEventos }: Props) {
+    const rawList = Array.isArray(serverEventos) ? serverEventos : (serverEventos?.data || []);
+    const parsedInitial: Evento[] = rawList.length > 0
+        ? rawList.map((e: any) => ({
+            id: e.id,
+            titulo: e.titulo,
+            disciplina: e.tipo_evento?.toUpperCase() || 'Polígono General',
+            fecha: e.fecha_evento ? new Date(e.fecha_evento).toLocaleDateString('es-AR') : '22/11/2026',
+            hora: e.fecha_evento ? new Date(e.fecha_evento).toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' }) : '09:00',
+            cupoMaximo: e.cupo_maximo || 30,
+            inscriptos: e.inscripciones_count ?? (e.cupo_maximo - e.cupos_disponibles) ?? 0,
+            arancel: Number(e.costo_inscripcion ?? 0),
+            estado: (e.cupos_disponibles <= 0 ? 'Lleno' : 'Abierto') as Evento['estado'],
+            lugar: 'Polígono Tiro Federal Formosa',
+        }))
+        : initialEventos;
+
     const [tab, setTab] = useState<'proximos' | 'poligono'>('proximos');
-    const [eventos, setEventos] = useState<Evento[]>(initialEventos);
+    const [eventos, setEventos] = useState<Evento[]>(parsedInitial);
     const [lineas, setLineas] = useState<LineaPoligono[]>(defaultLineas);
     const [capacidadDinamica, setCapacidadDinamica] = useState(12);
     const [sectorDinamicoActivo, setSectorDinamicoActivo] = useState(true);

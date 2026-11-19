@@ -60,6 +60,15 @@ class SocioController extends Controller
         ]);
     }
 
+    public function show(SocioProfile $socio): Response
+    {
+        $socio->load(['user', 'membresia', 'credencialLu', 'turnos.lineaDeTiro', 'pagos']);
+
+        return Inertia::render('Admin/Socios/Show', [
+            'socio' => $socio,
+        ]);
+    }
+
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([

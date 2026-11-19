@@ -68,8 +68,27 @@ const mockInstructores: Instructor[] = [
     },
 ];
 
-export default function InstructoresIndex() {
-    const [instructores, setInstructores] = useState<Instructor[]>(mockInstructores);
+interface Props {
+    instructores?: any[];
+}
+
+export default function InstructoresIndex({ instructores: serverInstructores }: Props) {
+    const parsedInitial: Instructor[] = (serverInstructores && serverInstructores.length > 0)
+        ? serverInstructores.map((ins: any) => ({
+            id: ins.id,
+            nombre: ins.user ? `${ins.user.nombre} ${ins.user.apellido}` : ins.nombre,
+            matricula: ins.matricula_habilitante || ins.matricula,
+            vencimientoMatricula: ins.vencimiento_matricula ? new Date(ins.vencimiento_matricula).toLocaleDateString('es-AR') : '15/08/2027',
+            especialidad: ins.especialidad || 'Instructor de Tiro',
+            telefono: ins.user?.telefono || ins.telefono || '-',
+            email: ins.user?.email || ins.email || '-',
+            turnosAsignadosSemana: ins.turnos_count ?? ins.turnosAsignadosSemana ?? 0,
+            estado: 'Vigente',
+            calificacionPromedio: Number(ins.calificacion_promedio ?? ins.calificacionPromedio ?? 5.0),
+        }))
+        : mockInstructores;
+
+    const [instructores, setInstructores] = useState<Instructor[]>(parsedInitial);
     const [dialogOpen, setDialogOpen] = useState(false);
 
     const [form, setForm] = useState({

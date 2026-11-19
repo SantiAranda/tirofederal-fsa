@@ -43,8 +43,24 @@ const initialData: Membresia[] = [
 const fmt = (n: number) =>
     new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(n);
 
-export default function MembresiasIndex() {
-    const [membresias, setMembresias] = useState<Membresia[]>(initialData);
+interface Props {
+    membresias?: any[];
+}
+
+export default function MembresiasIndex({ membresias: serverMembresias }: Props) {
+    const parsedInitial: Membresia[] = (serverMembresias && serverMembresias.length > 0)
+        ? serverMembresias.map(m => ({
+            id: m.id,
+            nombre: m.nombre_plan || m.nombre,
+            descripcion: m.descripcion || '',
+            cuotaMensual: Number(m.monto_mensual ?? m.cuotaMensual ?? 0),
+            cuotaIngreso: Number(m.cuota_ingreso ?? m.cuotaIngreso ?? 0),
+            activo: m.activa ?? m.activo ?? true,
+            socios: m.socio_profiles_count ?? m.socios ?? 0,
+        }))
+        : initialData;
+
+    const [membresias, setMembresias] = useState<Membresia[]>(parsedInitial);
     const [dialogOpen, setDialogOpen] = useState(false);
     const [editTarget, setEditTarget] = useState<Membresia | null>(null);
 

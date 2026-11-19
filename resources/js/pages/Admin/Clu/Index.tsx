@@ -1,4 +1,4 @@
-import { Head } from '@inertiajs/react';
+import { Head, router } from '@inertiajs/react';
 import type { BreadcrumbItem } from '@/types';
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -76,8 +76,42 @@ const mockCredenciales: CredencialSocio[] = [
     },
 ];
 
-export default function CluIndex() {
-    const [credenciales, setCredenciales] = useState<CredencialSocio[]>(mockCredenciales);
+interface Props {
+    credenciales?: { data: any[] } | any[];
+    filtros?: { estado?: string; q?: string };
+    estadosDisponibles?: string[];
+}
+
+export default function CluIndex({ credenciales: serverCredenciales }: Props) {
+    const rawList = Array.isArray(serverCredenciales) ? serverCredenciales : (serverCredenciales?.data || []);
+    const parsedInitial: CredencialSocio[] = rawList.length > 0
+        ? rawList.map((c: any) => {
+            const user = c.socio_profile?.user || c.socioProfile?.user;
+            const estadoMap: Record<string, CredencialSocio['estado']> = {
+                'aprobado': 'Habilitado',
+                'pendiente': 'Pendiente Validación',
+                'vencido': 'Vencido',
+                'rechazado': 'Rechazado',
+            };
+            return {
+                id: c.id,
+                socio: user ? `${user.nombre} ${user.apellido}` : 'Socio #' + c.id,
+                dni: user?.dni || '-',
+                numeroClu: c.numero_clu || 'S/N',
+                vencimientoClu: c.fecha_vencimiento ? new Date(c.fecha_vencimiento).toLocaleDateString('es-AR') : 'Sin fecha',
+                estado: estadoMap[c.estado_validacion] || 'Pendiente Validación',
+                archivosSubidos: {
+                    dniFrente: !!c.foto_dni_frente_path,
+                    dniDorso: !!c.foto_dni_dorso_path,
+                    cluFrente: !!c.foto_clu_frente_path,
+                    cluDorso: !!c.foto_clu_dorso_path,
+                },
+                observacion: c.observaciones_auditoria || undefined,
+            };
+        })
+        : mockCredenciales;
+
+    const [credenciales, setCredenciales] = useState<CredencialSocio[]>(parsedInitial);
     const [search, setSearch] = useState('');
     const [selected, setSelected] = useState<CredencialSocio | null>(null);
 
@@ -88,10 +122,18 @@ export default function CluIndex() {
     );
 
     const validarCredencial = (id: number, aprobar: boolean) => {
-        setCredenciales(credenciales.map(c =>
-            c.id === id ? { ...c, estado: aprobar ? 'Habilitado' : 'Rechazado' } : c
-        ));
-        setSelected(null);
+        router.patch(`/admin/clu/${id}/validar`, {
+            estado: aprobar ? 'aprobado' : 'rechazado',
+            observaciones: aprobar ? 'Aprobado formalmente por Secretaría' : 'Rechazado por documentación inconsistente',
+        }, {
+            preserveScroll: true,
+            onSuccess: () => {
+                setCredenciales(credenciales.map(c =>
+                    c.id === id ? { ...c, estado: aprobar ? 'Habilitado' : 'Rechazado' } : c
+                ));
+                setSelected(null);
+            }
+        });
     };
 
     return (

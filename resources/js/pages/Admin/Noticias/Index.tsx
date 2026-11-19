@@ -32,8 +32,24 @@ const mockNoticias: Noticia[] = [
     { id: 4, titulo: 'Conmemoración del Aniversario Fundacional del Tiro Federal Formosa', categoria: 'Historia', fecha: '01/09/2026', publicado: true, vistas: 820 },
 ];
 
-export default function NoticiasIndex() {
-    const [noticias, setNoticias] = useState<Noticia[]>(mockNoticias);
+interface Props {
+    noticias?: { data: any[] } | any[];
+}
+
+export default function NoticiasIndex({ noticias: serverNoticias }: Props) {
+    const rawList = Array.isArray(serverNoticias) ? serverNoticias : (serverNoticias?.data || []);
+    const parsedInitial: Noticia[] = rawList.length > 0
+        ? rawList.map((n: any) => ({
+            id: n.id,
+            titulo: n.titulo,
+            categoria: 'Institucional',
+            fecha: n.fecha_publicacion ? new Date(n.fecha_publicacion).toLocaleDateString('es-AR') : '05/11/2026',
+            publicado: !!n.publicada,
+            vistas: 120,
+        }))
+        : mockNoticias;
+
+    const [noticias, setNoticias] = useState<Noticia[]>(parsedInitial);
     const [dialogOpen, setDialogOpen] = useState(false);
     const [titulo, setTitulo] = useState('');
     const [categoria, setCategoria] = useState('Institucional');
