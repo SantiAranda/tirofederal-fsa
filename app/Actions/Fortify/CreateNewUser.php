@@ -66,7 +66,18 @@ class CreateNewUser implements CreatesNewUsers
                     Rule::unique(User::class, 'email'),
                 ],
                 'password' => $this->passwordRules(),
+                'archivo_dni' => ['required', 'file', 'mimes:jpg,jpeg,png,pdf', 'max:10240'],
+                'archivo_clu' => ['required', 'file', 'mimes:jpg,jpeg,png,pdf', 'max:10240'],
+                'terminos' => ['sometimes', 'accepted'],
+                'novedades' => ['sometimes', 'boolean'],
             ], [
+                'terminos.accepted' => 'Debés aceptar los términos del servicio y decálogo de seguridad para continuar.',
+                'archivo_dni.required' => 'La copia o foto de tu DNI es obligatoria.',
+                'archivo_clu.required' => 'La copia o foto de tu Credencial de Legítimo Usuario (CLU) es obligatoria.',
+                'archivo_dni.mimes' => 'El DNI debe ser un archivo en formato PDF, JPG o PNG.',
+                'archivo_clu.mimes' => 'El CLU debe ser un archivo en formato PDF, JPG o PNG.',
+                'archivo_dni.max' => 'El archivo del DNI no puede superar los 10MB.',
+                'archivo_clu.max' => 'El archivo del CLU no puede superar los 10MB.',
                 'usuario.alpha_num' => 'El nombre de usuario solo debe contener letras y números.',
                 'usuario.min' => 'El nombre de usuario debe tener al menos 6 caracteres.',
                 'usuario.max' => 'El nombre de usuario no puede exceder los 30 caracteres.',
@@ -121,7 +132,7 @@ class CreateNewUser implements CreatesNewUsers
         ]);
 
         // Crear automáticamente el registro de SocioProfile vinculado (1:1)
-        SocioProfile::firstOrCreate(
+        $socioProfile = SocioProfile::firstOrCreate(
             ['user_id' => $user->id],
             [
                 'numero_socio' => 'TF-' . str_pad((string) $user->id, 5, '0', STR_PAD_LEFT),
@@ -131,6 +142,31 @@ class CreateNewUser implements CreatesNewUsers
                 'es_tirador_diario' => false,
             ]
         );
+
+        $dniPath = null;
+        if (request()->hasFile('archivo_dni')) {
+            $dniPath = request()->file('archivo_dni')->store('legajos/dni', 'public');
+        } elseif (isset($input['archivo_dni']) && $input['archivo_dni'] instanceof \Illuminate\Http\UploadedFile) {
+            $dniPath = $input['archivo_dni']->store('legajos/dni', 'public');
+        }
+
+        $cluPath = null;
+        if (request()->hasFile('archivo_clu')) {
+            $cluPath = request()->file('archivo_clu')->store('legajos/clu', 'public');
+        } elseif (isset($input['archivo_clu']) && $input['archivo_clu'] instanceof \Illuminate\Http\UploadedFile) {
+            $cluPath = $input['archivo_clu']->store('legajos/clu', 'public');
+        }
+
+        if ($dniPath || $cluPath) {
+            \App\Models\CredencialLu::updateOrCreate(
+                ['socio_profile_id' => $socioProfile->id],
+                [
+                    'foto_dni_frente_path' => $dniPath,
+                    'foto_clu_frente_path' => $cluPath,
+                    'estado_validacion' => 'pendiente',
+                ]
+            );
+        }
 
         return $user;
     }
