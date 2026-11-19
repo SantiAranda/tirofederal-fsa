@@ -33,6 +33,17 @@ class Evaluacion extends Model
     ];
 
     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array<int, string>
+     */
+    protected $appends = [
+        'puntaje',
+        'calificacion',
+        'socio_id',
+    ];
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
@@ -56,6 +67,16 @@ class Evaluacion extends Model
     public function setSocioIdAttribute($value): void
     {
         $this->attributes['socio_profile_id'] = $value;
+    }
+
+    public function getPuntajeAttribute(): ?int
+    {
+        return $this->puntaje_numerico;
+    }
+
+    public function setPuntajeAttribute($value): void
+    {
+        $this->attributes['puntaje_numerico'] = $value;
     }
 
     public function getCalificacionAttribute(): ?int

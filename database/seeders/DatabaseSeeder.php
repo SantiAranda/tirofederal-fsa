@@ -4,13 +4,20 @@ namespace Database\Seeders;
 
 use App\Enums\EstadoCLU;
 use App\Enums\EstadoSocio;
+use App\Enums\MetodoPago;
 use App\Enums\RolUsuario;
 use App\Enums\TipoSector;
 use App\Models\CredencialLu;
+use App\Models\Evaluacion;
+use App\Models\Evento;
+use App\Models\Insumo;
 use App\Models\InstructorProfile;
 use App\Models\LineaDeTiro;
 use App\Models\Membresia;
+use App\Models\Noticia;
+use App\Models\Pago;
 use App\Models\SocioProfile;
+use App\Models\Turno;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -166,5 +173,162 @@ class DatabaseSeeder extends Seeder
             'estado_validacion' => EstadoCLU::APROBADO,
             'observaciones_auditoria' => 'Credencial verificada conforme a normativa ANMaC.',
         ]);
+
+        // 6. Eventos y Torneos
+        Evento::firstOrCreate(
+            ['titulo' => 'Torneo Apertura Pistola Militar 9mm'],
+            [
+                'descripcion' => 'Competencia oficial de tiro de precisión a 25 metros. Categorías Libre y Promocional.',
+                'tipo_evento' => 'torneo',
+                'fecha_evento' => now()->addDays(7)->setTime(9, 0),
+                'cupo_maximo' => 20,
+                'cupos_disponibles' => 15,
+                'costo_inscripcion' => 5000.00,
+                'publicado' => true,
+            ]
+        );
+
+        Evento::firstOrCreate(
+            ['titulo' => 'Clínica de Tiro Práctico Dinámico IPSC'],
+            [
+                'descripcion' => 'Capacitación intensiva sobre desplazamientos, desenfunde seguro y transiciones entre blancos múltiples.',
+                'tipo_evento' => 'curso',
+                'fecha_evento' => now()->addDays(14)->setTime(14, 30),
+                'cupo_maximo' => 12,
+                'cupos_disponibles' => 8,
+                'costo_inscripcion' => 8500.00,
+                'publicado' => true,
+            ]
+        );
+
+        Evento::firstOrCreate(
+            ['titulo' => 'Torneo Confraternidad Carabina .22 LR'],
+            [
+                'descripcion' => 'Encuentro deportivo tradicional para socios y tiradores invitados en pedana cubierta.',
+                'tipo_evento' => 'evento',
+                'fecha_evento' => now()->addDays(21)->setTime(10, 0),
+                'cupo_maximo' => 30,
+                'cupos_disponibles' => 24,
+                'costo_inscripcion' => 3000.00,
+                'publicado' => true,
+            ]
+        );
+
+        // 7. Noticias Institucionales
+        $presidente = User::where('email', 'presidente@tirofederalformosa.org.ar')->first();
+
+        Noticia::firstOrCreate(
+            ['slug' => 'inauguracion-nuevas-pedanas-automatizadas'],
+            [
+                'user_id' => $presidente?->id,
+                'titulo' => 'Inauguración de Nuevas Pedanas Automatizadas',
+                'contenido' => 'La Comisión Directiva se enorgullece en anunciar la modernización del sistema de transporte de blancos en las líneas 1 a 6, mejorando la seguridad y comodidad en las prácticas.',
+                'imagen_portada' => '/images/sobre-nosotros.jpg',
+                'publicada' => true,
+                'fecha_publicacion' => now()->subDays(2),
+            ]
+        );
+
+        Noticia::firstOrCreate(
+            ['slug' => 'renovacion-certificaciones-anmac-2026'],
+            [
+                'user_id' => $presidente?->id,
+                'titulo' => 'Renovación de Certificaciones ANMaC y Protocolos 2026',
+                'contenido' => 'Recordamos a todos los asociados la obligatoriedad de mantener la Credencial de Legítimo Usuario (CLU) vigente. La administración brinda asesoramiento gratuito para el trámite.',
+                'imagen_portada' => '/images/hero-bg.jpg',
+                'publicada' => true,
+                'fecha_publicacion' => now()->subDays(5),
+            ]
+        );
+
+        Noticia::firstOrCreate(
+            ['slug' => 'gran-exito-torneo-regional-tiro-neumatico'],
+            [
+                'user_id' => $presidente?->id,
+                'titulo' => 'Gran Éxito en el Torneo Regional de Tiro Neumático',
+                'contenido' => 'Con más de 40 tiradores de toda la provincia y la región, se llevó a cabo una jornada inolvidable de camaradería y destreza deportiva en nuestras instalaciones.',
+                'imagen_portada' => '/images/sobre-nosotros.jpg',
+                'publicada' => true,
+                'fecha_publicacion' => now()->subDays(10),
+            ]
+        );
+
+        // 8. Evaluaciones y Testimonios
+        Evaluacion::firstOrCreate(
+            [
+                'socio_profile_id' => $socioProfile->id,
+                'evaluado_type' => 'App\Models\InstructorProfile',
+                'evaluado_id' => $userInstructor->id,
+            ],
+            [
+                'puntaje_numerico' => 5,
+                'comentario' => 'Excelente polígono, los instructores son muy atentos a las medidas de seguridad y el ambiente es de total camaradería.',
+                'aprobada_publicacion' => true,
+            ]
+        );
+
+        // 9. Insumos
+        Insumo::firstOrCreate(
+            ['nombre' => 'Blancos Internacionales Pistola 25m'],
+            [
+                'categoria' => 'Blancos y Siluetas',
+                'cantidad_stock' => 350,
+                'stock_minimo' => 50,
+                'precio_unitario' => 350.00,
+            ]
+        );
+
+        Insumo::firstOrCreate(
+            ['nombre' => 'Siluetas Metálicas Abatibles IPSC'],
+            [
+                'categoria' => 'Blancos y Siluetas',
+                'cantidad_stock' => 20,
+                'stock_minimo' => 5,
+                'precio_unitario' => 15000.00,
+            ]
+        );
+
+        Insumo::firstOrCreate(
+            ['nombre' => 'Protector Auditivo de Copa Homologado'],
+            [
+                'categoria' => 'Seguridad y Protección',
+                'cantidad_stock' => 15,
+                'stock_minimo' => 4,
+                'precio_unitario' => 18000.00,
+            ]
+        );
+
+        // 10. Turno de prueba
+        Turno::firstOrCreate(
+            [
+                'socio_profile_id' => $socioProfile->id,
+                'linea_de_tiro_id' => 1,
+                'fecha' => today()->toDateString(),
+            ],
+            [
+                'instructor_profile_id' => 1,
+                'hora_inicio' => '16:00:00',
+                'hora_fin' => '17:00:00',
+                'es_practica_individual_dia' => false,
+                'monto_arancel' => 0.00,
+                'estado' => 'reservado',
+                'observaciones' => 'Práctica estándar con pistola 9mm.',
+            ]
+        );
+
+        // 11. Pagos del mes
+        Pago::firstOrCreate(
+            [
+                'socio_profile_id' => $socioProfile->id,
+                'periodo_imputado' => now()->format('Y-m'),
+            ],
+            [
+                'monto' => 10000.00,
+                'fecha_pago' => now()->subDays(5),
+                'tipo_concepto' => 'cuota_social',
+                'metodo_pago' => MetodoPago::TRANSFERENCIA,
+                'estado' => 'aprobado',
+            ]
+        );
     }
 }

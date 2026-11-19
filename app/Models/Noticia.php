@@ -34,6 +34,18 @@ class Noticia extends Model
     ];
 
     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array<int, string>
+     */
+    protected $appends = [
+        'resumen',
+        'imagen_url',
+        'imagen',
+        'autor_id',
+    ];
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
@@ -49,6 +61,16 @@ class Noticia extends Model
     /**
      * Aliases backward-compatible.
      */
+    public function getResumenAttribute(): string
+    {
+        return \Illuminate\Support\Str::limit(strip_tags((string) $this->contenido), 140);
+    }
+
+    public function getImagenUrlAttribute(): ?string
+    {
+        return $this->imagen_portada;
+    }
+
     public function getAutorIdAttribute(): ?int
     {
         return $this->user_id;
