@@ -8,7 +8,7 @@ const navLinks = [
     { label: 'Inicio', href: '/' },
     { label: 'Institución', href: '/historia' },
     { label: 'Disciplinas', href: '/disciplinas' },
-    { label: 'Como asociarse', href: '/historia#asociarse' },
+    { label: 'Cómo asociarse', href: '/como-asociarse' },
     { label: 'Eventos y Torneos', href: '/eventos' },
     { label: 'Calendario', href: '/calendario' },
     { label: 'Prensa y Noticias', href: '/noticias' },

@@ -1,6 +1,6 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../wayfinder'
 /**
-* @see routes/web.php:68
+* @see routes/web.php:70
 * @route '/solicitud-en-tramite'
 */
 export const tramite = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -14,7 +14,7 @@ tramite.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see routes/web.php:68
+* @see routes/web.php:70
 * @route '/solicitud-en-tramite'
 */
 tramite.url = (options?: RouteQueryOptions) => {
@@ -22,7 +22,7 @@ tramite.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see routes/web.php:68
+* @see routes/web.php:70
 * @route '/solicitud-en-tramite'
 */
 tramite.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -31,7 +31,7 @@ tramite.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see routes/web.php:68
+* @see routes/web.php:70
 * @route '/solicitud-en-tramite'
 */
 tramite.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -40,7 +40,7 @@ tramite.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see routes/web.php:68
+* @see routes/web.php:70
 * @route '/solicitud-en-tramite'
 */
 const tramiteForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -49,7 +49,7 @@ const tramiteForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 })
 
 /**
-* @see routes/web.php:68
+* @see routes/web.php:70
 * @route '/solicitud-en-tramite'
 */
 tramiteForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -58,7 +58,7 @@ tramiteForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 })
 
 /**
-* @see routes/web.php:68
+* @see routes/web.php:70
 * @route '/solicitud-en-tramite'
 */
 tramiteForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

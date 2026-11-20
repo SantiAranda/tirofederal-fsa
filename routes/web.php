@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\CalendarioController as AdminCalendarioController;
 use App\Http\Controllers\Admin\CluController as AdminCluController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
-use App\Http\Controllers\Admin\CalendarioController as AdminCalendarioController;
 use App\Http\Controllers\Admin\EventoController as AdminEventoController;
 use App\Http\Controllers\Admin\InstructorController as AdminInstructorController;
 use App\Http\Controllers\Admin\InsumoController as AdminInsumoController;
@@ -22,6 +22,7 @@ use App\Http\Controllers\Socio\PagoController as SocioPagoController;
 use App\Http\Controllers\Socio\PerfilController as SocioPerfilController;
 use App\Http\Controllers\Socio\TurnoController as SocioTurnoController;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,7 @@ Route::get('/', [PublicController::class, 'home'])->name('home');
 Route::get('/historia', [PublicController::class, 'historia'])->name('historia');
 Route::get('/disciplinas', [PublicController::class, 'disciplinas'])->name('disciplinas');
 Route::get('/decalogo', [PublicController::class, 'decalogo'])->name('decalogo');
+Route::get('/como-asociarse', [PublicController::class, 'asociarse'])->name('asociarse');
 Route::get('/eventos', [PublicController::class, 'eventos'])->name('public.eventos');
 Route::get('/calendario', [PublicController::class, 'calendario'])->name('public.calendario');
 Route::get('/eventos/{evento}', [PublicController::class, 'eventoDetalle'])->whereNumber('evento')->name('public.eventos.show');
@@ -67,12 +69,13 @@ Route::get('/dashboard', function () {
 
 Route::get('/solicitud-en-tramite', function () {
     $user = auth()->user();
-    return \Inertia\Inertia::render('auth/solicitud-en-tramite', [
+
+    return Inertia::render('auth/solicitud-en-tramite', [
         'user' => $user ? [
             'nombre' => $user->nombre ?? $user->name,
             'apellido' => $user->apellido,
             'email' => $user->email,
-            'numero_socio' => $user->socioProfile?->numero_socio ?? ('TF-' . str_pad((string) $user->id, 5, '0', STR_PAD_LEFT)),
+            'numero_socio' => $user->socioProfile?->numero_socio ?? ('TF-'.str_pad((string) $user->id, 5, '0', STR_PAD_LEFT)),
             'estado_habilitacion' => $user->socioProfile?->estado_habilitacion ?? 'pendiente_validacion',
         ] : null,
     ]);
@@ -159,7 +162,7 @@ Route::middleware(['auth', 'role:presidente'])->prefix('admin')->name('admin.')-
     Route::get('/calendario', [AdminCalendarioController::class, 'index'])->name('calendario');
 
     Route::get('/configuracion', function () {
-        return \Inertia\Inertia::render('Admin/Configuracion/Index');
+        return Inertia::render('Admin/Configuracion/Index');
     })->name('configuracion.index');
 });
 

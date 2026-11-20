@@ -312,13 +312,19 @@ export default function Home({ eventosProximos, testimonios, noticiasRecientes }
                         })}
                     </div>
 
-                    <div className="text-center mt-12">
+                    <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
                         <Link
                             href="/register"
                             className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:shadow-blue-500/30"
                         >
                             <UserPlus className="w-5 h-5" />
                             Crear mi cuenta gratuita
+                        </Link>
+                        <Link
+                            href="/como-asociarse"
+                            className="inline-flex items-center gap-2 border border-blue-200 text-blue-700 hover:bg-blue-50 font-semibold px-8 py-4 rounded-xl text-lg transition-colors"
+                        >
+                            Ver requisitos <ChevronRight className="w-5 h-5" />
                         </Link>
                     </div>
                 </div>

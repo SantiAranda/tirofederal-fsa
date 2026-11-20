@@ -6,6 +6,7 @@ use App\Http\Requests\ContactoRequest;
 use App\Models\Evaluacion;
 use App\Models\Evento;
 use App\Models\Noticia;
+use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -104,6 +105,40 @@ class PublicController extends Controller
     }
 
     /**
+     * Requisitos para asociarse al club, separados para mayores y menores de edad.
+     */
+    public function asociarse(): Response
+    {
+        return Inertia::render('Public/ComoAsociarse', [
+            'requisitos' => [
+                'mayores' => [
+                    'DNI vigente (frente y dorso).',
+                    'Credencial de Legítimo Usuario (CLU) vigente.',
+                    'Certificado de apto médico (físico y psicológico).',
+                    'Constancia de domicilio actualizada.',
+                    'Aceptación del reglamento interno y del Decálogo del Tirador.',
+                    'Pago de la inscripción y de la primera cuota social.',
+                ],
+                'menores' => [
+                    'DNI vigente del menor (frente y dorso).',
+                    'DNI del padre, madre o tutor legal.',
+                    'Partida de nacimiento o documentación que acredite la tutela.',
+                    'Autorización escrita y firmada por el padre, madre o tutor legal.',
+                    'Certificado de apto médico del menor.',
+                    'Aceptación del reglamento interno y del Decálogo del Tirador, firmada también por el tutor.',
+                    'Pago de la inscripción y de la primera cuota social.',
+                ],
+                'condicionesMenores' => [
+                    'No necesitan CLU: usan armas del club o de su tutor, bajo la responsabilidad de este.',
+                    'Practican siempre acompañados por un instructor habilitado o por su tutor.',
+                    'Solo pueden usar las disciplinas habilitadas para su edad (por ejemplo, tiro neumático o carabina .22).',
+                    'La inscripción se completa de forma presencial en la secretaría del club, junto con el tutor.',
+                ],
+            ],
+        ]);
+    }
+
+    /**
      * Calendario público de eventos, torneos y cursos (RF26).
      */
     public function eventos(): Response
@@ -135,22 +170,23 @@ class PublicController extends Controller
             ->get();
 
         $items = $eventos->map(function ($ev) {
-            $date = \Carbon\Carbon::parse($ev->fecha_evento);
+            $date = Carbon::parse($ev->fecha_evento);
+
             return [
-                'id' => 'evento-' . $ev->id,
+                'id' => 'evento-'.$ev->id,
                 'raw_id' => $ev->id,
                 'title' => $ev->titulo,
                 'date' => $date->format('Y-m-d'),
                 'time' => $date->format('H:i'),
                 'type' => $ev->tipo_evento,
-                'badgeText' => match($ev->tipo_evento) {
+                'badgeText' => match ($ev->tipo_evento) {
                     'torneo' => 'Torneo',
                     'tirada_nocturna' => 'Tirada Nocturna',
                     'curso_capacitacion', 'curso' => 'Curso / Clínica',
                     default => 'Evento'
                 },
                 'status' => 'Programado',
-                'color' => match($ev->tipo_evento) {
+                'color' => match ($ev->tipo_evento) {
                     'torneo' => 'blue',
                     'tirada_nocturna' => 'purple',
                     'curso_capacitacion', 'curso' => 'amber',
