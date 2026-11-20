@@ -117,26 +117,26 @@ export default function AdminDashboard({ metricas, evaluaciones = [] }: AdminDas
             <Head title="Presidencia y Dashboard General - Tiro Federal Formosa" />
 
             {/* Header Principal con Controles */}
-            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white p-4 sm:p-6 rounded-2xl border border-gray-100 shadow-sm">
                 <div>
                     <div className="flex items-center gap-2">
-                        <span className="p-2 bg-blue-50 text-blue-600 rounded-xl">
+                        <span className="p-2 bg-blue-50 text-blue-600 rounded-xl shrink-0">
                             <Activity className="w-5 h-5" />
                         </span>
-                        <h1 className="text-2xl font-bold tracking-tight text-gray-900">Presidencia y Dashboard General</h1>
+                        <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-gray-900">Presidencia y Dashboard General</h1>
                     </div>
-                    <p className="text-sm text-muted-foreground mt-1">
+                    <p className="text-xs sm:text-sm text-muted-foreground mt-1">
                         Control institucional del Tiro Federal Formosa: operaciones en vivo, recaudación y reportes de calidad.
                     </p>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-2">
-                    <Button variant="outline" asChild className="gap-1.5 text-xs h-9">
+                <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+                    <Button variant="outline" asChild className="gap-1.5 text-xs h-9 flex-1 sm:flex-none">
                         <Link href="/admin/socios/exportar">
                             <Download className="w-4 h-4 text-gray-500" /> Exportar Padrón
                         </Link>
                     </Button>
-                    <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white gap-1.5 text-xs h-9 shadow-sm shadow-blue-500/20">
+                    <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white gap-1.5 text-xs h-9 shadow-sm shadow-blue-500/20 flex-1 sm:flex-none">
                         <Link href="/admin/eventos/create">
                             <Plus className="w-4 h-4" /> Nuevo Torneo
                         </Link>
@@ -158,7 +158,7 @@ export default function AdminDashboard({ metricas, evaluaciones = [] }: AdminDas
                         <button
                             key={tab.id}
                             onClick={() => setActiveTab(tab.id as typeof activeTab)}
-                            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap ${active
+                            className={`flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap shrink-0 ${active
                                 ? 'bg-white text-blue-600 shadow-sm border border-gray-200'
                                 : 'text-gray-600 hover:text-gray-900 hover:bg-white/60'
                                 }`}
@@ -196,72 +196,72 @@ export default function AdminDashboard({ metricas, evaluaciones = [] }: AdminDas
             )}
 
             {/* 4 KPIs CLAVE (Presentes en todo momento) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <Card className="border-l-4 border-l-blue-600 shadow-sm rounded-2xl">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+                <Card className="border-l-4 border-l-blue-600 shadow-sm rounded-2xl overflow-hidden">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Padrón de Socios</CardTitle>
-                        <div className="rounded-xl bg-blue-50 p-2 text-blue-600">
+                        <CardTitle className="text-xs font-semibold uppercase tracking-wider text-muted-foreground truncate">Padrón de Socios</CardTitle>
+                        <div className="rounded-xl bg-blue-50 p-2 text-blue-600 shrink-0">
                             <Users className="h-4 w-4" />
                         </div>
                     </CardHeader>
-                    <CardContent>
-                        <div className="text-3xl font-extrabold text-gray-900">{metricas.socios_activos}</div>
-                        <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
-                            <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
+                    <CardContent className="min-w-0">
+                        <div className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight truncate">{metricas.socios_activos}</div>
+                        <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1 truncate">
+                            <TrendingUp className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                             <span className="font-medium text-emerald-700">Socios activos</span> · {metricas.socios_pendientes} en trámite
                         </p>
                     </CardContent>
                 </Card>
 
-                <Card className="border-l-4 border-l-emerald-600 shadow-sm rounded-2xl">
+                <Card className="border-l-4 border-l-emerald-600 shadow-sm rounded-2xl overflow-hidden">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Recaudación Mensual</CardTitle>
-                        <div className="rounded-xl bg-emerald-50 p-2 text-emerald-600">
+                        <CardTitle className="text-xs font-semibold uppercase tracking-wider text-muted-foreground truncate">Recaudación Mensual</CardTitle>
+                        <div className="rounded-xl bg-emerald-50 p-2 text-emerald-600 shrink-0">
                             <DollarSign className="h-4 w-4" />
                         </div>
                     </CardHeader>
-                    <CardContent>
-                        <div className="text-3xl font-extrabold text-gray-900">{fmt(totalRecaudado)}</div>
-                        <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
+                    <CardContent className="min-w-0">
+                        <div className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight truncate" title={fmt(totalRecaudado)}>{fmt(totalRecaudado)}</div>
+                        <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1 truncate">
                             {metricas.socios_mora > 0 ? (
-                                <span className="text-amber-600 flex items-center gap-1 font-medium">
-                                    <AlertCircle className="w-3.5 h-3.5" /> {metricas.socios_mora} con cuota en mora
+                                <span className="text-amber-600 flex items-center gap-1 font-medium truncate">
+                                    <AlertCircle className="w-3.5 h-3.5 shrink-0" /> {metricas.socios_mora} con cuota en mora
                                 </span>
                             ) : (
-                                <span className="text-emerald-600 flex items-center gap-1 font-medium">
-                                    <CheckCircle2 className="w-3.5 h-3.5" /> Padrón societario al día
+                                <span className="text-emerald-600 flex items-center gap-1 font-medium truncate">
+                                    <CheckCircle2 className="w-3.5 h-3.5 shrink-0" /> Padrón societario al día
                                 </span>
                             )}
                         </p>
                     </CardContent>
                 </Card>
 
-                <Card className="border-l-4 border-l-purple-600 shadow-sm rounded-2xl">
+                <Card className="border-l-4 border-l-purple-600 shadow-sm rounded-2xl overflow-hidden">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Ocupación Polígono</CardTitle>
-                        <div className="rounded-xl bg-purple-50 p-2 text-purple-600">
+                        <CardTitle className="text-xs font-semibold uppercase tracking-wider text-muted-foreground truncate">Ocupación Polígono</CardTitle>
+                        <div className="rounded-xl bg-purple-50 p-2 text-purple-600 shrink-0">
                             <Target className="h-4 w-4" />
                         </div>
                     </CardHeader>
-                    <CardContent>
-                        <div className="text-3xl font-extrabold text-gray-900">{metricas.turnos_hoy} turnos</div>
-                        <p className="text-xs text-muted-foreground mt-1">
+                    <CardContent className="min-w-0">
+                        <div className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight truncate">{metricas.turnos_hoy} turnos</div>
+                        <p className="text-xs text-muted-foreground mt-1 truncate">
                             Asignados en pedanas para el día de hoy
                         </p>
                     </CardContent>
                 </Card>
 
-                <Card className="border-l-4 border-l-amber-500 shadow-sm rounded-2xl">
+                <Card className="border-l-4 border-l-amber-500 shadow-sm rounded-2xl overflow-hidden">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Índice de Calidad</CardTitle>
-                        <div className="rounded-xl bg-amber-50 p-2 text-amber-500">
+                        <CardTitle className="text-xs font-semibold uppercase tracking-wider text-muted-foreground truncate">Índice de Calidad</CardTitle>
+                        <div className="rounded-xl bg-amber-50 p-2 text-amber-500 shrink-0">
                             <Star className="h-4 w-4 fill-amber-500" />
                         </div>
                     </CardHeader>
-                    <CardContent>
-                        <div className="text-3xl font-extrabold text-gray-900">{metricas.promedio_calidad} / 5.0</div>
-                        <p className="text-xs text-amber-600 mt-1 font-medium flex items-center gap-1">
-                            <Star className="w-3 h-3 fill-amber-500" /> 94% valoraciones de 5 estrellas
+                    <CardContent className="min-w-0">
+                        <div className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight truncate">{metricas.promedio_calidad} / 5.0</div>
+                        <p className="text-xs text-amber-600 mt-1 font-medium flex items-center gap-1 truncate">
+                            <Star className="w-3 h-3 fill-amber-500 shrink-0" /> 94% valoraciones de 5 estrellas
                         </p>
                     </CardContent>
                 </Card>
@@ -485,15 +485,15 @@ export default function AdminDashboard({ metricas, evaluaciones = [] }: AdminDas
             {/* SECCIÓN 3: CALIDAD Y EVALUACIONES (Visible en tab 'calidad' o 'integral') */}
             {(activeTab === 'calidad' || activeTab === 'integral') && (
                 <div className="space-y-6">
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                         <div>
-                            <h2 className="text-lg font-bold text-gray-900 tracking-tight flex items-center gap-2">
-                                <Award className="w-5 h-5 text-amber-500" />
+                            <h2 className="text-base sm:text-lg font-bold text-gray-900 tracking-tight flex items-center gap-2">
+                                <Award className="w-5 h-5 text-amber-500 shrink-0" />
                                 Auditoría de Calidad y Devoluciones de Socios
                             </h2>
                             <p className="text-xs text-muted-foreground">Calificaciones directas emitidas por socios tras turnos, clínicas y torneos.</p>
                         </div>
-                        <Badge className="bg-amber-100 text-amber-800 border-amber-200">
+                        <Badge className="bg-amber-100 text-amber-800 border-amber-200 self-start sm:self-auto shrink-0">
                             Promedio General: {metricas.promedio_calidad} / 5.0 ★
                         </Badge>
                     </div>
@@ -507,8 +507,8 @@ export default function AdminDashboard({ metricas, evaluaciones = [] }: AdminDas
                                 Comentarios y puntuaciones de seguridad, técnica y mantenimiento
                             </CardDescription>
                         </CardHeader>
-                        <CardContent className="p-0">
-                            <Table>
+                        <CardContent className="p-0 overflow-x-auto">
+                            <Table className="min-w-[650px]">
                                 <TableHeader>
                                     <TableRow className="bg-gray-50/70">
                                         <TableHead className="text-xs">Fecha</TableHead>

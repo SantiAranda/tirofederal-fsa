@@ -120,7 +120,7 @@ export default function CreatePago({ socios = [], membresias = [] }: Props) {
                     </div>
                 </div>
 
-                <Button variant="outline" asChild className="gap-2">
+                <Button variant="outline" asChild className="gap-2 w-full sm:w-auto">
                     <Link href="/admin/pagos">
                         <ArrowLeft className="w-4 h-4" /> Volver al listado
                     </Link>
@@ -343,19 +343,19 @@ export default function CreatePago({ socios = [], membresias = [] }: Props) {
                 </div>
 
                 {/* BOTONES DE ACCIÓN INFERIORES */}
-                <div className="flex justify-end items-center gap-3 pt-2">
+                <div className="flex flex-col-reverse sm:flex-row justify-end items-stretch sm:items-center gap-3 pt-4 border-t border-gray-100">
                     <Button
                         type="button"
                         variant="ghost"
                         onClick={() => reset()}
-                        className="gap-2"
+                        className="gap-2 w-full sm:w-auto"
                     >
                         <RotateCcw className="w-4 h-4" /> Limpiar formulario
                     </Button>
                     <Button
                         type="submit"
                         disabled={processing || !data.socio_profile_id || !data.monto}
-                        className="bg-blue-600 hover:bg-blue-700 text-white gap-2 px-6 shadow-md shadow-blue-500/20"
+                        className="bg-blue-600 hover:bg-blue-700 text-white gap-2 px-6 shadow-md shadow-blue-500/20 w-full sm:w-auto"
                     >
                         <Save className="w-4 h-4" /> Registrar y emitir comprobante
                     </Button>

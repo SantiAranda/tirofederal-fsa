@@ -122,7 +122,7 @@ export default function InstructoresIndex({ instructores: serverInstructores }: 
     return (
         <>
             <Head title="Instructores de Tiro - Tiro Federal Formosa" />
-            <div className="flex flex-col gap-6 p-6">
+            <div className="flex flex-col gap-6">
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div>
@@ -131,7 +131,7 @@ export default function InstructoresIndex({ instructores: serverInstructores }: 
                             Control de matrículas habilitantes ANMaC (ITA / ITB) y asignación de clases
                         </p>
                     </div>
-                    <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white gap-2">
+                    <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white gap-2 w-full sm:w-auto">
                         <Link href="/admin/instructores/create">
                             <Plus className="w-4 h-4" /> Alta Instructor
                         </Link>
@@ -180,7 +180,7 @@ export default function InstructoresIndex({ instructores: serverInstructores }: 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {instructores.map((inst) => (
                         <Card key={inst.id} className="border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
-                            <CardContent className="p-6">
+                            <CardContent className="p-4 sm:p-6">
                                 <div className="flex items-start justify-between">
                                     <div className="flex items-center gap-3">
                                         <div className="w-12 h-12 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-lg">

@@ -92,37 +92,37 @@ export default function MisPagos() {
 
                 {/* Summary cards */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-5 flex items-center gap-4">
-                        <div className={`p-3 rounded-full ${tieneVencidas ? 'bg-red-50' : 'bg-green-50'}`}>
+                    <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-4 sm:p-5 flex items-center gap-4 overflow-hidden">
+                        <div className={`p-3 rounded-xl shrink-0 ${tieneVencidas ? 'bg-red-50' : 'bg-green-50'}`}>
                             {tieneVencidas
-                                ? <XCircle className="w-6 h-6 text-red-600" />
-                                : <CheckCircle2 className="w-6 h-6 text-green-600" />}
+                                ? <XCircle className="w-5 h-5 sm:w-6 sm:h-6 text-red-600" />
+                                : <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />}
                         </div>
-                        <div>
-                            <p className="text-xs text-gray-500">Estado</p>
-                            <p className={`text-base font-semibold ${tieneVencidas ? 'text-red-700' : 'text-green-700'}`}>
+                        <div className="min-w-0">
+                            <p className="text-xs text-gray-500 truncate">Estado</p>
+                            <p className={`text-base font-semibold truncate ${tieneVencidas ? 'text-red-700' : 'text-green-700'}`}>
                                 {tieneVencidas ? 'En mora' : 'Al día'}
                             </p>
                         </div>
                     </div>
 
-                    <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-5 flex items-center gap-4">
-                        <div className="p-3 rounded-full bg-blue-50">
-                            <Calendar className="w-6 h-6 text-blue-600" />
+                    <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-4 sm:p-5 flex items-center gap-4 overflow-hidden">
+                        <div className="p-3 rounded-xl bg-blue-50 shrink-0">
+                            <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
                         </div>
-                        <div>
-                            <p className="text-xs text-gray-500">Próximo vencimiento</p>
-                            <p className="text-base font-semibold text-gray-800">{proximoVencimiento}</p>
+                        <div className="min-w-0">
+                            <p className="text-xs text-gray-500 truncate">Próximo vencimiento</p>
+                            <p className="text-base font-semibold text-gray-800 truncate">{proximoVencimiento}</p>
                         </div>
                     </div>
 
-                    <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-5 flex items-center gap-4">
-                        <div className="p-3 rounded-full bg-indigo-50">
-                            <TrendingUp className="w-6 h-6 text-indigo-600" />
+                    <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-4 sm:p-5 flex items-center gap-4 overflow-hidden">
+                        <div className="p-3 rounded-xl bg-indigo-50 shrink-0">
+                            <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-indigo-600" />
                         </div>
-                        <div>
-                            <p className="text-xs text-gray-500">Total pagado (año)</p>
-                            <p className="text-base font-semibold text-gray-800">{formatMonto(totalPagado)}</p>
+                        <div className="min-w-0">
+                            <p className="text-xs text-gray-500 truncate">Total pagado (año)</p>
+                            <p className="text-base font-semibold text-gray-800 truncate" title={formatMonto(totalPagado)}>{formatMonto(totalPagado)}</p>
                         </div>
                     </div>
                 </div>

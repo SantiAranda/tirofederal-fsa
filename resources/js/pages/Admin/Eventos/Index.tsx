@@ -124,7 +124,7 @@ export default function EventosIndex({ eventos: serverEventos }: Props) {
     return (
         <>
             <Head title="Eventos y Torneos - Tiro Federal Formosa" />
-            <div className="flex flex-col gap-6 p-6">
+            <div className="flex flex-col gap-6">
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div>
@@ -134,7 +134,7 @@ export default function EventosIndex({ eventos: serverEventos }: Props) {
                         </p>
                     </div>
                     {tab === 'proximos' && (
-                        <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white gap-2">
+                        <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white gap-2 w-full sm:w-auto">
                             <Link href="/admin/eventos/create">
                                 <Plus className="w-4 h-4" /> Nuevo Evento
                             </Link>
@@ -143,10 +143,10 @@ export default function EventosIndex({ eventos: serverEventos }: Props) {
                 </div>
 
                 {/* Tabs switcher */}
-                <div className="flex border-b border-gray-200">
+                <div className="flex border-b border-gray-200 overflow-x-auto whitespace-nowrap">
                     <button
                         onClick={() => setTab('proximos')}
-                        className={`pb-3 px-4 font-semibold text-sm border-b-2 flex items-center gap-2 transition-colors ${
+                        className={`pb-3 px-4 font-semibold text-sm border-b-2 flex items-center gap-2 shrink-0 transition-colors ${
                             tab === 'proximos'
                                 ? 'border-blue-600 text-blue-600'
                                 : 'border-transparent text-gray-500 hover:text-gray-800'
@@ -156,7 +156,7 @@ export default function EventosIndex({ eventos: serverEventos }: Props) {
                     </button>
                     <button
                         onClick={() => setTab('poligono')}
-                        className={`pb-3 px-4 font-semibold text-sm border-b-2 flex items-center gap-2 transition-colors ${
+                        className={`pb-3 px-4 font-semibold text-sm border-b-2 flex items-center gap-2 shrink-0 transition-colors ${
                             tab === 'poligono'
                                 ? 'border-blue-600 text-blue-600'
                                 : 'border-transparent text-gray-500 hover:text-gray-800'
