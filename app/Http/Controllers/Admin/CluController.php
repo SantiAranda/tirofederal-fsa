@@ -104,6 +104,12 @@ class CluController extends Controller
             abort(404, 'El archivo solicitado no existe o no ha sido cargado.');
         }
 
-        return response()->file($path);
+        $mime = mime_content_type($path) ?: 'application/octet-stream';
+        $filename = basename($path);
+
+        return response()->file($path, [
+            'Content-Type' => $mime,
+            'Content-Disposition' => 'inline; filename="' . $filename . '"',
+        ]);
     }
 }

@@ -144,10 +144,30 @@ class CluService
         }
 
         $path = $credencial->$columna;
-        if (! Storage::disk('local')->exists($path)) {
-            return null;
+        $cleanPath = ltrim(str_replace(['public/', 'storage/'], '', $path), '/');
+
+        // 1. Buscar en disco privado (local)
+        if (Storage::disk('local')->exists($path)) {
+            return Storage::disk('local')->path($path);
+        }
+        if (Storage::disk('local')->exists($cleanPath)) {
+            return Storage::disk('local')->path($cleanPath);
         }
 
-        return Storage::disk('local')->path($path);
+        // 2. Buscar en disco público (storage/app/public)
+        if (Storage::disk('public')->exists($path)) {
+            return Storage::disk('public')->path($path);
+        }
+        if (Storage::disk('public')->exists($cleanPath)) {
+            return Storage::disk('public')->path($cleanPath);
+        }
+
+        // 3. Fallback en carpeta storage/app/public directa
+        $publicStoragePath = storage_path('app/public/' . $cleanPath);
+        if (file_exists($publicStoragePath)) {
+            return $publicStoragePath;
+        }
+
+        return null;
     }
 }
