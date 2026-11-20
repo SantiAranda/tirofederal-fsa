@@ -1,7 +1,7 @@
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { usePage, Link } from '@inertiajs/react';
-import { Bell } from 'lucide-react';
+import { Bell, Home } from 'lucide-react';
 import type { BreadcrumbItem as BreadcrumbItemType } from '@/types';
 
 export function AppSidebarHeader({
@@ -32,8 +32,18 @@ export function AppSidebarHeader({
                 <Breadcrumbs breadcrumbs={breadcrumbs} />
             </div>
 
-            {/* Derecha: notificaciones + avatar */}
+            {/* Derecha: sitio público + notificaciones + avatar */}
             <div className="flex items-center gap-3">
+                {/* Volver a la página principal del club */}
+                <Link
+                    href="/"
+                    title="Ir a la página principal"
+                    className="flex items-center gap-1.5 rounded-lg border border-gray-200 px-2.5 py-1.5 text-sm font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+                >
+                    <Home className="w-4 h-4" />
+                    <span className="hidden sm:inline">Página principal</span>
+                </Link>
+
                 {/* Campana de notificaciones */}
                 <button className="relative p-1.5 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-900 transition-colors">
                     <Bell className="w-5 h-5" />

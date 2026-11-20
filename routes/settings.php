@@ -23,5 +23,6 @@ Route::middleware(['auth', 'cuenta.activa'])->group(function () {
         ->middleware('throttle:6,1')
         ->name('user-password.update');
 
-    Route::inertia('settings/appearance', 'settings/appearance')->name('appearance.edit');
+    // La app usa solo tema claro; se conserva la ruta por compatibilidad.
+    Route::get('settings/appearance', fn () => redirect()->route('profile.edit'))->name('appearance.edit');
 });
