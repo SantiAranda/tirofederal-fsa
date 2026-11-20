@@ -4,7 +4,7 @@ import turnos from './turnos'
 import evaluaciones from './evaluaciones'
 /**
 * @see \App\Http\Controllers\Instructor\CalendarioController::calendario
-* @see app/Http/Controllers/Instructor/CalendarioController.php:18
+* @see Http/Controllers/Instructor/CalendarioController.php:18
 * @route '/instructor/calendario'
 */
 export const calendario = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -19,20 +19,16 @@ calendario.definition = {
 
 /**
 * @see \App\Http\Controllers\Instructor\CalendarioController::calendario
-* @see app/Http/Controllers/Instructor/CalendarioController.php:18
+* @see Http/Controllers/Instructor/CalendarioController.php:18
 * @route '/instructor/calendario'
 */
 calendario.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return calendario.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Instructor\CalendarioController::calendario
-* @see app/Http/Controllers/Instructor/CalendarioController.php:18
+* @see Http/Controllers/Instructor/CalendarioController.php:18
 * @route '/instructor/calendario'
 */
 calendario.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -42,7 +38,7 @@ calendario.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Instructor\CalendarioController::calendario
-* @see app/Http/Controllers/Instructor/CalendarioController.php:18
+* @see Http/Controllers/Instructor/CalendarioController.php:18
 * @route '/instructor/calendario'
 */
 calendario.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -52,7 +48,7 @@ calendario.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Instructor\CalendarioController::calendario
-* @see app/Http/Controllers/Instructor/CalendarioController.php:18
+* @see Http/Controllers/Instructor/CalendarioController.php:18
 * @route '/instructor/calendario'
 */
 const calendarioForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -62,7 +58,7 @@ const calendarioForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'>
 
 /**
 * @see \App\Http\Controllers\Instructor\CalendarioController::calendario
-* @see app/Http/Controllers/Instructor/CalendarioController.php:18
+* @see Http/Controllers/Instructor/CalendarioController.php:18
 * @route '/instructor/calendario'
 */
 calendarioForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -72,7 +68,7 @@ calendarioForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 
 /**
 * @see \App\Http\Controllers\Instructor\CalendarioController::calendario
-* @see app/Http/Controllers/Instructor/CalendarioController.php:18
+* @see Http/Controllers/Instructor/CalendarioController.php:18
 * @route '/instructor/calendario'
 */
 calendarioForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -86,8 +82,6 @@ calendarioForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 })
 
 calendario.form = calendarioForm
-
-
 
 const instructor = {
     agenda: Object.assign(agenda, agenda),

@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\PublicController::show
-* @see app/Http/Controllers/PublicController.php:178
+* @see Http/Controllers/PublicController.php:178
 * @route '/eventos/{evento}'
 */
 export const show = (args: { evento: number | { id: number } } | [evento: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\PublicController::show
-* @see app/Http/Controllers/PublicController.php:178
+* @see Http/Controllers/PublicController.php:178
 * @route '/eventos/{evento}'
 */
 show.url = (args: { evento: number | { id: number } } | [evento: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -36,7 +36,6 @@ show.url = (args: { evento: number | { id: number } } | [evento: number | { id: 
 
     args = applyUrlDefaults(args)
 
-
     const parsedArgs = {
         evento: typeof args.evento === 'object'
         ? args.evento.id
@@ -50,7 +49,7 @@ show.url = (args: { evento: number | { id: number } } | [evento: number | { id: 
 
 /**
 * @see \App\Http\Controllers\PublicController::show
-* @see app/Http/Controllers/PublicController.php:178
+* @see Http/Controllers/PublicController.php:178
 * @route '/eventos/{evento}'
 */
 show.get = (args: { evento: number | { id: number } } | [evento: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -60,7 +59,7 @@ show.get = (args: { evento: number | { id: number } } | [evento: number | { id: 
 
 /**
 * @see \App\Http\Controllers\PublicController::show
-* @see app/Http/Controllers/PublicController.php:178
+* @see Http/Controllers/PublicController.php:178
 * @route '/eventos/{evento}'
 */
 show.head = (args: { evento: number | { id: number } } | [evento: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -70,7 +69,7 @@ show.head = (args: { evento: number | { id: number } } | [evento: number | { id:
 
 /**
 * @see \App\Http\Controllers\PublicController::show
-* @see app/Http/Controllers/PublicController.php:178
+* @see Http/Controllers/PublicController.php:178
 * @route '/eventos/{evento}'
 */
 const showForm = (args: { evento: number | { id: number } } | [evento: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -80,7 +79,7 @@ const showForm = (args: { evento: number | { id: number } } | [evento: number | 
 
 /**
 * @see \App\Http\Controllers\PublicController::show
-* @see app/Http/Controllers/PublicController.php:178
+* @see Http/Controllers/PublicController.php:178
 * @route '/eventos/{evento}'
 */
 showForm.get = (args: { evento: number | { id: number } } | [evento: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -90,7 +89,7 @@ showForm.get = (args: { evento: number | { id: number } } | [evento: number | { 
 
 /**
 * @see \App\Http\Controllers\PublicController::show
-* @see app/Http/Controllers/PublicController.php:178
+* @see Http/Controllers/PublicController.php:178
 * @route '/eventos/{evento}'
 */
 showForm.head = (args: { evento: number | { id: number } } | [evento: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -104,8 +103,6 @@ showForm.head = (args: { evento: number | { id: number } } | [evento: number | {
 })
 
 show.form = showForm
-
-
 
 const eventos = {
     show: Object.assign(show, show),

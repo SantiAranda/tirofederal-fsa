@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Instructor\CalendarioController::index
-* @see app/Http/Controllers/Instructor/CalendarioController.php:18
+* @see Http/Controllers/Instructor/CalendarioController.php:18
 * @route '/instructor/calendario'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,20 +16,16 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\Instructor\CalendarioController::index
-* @see app/Http/Controllers/Instructor/CalendarioController.php:18
+* @see Http/Controllers/Instructor/CalendarioController.php:18
 * @route '/instructor/calendario'
 */
 index.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return index.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Instructor\CalendarioController::index
-* @see app/Http/Controllers/Instructor/CalendarioController.php:18
+* @see Http/Controllers/Instructor/CalendarioController.php:18
 * @route '/instructor/calendario'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -39,7 +35,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Instructor\CalendarioController::index
-* @see app/Http/Controllers/Instructor/CalendarioController.php:18
+* @see Http/Controllers/Instructor/CalendarioController.php:18
 * @route '/instructor/calendario'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -49,7 +45,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Instructor\CalendarioController::index
-* @see app/Http/Controllers/Instructor/CalendarioController.php:18
+* @see Http/Controllers/Instructor/CalendarioController.php:18
 * @route '/instructor/calendario'
 */
 const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -59,7 +55,7 @@ const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\Instructor\CalendarioController::index
-* @see app/Http/Controllers/Instructor/CalendarioController.php:18
+* @see Http/Controllers/Instructor/CalendarioController.php:18
 * @route '/instructor/calendario'
 */
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -69,7 +65,7 @@ indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Instructor\CalendarioController::index
-* @see app/Http/Controllers/Instructor/CalendarioController.php:18
+* @see Http/Controllers/Instructor/CalendarioController.php:18
 * @route '/instructor/calendario'
 */
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

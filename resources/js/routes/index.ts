@@ -20,10 +20,6 @@ login.definition = {
 * @route '/login'
 */
 login.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return login.definition.url + queryParams(options)
 }
 
@@ -105,10 +101,6 @@ logout.definition = {
 * @route '/logout'
 */
 logout.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return logout.definition.url + queryParams(options)
 }
 
@@ -165,10 +157,6 @@ register.definition = {
 * @route '/register'
 */
 register.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return register.definition.url + queryParams(options)
 }
 
@@ -231,7 +219,7 @@ register.form = registerForm
 
 /**
 * @see \App\Http\Controllers\PublicController::home
-* @see app/Http/Controllers/PublicController.php:19
+* @see Http/Controllers/PublicController.php:19
 * @route '/'
 */
 export const home = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -246,20 +234,16 @@ home.definition = {
 
 /**
 * @see \App\Http\Controllers\PublicController::home
-* @see app/Http/Controllers/PublicController.php:19
+* @see Http/Controllers/PublicController.php:19
 * @route '/'
 */
 home.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return home.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\PublicController::home
-* @see app/Http/Controllers/PublicController.php:19
+* @see Http/Controllers/PublicController.php:19
 * @route '/'
 */
 home.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -269,7 +253,7 @@ home.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::home
-* @see app/Http/Controllers/PublicController.php:19
+* @see Http/Controllers/PublicController.php:19
 * @route '/'
 */
 home.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -279,7 +263,7 @@ home.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::home
-* @see app/Http/Controllers/PublicController.php:19
+* @see Http/Controllers/PublicController.php:19
 * @route '/'
 */
 const homeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -289,7 +273,7 @@ const homeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::home
-* @see app/Http/Controllers/PublicController.php:19
+* @see Http/Controllers/PublicController.php:19
 * @route '/'
 */
 homeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -299,7 +283,7 @@ homeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::home
-* @see app/Http/Controllers/PublicController.php:19
+* @see Http/Controllers/PublicController.php:19
 * @route '/'
 */
 homeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -316,7 +300,7 @@ home.form = homeForm
 
 /**
 * @see \App\Http\Controllers\PublicController::historia
-* @see app/Http/Controllers/PublicController.php:48
+* @see Http/Controllers/PublicController.php:48
 * @route '/historia'
 */
 export const historia = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -331,20 +315,16 @@ historia.definition = {
 
 /**
 * @see \App\Http\Controllers\PublicController::historia
-* @see app/Http/Controllers/PublicController.php:48
+* @see Http/Controllers/PublicController.php:48
 * @route '/historia'
 */
 historia.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return historia.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\PublicController::historia
-* @see app/Http/Controllers/PublicController.php:48
+* @see Http/Controllers/PublicController.php:48
 * @route '/historia'
 */
 historia.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -354,7 +334,7 @@ historia.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::historia
-* @see app/Http/Controllers/PublicController.php:48
+* @see Http/Controllers/PublicController.php:48
 * @route '/historia'
 */
 historia.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -364,7 +344,7 @@ historia.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::historia
-* @see app/Http/Controllers/PublicController.php:48
+* @see Http/Controllers/PublicController.php:48
 * @route '/historia'
 */
 const historiaForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -374,7 +354,7 @@ const historiaForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 
 /**
 * @see \App\Http\Controllers\PublicController::historia
-* @see app/Http/Controllers/PublicController.php:48
+* @see Http/Controllers/PublicController.php:48
 * @route '/historia'
 */
 historiaForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -384,7 +364,7 @@ historiaForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 
 /**
 * @see \App\Http\Controllers\PublicController::historia
-* @see app/Http/Controllers/PublicController.php:48
+* @see Http/Controllers/PublicController.php:48
 * @route '/historia'
 */
 historiaForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -401,7 +381,7 @@ historia.form = historiaForm
 
 /**
 * @see \App\Http\Controllers\PublicController::disciplinas
-* @see app/Http/Controllers/PublicController.php:60
+* @see Http/Controllers/PublicController.php:60
 * @route '/disciplinas'
 */
 export const disciplinas = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -416,20 +396,16 @@ disciplinas.definition = {
 
 /**
 * @see \App\Http\Controllers\PublicController::disciplinas
-* @see app/Http/Controllers/PublicController.php:60
+* @see Http/Controllers/PublicController.php:60
 * @route '/disciplinas'
 */
 disciplinas.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return disciplinas.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\PublicController::disciplinas
-* @see app/Http/Controllers/PublicController.php:60
+* @see Http/Controllers/PublicController.php:60
 * @route '/disciplinas'
 */
 disciplinas.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -439,7 +415,7 @@ disciplinas.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::disciplinas
-* @see app/Http/Controllers/PublicController.php:60
+* @see Http/Controllers/PublicController.php:60
 * @route '/disciplinas'
 */
 disciplinas.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -449,7 +425,7 @@ disciplinas.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::disciplinas
-* @see app/Http/Controllers/PublicController.php:60
+* @see Http/Controllers/PublicController.php:60
 * @route '/disciplinas'
 */
 const disciplinasForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -459,7 +435,7 @@ const disciplinasForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'
 
 /**
 * @see \App\Http\Controllers\PublicController::disciplinas
-* @see app/Http/Controllers/PublicController.php:60
+* @see Http/Controllers/PublicController.php:60
 * @route '/disciplinas'
 */
 disciplinasForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -469,7 +445,7 @@ disciplinasForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 
 /**
 * @see \App\Http\Controllers\PublicController::disciplinas
-* @see app/Http/Controllers/PublicController.php:60
+* @see Http/Controllers/PublicController.php:60
 * @route '/disciplinas'
 */
 disciplinasForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -486,7 +462,7 @@ disciplinas.form = disciplinasForm
 
 /**
 * @see \App\Http\Controllers\PublicController::decalogo
-* @see app/Http/Controllers/PublicController.php:86
+* @see Http/Controllers/PublicController.php:86
 * @route '/decalogo'
 */
 export const decalogo = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -501,20 +477,16 @@ decalogo.definition = {
 
 /**
 * @see \App\Http\Controllers\PublicController::decalogo
-* @see app/Http/Controllers/PublicController.php:86
+* @see Http/Controllers/PublicController.php:86
 * @route '/decalogo'
 */
 decalogo.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return decalogo.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\PublicController::decalogo
-* @see app/Http/Controllers/PublicController.php:86
+* @see Http/Controllers/PublicController.php:86
 * @route '/decalogo'
 */
 decalogo.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -524,7 +496,7 @@ decalogo.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::decalogo
-* @see app/Http/Controllers/PublicController.php:86
+* @see Http/Controllers/PublicController.php:86
 * @route '/decalogo'
 */
 decalogo.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -534,7 +506,7 @@ decalogo.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::decalogo
-* @see app/Http/Controllers/PublicController.php:86
+* @see Http/Controllers/PublicController.php:86
 * @route '/decalogo'
 */
 const decalogoForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -544,7 +516,7 @@ const decalogoForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 
 /**
 * @see \App\Http\Controllers\PublicController::decalogo
-* @see app/Http/Controllers/PublicController.php:86
+* @see Http/Controllers/PublicController.php:86
 * @route '/decalogo'
 */
 decalogoForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -554,7 +526,7 @@ decalogoForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 
 /**
 * @see \App\Http\Controllers\PublicController::decalogo
-* @see app/Http/Controllers/PublicController.php:86
+* @see Http/Controllers/PublicController.php:86
 * @route '/decalogo'
 */
 decalogoForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -588,10 +560,6 @@ dashboard.definition = {
 * @route '/dashboard'
 */
 dashboard.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return dashboard.definition.url + queryParams(options)
 }
 

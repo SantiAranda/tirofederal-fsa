@@ -9,7 +9,6 @@ import EventoController from './EventoController'
 import NoticiaController from './NoticiaController'
 import CalendarioController from './CalendarioController'
 
-
 const Admin = {
     CluController: Object.assign(CluController, CluController),
     DashboardController: Object.assign(DashboardController, DashboardController),

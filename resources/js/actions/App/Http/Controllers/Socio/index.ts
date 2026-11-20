@@ -6,7 +6,6 @@ import PagoController from './PagoController'
 import EventoController from './EventoController'
 import EvaluacionController from './EvaluacionController'
 
-
 const Socio = {
     DashboardController: Object.assign(DashboardController, DashboardController),
     PerfilController: Object.assign(PerfilController, PerfilController),

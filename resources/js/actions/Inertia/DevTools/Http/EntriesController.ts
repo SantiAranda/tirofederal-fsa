@@ -20,10 +20,6 @@ index.definition = {
 * @route '/_inertia/devtools/entries'
 */
 index.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return index.definition.url + queryParams(options)
 }
 
@@ -109,7 +105,6 @@ show.url = (args: { id: string | number } | [id: string | number ] | string | nu
         args = { id: args }
     }
 
-
     if (Array.isArray(args)) {
         args = {
             id: args[0],
@@ -117,7 +112,6 @@ show.url = (args: { id: string | number } | [id: string | number ] | string | nu
     }
 
     args = applyUrlDefaults(args)
-
 
     const parsedArgs = {
         id: args.id,

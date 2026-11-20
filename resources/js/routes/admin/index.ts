@@ -11,7 +11,7 @@ import reportes from './reportes'
 import configuracion from './configuracion'
 /**
 * @see \App\Http\Controllers\Admin\DashboardController::dashboard
-* @see app/Http/Controllers/Admin/DashboardController.php:19
+* @see Http/Controllers/Admin/DashboardController.php:19
 * @route '/admin/dashboard'
 */
 export const dashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -26,20 +26,16 @@ dashboard.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\DashboardController::dashboard
-* @see app/Http/Controllers/Admin/DashboardController.php:19
+* @see Http/Controllers/Admin/DashboardController.php:19
 * @route '/admin/dashboard'
 */
 dashboard.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return dashboard.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Admin\DashboardController::dashboard
-* @see app/Http/Controllers/Admin/DashboardController.php:19
+* @see Http/Controllers/Admin/DashboardController.php:19
 * @route '/admin/dashboard'
 */
 dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -49,7 +45,7 @@ dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\DashboardController::dashboard
-* @see app/Http/Controllers/Admin/DashboardController.php:19
+* @see Http/Controllers/Admin/DashboardController.php:19
 * @route '/admin/dashboard'
 */
 dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -59,7 +55,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\DashboardController::dashboard
-* @see app/Http/Controllers/Admin/DashboardController.php:19
+* @see Http/Controllers/Admin/DashboardController.php:19
 * @route '/admin/dashboard'
 */
 const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -69,7 +65,7 @@ const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 
 /**
 * @see \App\Http\Controllers\Admin\DashboardController::dashboard
-* @see app/Http/Controllers/Admin/DashboardController.php:19
+* @see Http/Controllers/Admin/DashboardController.php:19
 * @route '/admin/dashboard'
 */
 dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,7 +75,7 @@ dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 
 /**
 * @see \App\Http\Controllers\Admin\DashboardController::dashboard
-* @see app/Http/Controllers/Admin/DashboardController.php:19
+* @see Http/Controllers/Admin/DashboardController.php:19
 * @route '/admin/dashboard'
 */
 dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -96,7 +92,7 @@ dashboard.form = dashboardForm
 
 /**
 * @see \App\Http\Controllers\Admin\CalendarioController::calendario
-* @see app/Http/Controllers/Admin/CalendarioController.php:19
+* @see Http/Controllers/Admin/CalendarioController.php:19
 * @route '/admin/calendario'
 */
 export const calendario = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -111,20 +107,16 @@ calendario.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\CalendarioController::calendario
-* @see app/Http/Controllers/Admin/CalendarioController.php:19
+* @see Http/Controllers/Admin/CalendarioController.php:19
 * @route '/admin/calendario'
 */
 calendario.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return calendario.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Admin\CalendarioController::calendario
-* @see app/Http/Controllers/Admin/CalendarioController.php:19
+* @see Http/Controllers/Admin/CalendarioController.php:19
 * @route '/admin/calendario'
 */
 calendario.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -134,7 +126,7 @@ calendario.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\CalendarioController::calendario
-* @see app/Http/Controllers/Admin/CalendarioController.php:19
+* @see Http/Controllers/Admin/CalendarioController.php:19
 * @route '/admin/calendario'
 */
 calendario.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -144,7 +136,7 @@ calendario.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\CalendarioController::calendario
-* @see app/Http/Controllers/Admin/CalendarioController.php:19
+* @see Http/Controllers/Admin/CalendarioController.php:19
 * @route '/admin/calendario'
 */
 const calendarioForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -154,7 +146,7 @@ const calendarioForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'>
 
 /**
 * @see \App\Http\Controllers\Admin\CalendarioController::calendario
-* @see app/Http/Controllers/Admin/CalendarioController.php:19
+* @see Http/Controllers/Admin/CalendarioController.php:19
 * @route '/admin/calendario'
 */
 calendarioForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -164,7 +156,7 @@ calendarioForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 
 /**
 * @see \App\Http\Controllers\Admin\CalendarioController::calendario
-* @see app/Http/Controllers/Admin/CalendarioController.php:19
+* @see Http/Controllers/Admin/CalendarioController.php:19
 * @route '/admin/calendario'
 */
 calendarioForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -178,8 +170,6 @@ calendarioForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 })
 
 calendario.form = calendarioForm
-
-
 
 const admin = {
     dashboard: Object.assign(dashboard, dashboard),
