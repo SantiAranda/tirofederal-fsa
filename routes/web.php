@@ -144,7 +144,7 @@ Route::middleware(['auth', 'role:presidente'])->prefix('admin')->name('admin.')-
     Route::resource('noticias', AdminNoticiaController::class);
 
     Route::get('/reportes', function () {
-        return \Inertia\Inertia::render('Admin/Reportes/Index');
+        return redirect()->route('admin.dashboard');
     })->name('reportes.index');
 
     Route::get('/configuracion', function () {

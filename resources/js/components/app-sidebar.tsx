@@ -1,7 +1,7 @@
 import { Link, usePage } from '@inertiajs/react';
 import {
     LayoutGrid, Users, CreditCard, Calendar,
-    GraduationCap, Package, FileBarChart, Settings, ShieldCheck, UserCheck
+    GraduationCap, Package, Newspaper, Settings, ShieldCheck, UserCheck
 } from 'lucide-react';
 import AppLogo from '@/components/app-logo';
 import { NavMain } from '@/components/nav-main';
@@ -31,8 +31,7 @@ export function AppSidebar() {
         { title: 'Eventos y Torneos', href: '/admin/eventos',     icon: Calendar },
         { title: 'Instructores',      href: '/admin/instructores',icon: GraduationCap },
         { title: 'Armería / Insumos', href: '/admin/insumos',     icon: Package },
-        { title: 'Prensa y Noticias', href: '/admin/noticias',    icon: FileBarChart },
-        { title: 'Reportes',          href: '/admin/reportes',    icon: FileBarChart },
+        { title: 'Prensa y Noticias', href: '/admin/noticias',    icon: Newspaper },
         { title: 'Configuración',     href: '/admin/configuracion',icon: Settings },
     ];
 
