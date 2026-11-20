@@ -21,7 +21,6 @@ class CreateNewUser implements CreatesNewUsers
     public function create(array $input): User
     {
         $hasExtendedFields = array_key_exists('dni', $input)
-            || array_key_exists('usuario', $input)
             || array_key_exists('username', $input);
 
         if ($hasExtendedFields) {
@@ -29,15 +28,6 @@ class CreateNewUser implements CreatesNewUsers
                 'name' => ['sometimes', 'string', 'max:100'],
                 'nombre' => ['sometimes', 'string', 'max:100'],
                 'apellido' => ['required', 'string', 'max:100'],
-                'usuario' => [
-                    'sometimes',
-                    'string',
-                    'min:6',
-                    'max:30',
-                    'alpha_num',
-                    Rule::unique(User::class, 'username'),
-                    Rule::unique(User::class, 'usuario'),
-                ],
                 'username' => [
                     'sometimes',
                     'string',
@@ -45,7 +35,6 @@ class CreateNewUser implements CreatesNewUsers
                     'max:30',
                     'alpha_num',
                     Rule::unique(User::class, 'username'),
-                    Rule::unique(User::class, 'usuario'),
                 ],
                 'dni' => [
                     'required',
@@ -78,10 +67,9 @@ class CreateNewUser implements CreatesNewUsers
                 'archivo_clu.mimes' => 'El CLU debe ser un archivo en formato PDF, JPG o PNG.',
                 'archivo_dni.max' => 'El archivo del DNI no puede superar los 10MB.',
                 'archivo_clu.max' => 'El archivo del CLU no puede superar los 10MB.',
-                'usuario.alpha_num' => 'El nombre de usuario solo debe contener letras y números.',
-                'usuario.min' => 'El nombre de usuario debe tener al menos 6 caracteres.',
-                'usuario.max' => 'El nombre de usuario no puede exceder los 30 caracteres.',
-                'usuario.unique' => 'Este nombre de usuario ya está registrado.',
+                'username.alpha_num' => 'El nombre de usuario solo debe contener letras y números.',
+                'username.min' => 'El nombre de usuario debe tener al menos 6 caracteres.',
+                'username.max' => 'El nombre de usuario no puede exceder los 30 caracteres.',
                 'username.unique' => 'Este nombre de usuario ya está registrado.',
                 'dni.unique' => 'Este número de DNI ya está registrado en el sistema.',
                 'dni.regex' => 'El DNI debe contener únicamente dígitos numéricos.',
@@ -109,7 +97,7 @@ class CreateNewUser implements CreatesNewUsers
 
         $nombre = $input['nombre'] ?? ($input['name'] ?? $firstName);
         $apellido = $input['apellido'] ?? $lastName;
-        $username = strtolower(trim($input['username'] ?? ($input['usuario'] ?? ('socio_' . substr(md5(uniqid()), 0, 8)))));
+        $username = strtolower(trim($input['username'] ?? ('socio_' . substr(md5(uniqid()), 0, 8))));
         $dni = trim($input['dni'] ?? (string) rand(10000000, 48000000));
         $fechaNacimiento = $input['fecha_nacimiento'] ?? '1995-01-01';
         $telefono = trim($input['telefono'] ?? '3704000000');
@@ -120,7 +108,6 @@ class CreateNewUser implements CreatesNewUsers
             'name' => $nombre,
             'apellido' => $apellido,
             'username' => $username,
-            'usuario' => $username,
             'dni' => $dni,
             'fecha_nacimiento' => $fechaNacimiento,
             'telefono' => $telefono,

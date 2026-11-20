@@ -20,7 +20,6 @@ return new class extends Migration
             $table->date('fecha_nacimiento');
             $table->string('email')->unique();
             $table->string('username', 30)->unique();
-            $table->string('usuario', 30)->unique()->nullable();
             $table->string('password');
             $table->string('telefono')->nullable();
             $table->string('domicilio')->nullable();

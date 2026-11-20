@@ -32,7 +32,6 @@ class UserFactory extends Factory
             'name' => $nombre,
             'apellido' => fake()->lastName(),
             'username' => $username,
-            'usuario' => $username,
             'email' => fake()->unique()->safeEmail(),
             'dni' => (string) fake()->unique()->numberBetween(10000000, 48000000),
             'fecha_nacimiento' => fake()->date('Y-m-d', '-18 years'),

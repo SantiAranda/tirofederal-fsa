@@ -16,7 +16,6 @@ export default function Register({ passwordRules }: Props) {
         fecha_nacimiento: string;
         telefono: string;
         domicilio: string;
-        usuario: string;
         username: string;
         email: string;
         password: string;
@@ -33,7 +32,6 @@ export default function Register({ passwordRules }: Props) {
         fecha_nacimiento: '',
         telefono: '',
         domicilio: '',
-        usuario: '',
         username: '',
         email: '',
         password: '',
@@ -207,19 +205,15 @@ export default function Register({ passwordRules }: Props) {
                                         <input
                                             type="text"
                                             required
-                                            value={data.usuario}
+                                            value={data.username}
                                             onChange={(e) => {
-                                                setData({
-                                                    ...data,
-                                                    usuario: e.target.value,
-                                                    username: e.target.value,
-                                                });
+                                                setData('username', e.target.value);
                                             }}
                                             placeholder="6 a 30 caracteres alfanuméricos"
                                             className="w-full bg-transparent border-0 p-0 pt-0.5 text-sm sm:text-base text-white placeholder:text-slate-500 focus:outline-none focus:ring-0"
                                         />
                                     </div>
-                                    <InputError message={errors.usuario || errors.username} className="mt-1" />
+                                    <InputError message={errors.username} className="mt-1" />
                                 </div>
                             </div>
 

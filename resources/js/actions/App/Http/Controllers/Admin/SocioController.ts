@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Admin\SocioController::exportar
-* @see Http/Controllers/Admin/SocioController.php:187
+* @see Http/Controllers/Admin/SocioController.php:186
 * @route '/admin/socios/exportar'
 */
 export const exportar = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ exportar.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::exportar
-* @see Http/Controllers/Admin/SocioController.php:187
+* @see Http/Controllers/Admin/SocioController.php:186
 * @route '/admin/socios/exportar'
 */
 exportar.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ exportar.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::exportar
-* @see Http/Controllers/Admin/SocioController.php:187
+* @see Http/Controllers/Admin/SocioController.php:186
 * @route '/admin/socios/exportar'
 */
 exportar.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +35,7 @@ exportar.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::exportar
-* @see Http/Controllers/Admin/SocioController.php:187
+* @see Http/Controllers/Admin/SocioController.php:186
 * @route '/admin/socios/exportar'
 */
 exportar.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +45,7 @@ exportar.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::exportar
-* @see Http/Controllers/Admin/SocioController.php:187
+* @see Http/Controllers/Admin/SocioController.php:186
 * @route '/admin/socios/exportar'
 */
 const exportarForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +55,7 @@ const exportarForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::exportar
-* @see Http/Controllers/Admin/SocioController.php:187
+* @see Http/Controllers/Admin/SocioController.php:186
 * @route '/admin/socios/exportar'
 */
 exportarForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -65,7 +65,7 @@ exportarForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::exportar
-* @see Http/Controllers/Admin/SocioController.php:187
+* @see Http/Controllers/Admin/SocioController.php:186
 * @route '/admin/socios/exportar'
 */
 exportarForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -405,7 +405,7 @@ show.form = showForm
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::edit
-* @see Http/Controllers/Admin/SocioController.php:120
+* @see Http/Controllers/Admin/SocioController.php:119
 * @route '/admin/socios/{socio}/edit'
 */
 export const edit = (args: { socio: number | { id: number } } | [socio: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -420,7 +420,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::edit
-* @see Http/Controllers/Admin/SocioController.php:120
+* @see Http/Controllers/Admin/SocioController.php:119
 * @route '/admin/socios/{socio}/edit'
 */
 edit.url = (args: { socio: number | { id: number } } | [socio: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -453,7 +453,7 @@ edit.url = (args: { socio: number | { id: number } } | [socio: number | { id: nu
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::edit
-* @see Http/Controllers/Admin/SocioController.php:120
+* @see Http/Controllers/Admin/SocioController.php:119
 * @route '/admin/socios/{socio}/edit'
 */
 edit.get = (args: { socio: number | { id: number } } | [socio: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -463,7 +463,7 @@ edit.get = (args: { socio: number | { id: number } } | [socio: number | { id: nu
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::edit
-* @see Http/Controllers/Admin/SocioController.php:120
+* @see Http/Controllers/Admin/SocioController.php:119
 * @route '/admin/socios/{socio}/edit'
 */
 edit.head = (args: { socio: number | { id: number } } | [socio: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -473,7 +473,7 @@ edit.head = (args: { socio: number | { id: number } } | [socio: number | { id: n
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::edit
-* @see Http/Controllers/Admin/SocioController.php:120
+* @see Http/Controllers/Admin/SocioController.php:119
 * @route '/admin/socios/{socio}/edit'
 */
 const editForm = (args: { socio: number | { id: number } } | [socio: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -483,7 +483,7 @@ const editForm = (args: { socio: number | { id: number } } | [socio: number | { 
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::edit
-* @see Http/Controllers/Admin/SocioController.php:120
+* @see Http/Controllers/Admin/SocioController.php:119
 * @route '/admin/socios/{socio}/edit'
 */
 editForm.get = (args: { socio: number | { id: number } } | [socio: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -493,7 +493,7 @@ editForm.get = (args: { socio: number | { id: number } } | [socio: number | { id
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::edit
-* @see Http/Controllers/Admin/SocioController.php:120
+* @see Http/Controllers/Admin/SocioController.php:119
 * @route '/admin/socios/{socio}/edit'
 */
 editForm.head = (args: { socio: number | { id: number } } | [socio: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -510,7 +510,7 @@ edit.form = editForm
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::update
-* @see Http/Controllers/Admin/SocioController.php:131
+* @see Http/Controllers/Admin/SocioController.php:130
 * @route '/admin/socios/{socio}'
 */
 export const update = (args: { socio: number | { id: number } } | [socio: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -525,7 +525,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::update
-* @see Http/Controllers/Admin/SocioController.php:131
+* @see Http/Controllers/Admin/SocioController.php:130
 * @route '/admin/socios/{socio}'
 */
 update.url = (args: { socio: number | { id: number } } | [socio: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -558,7 +558,7 @@ update.url = (args: { socio: number | { id: number } } | [socio: number | { id: 
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::update
-* @see Http/Controllers/Admin/SocioController.php:131
+* @see Http/Controllers/Admin/SocioController.php:130
 * @route '/admin/socios/{socio}'
 */
 update.put = (args: { socio: number | { id: number } } | [socio: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -568,7 +568,7 @@ update.put = (args: { socio: number | { id: number } } | [socio: number | { id: 
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::update
-* @see Http/Controllers/Admin/SocioController.php:131
+* @see Http/Controllers/Admin/SocioController.php:130
 * @route '/admin/socios/{socio}'
 */
 update.patch = (args: { socio: number | { id: number } } | [socio: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -578,7 +578,7 @@ update.patch = (args: { socio: number | { id: number } } | [socio: number | { id
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::update
-* @see Http/Controllers/Admin/SocioController.php:131
+* @see Http/Controllers/Admin/SocioController.php:130
 * @route '/admin/socios/{socio}'
 */
 const updateForm = (args: { socio: number | { id: number } } | [socio: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -593,7 +593,7 @@ const updateForm = (args: { socio: number | { id: number } } | [socio: number | 
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::update
-* @see Http/Controllers/Admin/SocioController.php:131
+* @see Http/Controllers/Admin/SocioController.php:130
 * @route '/admin/socios/{socio}'
 */
 updateForm.put = (args: { socio: number | { id: number } } | [socio: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -608,7 +608,7 @@ updateForm.put = (args: { socio: number | { id: number } } | [socio: number | { 
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::update
-* @see Http/Controllers/Admin/SocioController.php:131
+* @see Http/Controllers/Admin/SocioController.php:130
 * @route '/admin/socios/{socio}'
 */
 updateForm.patch = (args: { socio: number | { id: number } } | [socio: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -625,7 +625,7 @@ update.form = updateForm
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::destroy
-* @see Http/Controllers/Admin/SocioController.php:173
+* @see Http/Controllers/Admin/SocioController.php:172
 * @route '/admin/socios/{socio}'
 */
 export const destroy = (args: { socio: number | { id: number } } | [socio: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -640,7 +640,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::destroy
-* @see Http/Controllers/Admin/SocioController.php:173
+* @see Http/Controllers/Admin/SocioController.php:172
 * @route '/admin/socios/{socio}'
 */
 destroy.url = (args: { socio: number | { id: number } } | [socio: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -673,7 +673,7 @@ destroy.url = (args: { socio: number | { id: number } } | [socio: number | { id:
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::destroy
-* @see Http/Controllers/Admin/SocioController.php:173
+* @see Http/Controllers/Admin/SocioController.php:172
 * @route '/admin/socios/{socio}'
 */
 destroy.delete = (args: { socio: number | { id: number } } | [socio: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -683,7 +683,7 @@ destroy.delete = (args: { socio: number | { id: number } } | [socio: number | { 
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::destroy
-* @see Http/Controllers/Admin/SocioController.php:173
+* @see Http/Controllers/Admin/SocioController.php:172
 * @route '/admin/socios/{socio}'
 */
 const destroyForm = (args: { socio: number | { id: number } } | [socio: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -698,7 +698,7 @@ const destroyForm = (args: { socio: number | { id: number } } | [socio: number |
 
 /**
 * @see \App\Http\Controllers\Admin\SocioController::destroy
-* @see Http/Controllers/Admin/SocioController.php:173
+* @see Http/Controllers/Admin/SocioController.php:172
 * @route '/admin/socios/{socio}'
 */
 destroyForm.delete = (args: { socio: number | { id: number } } | [socio: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

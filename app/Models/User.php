@@ -30,7 +30,6 @@ class User extends Authenticatable
         'fecha_nacimiento',
         'email',
         'username',
-        'usuario',
         'password',
         'telefono',
         'domicilio',
@@ -90,31 +89,6 @@ class User extends Authenticatable
     {
         $this->attributes['nombre'] = $value;
         $this->attributes['name'] = $value;
-    }
-
-    /**
-     * Sincronización transparente de atributo usuario y username.
-     */
-    public function getUsuarioAttribute(): ?string
-    {
-        return $this->attributes['username'] ?? ($this->attributes['usuario'] ?? null);
-    }
-
-    public function setUsuarioAttribute($value): void
-    {
-        $this->attributes['username'] = $value;
-        $this->attributes['usuario'] = $value;
-    }
-
-    public function getUsernameAttribute(): ?string
-    {
-        return $this->attributes['username'] ?? ($this->attributes['usuario'] ?? null);
-    }
-
-    public function setUsernameAttribute($value): void
-    {
-        $this->attributes['username'] = $value;
-        $this->attributes['usuario'] = $value;
     }
 
     /**

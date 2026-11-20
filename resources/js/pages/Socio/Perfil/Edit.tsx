@@ -17,7 +17,7 @@ export default function SocioPerfilEdit() {
     const [saved, setSaved] = useState(false);
     const [form, setForm] = useState({
         nombre: 'Juan Carlos Pérez',
-        usuario: 'jcperez',
+        username: 'jcperez',
         email: 'juan.perez@email.com',
         currentPassword: '',
         newPassword: '',
@@ -102,8 +102,8 @@ export default function SocioPerfilEdit() {
                                             <Label htmlFor="perfilUsuario">Nombre de usuario</Label>
                                             <Input
                                                 id="perfilUsuario"
-                                                value={form.usuario}
-                                                onChange={e => setForm({ ...form, usuario: e.target.value })}
+                                                value={form.username}
+                                                onChange={e => setForm({ ...form, username: e.target.value })}
                                                 className="mt-1"
                                             />
                                         </div>
