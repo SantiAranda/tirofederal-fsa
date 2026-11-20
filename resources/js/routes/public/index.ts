@@ -3,7 +3,7 @@ import eventosD8c6a8 from './eventos'
 import noticias from './noticias'
 /**
 * @see \App\Http\Controllers\PublicController::eventos
-* @see Http/Controllers/PublicController.php:109
+* @see Http/Controllers/PublicController.php:117
 * @route '/eventos'
 */
 export const eventos = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -18,7 +18,7 @@ eventos.definition = {
 
 /**
 * @see \App\Http\Controllers\PublicController::eventos
-* @see Http/Controllers/PublicController.php:109
+* @see Http/Controllers/PublicController.php:117
 * @route '/eventos'
 */
 eventos.url = (options?: RouteQueryOptions) => {
@@ -27,7 +27,7 @@ eventos.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\PublicController::eventos
-* @see Http/Controllers/PublicController.php:109
+* @see Http/Controllers/PublicController.php:117
 * @route '/eventos'
 */
 eventos.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -37,7 +37,7 @@ eventos.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::eventos
-* @see Http/Controllers/PublicController.php:109
+* @see Http/Controllers/PublicController.php:117
 * @route '/eventos'
 */
 eventos.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -47,7 +47,7 @@ eventos.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::eventos
-* @see Http/Controllers/PublicController.php:109
+* @see Http/Controllers/PublicController.php:117
 * @route '/eventos'
 */
 const eventosForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -57,7 +57,7 @@ const eventosForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 
 /**
 * @see \App\Http\Controllers\PublicController::eventos
-* @see Http/Controllers/PublicController.php:109
+* @see Http/Controllers/PublicController.php:117
 * @route '/eventos'
 */
 eventosForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -67,7 +67,7 @@ eventosForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\PublicController::eventos
-* @see Http/Controllers/PublicController.php:109
+* @see Http/Controllers/PublicController.php:117
 * @route '/eventos'
 */
 eventosForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

@@ -55,6 +55,14 @@ class PublicController extends Controller
     }
 
     /**
+     * Requisitos y pasos para asociarse al club.
+     */
+    public function comoAsociarse(): Response
+    {
+        return Inertia::render('Public/ComoAsociarse');
+    }
+
+    /**
      * Disciplinas habilitadas en el polígono (RF30).
      */
     public function disciplinas(): Response

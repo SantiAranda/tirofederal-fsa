@@ -381,7 +381,7 @@ historia.form = historiaForm
 
 /**
 * @see \App\Http\Controllers\PublicController::disciplinas
-* @see Http/Controllers/PublicController.php:60
+* @see Http/Controllers/PublicController.php:68
 * @route '/disciplinas'
 */
 export const disciplinas = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -396,7 +396,7 @@ disciplinas.definition = {
 
 /**
 * @see \App\Http\Controllers\PublicController::disciplinas
-* @see Http/Controllers/PublicController.php:60
+* @see Http/Controllers/PublicController.php:68
 * @route '/disciplinas'
 */
 disciplinas.url = (options?: RouteQueryOptions) => {
@@ -405,7 +405,7 @@ disciplinas.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\PublicController::disciplinas
-* @see Http/Controllers/PublicController.php:60
+* @see Http/Controllers/PublicController.php:68
 * @route '/disciplinas'
 */
 disciplinas.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -415,7 +415,7 @@ disciplinas.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::disciplinas
-* @see Http/Controllers/PublicController.php:60
+* @see Http/Controllers/PublicController.php:68
 * @route '/disciplinas'
 */
 disciplinas.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -425,7 +425,7 @@ disciplinas.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::disciplinas
-* @see Http/Controllers/PublicController.php:60
+* @see Http/Controllers/PublicController.php:68
 * @route '/disciplinas'
 */
 const disciplinasForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -435,7 +435,7 @@ const disciplinasForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'
 
 /**
 * @see \App\Http\Controllers\PublicController::disciplinas
-* @see Http/Controllers/PublicController.php:60
+* @see Http/Controllers/PublicController.php:68
 * @route '/disciplinas'
 */
 disciplinasForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -445,7 +445,7 @@ disciplinasForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 
 /**
 * @see \App\Http\Controllers\PublicController::disciplinas
-* @see Http/Controllers/PublicController.php:60
+* @see Http/Controllers/PublicController.php:68
 * @route '/disciplinas'
 */
 disciplinasForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -462,7 +462,7 @@ disciplinas.form = disciplinasForm
 
 /**
 * @see \App\Http\Controllers\PublicController::decalogo
-* @see Http/Controllers/PublicController.php:86
+* @see Http/Controllers/PublicController.php:94
 * @route '/decalogo'
 */
 export const decalogo = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -477,7 +477,7 @@ decalogo.definition = {
 
 /**
 * @see \App\Http\Controllers\PublicController::decalogo
-* @see Http/Controllers/PublicController.php:86
+* @see Http/Controllers/PublicController.php:94
 * @route '/decalogo'
 */
 decalogo.url = (options?: RouteQueryOptions) => {
@@ -486,7 +486,7 @@ decalogo.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\PublicController::decalogo
-* @see Http/Controllers/PublicController.php:86
+* @see Http/Controllers/PublicController.php:94
 * @route '/decalogo'
 */
 decalogo.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -496,7 +496,7 @@ decalogo.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::decalogo
-* @see Http/Controllers/PublicController.php:86
+* @see Http/Controllers/PublicController.php:94
 * @route '/decalogo'
 */
 decalogo.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -506,7 +506,7 @@ decalogo.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::decalogo
-* @see Http/Controllers/PublicController.php:86
+* @see Http/Controllers/PublicController.php:94
 * @route '/decalogo'
 */
 const decalogoForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -516,7 +516,7 @@ const decalogoForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 
 /**
 * @see \App\Http\Controllers\PublicController::decalogo
-* @see Http/Controllers/PublicController.php:86
+* @see Http/Controllers/PublicController.php:94
 * @route '/decalogo'
 */
 decalogoForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -526,7 +526,7 @@ decalogoForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 
 /**
 * @see \App\Http\Controllers\PublicController::decalogo
-* @see Http/Controllers/PublicController.php:86
+* @see Http/Controllers/PublicController.php:94
 * @route '/decalogo'
 */
 decalogoForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -542,7 +542,88 @@ decalogoForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 decalogo.form = decalogoForm
 
 /**
-* @see routes/web.php:43
+* @see \App\Http\Controllers\PublicController::comoAsociarse
+* @see Http/Controllers/PublicController.php:60
+* @route '/como-asociarse'
+*/
+export const comoAsociarse = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: comoAsociarse.url(options),
+    method: 'get',
+})
+
+comoAsociarse.definition = {
+    methods: ["get","head"],
+    url: '/como-asociarse',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\PublicController::comoAsociarse
+* @see Http/Controllers/PublicController.php:60
+* @route '/como-asociarse'
+*/
+comoAsociarse.url = (options?: RouteQueryOptions) => {
+    return comoAsociarse.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\PublicController::comoAsociarse
+* @see Http/Controllers/PublicController.php:60
+* @route '/como-asociarse'
+*/
+comoAsociarse.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: comoAsociarse.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\PublicController::comoAsociarse
+* @see Http/Controllers/PublicController.php:60
+* @route '/como-asociarse'
+*/
+comoAsociarse.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: comoAsociarse.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Http\Controllers\PublicController::comoAsociarse
+* @see Http/Controllers/PublicController.php:60
+* @route '/como-asociarse'
+*/
+const comoAsociarseForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: comoAsociarse.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\PublicController::comoAsociarse
+* @see Http/Controllers/PublicController.php:60
+* @route '/como-asociarse'
+*/
+comoAsociarseForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: comoAsociarse.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\PublicController::comoAsociarse
+* @see Http/Controllers/PublicController.php:60
+* @route '/como-asociarse'
+*/
+comoAsociarseForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: comoAsociarse.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+comoAsociarse.form = comoAsociarseForm
+
+/**
+* @see routes/web.php:44
 * @route '/dashboard'
 */
 export const dashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -556,7 +637,7 @@ dashboard.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see routes/web.php:43
+* @see routes/web.php:44
 * @route '/dashboard'
 */
 dashboard.url = (options?: RouteQueryOptions) => {
@@ -564,7 +645,7 @@ dashboard.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see routes/web.php:43
+* @see routes/web.php:44
 * @route '/dashboard'
 */
 dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -573,7 +654,7 @@ dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see routes/web.php:43
+* @see routes/web.php:44
 * @route '/dashboard'
 */
 dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -582,7 +663,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see routes/web.php:43
+* @see routes/web.php:44
 * @route '/dashboard'
 */
 const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -591,7 +672,7 @@ const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 })
 
 /**
-* @see routes/web.php:43
+* @see routes/web.php:44
 * @route '/dashboard'
 */
 dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -600,7 +681,7 @@ dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 })
 
 /**
-* @see routes/web.php:43
+* @see routes/web.php:44
 * @route '/dashboard'
 */
 dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

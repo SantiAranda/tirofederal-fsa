@@ -47,6 +47,7 @@ export default function PublicFooter() {
                                 { label: 'Inicio', href: '/' },
                                 { label: 'Institución', href: '/historia' },
                                 { label: 'Disciplinas', href: '/disciplinas' },
+                                { label: 'Cómo asociarse', href: '/como-asociarse' },
                                 { label: 'Eventos y Torneos', href: '/eventos' },
                                 { label: 'Prensa y Noticias', href: '/noticias' },
                                 { label: 'Decálogo', href: '/decalogo' },

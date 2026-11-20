@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../wayfinder'
 /**
 * @see \App\Http\Controllers\PublicController::enviar
-* @see Http/Controllers/PublicController.php:192
+* @see Http/Controllers/PublicController.php:200
 * @route '/contacto'
 */
 export const enviar = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -16,7 +16,7 @@ enviar.definition = {
 
 /**
 * @see \App\Http\Controllers\PublicController::enviar
-* @see Http/Controllers/PublicController.php:192
+* @see Http/Controllers/PublicController.php:200
 * @route '/contacto'
 */
 enviar.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ enviar.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\PublicController::enviar
-* @see Http/Controllers/PublicController.php:192
+* @see Http/Controllers/PublicController.php:200
 * @route '/contacto'
 */
 enviar.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -35,7 +35,7 @@ enviar.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::enviar
-* @see Http/Controllers/PublicController.php:192
+* @see Http/Controllers/PublicController.php:200
 * @route '/contacto'
 */
 const enviarForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -45,7 +45,7 @@ const enviarForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> =>
 
 /**
 * @see \App\Http\Controllers\PublicController::enviar
-* @see Http/Controllers/PublicController.php:192
+* @see Http/Controllers/PublicController.php:200
 * @route '/contacto'
 */
 enviarForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

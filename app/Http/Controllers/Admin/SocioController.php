@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\EstadoCLU;
 use App\Enums\EstadoSocio;
 use App\Http\Controllers\Controller;
 use App\Models\Membresia;
@@ -164,6 +165,14 @@ class SocioController extends Controller
                 'estado_habilitacion' => $validated['estado_habilitacion'],
                 'posee_arma_propia' => (bool) ($validated['posee_arma_propia'] ?? false),
             ]);
+
+            // Si presidencia habilita al socio, la documentación CLU pendiente queda aprobada.
+            $credencial = $socio->credencialLu;
+            if ($validated['estado_habilitacion'] === EstadoSocio::ACTIVO->value
+                && $credencial
+                && $credencial->estado_validacion === EstadoCLU::PENDIENTE) {
+                $credencial->update(['estado_validacion' => EstadoCLU::APROBADO]);
+            }
         });
 
         return redirect()->route('admin.socios.index')->with('success', 'Ficha de socio actualizada.');

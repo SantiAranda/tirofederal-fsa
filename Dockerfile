@@ -1,43 +1,47 @@
+
 FROM php:8.4-cli
 
-# Instalar extensiones PHP necesarias y Node.js
+# Dependencias PHP
 RUN apt-get update && apt-get install -y \
-    git \
-    unzip \
-    curl \
-    libzip-dev \
-    libsqlite3-dev \
-    libonig-dev \
+    git unzip curl libzip-dev libsqlite3-dev libonig-dev \
     && docker-php-ext-install pdo pdo_sqlite zip iconv mbstring bcmath \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Instalar Node.js 20 LTS
+# Node.js y pnpm
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs \
     && npm install -g pnpm
 
-# Instalar Composer
+# Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
 
-# Copiar archivos de dependencias primero (cache de Docker layers)
-COPY composer.json composer.lock* ./
+# Instalar dependencias
+COPY composer.json composer.lock ./
 RUN composer install --no-scripts --no-autoloader --no-interaction
 
 COPY package.json pnpm-lock.yaml* pnpm-workspace.yaml* ./
-RUN pnpm install --frozen-lockfile || pnpm install
+RUN pnpm install --frozen-lockfile
 
-# Copiar el resto del proyecto
+# Copiar proyecto
 COPY . .
 
-#  Crear base de datos SQLite si no existe
+# Preparar directorios de Laravel
+RUN mkdir -p database storage/framework/cache/data \
+    storage/framework/sessions storage/framework/views \
+    storage/logs bootstrap/cache \
+    && touch database/database.sqlite \
+    && chmod -R 775 database storage bootstrap/cache
 
-RUN mkdir -p database && touch database/database.sqlite
-
-
-# Finalizar instalación de Composer con autoload
+# Generar autoload
 RUN composer dump-autoload --optimize
 
-# Exponer puertos (Laravel dev server + Vite HMR)
-EXPOSE 8000 5173
+# Compilar frontend para producción
+RUN rm -f public/hot && pnpm run build
+
+# Puerto de Render
+EXPOSE 10000
+
+# Iniciar aplicación y ejecutar migraciones pendientes
+CMD ["sh", "-c", "mkdir -p database storage/framework/cache/data storage/framework/sessions storage/framework/views storage/logs && touch database/database.sqlite && php artisan migrate --force && exec php artisan serve --host=0.0.0.0 --port=${PORT:-10000}"]

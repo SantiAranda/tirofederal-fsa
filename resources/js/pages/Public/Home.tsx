@@ -7,7 +7,6 @@ import {
     ChevronRight,
     Target,
     Shield,
-    Trophy,
     Users,
     ArrowRight,
     Star,
@@ -51,22 +50,16 @@ interface HomeProps {
 // --- Disciplinas hardcodeadas (hasta que vengan del back) ---
 const DISCIPLINAS = [
     {
-        icono: Target,
         nombre: 'Armas Cortas',
         descripcion: 'Pistola y revólver a 25 metros. Calibres .22 LR, 9 mm, .38 SPL y .45 ACP.',
-        color: 'bg-blue-50 text-blue-600',
     },
     {
-        icono: Shield,
         nombre: 'Tiro Neumático',
         descripcion: 'Rifle de aire comprimido y carabina .22 para iniciación y tiro olímpico.',
-        color: 'bg-green-50 text-green-600',
     },
     {
-        icono: Trophy,
         nombre: 'Tiro Práctico IPSC',
         descripcion: 'Recorridos dinámicos con desplazamientos, blancos múltiples y cronometraje.',
-        color: 'bg-orange-50 text-orange-600',
     },
 ];
 
@@ -130,7 +123,7 @@ export default function Home({ eventosProximos, testimonios, noticiasRecientes }
 
                 {/* WhatsApp flotante */}
                 <a
-                    href="https://wa.me/543704000000"
+                    href="https://wa.me/5493704569382"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-xl transition-transform hover:scale-110"
@@ -234,18 +227,12 @@ export default function Home({ eventosProximos, testimonios, noticiasRecientes }
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {DISCIPLINAS.map((disc) => {
-                            const Icon = disc.icono;
-                            return (
-                                <div key={disc.nombre} className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 border border-gray-100 group">
-                                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-5 ${disc.color} group-hover:scale-110 transition-transform duration-300`}>
-                                        <Icon className="w-7 h-7" />
-                                    </div>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">{disc.nombre}</h3>
-                                    <p className="text-gray-500 leading-relaxed text-sm">{disc.descripcion}</p>
-                                </div>
-                            );
-                        })}
+                        {DISCIPLINAS.map((disc) => (
+                            <div key={disc.nombre} className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 border border-gray-100 group">
+                                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">{disc.nombre}</h3>
+                                <p className="text-gray-500 leading-relaxed text-sm">{disc.descripcion}</p>
+                            </div>
+                        ))}
                     </div>
 
                     <div className="text-center mt-10">

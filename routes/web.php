@@ -29,6 +29,7 @@ Route::get('/', [PublicController::class, 'home'])->name('home');
 Route::get('/historia', [PublicController::class, 'historia'])->name('historia');
 Route::get('/disciplinas', [PublicController::class, 'disciplinas'])->name('disciplinas');
 Route::get('/decalogo', [PublicController::class, 'decalogo'])->name('decalogo');
+Route::get('/como-asociarse', [PublicController::class, 'comoAsociarse'])->name('como-asociarse');
 Route::get('/eventos', [PublicController::class, 'eventos'])->name('public.eventos');
 Route::get('/eventos/{evento}', [PublicController::class, 'eventoDetalle'])->whereNumber('evento')->name('public.eventos.show');
 Route::get('/noticias', [PublicController::class, 'noticias'])->name('public.noticias.index');
