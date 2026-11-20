@@ -36,7 +36,6 @@ class CuentaNoVerificadaAccesoTest extends TestCase
             'pagos' => ['/pagos'],
             'turnos' => ['/turnos'],
             'ajustes de perfil' => ['/settings/profile'],
-            'apariencia' => ['/settings/appearance'],
         ];
     }
 

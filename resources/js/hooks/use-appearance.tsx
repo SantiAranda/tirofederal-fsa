@@ -1,4 +1,17 @@
-import { useSyncExternalStore } from 'react';
+/**
+ * Tema visual de la aplicación.
+ *
+ * La interfaz del Tiro Federal está diseñada únicamente en modo claro: las
+ * páginas usan colores fijos (bg-white, text-gray-*), mientras que los
+ * componentes base (inputs, modales, menús, tarjetas) usan variables de tema.
+ * Si se activara la clase `.dark` (por ejemplo, porque el sistema operativo
+ * pasa a modo oscuro) esos componentes se volverían negros sobre páginas
+ * claras. Por eso el tema se fija siempre en claro y no se sigue la
+ * preferencia del sistema.
+ *
+ * Se conserva la misma API (`useAppearance`, `initializeTheme`) para no romper
+ * a los componentes que la consumen.
+ */
 
 export type ResolvedAppearance = 'light' | 'dark';
 export type Appearance = ResolvedAppearance | 'system';
@@ -9,107 +22,35 @@ export type UseAppearanceReturn = {
     readonly updateAppearance: (mode: Appearance) => void;
 };
 
-const listeners = new Set<() => void>();
-let currentAppearance: Appearance = 'system';
-
-const prefersDark = (): boolean => {
-    if (typeof window === 'undefined') {
-        return false;
-    }
-
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
-};
-
-const setCookie = (name: string, value: string, days = 365): void => {
+const applyLightTheme = (): void => {
     if (typeof document === 'undefined') {
         return;
     }
 
-    const maxAge = days * 24 * 60 * 60;
-    document.cookie = `${name}=${value};path=/;max-age=${maxAge};SameSite=Lax`;
+    document.documentElement.classList.remove('dark');
+    document.documentElement.style.colorScheme = 'light';
 };
-
-const getStoredAppearance = (): Appearance => {
-    if (typeof window === 'undefined') {
-        return 'system';
-    }
-
-    return (localStorage.getItem('appearance') as Appearance) || 'system';
-};
-
-const isDarkMode = (appearance: Appearance): boolean => {
-    return appearance === 'dark' || (appearance === 'system' && prefersDark());
-};
-
-const applyTheme = (appearance: Appearance): void => {
-    if (typeof document === 'undefined') {
-        return;
-    }
-
-    const isDark = isDarkMode(appearance);
-
-    document.documentElement.classList.toggle('dark', isDark);
-    document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
-};
-
-const subscribe = (callback: () => void) => {
-    listeners.add(callback);
-
-    return () => listeners.delete(callback);
-};
-
-const notify = (): void => listeners.forEach((listener) => listener());
-
-const mediaQuery = (): MediaQueryList | null => {
-    if (typeof window === 'undefined') {
-        return null;
-    }
-
-    return window.matchMedia('(prefers-color-scheme: dark)');
-};
-
-const handleSystemThemeChange = (): void => applyTheme(currentAppearance);
 
 export function initializeTheme(): void {
     if (typeof window === 'undefined') {
         return;
     }
 
-    if (!localStorage.getItem('appearance')) {
-        localStorage.setItem('appearance', 'system');
-        setCookie('appearance', 'system');
+    // Limpia preferencias viejas (p. ej. "system" o "dark") guardadas antes de fijar el tema.
+    try {
+        localStorage.removeItem('appearance');
+    } catch {
+        // localStorage puede no estar disponible (modo privado); no es crítico.
     }
+    document.cookie = 'appearance=;path=/;max-age=0;SameSite=Lax';
 
-    currentAppearance = getStoredAppearance();
-    applyTheme(currentAppearance);
-
-    // Set up system theme change listener
-    mediaQuery()?.addEventListener('change', handleSystemThemeChange);
+    applyLightTheme();
 }
 
 export function useAppearance(): UseAppearanceReturn {
-    const appearance: Appearance = useSyncExternalStore(
-        subscribe,
-        () => currentAppearance,
-        () => 'system',
-    );
-
-    const resolvedAppearance: ResolvedAppearance = isDarkMode(appearance)
-        ? 'dark'
-        : 'light';
-
-    const updateAppearance = (mode: Appearance): void => {
-        currentAppearance = mode;
-
-        // Store in localStorage for client-side persistence...
-        localStorage.setItem('appearance', mode);
-
-        // Store in cookie for SSR...
-        setCookie('appearance', mode);
-
-        applyTheme(mode);
-        notify();
-    };
-
-    return { appearance, resolvedAppearance, updateAppearance } as const;
+    return {
+        appearance: 'light',
+        resolvedAppearance: 'light',
+        updateAppearance: applyLightTheme,
+    } as const;
 }

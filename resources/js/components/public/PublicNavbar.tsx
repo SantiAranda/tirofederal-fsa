@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { Link, usePage } from '@inertiajs/react';
-import { Menu, X, Target, User, LogIn } from 'lucide-react';
+import { Link, router, usePage } from '@inertiajs/react';
+import { Menu, X, LayoutGrid, LogIn, LogOut } from 'lucide-react';
+import PublicUserMenu, { UserAvatar, type PublicUser } from '@/components/public/PublicUserMenu';
+import { logout } from '@/routes';
 
 const navLinks = [
     { label: 'Inicio', href: '/' },
@@ -13,7 +15,7 @@ const navLinks = [
 ];
 
 export default function PublicNavbar() {
-    const { auth } = usePage<{ auth: { user: { name: string } | null } }>().props;
+    const { auth } = usePage<{ auth: { user: PublicUser | null } }>().props;
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
@@ -54,13 +56,7 @@ export default function PublicNavbar() {
                     {/* CTA */}
                     <div className="hidden md:flex items-center gap-2">
                         {auth?.user ? (
-                            <Link
-                                href="/dashboard"
-                                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
-                            >
-                                <User className="w-4 h-4" />
-                                Mi panel
-                            </Link>
+                            <PublicUserMenu user={auth.user} />
                         ) : (
                             <Link
                                 href="/login"
@@ -97,9 +93,28 @@ export default function PublicNavbar() {
                         ))}
                         <div className="pt-2 px-4">
                             {auth?.user ? (
-                                <Link href="/dashboard" className="flex items-center justify-center gap-2 w-full bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium">
-                                    <User className="w-4 h-4" /> Mi panel
-                                </Link>
+                                <div className="space-y-2">
+                                    <div className="flex items-center gap-3 px-1 py-1">
+                                        <UserAvatar user={auth.user} className="h-10 w-10" />
+                                        <div className="grid min-w-0 leading-tight">
+                                            <span className="truncate text-sm font-semibold text-gray-900">
+                                                {auth.user.nombre_completo || auth.user.name}
+                                            </span>
+                                            <span className="truncate text-xs text-gray-500">{auth.user.email}</span>
+                                        </div>
+                                    </div>
+                                    <Link href="/dashboard" className="flex items-center justify-center gap-2 w-full bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium">
+                                        <LayoutGrid className="w-4 h-4" /> Mi panel
+                                    </Link>
+                                    <Link
+                                        href={logout()}
+                                        as="button"
+                                        onClick={() => router.flushAll()}
+                                        className="flex items-center justify-center gap-2 w-full border border-red-200 text-red-600 px-4 py-2 rounded-lg text-sm font-medium hover:bg-red-50"
+                                    >
+                                        <LogOut className="w-4 h-4" /> Cerrar sesión
+                                    </Link>
+                                </div>
                             ) : (
                                 <Link href="/login" className="flex items-center justify-center gap-2 w-full bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium">
                                     <LogIn className="w-4 h-4" /> Iniciar sesión
