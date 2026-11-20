@@ -1,4 +1,4 @@
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import type { BreadcrumbItem } from '@/types';
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -138,11 +138,13 @@ export default function PagosIndex({ pagos: serverPagos, totalRecaudadoMes }: Pr
                     <div>
                         <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Cobros, Pagos y Recibos</h1>
                         <p className="text-sm text-gray-500 mt-1">
-                            Gestión de recaudación, cuotas societarias, eventos y venta de insumos (RF22)
+                            Gestión de recaudación, cuotas societarias, eventos y venta de insumos
                         </p>
                     </div>
-                    <Button onClick={() => setDialogOpen(true)} className="bg-blue-600 hover:bg-blue-700 text-white gap-2">
-                        <Plus className="w-4 h-4" /> Registrar Cobro
+                    <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white gap-2">
+                        <Link href="/admin/pagos/create">
+                            <Plus className="w-4 h-4" /> Registrar Cobro
+                        </Link>
                     </Button>
                 </div>
 

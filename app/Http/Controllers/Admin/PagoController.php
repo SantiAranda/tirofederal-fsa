@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Membresia;
 use App\Models\Pago;
 use App\Models\SocioProfile;
 use App\Services\PagoService;
@@ -66,8 +67,13 @@ class PagoController extends Controller
             ->orderBy('id', 'asc')
             ->get();
 
+        $membresias = Membresia::where('activa', true)
+            ->orderBy('id', 'asc')
+            ->get(['id', 'nombre_plan', 'monto_mensual', 'cuota_ingreso']);
+
         return Inertia::render('Admin/Pagos/Create', [
             'socios' => $socios,
+            'membresias' => $membresias,
         ]);
     }
 

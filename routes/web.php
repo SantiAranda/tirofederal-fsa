@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| 6.1. Portal Institucional Público (RF29 a RF32)
+| 6.1. Portal Institucional Público
 |--------------------------------------------------------------------------
 */
 Route::get('/', [PublicController::class, 'home'])->name('home');
@@ -74,7 +74,7 @@ Route::get('/solicitud-en-tramite', function () {
 
 /*
 |--------------------------------------------------------------------------
-| 6.2. Módulo de Socio / Tirador (RF08, RF10, RF14, RF15, RF22, RF23, RF24, RF27)
+| 6.2. Módulo de Socio / Tirador
 |--------------------------------------------------------------------------
 */
 Route::middleware(['auth', 'role:socio'])->group(function () {
@@ -101,7 +101,7 @@ Route::middleware(['auth', 'role:socio'])->group(function () {
 
 /*
 |--------------------------------------------------------------------------
-| 6.3. Módulo de Instructor (RF17, RF19, RF20)
+| 6.3. Módulo de Instructor
 |--------------------------------------------------------------------------
 */
 Route::middleware(['auth', 'role:instructor'])->prefix('instructor')->name('instructor.')->group(function () {
@@ -112,7 +112,7 @@ Route::middleware(['auth', 'role:instructor'])->prefix('instructor')->name('inst
 
 /*
 |--------------------------------------------------------------------------
-| 6.4. Módulo de Presidencia / Administración (RF03, RF06, RF07, RF08, RF10, RF11, RF17, RF21, RF22, RF23, RF26, RF28, RF33, RF34)
+| 6.4. Módulo de Presidencia / Administración
 |--------------------------------------------------------------------------
 */
 Route::middleware(['auth', 'role:presidente'])->prefix('admin')->name('admin.')->group(function () {

@@ -1,4 +1,4 @@
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import type { BreadcrumbItem } from '@/types';
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -128,11 +128,13 @@ export default function InstructoresIndex({ instructores: serverInstructores }: 
                     <div>
                         <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Cuerpo de Instructores Matriculados</h1>
                         <p className="text-sm text-gray-500 mt-1">
-                            Control de matrículas habilitantes ANMaC (ITA / ITB) y asignación de clases (RF17 y RF18)
+                            Control de matrículas habilitantes ANMaC (ITA / ITB) y asignación de clases
                         </p>
                     </div>
-                    <Button onClick={() => setDialogOpen(true)} className="bg-blue-600 hover:bg-blue-700 text-white gap-2">
-                        <Plus className="w-4 h-4" /> Alta Instructor
+                    <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white gap-2">
+                        <Link href="/admin/instructores/create">
+                            <Plus className="w-4 h-4" /> Alta Instructor
+                        </Link>
                     </Button>
                 </div>
 
@@ -169,7 +171,7 @@ export default function InstructoresIndex({ instructores: serverInstructores }: 
                         </CardHeader>
                         <CardContent>
                             <div className="text-2xl font-bold text-gray-900">4.8 / 5.0</div>
-                            <p className="text-xs text-gray-500 mt-1">Promedio de satisfacción (RF20)</p>
+                            <p className="text-xs text-gray-500 mt-1">Promedio de satisfacción general</p>
                         </CardContent>
                     </Card>
                 </div>
@@ -189,11 +191,10 @@ export default function InstructoresIndex({ instructores: serverInstructores }: 
                                             <p className="text-xs text-blue-600 font-medium">{inst.especialidad}</p>
                                         </div>
                                     </div>
-                                    <Badge className={`text-xs ${
-                                        inst.estado === 'Vigente' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' :
+                                    <Badge className={`text-xs ${inst.estado === 'Vigente' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' :
                                         inst.estado === 'Por Vencer' ? 'bg-amber-50 text-amber-700 border-amber-200' :
-                                        'bg-rose-50 text-rose-700 border-rose-200'
-                                    }`}>
+                                            'bg-rose-50 text-rose-700 border-rose-200'
+                                        }`}>
                                         {inst.estado}
                                     </Badge>
                                 </div>

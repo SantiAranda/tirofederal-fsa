@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Admin\CluController::index
-* @see Http/Controllers/Admin/CluController.php:22
+* @see app/Http/Controllers/Admin/CluController.php:22
 * @route '/admin/clu'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,16 +16,20 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::index
-* @see Http/Controllers/Admin/CluController.php:22
+* @see app/Http/Controllers/Admin/CluController.php:22
 * @route '/admin/clu'
 */
 index.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return index.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::index
-* @see Http/Controllers/Admin/CluController.php:22
+* @see app/Http/Controllers/Admin/CluController.php:22
 * @route '/admin/clu'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +39,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::index
-* @see Http/Controllers/Admin/CluController.php:22
+* @see app/Http/Controllers/Admin/CluController.php:22
 * @route '/admin/clu'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +49,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::index
-* @see Http/Controllers/Admin/CluController.php:22
+* @see app/Http/Controllers/Admin/CluController.php:22
 * @route '/admin/clu'
 */
 const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +59,7 @@ const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::index
-* @see Http/Controllers/Admin/CluController.php:22
+* @see app/Http/Controllers/Admin/CluController.php:22
 * @route '/admin/clu'
 */
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -65,7 +69,7 @@ indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::index
-* @see Http/Controllers/Admin/CluController.php:22
+* @see app/Http/Controllers/Admin/CluController.php:22
 * @route '/admin/clu'
 */
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -82,7 +86,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::show
-* @see Http/Controllers/Admin/CluController.php:58
+* @see app/Http/Controllers/Admin/CluController.php:58
 * @route '/admin/clu/{credencial}'
 */
 export const show = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -97,7 +101,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::show
-* @see Http/Controllers/Admin/CluController.php:58
+* @see app/Http/Controllers/Admin/CluController.php:58
 * @route '/admin/clu/{credencial}'
 */
 show.url = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -117,6 +121,7 @@ show.url = (args: { credencial: number | { id: number } } | [credencial: number 
 
     args = applyUrlDefaults(args)
 
+
     const parsedArgs = {
         credencial: typeof args.credencial === 'object'
         ? args.credencial.id
@@ -130,7 +135,7 @@ show.url = (args: { credencial: number | { id: number } } | [credencial: number 
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::show
-* @see Http/Controllers/Admin/CluController.php:58
+* @see app/Http/Controllers/Admin/CluController.php:58
 * @route '/admin/clu/{credencial}'
 */
 show.get = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -140,7 +145,7 @@ show.get = (args: { credencial: number | { id: number } } | [credencial: number 
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::show
-* @see Http/Controllers/Admin/CluController.php:58
+* @see app/Http/Controllers/Admin/CluController.php:58
 * @route '/admin/clu/{credencial}'
 */
 show.head = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -150,7 +155,7 @@ show.head = (args: { credencial: number | { id: number } } | [credencial: number
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::show
-* @see Http/Controllers/Admin/CluController.php:58
+* @see app/Http/Controllers/Admin/CluController.php:58
 * @route '/admin/clu/{credencial}'
 */
 const showForm = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -160,7 +165,7 @@ const showForm = (args: { credencial: number | { id: number } } | [credencial: n
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::show
-* @see Http/Controllers/Admin/CluController.php:58
+* @see app/Http/Controllers/Admin/CluController.php:58
 * @route '/admin/clu/{credencial}'
 */
 showForm.get = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -170,7 +175,7 @@ showForm.get = (args: { credencial: number | { id: number } } | [credencial: num
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::show
-* @see Http/Controllers/Admin/CluController.php:58
+* @see app/Http/Controllers/Admin/CluController.php:58
 * @route '/admin/clu/{credencial}'
 */
 showForm.head = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -187,7 +192,7 @@ show.form = showForm
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::validar
-* @see Http/Controllers/Admin/CluController.php:72
+* @see app/Http/Controllers/Admin/CluController.php:72
 * @route '/admin/clu/{credencial}/validar'
 */
 export const validar = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -202,7 +207,7 @@ validar.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::validar
-* @see Http/Controllers/Admin/CluController.php:72
+* @see app/Http/Controllers/Admin/CluController.php:72
 * @route '/admin/clu/{credencial}/validar'
 */
 validar.url = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -222,6 +227,7 @@ validar.url = (args: { credencial: number | { id: number } } | [credencial: numb
 
     args = applyUrlDefaults(args)
 
+
     const parsedArgs = {
         credencial: typeof args.credencial === 'object'
         ? args.credencial.id
@@ -235,7 +241,7 @@ validar.url = (args: { credencial: number | { id: number } } | [credencial: numb
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::validar
-* @see Http/Controllers/Admin/CluController.php:72
+* @see app/Http/Controllers/Admin/CluController.php:72
 * @route '/admin/clu/{credencial}/validar'
 */
 validar.patch = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -245,7 +251,7 @@ validar.patch = (args: { credencial: number | { id: number } } | [credencial: nu
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::validar
-* @see Http/Controllers/Admin/CluController.php:72
+* @see app/Http/Controllers/Admin/CluController.php:72
 * @route '/admin/clu/{credencial}/validar'
 */
 const validarForm = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -260,7 +266,7 @@ const validarForm = (args: { credencial: number | { id: number } } | [credencial
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::validar
-* @see Http/Controllers/Admin/CluController.php:72
+* @see app/Http/Controllers/Admin/CluController.php:72
 * @route '/admin/clu/{credencial}/validar'
 */
 validarForm.patch = (args: { credencial: number | { id: number } } | [credencial: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -277,7 +283,7 @@ validar.form = validarForm
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::documento
-* @see Http/Controllers/Admin/CluController.php:93
+* @see app/Http/Controllers/Admin/CluController.php:93
 * @route '/admin/clu/{credencial}/documento/{tipo}'
 */
 export const documento = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -292,10 +298,11 @@ documento.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::documento
-* @see Http/Controllers/Admin/CluController.php:93
+* @see app/Http/Controllers/Admin/CluController.php:93
 * @route '/admin/clu/{credencial}/documento/{tipo}'
 */
 documento.url = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions) => {
+
     if (Array.isArray(args)) {
         args = {
             credencial: args[0],
@@ -304,6 +311,7 @@ documento.url = (args: { credencial: number | { id: number }, tipo: string | num
     }
 
     args = applyUrlDefaults(args)
+
 
     const parsedArgs = {
         credencial: typeof args.credencial === 'object'
@@ -320,7 +328,7 @@ documento.url = (args: { credencial: number | { id: number }, tipo: string | num
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::documento
-* @see Http/Controllers/Admin/CluController.php:93
+* @see app/Http/Controllers/Admin/CluController.php:93
 * @route '/admin/clu/{credencial}/documento/{tipo}'
 */
 documento.get = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -330,7 +338,7 @@ documento.get = (args: { credencial: number | { id: number }, tipo: string | num
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::documento
-* @see Http/Controllers/Admin/CluController.php:93
+* @see app/Http/Controllers/Admin/CluController.php:93
 * @route '/admin/clu/{credencial}/documento/{tipo}'
 */
 documento.head = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -340,7 +348,7 @@ documento.head = (args: { credencial: number | { id: number }, tipo: string | nu
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::documento
-* @see Http/Controllers/Admin/CluController.php:93
+* @see app/Http/Controllers/Admin/CluController.php:93
 * @route '/admin/clu/{credencial}/documento/{tipo}'
 */
 const documentoForm = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -350,7 +358,7 @@ const documentoForm = (args: { credencial: number | { id: number }, tipo: string
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::documento
-* @see Http/Controllers/Admin/CluController.php:93
+* @see app/Http/Controllers/Admin/CluController.php:93
 * @route '/admin/clu/{credencial}/documento/{tipo}'
 */
 documentoForm.get = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -360,7 +368,7 @@ documentoForm.get = (args: { credencial: number | { id: number }, tipo: string |
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::documento
-* @see Http/Controllers/Admin/CluController.php:93
+* @see app/Http/Controllers/Admin/CluController.php:93
 * @route '/admin/clu/{credencial}/documento/{tipo}'
 */
 documentoForm.head = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -374,6 +382,8 @@ documentoForm.head = (args: { credencial: number | { id: number }, tipo: string 
 })
 
 documento.form = documentoForm
+
+
 
 const clu = {
     index: Object.assign(index, index),

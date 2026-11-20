@@ -20,6 +20,10 @@ show.definition = {
 * @route '/user/confirmed-password-status'
 */
 show.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return show.definition.url + queryParams(options)
 }
 

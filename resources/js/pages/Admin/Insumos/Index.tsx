@@ -1,4 +1,4 @@
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import type { BreadcrumbItem } from '@/types';
 import { useState } from 'react';
 import {
@@ -131,9 +131,11 @@ export default function InsumosIndex({ insumos: serverInsumos }: Props) {
                         <h1 className="text-2xl font-bold text-gray-900">Armería e Insumos</h1>
                         <p className="text-sm text-gray-500 mt-1">Gestión de stock para venta presencial</p>
                     </div>
-                    <Button className="bg-blue-600 text-white hover:bg-blue-700 gap-2">
-                        <Plus className="h-4 w-4" />
-                        Agregar Insumo
+                    <Button asChild className="bg-blue-600 text-white hover:bg-blue-700 gap-2">
+                        <Link href="/admin/insumos/create">
+                            <Plus className="h-4 w-4" />
+                            Agregar Insumo
+                        </Link>
                     </Button>
                 </div>
 

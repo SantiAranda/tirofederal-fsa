@@ -48,7 +48,7 @@ export default function NoticiasIndex({ noticias: serverNoticias }: Props) {
                         Prensa y Comunicados Oficiales
                     </h1>
                     <p className="text-sm text-gray-500 mt-1">
-                        Gestión de artículos y comunicados visibles en el portal público y el club (RF28, RF31)
+                        Gestión de artículos y comunicados visibles en el portal público y el club
                     </p>
                 </div>
                 <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white gap-2 shadow-sm shadow-blue-500/20">

@@ -18,6 +18,10 @@ index.definition = {
 * @route '/admin/reportes'
 */
 index.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return index.definition.url + queryParams(options)
 }
 
@@ -72,6 +76,8 @@ indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 })
 
 index.form = indexForm
+
+
 
 const reportes = {
     index: Object.assign(index, index),

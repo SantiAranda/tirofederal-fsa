@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Head, Link, router } from '@inertiajs/react';
-import { 
-    Users, UserPlus, Search, Download, Filter, 
+import {
+    Users, UserPlus, Search, Download, Filter,
     CheckCircle2, Clock, AlertTriangle, ShieldCheck, MoreVertical, Eye, Edit
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -86,7 +86,7 @@ export default function SociosIndex({ socios, filtros }: Props) {
                 <div className="flex items-center gap-2">
                     <Button variant="outline" asChild className="gap-2">
                         <a href="/admin/socios/exportar">
-                            <Download className="w-4 h-4" /> Exportar Planilla (RF33)
+                            <Download className="w-4 h-4" /> Exportar Planilla
                         </a>
                     </Button>
                     <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white gap-2 shadow-md shadow-blue-500/20">

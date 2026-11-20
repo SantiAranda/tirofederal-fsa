@@ -23,7 +23,7 @@ export default function ReportesIndex() {
                     <div>
                         <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Reportes Institucionales y Calidad</h1>
                         <p className="text-sm text-gray-500 mt-1">
-                            Métricas de satisfacción, ocupación de líneas de tiro y recaudación del polígono (RF21)
+                            Métricas de satisfacción, ocupación de líneas de tiro y recaudación del polígono
                         </p>
                     </div>
                     <div className="flex gap-2">
@@ -168,11 +168,11 @@ export default function ReportesIndex() {
                     </Card>
                 </div>
 
-                {/* Evaluaciones de Satisfacción y Calidad (RF21) */}
+                {/* Evaluaciones de Satisfacción y Calidad */}
                 <Card>
                     <CardHeader>
                         <CardTitle className="text-base font-bold text-gray-900">
-                            Últimas Evaluaciones de Calidad del Servicio (RF20 / RF21)
+                            Últimas Evaluaciones de Calidad del Servicio
                         </CardTitle>
                         <CardDescription className="text-xs text-gray-500">
                             Devoluciones realizadas por socios tras sus prácticas de tiro y cursos con instructores

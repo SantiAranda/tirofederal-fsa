@@ -1,8 +1,8 @@
 import { useState, FormEvent } from 'react';
 import { Head, Link, useForm } from '@inertiajs/react';
-import { 
-    UserPlus, ArrowLeft, User, CreditCard, FileText, 
-    Save, RotateCcw, ShieldCheck, Upload, CheckCircle2 
+import {
+    UserPlus, ArrowLeft, User, CreditCard, FileText,
+    Save, RotateCcw, ShieldCheck, Upload, CheckCircle2
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -415,5 +415,5 @@ export default function CreateSocio({ membresias = [] }: Props) {
 
 
 CreateSocio.layout = {
-    breadcrumbs: [{ title: 'Inicio', href: '/admin/dashboard' }, { title: 'Socios', href: '/admin/socios' }, { title: 'A�adir nuevo socio', href: '/admin/socios/create' }],
+    breadcrumbs: [{ title: 'Inicio', href: '/admin/dashboard' }, { title: 'Socios', href: '/admin/socios' }, { title: 'Añadir nuevo socio', href: '/admin/socios/create' }],
 };

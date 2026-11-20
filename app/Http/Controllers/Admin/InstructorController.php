@@ -31,6 +31,14 @@ class InstructorController extends Controller
     }
 
     /**
+     * Muestra el formulario para registrar un nuevo instructor habilitado.
+     */
+    public function create(): Response
+    {
+        return Inertia::render('Admin/Instructores/Create');
+    }
+
+    /**
      * Registra un nuevo instructor en el sistema con su matrícula ANMaC (RF17).
      */
     public function store(Request $request): RedirectResponse
@@ -74,7 +82,7 @@ class InstructorController extends Controller
             ]);
         });
 
-        return back()->with('success', "Instructor '{$validated['nombre']} {$validated['apellido']}' registrado correctamente.");
+        return redirect()->route('admin.instructores.index')->with('success', "Instructor '{$validated['nombre']} {$validated['apellido']}' registrado correctamente.");
     }
 
     /**

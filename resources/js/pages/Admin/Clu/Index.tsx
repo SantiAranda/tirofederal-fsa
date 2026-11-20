@@ -192,7 +192,7 @@ export default function CluIndex({ credenciales: serverCredenciales }: Props) {
                     <div>
                         <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Validación de CLU y Legajos Digitales</h1>
                         <p className="text-sm text-gray-500 mt-1">
-                            Auditoría de credenciales ANMaC, DNI y aptitudes físicas/psicológicas de socios (RF03 y RF10)
+                            Auditoría de credenciales ANMaC, DNI y aptitudes físicas/psicológicas de socios
                         </p>
                     </div>
                 </div>
@@ -435,7 +435,7 @@ export default function CluIndex({ credenciales: serverCredenciales }: Props) {
                                         {/* Selector Vertical de Documentos */}
                                         <div>
                                             <span className="text-[11px] font-bold uppercase tracking-wider text-gray-600 block mb-2">
-                                                Documentos Adjuntos (RF03)
+                                                Documentos Adjuntos
                                             </span>
                                             <div className="space-y-2">
                                                 {docsConfig.map((doc) => {
