@@ -1,4 +1,4 @@
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import type { BreadcrumbItem } from '@/types';
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -122,17 +122,19 @@ export default function InstructoresIndex({ instructores: serverInstructores }: 
     return (
         <>
             <Head title="Instructores de Tiro - Tiro Federal Formosa" />
-            <div className="flex flex-col gap-6 p-6">
+            <div className="flex flex-col gap-6">
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div>
                         <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Cuerpo de Instructores Matriculados</h1>
                         <p className="text-sm text-gray-500 mt-1">
-                            Control de matrículas habilitantes ANMaC (ITA / ITB) y asignación de clases (RF17 y RF18)
+                            Control de matrículas habilitantes ANMaC (ITA / ITB) y asignación de clases
                         </p>
                     </div>
-                    <Button onClick={() => setDialogOpen(true)} className="bg-blue-600 hover:bg-blue-700 text-white gap-2">
-                        <Plus className="w-4 h-4" /> Alta Instructor
+                    <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white gap-2 w-full sm:w-auto">
+                        <Link href="/admin/instructores/create">
+                            <Plus className="w-4 h-4" /> Alta Instructor
+                        </Link>
                     </Button>
                 </div>
 
@@ -169,7 +171,7 @@ export default function InstructoresIndex({ instructores: serverInstructores }: 
                         </CardHeader>
                         <CardContent>
                             <div className="text-2xl font-bold text-gray-900">4.8 / 5.0</div>
-                            <p className="text-xs text-gray-500 mt-1">Promedio de satisfacción (RF20)</p>
+                            <p className="text-xs text-gray-500 mt-1">Promedio de satisfacción general</p>
                         </CardContent>
                     </Card>
                 </div>
@@ -178,7 +180,7 @@ export default function InstructoresIndex({ instructores: serverInstructores }: 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {instructores.map((inst) => (
                         <Card key={inst.id} className="border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
-                            <CardContent className="p-6">
+                            <CardContent className="p-4 sm:p-6">
                                 <div className="flex items-start justify-between">
                                     <div className="flex items-center gap-3">
                                         <div className="w-12 h-12 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-lg">
@@ -189,11 +191,10 @@ export default function InstructoresIndex({ instructores: serverInstructores }: 
                                             <p className="text-xs text-blue-600 font-medium">{inst.especialidad}</p>
                                         </div>
                                     </div>
-                                    <Badge className={`text-xs ${
-                                        inst.estado === 'Vigente' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' :
+                                    <Badge className={`text-xs ${inst.estado === 'Vigente' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' :
                                         inst.estado === 'Por Vencer' ? 'bg-amber-50 text-amber-700 border-amber-200' :
-                                        'bg-rose-50 text-rose-700 border-rose-200'
-                                    }`}>
+                                            'bg-rose-50 text-rose-700 border-rose-200'
+                                        }`}>
                                         {inst.estado}
                                     </Badge>
                                 </div>

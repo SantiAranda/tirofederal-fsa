@@ -181,7 +181,7 @@ class SocioController extends Controller
     }
 
     /**
-     * Exporta el padrón social a archivo CSV para contaduría (RF33, SPECS 6.4).
+     * Exporta el padrón social a archivo CSV para contaduría (, SPECS 6.4).
      */
     public function exportar(Request $request): StreamedResponse
     {

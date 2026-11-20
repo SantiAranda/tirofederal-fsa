@@ -33,6 +33,19 @@ class DashboardController extends Controller
 
         $promedioCalidad = Evaluacion::avg('puntaje_numerico') ?? 5.0;
 
+        // Distribución de recaudación por concepto para el reporte financiero integrado
+        $ingresosPorConcepto = Pago::where('estado', 'aprobado')
+            ->selectRaw('tipo_concepto, sum(monto) as total')
+            ->groupBy('tipo_concepto')
+            ->pluck('total', 'tipo_concepto')
+            ->toArray();
+
+        // Evaluaciones recientes para métricas de calidad de servicio
+        $evaluacionesRecientes = Evaluacion::with(['socioProfile.user', 'evaluado'])
+            ->latest()
+            ->take(6)
+            ->get();
+
         return Inertia::render('Admin/Dashboard', [
             'metricas' => [
                 'socios_activos' => $totalSociosActivos,
@@ -41,7 +54,9 @@ class DashboardController extends Controller
                 'recaudacion_mes' => (float) $recaudacionMes,
                 'turnos_hoy' => $turnosHoy,
                 'promedio_calidad' => round((float) $promedioCalidad, 2),
+                'ingresos_por_concepto' => $ingresosPorConcepto,
             ],
+            'evaluaciones' => $evaluacionesRecientes,
         ]);
     }
 }

@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Admin\PagoController::pdf
-* @see Http/Controllers/Admin/PagoController.php:102
+* @see Http/Controllers/Admin/PagoController.php:108
 * @route '/admin/pagos/{pago}/pdf'
 */
 export const pdf = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ pdf.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::pdf
-* @see Http/Controllers/Admin/PagoController.php:102
+* @see Http/Controllers/Admin/PagoController.php:108
 * @route '/admin/pagos/{pago}/pdf'
 */
 pdf.url = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -49,7 +49,7 @@ pdf.url = (args: { pago: number | { id: number } } | [pago: number | { id: numbe
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::pdf
-* @see Http/Controllers/Admin/PagoController.php:102
+* @see Http/Controllers/Admin/PagoController.php:108
 * @route '/admin/pagos/{pago}/pdf'
 */
 pdf.get = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -59,7 +59,7 @@ pdf.get = (args: { pago: number | { id: number } } | [pago: number | { id: numbe
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::pdf
-* @see Http/Controllers/Admin/PagoController.php:102
+* @see Http/Controllers/Admin/PagoController.php:108
 * @route '/admin/pagos/{pago}/pdf'
 */
 pdf.head = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -69,7 +69,7 @@ pdf.head = (args: { pago: number | { id: number } } | [pago: number | { id: numb
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::pdf
-* @see Http/Controllers/Admin/PagoController.php:102
+* @see Http/Controllers/Admin/PagoController.php:108
 * @route '/admin/pagos/{pago}/pdf'
 */
 const pdfForm = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,7 +79,7 @@ const pdfForm = (args: { pago: number | { id: number } } | [pago: number | { id:
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::pdf
-* @see Http/Controllers/Admin/PagoController.php:102
+* @see Http/Controllers/Admin/PagoController.php:108
 * @route '/admin/pagos/{pago}/pdf'
 */
 pdfForm.get = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -89,7 +89,7 @@ pdfForm.get = (args: { pago: number | { id: number } } | [pago: number | { id: n
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::pdf
-* @see Http/Controllers/Admin/PagoController.php:102
+* @see Http/Controllers/Admin/PagoController.php:108
 * @route '/admin/pagos/{pago}/pdf'
 */
 pdfForm.head = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -106,7 +106,7 @@ pdf.form = pdfForm
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::anular
-* @see Http/Controllers/Admin/PagoController.php:119
+* @see Http/Controllers/Admin/PagoController.php:125
 * @route '/admin/pagos/{pago}/anular'
 */
 export const anular = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -121,7 +121,7 @@ anular.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::anular
-* @see Http/Controllers/Admin/PagoController.php:119
+* @see Http/Controllers/Admin/PagoController.php:125
 * @route '/admin/pagos/{pago}/anular'
 */
 anular.url = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -154,7 +154,7 @@ anular.url = (args: { pago: number | { id: number } } | [pago: number | { id: nu
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::anular
-* @see Http/Controllers/Admin/PagoController.php:119
+* @see Http/Controllers/Admin/PagoController.php:125
 * @route '/admin/pagos/{pago}/anular'
 */
 anular.patch = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -164,7 +164,7 @@ anular.patch = (args: { pago: number | { id: number } } | [pago: number | { id: 
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::anular
-* @see Http/Controllers/Admin/PagoController.php:119
+* @see Http/Controllers/Admin/PagoController.php:125
 * @route '/admin/pagos/{pago}/anular'
 */
 const anularForm = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -179,7 +179,7 @@ const anularForm = (args: { pago: number | { id: number } } | [pago: number | { 
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::anular
-* @see Http/Controllers/Admin/PagoController.php:119
+* @see Http/Controllers/Admin/PagoController.php:125
 * @route '/admin/pagos/{pago}/anular'
 */
 anularForm.patch = (args: { pago: number | { id: number } } | [pago: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -196,7 +196,7 @@ anular.form = anularForm
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::index
-* @see Http/Controllers/Admin/PagoController.php:22
+* @see Http/Controllers/Admin/PagoController.php:23
 * @route '/admin/pagos'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -211,7 +211,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::index
-* @see Http/Controllers/Admin/PagoController.php:22
+* @see Http/Controllers/Admin/PagoController.php:23
 * @route '/admin/pagos'
 */
 index.url = (options?: RouteQueryOptions) => {
@@ -220,7 +220,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::index
-* @see Http/Controllers/Admin/PagoController.php:22
+* @see Http/Controllers/Admin/PagoController.php:23
 * @route '/admin/pagos'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -230,7 +230,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::index
-* @see Http/Controllers/Admin/PagoController.php:22
+* @see Http/Controllers/Admin/PagoController.php:23
 * @route '/admin/pagos'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -240,7 +240,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::index
-* @see Http/Controllers/Admin/PagoController.php:22
+* @see Http/Controllers/Admin/PagoController.php:23
 * @route '/admin/pagos'
 */
 const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -250,7 +250,7 @@ const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::index
-* @see Http/Controllers/Admin/PagoController.php:22
+* @see Http/Controllers/Admin/PagoController.php:23
 * @route '/admin/pagos'
 */
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -260,7 +260,7 @@ indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::index
-* @see Http/Controllers/Admin/PagoController.php:22
+* @see Http/Controllers/Admin/PagoController.php:23
 * @route '/admin/pagos'
 */
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -277,7 +277,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::create
-* @see Http/Controllers/Admin/PagoController.php:63
+* @see Http/Controllers/Admin/PagoController.php:64
 * @route '/admin/pagos/create'
 */
 export const create = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -292,7 +292,7 @@ create.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::create
-* @see Http/Controllers/Admin/PagoController.php:63
+* @see Http/Controllers/Admin/PagoController.php:64
 * @route '/admin/pagos/create'
 */
 create.url = (options?: RouteQueryOptions) => {
@@ -301,7 +301,7 @@ create.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::create
-* @see Http/Controllers/Admin/PagoController.php:63
+* @see Http/Controllers/Admin/PagoController.php:64
 * @route '/admin/pagos/create'
 */
 create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -311,7 +311,7 @@ create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::create
-* @see Http/Controllers/Admin/PagoController.php:63
+* @see Http/Controllers/Admin/PagoController.php:64
 * @route '/admin/pagos/create'
 */
 create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -321,7 +321,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::create
-* @see Http/Controllers/Admin/PagoController.php:63
+* @see Http/Controllers/Admin/PagoController.php:64
 * @route '/admin/pagos/create'
 */
 const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -331,7 +331,7 @@ const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::create
-* @see Http/Controllers/Admin/PagoController.php:63
+* @see Http/Controllers/Admin/PagoController.php:64
 * @route '/admin/pagos/create'
 */
 createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -341,7 +341,7 @@ createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::create
-* @see Http/Controllers/Admin/PagoController.php:63
+* @see Http/Controllers/Admin/PagoController.php:64
 * @route '/admin/pagos/create'
 */
 createForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -358,7 +358,7 @@ create.form = createForm
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::store
-* @see Http/Controllers/Admin/PagoController.php:77
+* @see Http/Controllers/Admin/PagoController.php:83
 * @route '/admin/pagos'
 */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -373,7 +373,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::store
-* @see Http/Controllers/Admin/PagoController.php:77
+* @see Http/Controllers/Admin/PagoController.php:83
 * @route '/admin/pagos'
 */
 store.url = (options?: RouteQueryOptions) => {
@@ -382,7 +382,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::store
-* @see Http/Controllers/Admin/PagoController.php:77
+* @see Http/Controllers/Admin/PagoController.php:83
 * @route '/admin/pagos'
 */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -392,7 +392,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::store
-* @see Http/Controllers/Admin/PagoController.php:77
+* @see Http/Controllers/Admin/PagoController.php:83
 * @route '/admin/pagos'
 */
 const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -402,7 +402,7 @@ const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => 
 
 /**
 * @see \App\Http\Controllers\Admin\PagoController::store
-* @see Http/Controllers/Admin/PagoController.php:77
+* @see Http/Controllers/Admin/PagoController.php:83
 * @route '/admin/pagos'
 */
 storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

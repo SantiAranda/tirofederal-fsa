@@ -27,6 +27,14 @@ class MembresiaController extends Controller
     }
 
     /**
+     * Muestra el formulario para registrar un nuevo plan de membresía (RF07).
+     */
+    public function create(): Response
+    {
+        return Inertia::render('Admin/Membresias/Create');
+    }
+
+    /**
      * Registra un nuevo plan de membresía o categoría social (RF07).
      */
     public function store(Request $request): RedirectResponse
@@ -47,7 +55,7 @@ class MembresiaController extends Controller
             'activa' => $validated['activa'] ?? true,
         ]);
 
-        return back()->with('success', "El plan de membresía '{$validated['nombre_plan']}' fue creado con éxito.");
+        return redirect()->route('admin.membresias.index')->with('success', "El plan de membresía '{$validated['nombre_plan']}' fue creado con éxito.");
     }
 
     /**

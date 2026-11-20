@@ -39,6 +39,14 @@ class InsumoController extends Controller
     }
 
     /**
+     * Muestra el formulario para registrar un nuevo insumo en armería.
+     */
+    public function create(): Response
+    {
+        return Inertia::render('Admin/Insumos/Create');
+    }
+
+    /**
      * Registra un nuevo ítem en el inventario de armería (RF11).
      */
     public function store(Request $request): RedirectResponse
@@ -53,7 +61,7 @@ class InsumoController extends Controller
 
         Insumo::create($validated);
 
-        return back()->with('success', "Insumo '{$validated['nombre']}' registrado en el inventario.");
+        return redirect()->route('admin.insumos.index')->with('success', "Insumo '{$validated['nombre']}' registrado en el inventario.");
     }
 
     /**

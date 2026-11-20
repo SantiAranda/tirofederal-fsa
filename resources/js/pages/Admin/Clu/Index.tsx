@@ -180,8 +180,8 @@ export default function CluIndex({ credenciales: serverCredenciales }: Props) {
     const widthStyle = modalWidth === 'fullscreen'
         ? '96vw'
         : modalWidth === 'ancho'
-            ? '1260px'
-            : '1000px';
+            ? 'min(96vw, 1260px)'
+            : 'min(96vw, 1000px)';
 
     return (
         <>
@@ -192,7 +192,7 @@ export default function CluIndex({ credenciales: serverCredenciales }: Props) {
                     <div>
                         <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Validación de CLU y Legajos Digitales</h1>
                         <p className="text-sm text-gray-500 mt-1">
-                            Auditoría de credenciales ANMaC, DNI y aptitudes físicas/psicológicas de socios (RF03 y RF10)
+                            Auditoría de credenciales ANMaC, DNI y aptitudes físicas/psicológicas de socios
                         </p>
                     </div>
                 </div>
@@ -256,8 +256,8 @@ export default function CluIndex({ credenciales: serverCredenciales }: Props) {
                             </div>
                         </div>
                     </CardHeader>
-                    <CardContent className="p-0">
-                        <Table>
+                    <CardContent className="p-0 overflow-x-auto">
+                        <Table className="min-w-[680px]">
                             <TableHeader>
                                 <TableRow className="bg-gray-50">
                                     <TableHead>Socio</TableHead>
@@ -368,7 +368,7 @@ export default function CluIndex({ credenciales: serverCredenciales }: Props) {
                                 </div>
 
                                 {/* Ajustador Manual de Ancho */}
-                                <div className="flex items-center gap-1 mr-6 bg-gray-100 p-1 rounded-xl self-start sm:self-auto select-none">
+                                <div className="hidden sm:flex items-center gap-1 mr-6 bg-gray-100 p-1 rounded-xl self-start sm:self-auto select-none">
                                     <span className="text-[11px] font-medium text-gray-500 px-2">Ancho:</span>
                                     <button
                                         type="button"
@@ -410,7 +410,7 @@ export default function CluIndex({ credenciales: serverCredenciales }: Props) {
                             {/* Contenido en 2 Columnas Horizontales */}
                             <div className="flex-1 min-h-0 flex flex-col md:flex-row overflow-hidden bg-white">
                                 {/* Columna Izquierda (320px): Ficha, Selector de Documentos y Decisiones */}
-                                <div className="w-full md:w-80 lg:w-96 border-r border-gray-100 p-5 flex flex-col justify-between overflow-y-auto bg-gray-50/50 shrink-0">
+                                <div className="w-full md:w-80 lg:w-96 border-b md:border-b-0 md:border-r border-gray-100 p-4 sm:p-5 flex flex-col justify-between overflow-y-auto bg-gray-50/50 shrink-0 max-h-[36vh] md:max-h-none">
                                     <div className="space-y-4">
                                         {/* Datos del Socio */}
                                         <div className="bg-white p-3.5 rounded-xl border border-gray-200 text-xs space-y-1.5 shadow-2xs">
@@ -435,7 +435,7 @@ export default function CluIndex({ credenciales: serverCredenciales }: Props) {
                                         {/* Selector Vertical de Documentos */}
                                         <div>
                                             <span className="text-[11px] font-bold uppercase tracking-wider text-gray-600 block mb-2">
-                                                Documentos Adjuntos (RF03)
+                                                Documentos Adjuntos
                                             </span>
                                             <div className="space-y-2">
                                                 {docsConfig.map((doc) => {
@@ -514,10 +514,10 @@ export default function CluIndex({ credenciales: serverCredenciales }: Props) {
                                 {/* Columna Derecha: Visor Ancho del Documento */}
                                 <div className="flex-1 flex flex-col bg-slate-900 min-w-0">
                                     {/* Barra Superior del Visor */}
-                                    <div className="bg-slate-950 px-5 py-2.5 flex items-center justify-between text-xs text-gray-300 border-b border-slate-800 shrink-0">
+                                    <div className="bg-slate-950 px-3 sm:px-5 py-2 flex flex-wrap items-center justify-between gap-2 text-xs text-gray-300 border-b border-slate-800 shrink-0">
                                         <div className="flex items-center gap-2">
                                             <Eye className="w-4 h-4 text-blue-400" />
-                                            <span className="font-semibold text-white text-sm">
+                                            <span className="font-semibold text-white text-xs sm:text-sm truncate">
                                                 {currentDocConfig?.label}
                                             </span>
                                             {currentDocConfig?.cargado ? (
@@ -533,7 +533,7 @@ export default function CluIndex({ credenciales: serverCredenciales }: Props) {
 
                                         {/* Controles de Zoom y Rotación */}
                                         {currentDocConfig?.cargado && (
-                                            <div className="flex items-center gap-2">
+                                            <div className="flex items-center gap-1.5 sm:gap-2">
                                                 <div className="flex items-center bg-slate-800/80 rounded-md border border-slate-700 p-0.5">
                                                     <Button
                                                         type="button"
@@ -545,7 +545,7 @@ export default function CluIndex({ credenciales: serverCredenciales }: Props) {
                                                     >
                                                         <ZoomOut className="w-3.5 h-3.5" />
                                                     </Button>
-                                                    <span className="text-[11px] font-mono w-12 text-center text-slate-300 font-semibold">
+                                                    <span className="text-[10px] sm:text-[11px] font-mono w-9 sm:w-12 text-center text-slate-300 font-semibold">
                                                         {Math.round(zoomLevel * 100)}%
                                                     </span>
                                                     <Button
@@ -565,11 +565,11 @@ export default function CluIndex({ credenciales: serverCredenciales }: Props) {
                                                     size="sm"
                                                     variant="ghost"
                                                     onClick={() => setRotation(prev => (prev + 90) % 360)}
-                                                    className="h-7 px-2.5 text-xs text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-700 gap-1.5"
+                                                    className="h-7 px-2 text-xs text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-700 gap-1"
                                                     title="Girar imagen 90°"
                                                 >
                                                     <RotateCw className="w-3.5 h-3.5" />
-                                                    <span>Girar 90°</span>
+                                                    <span className="hidden sm:inline">Girar 90°</span>
                                                 </Button>
 
                                                 <Button
@@ -587,7 +587,7 @@ export default function CluIndex({ credenciales: serverCredenciales }: Props) {
                                     </div>
 
                                     {/* Área Visual Principal (Ocupa todo el alto y ancho disponible) */}
-                                    <div className="flex-1 p-6 flex items-center justify-center overflow-auto bg-slate-900/95 select-none min-h-[480px]">
+                                    <div className="flex-1 p-3 sm:p-6 flex items-center justify-center overflow-auto bg-slate-900/95 select-none min-h-[260px] sm:min-h-[480px]">
                                         {currentDocConfig?.cargado ? (
                                             <div className="flex items-center justify-center w-full h-full">
                                                 <img

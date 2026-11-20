@@ -278,7 +278,7 @@ public function share(Request $request): array
 | :--- | :--- | :--- | :--- | :--- |
 | `GET` | `/admin/dashboard` | `Admin\DashboardController@index` | `Dashboard.jsx` (Métricas de afluencia, recaudación y calidad) | RF21, RF34 |
 | `RESOURCE`| `/admin/socios` | `Admin\SocioController` | `Socios/Index.jsx`, `Create.jsx`, `Edit.jsx` (ABM padrón +100 socios) | RF06, RF08 |
-| `GET` | `/admin/socios/exportar` | `Admin\SocioController@exportar` | Exporta padrón filtrado en Excel/CSV para contaduría | RF33 |
+| `GET` | `/admin/socios/exportar` | `Admin\SocioController@exportar` | Exporta padrón filtrado en Excel/CSV para contaduría |
 | `PATCH`| `/admin/clu/{credencial}/validar`| `Admin\CluController@validar` | Fiscaliza y aprueba/rechaza fotos de DNI y CLU | RF03, RF10 |
 | `RESOURCE`| `/admin/membresias` | `Admin\MembresiaController` | `Membresias/Index.jsx` (Configuración de planes y aranceles) | RF07 |
 | `RESOURCE`| `/admin/instructores`| `Admin\InstructorController` | `Instructores/Index.jsx` (ABM de instructores y matrículas) | RF17 |

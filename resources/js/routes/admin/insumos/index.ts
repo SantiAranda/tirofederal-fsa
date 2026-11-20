@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::stock
-* @see Http/Controllers/Admin/InsumoController.php:80
+* @see Http/Controllers/Admin/InsumoController.php:88
 * @route '/admin/insumos/{insumo}/stock'
 */
 export const stock = (args: { insumo: number | { id: number } } | [insumo: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -16,7 +16,7 @@ stock.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::stock
-* @see Http/Controllers/Admin/InsumoController.php:80
+* @see Http/Controllers/Admin/InsumoController.php:88
 * @route '/admin/insumos/{insumo}/stock'
 */
 stock.url = (args: { insumo: number | { id: number } } | [insumo: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -49,7 +49,7 @@ stock.url = (args: { insumo: number | { id: number } } | [insumo: number | { id:
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::stock
-* @see Http/Controllers/Admin/InsumoController.php:80
+* @see Http/Controllers/Admin/InsumoController.php:88
 * @route '/admin/insumos/{insumo}/stock'
 */
 stock.patch = (args: { insumo: number | { id: number } } | [insumo: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -59,7 +59,7 @@ stock.patch = (args: { insumo: number | { id: number } } | [insumo: number | { i
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::stock
-* @see Http/Controllers/Admin/InsumoController.php:80
+* @see Http/Controllers/Admin/InsumoController.php:88
 * @route '/admin/insumos/{insumo}/stock'
 */
 const stockForm = (args: { insumo: number | { id: number } } | [insumo: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -74,7 +74,7 @@ const stockForm = (args: { insumo: number | { id: number } } | [insumo: number |
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::stock
-* @see Http/Controllers/Admin/InsumoController.php:80
+* @see Http/Controllers/Admin/InsumoController.php:88
 * @route '/admin/insumos/{insumo}/stock'
 */
 stockForm.patch = (args: { insumo: number | { id: number } } | [insumo: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -172,7 +172,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::create
-* @see Http/Controllers/Admin/InsumoController.php:0
+* @see Http/Controllers/Admin/InsumoController.php:44
 * @route '/admin/insumos/create'
 */
 export const create = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -187,7 +187,7 @@ create.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::create
-* @see Http/Controllers/Admin/InsumoController.php:0
+* @see Http/Controllers/Admin/InsumoController.php:44
 * @route '/admin/insumos/create'
 */
 create.url = (options?: RouteQueryOptions) => {
@@ -196,7 +196,7 @@ create.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::create
-* @see Http/Controllers/Admin/InsumoController.php:0
+* @see Http/Controllers/Admin/InsumoController.php:44
 * @route '/admin/insumos/create'
 */
 create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -206,7 +206,7 @@ create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::create
-* @see Http/Controllers/Admin/InsumoController.php:0
+* @see Http/Controllers/Admin/InsumoController.php:44
 * @route '/admin/insumos/create'
 */
 create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -216,7 +216,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::create
-* @see Http/Controllers/Admin/InsumoController.php:0
+* @see Http/Controllers/Admin/InsumoController.php:44
 * @route '/admin/insumos/create'
 */
 const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -226,7 +226,7 @@ const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::create
-* @see Http/Controllers/Admin/InsumoController.php:0
+* @see Http/Controllers/Admin/InsumoController.php:44
 * @route '/admin/insumos/create'
 */
 createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -236,7 +236,7 @@ createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::create
-* @see Http/Controllers/Admin/InsumoController.php:0
+* @see Http/Controllers/Admin/InsumoController.php:44
 * @route '/admin/insumos/create'
 */
 createForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -253,7 +253,7 @@ create.form = createForm
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::store
-* @see Http/Controllers/Admin/InsumoController.php:44
+* @see Http/Controllers/Admin/InsumoController.php:52
 * @route '/admin/insumos'
 */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -268,7 +268,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::store
-* @see Http/Controllers/Admin/InsumoController.php:44
+* @see Http/Controllers/Admin/InsumoController.php:52
 * @route '/admin/insumos'
 */
 store.url = (options?: RouteQueryOptions) => {
@@ -277,7 +277,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::store
-* @see Http/Controllers/Admin/InsumoController.php:44
+* @see Http/Controllers/Admin/InsumoController.php:52
 * @route '/admin/insumos'
 */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -287,7 +287,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::store
-* @see Http/Controllers/Admin/InsumoController.php:44
+* @see Http/Controllers/Admin/InsumoController.php:52
 * @route '/admin/insumos'
 */
 const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -297,7 +297,7 @@ const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => 
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::store
-* @see Http/Controllers/Admin/InsumoController.php:44
+* @see Http/Controllers/Admin/InsumoController.php:52
 * @route '/admin/insumos'
 */
 storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -507,7 +507,7 @@ edit.form = editForm
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::update
-* @see Http/Controllers/Admin/InsumoController.php:62
+* @see Http/Controllers/Admin/InsumoController.php:70
 * @route '/admin/insumos/{insumo}'
 */
 export const update = (args: { insumo: number | { id: number } } | [insumo: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -522,7 +522,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::update
-* @see Http/Controllers/Admin/InsumoController.php:62
+* @see Http/Controllers/Admin/InsumoController.php:70
 * @route '/admin/insumos/{insumo}'
 */
 update.url = (args: { insumo: number | { id: number } } | [insumo: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -555,7 +555,7 @@ update.url = (args: { insumo: number | { id: number } } | [insumo: number | { id
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::update
-* @see Http/Controllers/Admin/InsumoController.php:62
+* @see Http/Controllers/Admin/InsumoController.php:70
 * @route '/admin/insumos/{insumo}'
 */
 update.put = (args: { insumo: number | { id: number } } | [insumo: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -565,7 +565,7 @@ update.put = (args: { insumo: number | { id: number } } | [insumo: number | { id
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::update
-* @see Http/Controllers/Admin/InsumoController.php:62
+* @see Http/Controllers/Admin/InsumoController.php:70
 * @route '/admin/insumos/{insumo}'
 */
 update.patch = (args: { insumo: number | { id: number } } | [insumo: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -575,7 +575,7 @@ update.patch = (args: { insumo: number | { id: number } } | [insumo: number | { 
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::update
-* @see Http/Controllers/Admin/InsumoController.php:62
+* @see Http/Controllers/Admin/InsumoController.php:70
 * @route '/admin/insumos/{insumo}'
 */
 const updateForm = (args: { insumo: number | { id: number } } | [insumo: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -590,7 +590,7 @@ const updateForm = (args: { insumo: number | { id: number } } | [insumo: number 
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::update
-* @see Http/Controllers/Admin/InsumoController.php:62
+* @see Http/Controllers/Admin/InsumoController.php:70
 * @route '/admin/insumos/{insumo}'
 */
 updateForm.put = (args: { insumo: number | { id: number } } | [insumo: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -605,7 +605,7 @@ updateForm.put = (args: { insumo: number | { id: number } } | [insumo: number | 
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::update
-* @see Http/Controllers/Admin/InsumoController.php:62
+* @see Http/Controllers/Admin/InsumoController.php:70
 * @route '/admin/insumos/{insumo}'
 */
 updateForm.patch = (args: { insumo: number | { id: number } } | [insumo: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -622,7 +622,7 @@ update.form = updateForm
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::destroy
-* @see Http/Controllers/Admin/InsumoController.php:100
+* @see Http/Controllers/Admin/InsumoController.php:108
 * @route '/admin/insumos/{insumo}'
 */
 export const destroy = (args: { insumo: number | { id: number } } | [insumo: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -637,7 +637,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::destroy
-* @see Http/Controllers/Admin/InsumoController.php:100
+* @see Http/Controllers/Admin/InsumoController.php:108
 * @route '/admin/insumos/{insumo}'
 */
 destroy.url = (args: { insumo: number | { id: number } } | [insumo: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -670,7 +670,7 @@ destroy.url = (args: { insumo: number | { id: number } } | [insumo: number | { i
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::destroy
-* @see Http/Controllers/Admin/InsumoController.php:100
+* @see Http/Controllers/Admin/InsumoController.php:108
 * @route '/admin/insumos/{insumo}'
 */
 destroy.delete = (args: { insumo: number | { id: number } } | [insumo: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -680,7 +680,7 @@ destroy.delete = (args: { insumo: number | { id: number } } | [insumo: number | 
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::destroy
-* @see Http/Controllers/Admin/InsumoController.php:100
+* @see Http/Controllers/Admin/InsumoController.php:108
 * @route '/admin/insumos/{insumo}'
 */
 const destroyForm = (args: { insumo: number | { id: number } } | [insumo: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -695,7 +695,7 @@ const destroyForm = (args: { insumo: number | { id: number } } | [insumo: number
 
 /**
 * @see \App\Http\Controllers\Admin\InsumoController::destroy
-* @see Http/Controllers/Admin/InsumoController.php:100
+* @see Http/Controllers/Admin/InsumoController.php:108
 * @route '/admin/insumos/{insumo}'
 */
 destroyForm.delete = (args: { insumo: number | { id: number } } | [insumo: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

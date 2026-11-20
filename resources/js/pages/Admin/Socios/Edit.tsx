@@ -54,7 +54,7 @@ export default function SociosEdit() {
                     <div>
                         <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Editar Socio: {form.nombre}</h1>
                         <p className="text-xs text-gray-500 mt-1">
-                            Modificación de datos del legajo, categoría de membresía y habilitación social (RF06 y RF08)
+                            Modificación de datos del legajo, categoría de membresía y habilitación social
                         </p>
                     </div>
                     <Link href="/admin/socios">
@@ -244,7 +244,7 @@ export default function SociosEdit() {
                             <Card>
                                 <CardContent className="p-6 space-y-4">
                                     <div className="flex items-center gap-2 pb-2 border-b border-gray-100 text-blue-600 font-bold text-sm">
-                                        <CreditCard className="w-4 h-4" /> Membresía y Estado Social (RF08)
+                                        <CreditCard className="w-4 h-4" /> Membresía y Estado Social
                                     </div>
                                     <div>
                                         <Label htmlFor="cat">Categoría de socio *</Label>
@@ -271,7 +271,7 @@ export default function SociosEdit() {
                                         />
                                     </div>
                                     <div>
-                                        <Label htmlFor="estado">Estado de Habilitación Social (RF08)</Label>
+                                        <Label htmlFor="estado">Estado de Habilitación Social</Label>
                                         <select
                                             id="estado"
                                             value={form.estado}
@@ -289,7 +289,7 @@ export default function SociosEdit() {
                             <Card>
                                 <CardContent className="p-6 space-y-4">
                                     <div className="flex items-center gap-2 pb-2 border-b border-gray-100 text-blue-600 font-bold text-sm">
-                                        <Shield className="w-4 h-4" /> Documentación ANMaC (RF03/RF10)
+                                        <Shield className="w-4 h-4" /> Documentación ANMaC
                                     </div>
                                     <div>
                                         <Label htmlFor="clu">CLU (Legítimo Usuario)</Label>

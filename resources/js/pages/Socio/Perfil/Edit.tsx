@@ -38,7 +38,7 @@ export default function SocioPerfilEdit() {
                 <div>
                     <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Mi Perfil y Credenciales</h1>
                     <p className="text-sm text-gray-500 mt-1">
-                        Datos de tu cuenta, seguridad y estado de tu credencial de Legítimo Usuario ANMaC (RF09 y RF10)
+                        Datos de tu cuenta, seguridad y estado de tu credencial de Legítimo Usuario ANMaC
                     </p>
                 </div>
 
@@ -48,7 +48,7 @@ export default function SocioPerfilEdit() {
                     </div>
                 )}
 
-                {/* Alerta de Estado CLU (RF10) */}
+                {/* Alerta de Estado CLU */}
                 <Card className="border-emerald-200 bg-emerald-50/50">
                     <CardContent className="p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
                         <div className="flex items-center gap-3">
@@ -74,13 +74,13 @@ export default function SocioPerfilEdit() {
                 </Card>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    {/* Formulario editable de datos (RF09: solo nombre, usuario, email, clave) */}
+                    {/* Formulario editable de datos (solo nombre, usuario, email, clave) */}
                     <div className="lg:col-span-2 space-y-6">
                         <Card>
                             <CardHeader>
                                 <div className="flex items-center gap-2">
                                     <User className="w-4 h-4 text-blue-600" />
-                                    <CardTitle className="text-base font-bold text-gray-900">Datos Personales Editables (RF09)</CardTitle>
+                                    <CardTitle className="text-base font-bold text-gray-900">Datos Personales Editables</CardTitle>
                                 </div>
                                 <CardDescription className="text-xs text-gray-500">
                                     Los datos de identificación oficial (DNI y fecha de nacimiento) se encuentran validados con tu legajo
@@ -201,7 +201,7 @@ export default function SocioPerfilEdit() {
                     <div className="space-y-6">
                         <Card>
                             <CardHeader>
-                                <CardTitle className="text-sm font-bold text-gray-900">Documentación Presentada (RF03)</CardTitle>
+                                <CardTitle className="text-sm font-bold text-gray-900">Documentación Presentada</CardTitle>
                                 <CardDescription className="text-xs text-gray-500">
                                     Copia digital de tus credenciales para habilitación social
                                 </CardDescription>
@@ -236,11 +236,11 @@ export default function SocioPerfilEdit() {
                             </CardContent>
                         </Card>
 
-                        {/* Zona de Peligro / Baja de Cuenta (RF09) */}
+                        {/* Zona de Peligro / Baja de Cuenta */}
                         <Card className="border-rose-200 bg-rose-50/20">
                             <CardHeader className="pb-2">
                                 <CardTitle className="text-xs font-bold text-rose-700 uppercase tracking-wider flex items-center gap-1.5">
-                                    <AlertCircle className="w-4 h-4 text-rose-600" /> Baja Voluntaria de Cuenta (RF09)
+                                    <AlertCircle className="w-4 h-4 text-rose-600" /> Baja Voluntaria de Cuenta
                                 </CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-2">

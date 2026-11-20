@@ -1,8 +1,8 @@
 import { useState, FormEvent } from 'react';
 import { Head, Link, useForm } from '@inertiajs/react';
-import { 
-    UserPlus, ArrowLeft, User, CreditCard, FileText, 
-    Save, RotateCcw, ShieldCheck, Upload, CheckCircle2 
+import {
+    UserPlus, ArrowLeft, User, CreditCard, FileText,
+    Save, RotateCcw, ShieldCheck, Upload, CheckCircle2
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -72,7 +72,7 @@ export default function CreateSocio({ membresias = [] }: Props) {
                     </div>
                 </div>
 
-                <Button variant="outline" asChild className="gap-2">
+                <Button variant="outline" asChild className="gap-2 w-full sm:w-auto">
                     <Link href="/admin/socios">
                         <ArrowLeft className="w-4 h-4" /> Volver al listado
                     </Link>
@@ -390,19 +390,19 @@ export default function CreateSocio({ membresias = [] }: Props) {
                 </div>
 
                 {/* BOTONES DE ACCIÓN INFERIORES */}
-                <div className="flex justify-end items-center gap-3 pt-2">
+                <div className="flex flex-col-reverse sm:flex-row justify-end items-stretch sm:items-center gap-3 pt-4 border-t border-gray-100">
                     <Button
                         type="button"
                         variant="ghost"
                         onClick={() => reset()}
-                        className="gap-2"
+                        className="gap-2 w-full sm:w-auto"
                     >
                         <RotateCcw className="w-4 h-4" /> Limpiar formulario
                     </Button>
                     <Button
                         type="submit"
                         disabled={processing}
-                        className="bg-blue-600 hover:bg-blue-700 text-white gap-2 px-6 shadow-md shadow-blue-500/20"
+                        className="bg-blue-600 hover:bg-blue-700 text-white gap-2 px-6 shadow-md shadow-blue-500/20 w-full sm:w-auto"
                     >
                         <Save className="w-4 h-4" /> Guardar socio
                     </Button>
@@ -415,5 +415,5 @@ export default function CreateSocio({ membresias = [] }: Props) {
 
 
 CreateSocio.layout = {
-    breadcrumbs: [{ title: 'Inicio', href: '/admin/dashboard' }, { title: 'Socios', href: '/admin/socios' }, { title: 'A�adir nuevo socio', href: '/admin/socios/create' }],
+    breadcrumbs: [{ title: 'Inicio', href: '/admin/dashboard' }, { title: 'Socios', href: '/admin/socios' }, { title: 'Añadir nuevo socio', href: '/admin/socios/create' }],
 };

@@ -1,4 +1,4 @@
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import type { BreadcrumbItem } from '@/types';
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -132,71 +132,83 @@ export default function PagosIndex({ pagos: serverPagos, totalRecaudadoMes }: Pr
     return (
         <>
             <Head title="Pagos y Recibos - Tiro Federal Formosa" />
-            <div className="flex flex-col gap-6 p-6">
+            <div className="flex flex-col gap-6">
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div>
                         <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Cobros, Pagos y Recibos</h1>
                         <p className="text-sm text-gray-500 mt-1">
-                            Gestión de recaudación, cuotas societarias, eventos y venta de insumos (RF22)
+                            Gestión de recaudación, cuotas societarias, eventos y venta de insumos
                         </p>
                     </div>
-                    <Button onClick={() => setDialogOpen(true)} className="bg-blue-600 hover:bg-blue-700 text-white gap-2">
-                        <Plus className="w-4 h-4" /> Registrar Cobro
+                    <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white gap-2 w-full sm:w-auto">
+                        <Link href="/admin/pagos/create">
+                            <Plus className="w-4 h-4" /> Registrar Cobro
+                        </Link>
                     </Button>
                 </div>
 
                 {/* KPI Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <Card>
-                        <CardHeader className="flex flex-row items-center justify-between pb-2">
-                            <CardTitle className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Total Cobrado (Mes)</CardTitle>
-                            <DollarSign className="w-4 h-4 text-emerald-600" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+                    <Card className="rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+                        <CardHeader className="flex flex-row items-center justify-between pb-2 p-4 sm:p-5">
+                            <CardTitle className="text-xs font-semibold text-gray-500 uppercase tracking-wider truncate">Total Cobrado (Mes)</CardTitle>
+                            <div className="p-2 bg-emerald-50 text-emerald-600 rounded-lg shrink-0">
+                                <DollarSign className="w-4 h-4" />
+                            </div>
                         </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-bold text-gray-900">{fmt(totalCobrado)}</div>
-                            <p className="text-xs text-emerald-600 mt-1 flex items-center gap-1 font-medium">
-                                <CheckCircle2 className="w-3.5 h-3.5" /> 7 transacciones completadas
+                        <CardContent className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 min-w-0">
+                            <div className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight truncate" title={fmt(totalCobrado)}>
+                                {fmt(totalCobrado)}
+                            </div>
+                            <p className="text-xs text-emerald-600 mt-0.5 flex items-center gap-1 font-medium truncate">
+                                <CheckCircle2 className="w-3.5 h-3.5 shrink-0" /> 7 cobros acreditados
                             </p>
                         </CardContent>
                     </Card>
 
-                    <Card>
-                        <CardHeader className="flex flex-row items-center justify-between pb-2">
-                            <CardTitle className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Pagos Pendientes</CardTitle>
-                            <Clock className="w-4 h-4 text-amber-500" />
+                    <Card className="rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+                        <CardHeader className="flex flex-row items-center justify-between pb-2 p-4 sm:p-5">
+                            <CardTitle className="text-xs font-semibold text-gray-500 uppercase tracking-wider truncate">Pagos Pendientes</CardTitle>
+                            <div className="p-2 bg-amber-50 text-amber-600 rounded-lg shrink-0">
+                                <Clock className="w-4 h-4" />
+                            </div>
                         </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-bold text-gray-900">
+                        <CardContent className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 min-w-0">
+                            <div className="text-2xl font-bold text-gray-900 tracking-tight truncate">
                                 {pagos.filter(p => p.estado === 'Pendiente').length}
                             </div>
-                            <p className="text-xs text-gray-500 mt-1">Cuotas por acreditar</p>
+                            <p className="text-xs text-gray-400 mt-0.5 truncate">Cuotas por acreditar</p>
                         </CardContent>
                     </Card>
 
-                    <Card>
-                        <CardHeader className="flex flex-row items-center justify-between pb-2">
-                            <CardTitle className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Transferencias</CardTitle>
-                            <CreditCard className="w-4 h-4 text-blue-600" />
+                    <Card className="rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+                        <CardHeader className="flex flex-row items-center justify-between pb-2 p-4 sm:p-5">
+                            <CardTitle className="text-xs font-semibold text-gray-500 uppercase tracking-wider truncate">Transferencias</CardTitle>
+                            <div className="p-2 bg-blue-50 text-blue-600 rounded-lg shrink-0">
+                                <CreditCard className="w-4 h-4" />
+                            </div>
                         </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-bold text-gray-900">
+                        <CardContent className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 min-w-0">
+                            <div className="text-2xl font-bold text-gray-900 tracking-tight truncate">
                                 {pagos.filter(p => p.metodo === 'Transferencia').length}
                             </div>
-                            <p className="text-xs text-gray-500 mt-1">Canal electrónico</p>
+                            <p className="text-xs text-gray-400 mt-0.5 truncate">Canal electrónico</p>
                         </CardContent>
                     </Card>
 
-                    <Card>
-                        <CardHeader className="flex flex-row items-center justify-between pb-2">
-                            <CardTitle className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Cobros en Efectivo</CardTitle>
-                            <AlertCircle className="w-4 h-4 text-indigo-500" />
+                    <Card className="rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+                        <CardHeader className="flex flex-row items-center justify-between pb-2 p-4 sm:p-5">
+                            <CardTitle className="text-xs font-semibold text-gray-500 uppercase tracking-wider truncate">Cobros Efectivo</CardTitle>
+                            <div className="p-2 bg-indigo-50 text-indigo-600 rounded-lg shrink-0">
+                                <AlertCircle className="w-4 h-4" />
+                            </div>
                         </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-bold text-gray-900">
+                        <CardContent className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 min-w-0">
+                            <div className="text-2xl font-bold text-gray-900 tracking-tight truncate">
                                 {pagos.filter(p => p.metodo === 'Efectivo').length}
                             </div>
-                            <p className="text-xs text-gray-500 mt-1">Caja sede social</p>
+                            <p className="text-xs text-gray-400 mt-0.5 truncate">Caja sede social</p>
                         </CardContent>
                     </Card>
                 </div>
@@ -214,11 +226,11 @@ export default function PagosIndex({ pagos: serverPagos, totalRecaudadoMes }: Pr
                                     className="pl-9"
                                 />
                             </div>
-                            <div className="flex gap-2">
+                            <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
                                 <select
                                     value={filtroMetodo}
                                     onChange={e => setFiltroMetodo(e.target.value)}
-                                    className="h-10 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                    className="h-10 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600 w-full sm:w-auto"
                                 >
                                     <option value="todos">Todos los métodos</option>
                                     <option value="Efectivo">Efectivo</option>
@@ -228,7 +240,7 @@ export default function PagosIndex({ pagos: serverPagos, totalRecaudadoMes }: Pr
                                 <select
                                     value={filtroEstado}
                                     onChange={e => setFiltroEstado(e.target.value)}
-                                    className="h-10 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                    className="h-10 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600 w-full sm:w-auto"
                                 >
                                     <option value="todos">Todos los estados</option>
                                     <option value="Pagado">Pagado</option>
@@ -247,8 +259,8 @@ export default function PagosIndex({ pagos: serverPagos, totalRecaudadoMes }: Pr
                             Registro de Transacciones ({pagosFiltrados.length})
                         </CardTitle>
                     </CardHeader>
-                    <CardContent className="p-0">
-                        <Table>
+                    <CardContent className="p-0 overflow-x-auto">
+                        <Table className="min-w-[720px]">
                             <TableHeader>
                                 <TableRow className="bg-gray-50/70">
                                     <TableHead>Recibo</TableHead>

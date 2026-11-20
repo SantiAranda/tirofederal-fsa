@@ -19,7 +19,7 @@ export default function InstructorEvaluacionesIndex() {
                 <div>
                     <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Evaluaciones de Alumnos y Cursos</h1>
                     <p className="text-sm text-gray-500 mt-1">
-                        Devoluciones recibidas por socios sobre seguridad en pedana, técnica y pedagogía (RF20)
+                        Devoluciones recibidas por socios sobre seguridad en pedana, técnica y pedagogía
                     </p>
                 </div>
 

@@ -102,7 +102,7 @@ export default function SociosShow({ socio }: Props) {
                                     <h2 className="text-xl font-bold text-gray-900">{nombreCompleto}</h2>
                                     {isActivo ? (
                                         <Badge className="bg-emerald-50 text-emerald-700 border-emerald-200">
-                                            Activo / Al Día (RF08)
+                                            Activo / Al Día
                                         </Badge>
                                     ) : (
                                         <Badge className="bg-amber-50 text-amber-700 border-amber-200">
@@ -168,7 +168,7 @@ export default function SociosShow({ socio }: Props) {
                     <Card>
                         <CardHeader>
                             <CardTitle className="text-sm font-bold text-gray-900 flex items-center gap-2">
-                                <User className="w-4 h-4 text-blue-600" /> Información de Contacto (RF02)
+                                <User className="w-4 h-4 text-blue-600" /> Información de Contacto
                             </CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-3 text-xs">
@@ -199,7 +199,7 @@ export default function SociosShow({ socio }: Props) {
                     <Card>
                         <CardHeader>
                             <CardTitle className="text-sm font-bold text-gray-900 flex items-center gap-2">
-                                <Shield className="w-4 h-4 text-blue-600" /> Legajo ANMaC y Documentación (RF03)
+                                <Shield className="w-4 h-4 text-blue-600" /> Legajo ANMaC y Documentación
                             </CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-3 text-xs">

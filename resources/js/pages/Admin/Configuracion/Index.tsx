@@ -38,7 +38,7 @@ export default function ConfiguracionIndex() {
     return (
         <>
             <Head title="Configuración del Sistema - Tiro Federal Formosa" />
-            <div className="flex flex-col gap-6 p-6">
+            <div className="flex flex-col gap-6">
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div>
@@ -55,7 +55,7 @@ export default function ConfiguracionIndex() {
                 </div>
 
                 <form onSubmit={handleSave} className="space-y-6">
-                    {/* Parámetros de Seguridad y ANMaC (RF08, RF10) */}
+                    {/* Parámetros de Seguridad y ANMaC */}
                     <Card>
                         <CardHeader>
                             <div className="flex items-center gap-2">
@@ -71,7 +71,7 @@ export default function ConfiguracionIndex() {
                         <CardContent className="space-y-4">
                             <div className="flex items-center justify-between p-3 rounded-lg border border-gray-100 bg-gray-50/50">
                                 <div>
-                                    <div className="text-sm font-semibold text-gray-900">Bloqueo Preventivo por Cuotas Vencidas (RF08)</div>
+                                    <div className="text-sm font-semibold text-gray-900">Bloqueo Preventivo por Cuotas Vencidas</div>
                                     <div className="text-xs text-gray-500">
                                         Impide a socios con estado "En Mora" reservar turnos en las líneas de tiro
                                     </div>
@@ -84,7 +84,7 @@ export default function ConfiguracionIndex() {
 
                             <div className="flex items-center justify-between p-3 rounded-lg border border-gray-100 bg-gray-50/50">
                                 <div>
-                                    <div className="text-sm font-semibold text-gray-900">Exigencia de Instructor para Tiradores sin CLU (RF10)</div>
+                                    <div className="text-sm font-semibold text-gray-900">Exigencia de Instructor para Tiradores sin CLU</div>
                                     <div className="text-xs text-gray-500">
                                         Si el usuario carece de CLU/arma, el sistema obliga a vincular un instructor al turno
                                     </div>
@@ -122,7 +122,7 @@ export default function ConfiguracionIndex() {
                         </CardContent>
                     </Card>
 
-                    {/* Horarios Operativos del Polígono (RF13) */}
+                    {/* Horarios Operativos del Polígono */}
                     <Card>
                         <CardHeader>
                             <div className="flex items-center gap-2">
@@ -213,7 +213,7 @@ export default function ConfiguracionIndex() {
                             </div>
 
                             <div className="pt-2 flex justify-end">
-                                <Button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white gap-2">
+                                <Button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white gap-2 w-full sm:w-auto">
                                     <Save className="w-4 h-4" /> Guardar Todos los Cambios
                                 </Button>
                             </div>

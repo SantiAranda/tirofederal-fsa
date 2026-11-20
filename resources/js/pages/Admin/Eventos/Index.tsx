@@ -1,4 +1,4 @@
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import type { BreadcrumbItem } from '@/types';
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -124,27 +124,29 @@ export default function EventosIndex({ eventos: serverEventos }: Props) {
     return (
         <>
             <Head title="Eventos y Torneos - Tiro Federal Formosa" />
-            <div className="flex flex-col gap-6 p-6">
+            <div className="flex flex-col gap-6">
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div>
                         <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Eventos, Torneos y Capacidad</h1>
                         <p className="text-sm text-gray-500 mt-1">
-                            Cronograma competitivo, cursos formativos y parametrización de líneas del polígono (RF12, RF13, RF14)
+                            Cronograma competitivo, cursos formativos y parametrización de líneas del polígono
                         </p>
                     </div>
                     {tab === 'proximos' && (
-                        <Button onClick={() => setDialogOpen(true)} className="bg-blue-600 hover:bg-blue-700 text-white gap-2">
-                            <Plus className="w-4 h-4" /> Nuevo Evento
+                        <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white gap-2 w-full sm:w-auto">
+                            <Link href="/admin/eventos/create">
+                                <Plus className="w-4 h-4" /> Nuevo Evento
+                            </Link>
                         </Button>
                     )}
                 </div>
 
                 {/* Tabs switcher */}
-                <div className="flex border-b border-gray-200">
+                <div className="flex border-b border-gray-200 overflow-x-auto whitespace-nowrap">
                     <button
                         onClick={() => setTab('proximos')}
-                        className={`pb-3 px-4 font-semibold text-sm border-b-2 flex items-center gap-2 transition-colors ${
+                        className={`pb-3 px-4 font-semibold text-sm border-b-2 flex items-center gap-2 shrink-0 transition-colors ${
                             tab === 'proximos'
                                 ? 'border-blue-600 text-blue-600'
                                 : 'border-transparent text-gray-500 hover:text-gray-800'
@@ -154,7 +156,7 @@ export default function EventosIndex({ eventos: serverEventos }: Props) {
                     </button>
                     <button
                         onClick={() => setTab('poligono')}
-                        className={`pb-3 px-4 font-semibold text-sm border-b-2 flex items-center gap-2 transition-colors ${
+                        className={`pb-3 px-4 font-semibold text-sm border-b-2 flex items-center gap-2 shrink-0 transition-colors ${
                             tab === 'poligono'
                                 ? 'border-blue-600 text-blue-600'
                                 : 'border-transparent text-gray-500 hover:text-gray-800'
@@ -225,7 +227,7 @@ export default function EventosIndex({ eventos: serverEventos }: Props) {
                         ))}
                     </div>
                 ) : (
-                    /* Configuración de Capacidad del Polígono (RF13) */
+                    /* Configuración de Capacidad del Polígono */
                     <div className="space-y-6">
                         <Card className="bg-blue-50/50 border-blue-200">
                             <CardContent className="p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -236,7 +238,7 @@ export default function EventosIndex({ eventos: serverEventos }: Props) {
                                     <div>
                                         <h3 className="font-bold text-gray-900 text-sm">Parametrización Operativa del Polígono</h3>
                                         <p className="text-xs text-gray-600">
-                                            Establece la capacidad física máxima por línea para prevenir solapamientos de turnos (RF13 y RF15)
+                                            Establece la capacidad física máxima por línea para prevenir solapamientos de turnos
                                         </p>
                                     </div>
                                 </div>

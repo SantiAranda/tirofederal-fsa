@@ -82,7 +82,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::create
-* @see Http/Controllers/Admin/MembresiaController.php:0
+* @see Http/Controllers/Admin/MembresiaController.php:32
 * @route '/admin/membresias/create'
 */
 export const create = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -97,7 +97,7 @@ create.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::create
-* @see Http/Controllers/Admin/MembresiaController.php:0
+* @see Http/Controllers/Admin/MembresiaController.php:32
 * @route '/admin/membresias/create'
 */
 create.url = (options?: RouteQueryOptions) => {
@@ -106,7 +106,7 @@ create.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::create
-* @see Http/Controllers/Admin/MembresiaController.php:0
+* @see Http/Controllers/Admin/MembresiaController.php:32
 * @route '/admin/membresias/create'
 */
 create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -116,7 +116,7 @@ create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::create
-* @see Http/Controllers/Admin/MembresiaController.php:0
+* @see Http/Controllers/Admin/MembresiaController.php:32
 * @route '/admin/membresias/create'
 */
 create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -126,7 +126,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::create
-* @see Http/Controllers/Admin/MembresiaController.php:0
+* @see Http/Controllers/Admin/MembresiaController.php:32
 * @route '/admin/membresias/create'
 */
 const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -136,7 +136,7 @@ const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::create
-* @see Http/Controllers/Admin/MembresiaController.php:0
+* @see Http/Controllers/Admin/MembresiaController.php:32
 * @route '/admin/membresias/create'
 */
 createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -146,7 +146,7 @@ createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::create
-* @see Http/Controllers/Admin/MembresiaController.php:0
+* @see Http/Controllers/Admin/MembresiaController.php:32
 * @route '/admin/membresias/create'
 */
 createForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -163,7 +163,7 @@ create.form = createForm
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::store
-* @see Http/Controllers/Admin/MembresiaController.php:32
+* @see Http/Controllers/Admin/MembresiaController.php:40
 * @route '/admin/membresias'
 */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -178,7 +178,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::store
-* @see Http/Controllers/Admin/MembresiaController.php:32
+* @see Http/Controllers/Admin/MembresiaController.php:40
 * @route '/admin/membresias'
 */
 store.url = (options?: RouteQueryOptions) => {
@@ -187,7 +187,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::store
-* @see Http/Controllers/Admin/MembresiaController.php:32
+* @see Http/Controllers/Admin/MembresiaController.php:40
 * @route '/admin/membresias'
 */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -197,7 +197,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::store
-* @see Http/Controllers/Admin/MembresiaController.php:32
+* @see Http/Controllers/Admin/MembresiaController.php:40
 * @route '/admin/membresias'
 */
 const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -207,7 +207,7 @@ const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => 
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::store
-* @see Http/Controllers/Admin/MembresiaController.php:32
+* @see Http/Controllers/Admin/MembresiaController.php:40
 * @route '/admin/membresias'
 */
 storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -417,7 +417,7 @@ edit.form = editForm
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::update
-* @see Http/Controllers/Admin/MembresiaController.php:56
+* @see Http/Controllers/Admin/MembresiaController.php:64
 * @route '/admin/membresias/{membresia}'
 */
 export const update = (args: { membresia: number | { id: number } } | [membresia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -432,7 +432,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::update
-* @see Http/Controllers/Admin/MembresiaController.php:56
+* @see Http/Controllers/Admin/MembresiaController.php:64
 * @route '/admin/membresias/{membresia}'
 */
 update.url = (args: { membresia: number | { id: number } } | [membresia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -465,7 +465,7 @@ update.url = (args: { membresia: number | { id: number } } | [membresia: number 
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::update
-* @see Http/Controllers/Admin/MembresiaController.php:56
+* @see Http/Controllers/Admin/MembresiaController.php:64
 * @route '/admin/membresias/{membresia}'
 */
 update.put = (args: { membresia: number | { id: number } } | [membresia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -475,7 +475,7 @@ update.put = (args: { membresia: number | { id: number } } | [membresia: number 
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::update
-* @see Http/Controllers/Admin/MembresiaController.php:56
+* @see Http/Controllers/Admin/MembresiaController.php:64
 * @route '/admin/membresias/{membresia}'
 */
 update.patch = (args: { membresia: number | { id: number } } | [membresia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -485,7 +485,7 @@ update.patch = (args: { membresia: number | { id: number } } | [membresia: numbe
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::update
-* @see Http/Controllers/Admin/MembresiaController.php:56
+* @see Http/Controllers/Admin/MembresiaController.php:64
 * @route '/admin/membresias/{membresia}'
 */
 const updateForm = (args: { membresia: number | { id: number } } | [membresia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -500,7 +500,7 @@ const updateForm = (args: { membresia: number | { id: number } } | [membresia: n
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::update
-* @see Http/Controllers/Admin/MembresiaController.php:56
+* @see Http/Controllers/Admin/MembresiaController.php:64
 * @route '/admin/membresias/{membresia}'
 */
 updateForm.put = (args: { membresia: number | { id: number } } | [membresia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -515,7 +515,7 @@ updateForm.put = (args: { membresia: number | { id: number } } | [membresia: num
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::update
-* @see Http/Controllers/Admin/MembresiaController.php:56
+* @see Http/Controllers/Admin/MembresiaController.php:64
 * @route '/admin/membresias/{membresia}'
 */
 updateForm.patch = (args: { membresia: number | { id: number } } | [membresia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -532,7 +532,7 @@ update.form = updateForm
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::destroy
-* @see Http/Controllers/Admin/MembresiaController.php:79
+* @see Http/Controllers/Admin/MembresiaController.php:87
 * @route '/admin/membresias/{membresia}'
 */
 export const destroy = (args: { membresia: number | { id: number } } | [membresia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -547,7 +547,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::destroy
-* @see Http/Controllers/Admin/MembresiaController.php:79
+* @see Http/Controllers/Admin/MembresiaController.php:87
 * @route '/admin/membresias/{membresia}'
 */
 destroy.url = (args: { membresia: number | { id: number } } | [membresia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -580,7 +580,7 @@ destroy.url = (args: { membresia: number | { id: number } } | [membresia: number
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::destroy
-* @see Http/Controllers/Admin/MembresiaController.php:79
+* @see Http/Controllers/Admin/MembresiaController.php:87
 * @route '/admin/membresias/{membresia}'
 */
 destroy.delete = (args: { membresia: number | { id: number } } | [membresia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -590,7 +590,7 @@ destroy.delete = (args: { membresia: number | { id: number } } | [membresia: num
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::destroy
-* @see Http/Controllers/Admin/MembresiaController.php:79
+* @see Http/Controllers/Admin/MembresiaController.php:87
 * @route '/admin/membresias/{membresia}'
 */
 const destroyForm = (args: { membresia: number | { id: number } } | [membresia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -605,7 +605,7 @@ const destroyForm = (args: { membresia: number | { id: number } } | [membresia: 
 
 /**
 * @see \App\Http\Controllers\Admin\MembresiaController::destroy
-* @see Http/Controllers/Admin/MembresiaController.php:79
+* @see Http/Controllers/Admin/MembresiaController.php:87
 * @route '/admin/membresias/{membresia}'
 */
 destroyForm.delete = (args: { membresia: number | { id: number } } | [membresia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
