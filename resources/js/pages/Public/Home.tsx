@@ -1,5 +1,6 @@
 import { Head, Link } from '@inertiajs/react';
 import PublicLayout from '@/layouts/public/PublicLayout';
+import { badgeTipoEvento, fechaMedia, labelTipoEvento } from '@/lib/eventos';
 import {
     UserPlus,
     CalendarDays,
@@ -78,19 +79,7 @@ const STATS = [
 ];
 
 // Helpers
-function formatFecha(dateStr: string) {
-    const d = new Date(dateStr);
-    return d.toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric' });
-}
-
-function badgeTipo(tipo: string) {
-    const map: Record<string, string> = {
-        torneo: 'bg-yellow-100 text-yellow-700',
-        curso: 'bg-blue-100 text-blue-700',
-        evento: 'bg-purple-100 text-purple-700',
-    };
-    return map[tipo?.toLowerCase()] ?? 'bg-gray-100 text-gray-600';
-}
+const formatFecha = fechaMedia;
 
 export default function Home({ eventosProximos, testimonios, noticiasRecientes }: HomeProps) {
     return (
@@ -353,21 +342,24 @@ export default function Home({ eventosProximos, testimonios, noticiasRecientes }
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {eventosProximos.map((evento) => (
-                                <div key={evento.id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                                <Link key={evento.id} href={`/eventos/${evento.id}`} className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100">
                                     <div className="bg-blue-600 px-6 py-4 flex items-center gap-3">
                                         <CalendarDays className="w-5 h-5 text-blue-200" />
                                         <span className="text-white text-sm font-medium">{formatFecha(evento.fecha_evento)}</span>
                                     </div>
                                     <div className="p-6">
-                                        <span className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold mb-3 ${badgeTipo(evento.tipo)}`}>
-                                            {evento.tipo}
+                                        <span className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold mb-3 border ${badgeTipoEvento(evento.tipo)}`}>
+                                            {labelTipoEvento(evento.tipo)}
                                         </span>
-                                        <h3 className="font-bold text-gray-900 text-lg mb-2">{evento.nombre}</h3>
+                                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-blue-600 transition-colors">{evento.nombre}</h3>
                                         {evento.descripcion && (
                                             <p className="text-gray-500 text-sm leading-relaxed line-clamp-2">{evento.descripcion}</p>
                                         )}
+                                        <span className="inline-flex items-center gap-1 text-sm font-medium text-blue-600 mt-4">
+                                            Ver detalle <ChevronRight className="w-4 h-4" />
+                                        </span>
                                     </div>
-                                </div>
+                                </Link>
                             ))}
                         </div>
 
@@ -386,9 +378,14 @@ export default function Home({ eventosProximos, testimonios, noticiasRecientes }
             {noticiasRecientes.length > 0 && (
                 <section className="py-20 bg-white">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="text-center mb-12">
-                            <span className="text-blue-600 text-sm font-semibold uppercase tracking-wider">Novedades</span>
-                            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2">Últimas Noticias</h2>
+                        <div className="flex items-end justify-between mb-12">
+                            <div>
+                                <span className="text-blue-600 text-sm font-semibold uppercase tracking-wider">Novedades</span>
+                                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-1">Últimas Noticias</h2>
+                            </div>
+                            <Link href="/noticias" className="hidden sm:inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium text-sm">
+                                Ver todas <ChevronRight className="w-4 h-4" />
+                            </Link>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -417,6 +414,12 @@ export default function Home({ eventosProximos, testimonios, noticiasRecientes }
                                     )}
                                 </Link>
                             ))}
+                        </div>
+
+                        <div className="text-center mt-8 sm:hidden">
+                            <Link href="/noticias" className="inline-flex items-center gap-1 text-blue-600 font-medium text-sm">
+                                Ver todas las noticias <ChevronRight className="w-4 h-4" />
+                            </Link>
                         </div>
                     </div>
                 </section>
@@ -473,7 +476,7 @@ export default function Home({ eventosProximos, testimonios, noticiasRecientes }
                             <h2 className="text-3xl sm:text-4xl font-bold mt-2 mb-6">Dónde estamos</h2>
                             <div className="flex items-start gap-3 mb-4">
                                 <MapPin className="w-5 h-5 text-blue-400 mt-0.5 shrink-0" />
-                                <p className="text-gray-300">Ruta Nacional N.º 11, Km 1172, Formosa, Argentina</p>
+                                <p className="text-gray-300">Ruta Nacional N.º 11, Km 1182, Formosa, Argentina</p>
                             </div>
                             <div className="flex items-center gap-3 mb-8">
                                 <Clock className="w-5 h-5 text-blue-400 shrink-0" />
@@ -491,13 +494,13 @@ export default function Home({ eventosProximos, testimonios, noticiasRecientes }
                         {/* Mapa embed */}
                         <div className="rounded-2xl overflow-hidden h-72 bg-gray-700 shadow-2xl">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.8!2d-58.1800!3d-26.1850!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDExJzA2LjAiUyA1OMKwMTAnNDguMCJX!5e0!3m2!1ses!2sar!4v1600000000000"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.1097904355656!2d-58.21088799999999!3d-26.127962999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945cafe839c76df1%3A0x684b0146692e335a!2sTiro%20Federal%20FORMOSA!5e0!3m2!1ses-419!2sar!4v1795173526773!5m2!1ses-419!2sar"
                                 width="100%"
                                 height="100%"
                                 style={{ border: 0 }}
                                 allowFullScreen
                                 loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
+                                referrerPolicy="strict-origin-when-cross-origin"
                                 title="Ubicación Tiro Federal Formosa"
                             />
                         </div>

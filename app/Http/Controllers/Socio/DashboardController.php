@@ -24,8 +24,11 @@ class DashboardController extends Controller
 
         $turnosProximos = $socio ? $socio->turnos()
             ->with(['lineaDeTiro', 'instructorProfile.user'])
-            ->where('fecha', '>=', today()->toDateString())
             ->whereIn('estado', ['reservado', 'confirmado'])
+            ->where(function ($q) {
+                $q->whereDate('fecha', '>', today()->toDateString())
+                    ->orWhere(fn ($q) => $q->whereDate('fecha', today()->toDateString())->where('hora_fin', '>', now()->format('H:i')));
+            })
             ->orderBy('fecha')
             ->orderBy('hora_inicio')
             ->take(5)

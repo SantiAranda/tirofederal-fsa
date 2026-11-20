@@ -227,7 +227,7 @@ export default function NewsArticlePreview({
                             <span>— Tradición, disciplina y seguridad</span>
                         </div>
                         <div className="text-center sm:text-right text-[11px] text-gray-500">
-                            Ruta Nacional N.º 11, Km 1172 · Formosa, Argentina
+                            Ruta Nacional N.º 11, Km 1182 · Formosa, Argentina
                         </div>
                     </div>
                 </div>

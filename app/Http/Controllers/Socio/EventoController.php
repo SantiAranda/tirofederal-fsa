@@ -33,6 +33,12 @@ class EventoController extends Controller
                 ]);
             }
 
+            if ($eventoLock->fecha_evento->isPast()) {
+                throw ValidationException::withMessages([
+                    'evento' => 'El evento ya finalizó y no admite nuevas inscripciones.',
+                ]);
+            }
+
             if ($eventoLock->cupos_disponibles <= 0) {
                 throw ValidationException::withMessages([
                     'evento' => 'No quedan cupos disponibles para este evento.',

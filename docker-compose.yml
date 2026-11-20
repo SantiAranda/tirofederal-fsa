@@ -27,6 +27,7 @@ services:
         (grep -q '^APP_KEY=base64:' .env || php artisan key:generate --no-interaction) &&
         touch database/database.sqlite &&
         php artisan migrate --force --no-interaction &&
+        (php artisan storage:link --no-interaction 2>/dev/null || true) &&
         php artisan serve --host=0.0.0.0 --port=8000 &
         pnpm dev --host 0.0.0.0 &&
         wait

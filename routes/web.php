@@ -30,6 +30,8 @@ Route::get('/historia', [PublicController::class, 'historia'])->name('historia')
 Route::get('/disciplinas', [PublicController::class, 'disciplinas'])->name('disciplinas');
 Route::get('/decalogo', [PublicController::class, 'decalogo'])->name('decalogo');
 Route::get('/eventos', [PublicController::class, 'eventos'])->name('public.eventos');
+Route::get('/eventos/{evento}', [PublicController::class, 'eventoDetalle'])->whereNumber('evento')->name('public.eventos.show');
+Route::get('/noticias', [PublicController::class, 'noticias'])->name('public.noticias.index');
 Route::get('/noticias/{slug}', [PublicController::class, 'noticiaDetalle'])->name('public.noticias.show');
 Route::post('/contacto', [PublicController::class, 'enviarContacto'])->name('contacto.enviar');
 
@@ -82,6 +84,7 @@ Route::middleware(['auth', 'role:socio'])->group(function () {
 
     Route::get('/perfil', [SocioPerfilController::class, 'edit'])->name('socio.perfil.edit');
     Route::patch('/perfil', [SocioPerfilController::class, 'update'])->name('socio.perfil.update');
+    Route::post('/perfil/clu', [SocioPerfilController::class, 'actualizarClu'])->name('socio.perfil.clu');
     Route::delete('/perfil', [SocioPerfilController::class, 'destroy'])->name('socio.perfil.destroy');
 
     Route::get('/turnos', [SocioTurnoController::class, 'index'])->name('socio.turnos.index');

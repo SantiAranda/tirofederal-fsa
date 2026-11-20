@@ -52,6 +52,14 @@ interface SocioDashboardProps {
     } | null;
 }
 
+/** "2026-11-25T03:00:00.000000Z" → "25/11/2026" (las fechas "date" llegan en ISO). */
+function formatFecha(fecha: string) {
+    const [y, m, d] = fecha.slice(0, 10).split('-');
+    return `${d}/${m}/${y}`;
+}
+
+const hhmm = (hora: string) => hora.slice(0, 5);
+
 export default function SocioDashboard({ socio, turnosProximos, ultimosPagos, alertaClu }: SocioDashboardProps) {
     return (
         <div className="space-y-6">
@@ -127,11 +135,11 @@ export default function SocioDashboard({ socio, turnosProximos, ultimosPagos, al
                     </CardHeader>
                     <CardContent>
                         <div className="text-2xl font-bold">
-                            {turnosProximos.length > 0 ? turnosProximos[0].fecha : 'Sin turnos'}
+                            {turnosProximos.length > 0 ? formatFecha(turnosProximos[0].fecha) : 'Sin turnos'}
                         </div>
                         <p className="text-xs text-muted-foreground mt-1">
                             {turnosProximos.length > 0 
-                                ? `${turnosProximos[0].hora_inicio} hs - ${turnosProximos[0].linea_de_tiro?.nombre || 'Pedana'}`
+                                ? `${hhmm(turnosProximos[0].hora_inicio)} hs -${turnosProximos[0].linea_de_tiro?.nombre || 'Pedana'}`
                                 : 'Podés agendar una pedana hoy'}
                         </p>
                     </CardContent>
@@ -169,7 +177,7 @@ export default function SocioDashboard({ socio, turnosProximos, ultimosPagos, al
                                                 {t.linea_de_tiro?.nombre || `Línea #${t.id}`}
                                             </div>
                                             <div className="text-xs text-muted-foreground">
-                                                {t.fecha} • {t.hora_inicio} a {t.hora_fin} hs
+                                                {formatFecha(t.fecha)} • {hhmm(t.hora_inicio)} a {hhmm(t.hora_fin)} hs
                                                 {t.instructor_profile?.user && ` • Inst: ${t.instructor_profile.user.name}`}
                                             </div>
                                         </div>

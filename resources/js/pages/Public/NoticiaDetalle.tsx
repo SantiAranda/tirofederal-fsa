@@ -34,7 +34,7 @@ export default function NoticiaDetalle({ noticia, relacionadas = [] }: Props) {
         : 'Prensa Tiro Federal Formosa';
 
     const imagenUrl = noticia.imagen_portada
-        ? (noticia.imagen_portada.startsWith('http') ? noticia.imagen_portada : `/storage/${noticia.imagen_portada}`)
+        ? (/^(https?:)?\//.test(noticia.imagen_portada) ? noticia.imagen_portada : `/storage/${noticia.imagen_portada}`)
         : null;
 
     const fechaFormateada = noticia.fecha_publicacion
@@ -55,11 +55,13 @@ export default function NoticiaDetalle({ noticia, relacionadas = [] }: Props) {
                     <div className="flex items-center gap-2">
                         <Link href="/" className="hover:text-blue-600">Inicio</Link>
                         <span>/</span>
+                        <Link href="/noticias" className="hover:text-blue-600">Prensa y Noticias</Link>
+                        <span>/</span>
                         <span className="text-gray-700 font-medium">{noticia.categoria || 'Prensa'}</span>
                     </div>
                     <Button variant="ghost" size="sm" asChild className="h-7 text-xs text-blue-600 gap-1">
-                        <Link href="/">
-                            <ArrowLeft className="w-3.5 h-3.5" /> Volver al Inicio
+                        <Link href="/noticias">
+                            <ArrowLeft className="w-3.5 h-3.5" /> Volver a Noticias
                         </Link>
                     </Button>
                 </div>
@@ -94,7 +96,7 @@ export default function NoticiaDetalle({ noticia, relacionadas = [] }: Props) {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {relacionadas.map((rel) => {
                                 const relImg = rel.imagen_portada
-                                    ? (rel.imagen_portada.startsWith('http') ? rel.imagen_portada : `/storage/${rel.imagen_portada}`)
+                                    ? (/^(https?:)?\//.test(rel.imagen_portada) ? rel.imagen_portada : `/storage/${rel.imagen_portada}`)
                                     : null;
 
                                 return (

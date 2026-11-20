@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../wayfinder'
 /**
 * @see \App\Http\Controllers\Settings\SecurityController::update
-* @see app/Http/Controllers/Settings/SecurityController.php:30
+* @see Http/Controllers/Settings/SecurityController.php:30
 * @route '/settings/password'
 */
 export const update = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -16,20 +16,16 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\Settings\SecurityController::update
-* @see app/Http/Controllers/Settings/SecurityController.php:30
+* @see Http/Controllers/Settings/SecurityController.php:30
 * @route '/settings/password'
 */
 update.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return update.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Settings\SecurityController::update
-* @see app/Http/Controllers/Settings/SecurityController.php:30
+* @see Http/Controllers/Settings/SecurityController.php:30
 * @route '/settings/password'
 */
 update.put = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -39,7 +35,7 @@ update.put = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
 
 /**
 * @see \App\Http\Controllers\Settings\SecurityController::update
-* @see app/Http/Controllers/Settings/SecurityController.php:30
+* @see Http/Controllers/Settings/SecurityController.php:30
 * @route '/settings/password'
 */
 const updateForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -54,7 +50,7 @@ const updateForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> =>
 
 /**
 * @see \App\Http\Controllers\Settings\SecurityController::update
-* @see app/Http/Controllers/Settings/SecurityController.php:30
+* @see Http/Controllers/Settings/SecurityController.php:30
 * @route '/settings/password'
 */
 updateForm.put = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -68,8 +64,6 @@ updateForm.put = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => (
 })
 
 update.form = updateForm
-
-
 
 const userPassword = {
     update: Object.assign(update, update),

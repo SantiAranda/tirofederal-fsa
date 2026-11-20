@@ -31,11 +31,13 @@ RUN pnpm install --frozen-lockfile || pnpm install
 # Copiar el resto del proyecto
 COPY . .
 
+#  Crear base de datos SQLite si no existe
+
+RUN mkdir -p database && touch database/database.sqlite
+
+
 # Finalizar instalación de Composer con autoload
 RUN composer dump-autoload --optimize
-
-# Crear base de datos SQLite si no existe
-RUN mkdir -p database && touch database/database.sqlite
 
 # Exponer puertos (Laravel dev server + Vite HMR)
 EXPOSE 8000 5173

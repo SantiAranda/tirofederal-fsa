@@ -28,11 +28,11 @@ export default function PublicFooter() {
                             Promovemos la práctica responsable del tiro deportivo, el espíritu de superación y los valores del deporte desde 1911.
                         </p>
                         <div className="flex gap-3 mt-5">
-                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                            <a href="https://www.facebook.com/p/Tiro-Federal-Formosa-100066370755019/?locale=es_LA" target="_blank" rel="noopener noreferrer"
                                 className="w-9 h-9 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition-colors">
                                 <Facebook className="w-4 h-4" />
                             </a>
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                            <a href="https://www.instagram.com/tiro_federal_formosa/" target="_blank" rel="noopener noreferrer"
                                 className="w-9 h-9 rounded-full bg-gray-800 hover:bg-pink-600 flex items-center justify-center transition-colors">
                                 <Instagram className="w-4 h-4" />
                             </a>
@@ -47,7 +47,8 @@ export default function PublicFooter() {
                                 { label: 'Inicio', href: '/' },
                                 { label: 'Institución', href: '/historia' },
                                 { label: 'Disciplinas', href: '/disciplinas' },
-                                { label: 'Eventos y Cursos', href: '/eventos' },
+                                { label: 'Eventos y Torneos', href: '/eventos' },
+                                { label: 'Prensa y Noticias', href: '/noticias' },
                                 { label: 'Decálogo', href: '/decalogo' },
                             ].map((link) => (
                                 <li key={link.href}>
@@ -65,11 +66,11 @@ export default function PublicFooter() {
                         <ul className="space-y-3 text-sm">
                             <li className="flex items-start gap-2">
                                 <MapPin className="w-4 h-4 mt-0.5 text-blue-400 shrink-0" />
-                                <span>Ruta Nacional N.º 11, Km 1172, Formosa</span>
+                                <span>Ruta Nacional N.º 11, Km 1182, Formosa</span>
                             </li>
                             <li className="flex items-center gap-2">
                                 <Phone className="w-4 h-4 text-blue-400 shrink-0" />
-                                <span>+54 (370) XXX-XXXX</span>
+                                <span>+54 (370) 4569382</span>
                             </li>
                             <li className="flex items-center gap-2">
                                 <Mail className="w-4 h-4 text-blue-400 shrink-0" />

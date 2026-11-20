@@ -24,7 +24,6 @@ create.url = (args: { token: string | number } | [token: string | number ] | str
         args = { token: args }
     }
 
-
     if (Array.isArray(args)) {
         args = {
             token: args[0],
@@ -32,7 +31,6 @@ create.url = (args: { token: string | number } | [token: string | number ] | str
     }
 
     args = applyUrlDefaults(args)
-
 
     const parsedArgs = {
         token: args.token,
@@ -121,10 +119,6 @@ store.definition = {
 * @route '/reset-password'
 */
 store.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return store.definition.url + queryParams(options)
 }
 

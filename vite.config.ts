@@ -39,7 +39,13 @@ export default defineConfig({
             origin: /^https?:\/\/(localhost|127\.0\.0\.1|0\.0\.0\.0|\[::1\])(:\d+)?$/,
         },
         watch: {
+            // Docker en Windows no propaga los eventos de cambio de archivos del
+            // volumen montado: sin polling Vite sigue sirviendo versiones viejas.
+            usePolling: true,
+            interval: 300,
             ignored: [
+                '**/storage/**',
+                '**/database/**',
                 '**/.agents/**',
                 '**/.claude/**',
                 '**/.cursor/**',

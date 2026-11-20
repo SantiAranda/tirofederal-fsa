@@ -1,7 +1,88 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
+* @see \App\Http\Controllers\PublicController::index
+* @see Http/Controllers/PublicController.php:164
+* @route '/noticias'
+*/
+export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: index.url(options),
+    method: 'get',
+})
+
+index.definition = {
+    methods: ["get","head"],
+    url: '/noticias',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\PublicController::index
+* @see Http/Controllers/PublicController.php:164
+* @route '/noticias'
+*/
+index.url = (options?: RouteQueryOptions) => {
+    return index.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\PublicController::index
+* @see Http/Controllers/PublicController.php:164
+* @route '/noticias'
+*/
+index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: index.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\PublicController::index
+* @see Http/Controllers/PublicController.php:164
+* @route '/noticias'
+*/
+index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: index.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Http\Controllers\PublicController::index
+* @see Http/Controllers/PublicController.php:164
+* @route '/noticias'
+*/
+const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: index.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\PublicController::index
+* @see Http/Controllers/PublicController.php:164
+* @route '/noticias'
+*/
+indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: index.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\PublicController::index
+* @see Http/Controllers/PublicController.php:164
+* @route '/noticias'
+*/
+indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: index.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+index.form = indexForm
+
+/**
 * @see \App\Http\Controllers\PublicController::show
-* @see app/Http/Controllers/PublicController.php:132
+* @see Http/Controllers/PublicController.php:201
 * @route '/noticias/{slug}'
 */
 export const show = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,14 +97,13 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\PublicController::show
-* @see app/Http/Controllers/PublicController.php:132
+* @see Http/Controllers/PublicController.php:201
 * @route '/noticias/{slug}'
 */
 show.url = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { slug: args }
     }
-
 
     if (Array.isArray(args)) {
         args = {
@@ -32,7 +112,6 @@ show.url = (args: { slug: string | number } | [slug: string | number ] | string 
     }
 
     args = applyUrlDefaults(args)
-
 
     const parsedArgs = {
         slug: args.slug,
@@ -45,7 +124,7 @@ show.url = (args: { slug: string | number } | [slug: string | number ] | string 
 
 /**
 * @see \App\Http\Controllers\PublicController::show
-* @see app/Http/Controllers/PublicController.php:132
+* @see Http/Controllers/PublicController.php:201
 * @route '/noticias/{slug}'
 */
 show.get = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -55,7 +134,7 @@ show.get = (args: { slug: string | number } | [slug: string | number ] | string 
 
 /**
 * @see \App\Http\Controllers\PublicController::show
-* @see app/Http/Controllers/PublicController.php:132
+* @see Http/Controllers/PublicController.php:201
 * @route '/noticias/{slug}'
 */
 show.head = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -65,7 +144,7 @@ show.head = (args: { slug: string | number } | [slug: string | number ] | string
 
 /**
 * @see \App\Http\Controllers\PublicController::show
-* @see app/Http/Controllers/PublicController.php:132
+* @see Http/Controllers/PublicController.php:201
 * @route '/noticias/{slug}'
 */
 const showForm = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -75,7 +154,7 @@ const showForm = (args: { slug: string | number } | [slug: string | number ] | s
 
 /**
 * @see \App\Http\Controllers\PublicController::show
-* @see app/Http/Controllers/PublicController.php:132
+* @see Http/Controllers/PublicController.php:201
 * @route '/noticias/{slug}'
 */
 showForm.get = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -85,7 +164,7 @@ showForm.get = (args: { slug: string | number } | [slug: string | number ] | str
 
 /**
 * @see \App\Http\Controllers\PublicController::show
-* @see app/Http/Controllers/PublicController.php:132
+* @see Http/Controllers/PublicController.php:201
 * @route '/noticias/{slug}'
 */
 showForm.head = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -100,9 +179,8 @@ showForm.head = (args: { slug: string | number } | [slug: string | number ] | st
 
 show.form = showForm
 
-
-
 const noticias = {
+    index: Object.assign(index, index),
     show: Object.assign(show, show),
 }
 

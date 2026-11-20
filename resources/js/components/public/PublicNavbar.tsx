@@ -7,7 +7,8 @@ const navLinks = [
     { label: 'Institución', href: '/historia' },
     { label: 'Disciplinas', href: '/disciplinas' },
     { label: 'Como asociarse', href: '/historia#asociarse' },
-    { label: 'Eventos y Cursos', href: '/eventos' },
+    { label: 'Eventos y Torneos', href: '/eventos' },
+    { label: 'Prensa y Noticias', href: '/noticias' },
 ];
 
 export default function PublicNavbar() {

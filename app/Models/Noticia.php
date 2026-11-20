@@ -72,9 +72,20 @@ class Noticia extends Model
         return \Illuminate\Support\Str::limit(strip_tags((string) $this->contenido), 140);
     }
 
+    /**
+     * URL pública de la imagen de portada (las subidas viven en el disco "public").
+     */
     public function getImagenUrlAttribute(): ?string
     {
-        return $this->imagen_portada;
+        if (empty($this->imagen_portada)) {
+            return null;
+        }
+
+        if (\Illuminate\Support\Str::startsWith($this->imagen_portada, ['http://', 'https://', '/'])) {
+            return $this->imagen_portada;
+        }
+
+        return '/storage/' . ltrim($this->imagen_portada, '/');
     }
 
     public function getAutorIdAttribute(): ?int

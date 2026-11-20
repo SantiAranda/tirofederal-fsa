@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Admin\EventoController::asistencia
-* @see app/Http/Controllers/Admin/EventoController.php:136
+* @see Http/Controllers/Admin/EventoController.php:136
 * @route '/admin/eventos/inscripciones/{inscripcion}/asistencia'
 */
 export const asistencia = (args: { inscripcion: number | { id: number } } | [inscripcion: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -16,7 +16,7 @@ asistencia.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\EventoController::asistencia
-* @see app/Http/Controllers/Admin/EventoController.php:136
+* @see Http/Controllers/Admin/EventoController.php:136
 * @route '/admin/eventos/inscripciones/{inscripcion}/asistencia'
 */
 asistencia.url = (args: { inscripcion: number | { id: number } } | [inscripcion: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -36,7 +36,6 @@ asistencia.url = (args: { inscripcion: number | { id: number } } | [inscripcion:
 
     args = applyUrlDefaults(args)
 
-
     const parsedArgs = {
         inscripcion: typeof args.inscripcion === 'object'
         ? args.inscripcion.id
@@ -50,7 +49,7 @@ asistencia.url = (args: { inscripcion: number | { id: number } } | [inscripcion:
 
 /**
 * @see \App\Http\Controllers\Admin\EventoController::asistencia
-* @see app/Http/Controllers/Admin/EventoController.php:136
+* @see Http/Controllers/Admin/EventoController.php:136
 * @route '/admin/eventos/inscripciones/{inscripcion}/asistencia'
 */
 asistencia.patch = (args: { inscripcion: number | { id: number } } | [inscripcion: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -60,7 +59,7 @@ asistencia.patch = (args: { inscripcion: number | { id: number } } | [inscripcio
 
 /**
 * @see \App\Http\Controllers\Admin\EventoController::asistencia
-* @see app/Http/Controllers/Admin/EventoController.php:136
+* @see Http/Controllers/Admin/EventoController.php:136
 * @route '/admin/eventos/inscripciones/{inscripcion}/asistencia'
 */
 const asistenciaForm = (args: { inscripcion: number | { id: number } } | [inscripcion: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -75,7 +74,7 @@ const asistenciaForm = (args: { inscripcion: number | { id: number } } | [inscri
 
 /**
 * @see \App\Http\Controllers\Admin\EventoController::asistencia
-* @see app/Http/Controllers/Admin/EventoController.php:136
+* @see Http/Controllers/Admin/EventoController.php:136
 * @route '/admin/eventos/inscripciones/{inscripcion}/asistencia'
 */
 asistenciaForm.patch = (args: { inscripcion: number | { id: number } } | [inscripcion: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -89,8 +88,6 @@ asistenciaForm.patch = (args: { inscripcion: number | { id: number } } | [inscri
 })
 
 asistencia.form = asistenciaForm
-
-
 
 const inscripciones = {
     asistencia: Object.assign(asistencia, asistencia),

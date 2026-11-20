@@ -50,7 +50,7 @@ class PublicController extends Controller
         return Inertia::render('Public/Historia', [
             'fundacionAnio' => 1911,
             'nombreClub' => 'Tiro Federal Formosa',
-            'ubicacion' => 'Ruta Nacional N.º 11, Km 1172, Formosa',
+            'ubicacion' => 'Ruta Nacional N.º 11, Km 1182, Formosa',
         ]);
     }
 
@@ -108,12 +108,81 @@ class PublicController extends Controller
      */
     public function eventos(): Response
     {
-        $eventos = Evento::where('publicado', true)
+        $proximos = Evento::where('publicado', true)
+            ->where('fecha_evento', '>=', now())
             ->orderBy('fecha_evento')
             ->get();
 
+        // Todos los eventos ya realizados: del más reciente al más antiguo (los más viejos quedan al final).
+        $anteriores = Evento::where('publicado', true)
+            ->where('fecha_evento', '<', now())
+            ->orderByDesc('fecha_evento')
+            ->get();
+
         return Inertia::render('Public/Eventos', [
-            'eventos' => $eventos,
+            'proximos' => $proximos,
+            'anteriores' => $anteriores,
+        ]);
+    }
+
+    /**
+     * Detalle público de un evento, torneo o curso (RF26, RF27).
+     */
+    public function eventoDetalle(Request $request, Evento $evento): Response
+    {
+        abort_unless($evento->publicado, 404);
+
+        $finalizado = $evento->fecha_evento->isPast();
+
+        $socio = $request->user()?->socioProfile;
+        $yaInscripto = $socio
+            ? $evento->inscripciones()
+                ->where('socio_profile_id', $socio->id)
+                ->whereIn('estado', ['preinscripto', 'confirmado'])
+                ->exists()
+            : false;
+
+        $otros = Evento::where('publicado', true)
+            ->where('id', '!=', $evento->id)
+            ->where('fecha_evento', '>=', now())
+            ->orderBy('fecha_evento')
+            ->take(3)
+            ->get();
+
+        return Inertia::render('Public/EventoDetalle', [
+            'evento' => $evento,
+            'finalizado' => $finalizado,
+            'esSocio' => (bool) $socio,
+            'yaInscripto' => $yaInscripto,
+            'otrosEventos' => $otros,
+        ]);
+    }
+
+    /**
+     * Listado público de Prensa y Noticias (RF28).
+     */
+    public function noticias(Request $request): Response
+    {
+        $categoria = $request->string('categoria')->toString() ?: null;
+
+        $noticias = Noticia::query()
+            ->publicadas()
+            ->when($categoria, fn ($q) => $q->where('categoria', $categoria))
+            ->latest('fecha_publicacion')
+            ->paginate(9)
+            ->withQueryString();
+
+        $categorias = Noticia::query()
+            ->publicadas()
+            ->whereNotNull('categoria')
+            ->distinct()
+            ->orderBy('categoria')
+            ->pluck('categoria');
+
+        return Inertia::render('Public/Noticias', [
+            'noticias' => $noticias,
+            'categorias' => $categorias,
+            'categoriaActual' => $categoria,
         ]);
     }
 

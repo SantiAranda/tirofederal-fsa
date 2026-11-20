@@ -20,6 +20,64 @@ class TurneroService
     public const ARANCEL_PRACTICA_DIARIA = 15000.00;
 
     /**
+     * Bloques horarios del polígono (hora de inicio) y duración de cada bloque en minutos.
+     */
+    public const HORARIOS = ['08:00', '09:30', '11:00', '14:00', '15:30', '17:00'];
+
+    public const DURACION_BLOQUE_MINUTOS = 90;
+
+    /**
+     * Indica si el socio debe reservar obligatoriamente con instructor y por qué (RF03, RF10, RF16).
+     *
+     * @return array{requiere: bool, motivo: string|null, arancel: float}
+     */
+    public function condicionesReserva(SocioProfile $socio): array
+    {
+        $tieneCluVigente = $socio->credencialLu !== null && $socio->credencialLu->estaVigente();
+        $poseeArmaPropia = (bool) $socio->posee_arma_propia;
+        $esTiradorDiario = (bool) $socio->es_tirador_diario;
+
+        $motivo = match (true) {
+            ! $tieneCluVigente => 'No tenés una CLU vigente aprobada.',
+            ! $poseeArmaPropia => 'No registrás arma propia.',
+            $esTiradorDiario => 'Asistís como tirador de práctica diaria.',
+            default => null,
+        };
+
+        return [
+            'requiere' => $motivo !== null,
+            'motivo' => $motivo,
+            'arancel' => $motivo !== null ? self::ARANCEL_PRACTICA_DIARIA : 0.0,
+        ];
+    }
+
+    /**
+     * Grilla de bloques horarios de una fecha con las líneas e instructores ocupados en cada uno.
+     *
+     * @return array<int, array{hora_inicio: string, hora_fin: string, pasado: bool, lineas_ocupadas: array<int>, instructores_ocupados: array<int>}>
+     */
+    public function grillaHoraria(string $fecha): array
+    {
+        $turnos = Turno::whereDate('fecha', $fecha)
+            ->whereIn('estado', ['reservado', 'confirmado'])
+            ->get(['linea_de_tiro_id', 'instructor_profile_id', 'hora_inicio', 'hora_fin']);
+
+        return collect(self::HORARIOS)->map(function (string $inicio) use ($fecha, $turnos) {
+            $fin = Carbon::createFromFormat('H:i', $inicio)->addMinutes(self::DURACION_BLOQUE_MINUTOS)->format('H:i');
+
+            $solapados = $turnos->filter(fn ($t) => substr($t->hora_inicio, 0, 5) < $fin && substr($t->hora_fin, 0, 5) > $inicio);
+
+            return [
+                'hora_inicio' => $inicio,
+                'hora_fin' => $fin,
+                'pasado' => Carbon::parse("{$fecha} {$inicio}")->lte(now()),
+                'lineas_ocupadas' => $solapados->pluck('linea_de_tiro_id')->unique()->values()->all(),
+                'instructores_ocupados' => $solapados->pluck('instructor_profile_id')->filter()->unique()->values()->all(),
+            ];
+        })->all();
+    }
+
+    /**
      * Registra una nueva reserva de pedana cumpliendo las reglas de negocio críticas (RF03, RF08, RF10, RF13, RF15, RF16, RF18).
      *
      * @param  array{
@@ -76,6 +134,12 @@ class TurneroService
             $fecha = $data['fecha'];
             $horaInicio = $data['hora_inicio'];
             $horaFin = $data['hora_fin'] ?? \Carbon\Carbon::createFromFormat('H:i', $horaInicio)->addMinutes(45)->format('H:i');
+
+            if (Carbon::parse("{$fecha} {$horaInicio}")->lte(now())) {
+                throw ValidationException::withMessages([
+                    'hora_inicio' => 'El horario seleccionado ya pasó. Elegí un horario posterior.',
+                ]);
+            }
 
             // 3. Control de Concurrencia en Pedana (RF13, RF15, SPECS 5.3)
             $turnoSolapado = Turno::where('linea_de_tiro_id', $linea->id)

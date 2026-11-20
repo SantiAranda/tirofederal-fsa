@@ -65,7 +65,8 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    // Hora local del club: los turnos se reservan en horario de Formosa (UTC-3).
+    'timezone' => env('APP_TIMEZONE', 'America/Argentina/Buenos_Aires'),
 
     /*
     |--------------------------------------------------------------------------

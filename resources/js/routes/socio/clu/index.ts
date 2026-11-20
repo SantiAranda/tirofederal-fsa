@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Admin\CluController::documento
-* @see app/Http/Controllers/Admin/CluController.php:93
+* @see Http/Controllers/Admin/CluController.php:93
 * @route '/legajo/{credencial}/documento/{tipo}'
 */
 export const documento = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,11 +16,10 @@ documento.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::documento
-* @see app/Http/Controllers/Admin/CluController.php:93
+* @see Http/Controllers/Admin/CluController.php:93
 * @route '/legajo/{credencial}/documento/{tipo}'
 */
 documento.url = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions) => {
-
     if (Array.isArray(args)) {
         args = {
             credencial: args[0],
@@ -29,7 +28,6 @@ documento.url = (args: { credencial: number | { id: number }, tipo: string | num
     }
 
     args = applyUrlDefaults(args)
-
 
     const parsedArgs = {
         credencial: typeof args.credencial === 'object'
@@ -46,7 +44,7 @@ documento.url = (args: { credencial: number | { id: number }, tipo: string | num
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::documento
-* @see app/Http/Controllers/Admin/CluController.php:93
+* @see Http/Controllers/Admin/CluController.php:93
 * @route '/legajo/{credencial}/documento/{tipo}'
 */
 documento.get = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -56,7 +54,7 @@ documento.get = (args: { credencial: number | { id: number }, tipo: string | num
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::documento
-* @see app/Http/Controllers/Admin/CluController.php:93
+* @see Http/Controllers/Admin/CluController.php:93
 * @route '/legajo/{credencial}/documento/{tipo}'
 */
 documento.head = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -66,7 +64,7 @@ documento.head = (args: { credencial: number | { id: number }, tipo: string | nu
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::documento
-* @see app/Http/Controllers/Admin/CluController.php:93
+* @see Http/Controllers/Admin/CluController.php:93
 * @route '/legajo/{credencial}/documento/{tipo}'
 */
 const documentoForm = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -76,7 +74,7 @@ const documentoForm = (args: { credencial: number | { id: number }, tipo: string
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::documento
-* @see app/Http/Controllers/Admin/CluController.php:93
+* @see Http/Controllers/Admin/CluController.php:93
 * @route '/legajo/{credencial}/documento/{tipo}'
 */
 documentoForm.get = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -86,7 +84,7 @@ documentoForm.get = (args: { credencial: number | { id: number }, tipo: string |
 
 /**
 * @see \App\Http\Controllers\Admin\CluController::documento
-* @see app/Http/Controllers/Admin/CluController.php:93
+* @see Http/Controllers/Admin/CluController.php:93
 * @route '/legajo/{credencial}/documento/{tipo}'
 */
 documentoForm.head = (args: { credencial: number | { id: number }, tipo: string | number } | [credencial: number | { id: number }, tipo: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -100,8 +98,6 @@ documentoForm.head = (args: { credencial: number | { id: number }, tipo: string 
 })
 
 documento.form = documentoForm
-
-
 
 const clu = {
     documento: Object.assign(documento, documento),

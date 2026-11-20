@@ -32,7 +32,7 @@ interface EditProps {
 export default function NoticiaEdit({ noticia }: EditProps) {
     const [activeTab, setActiveTab] = useState<'editor' | 'preview'>('editor');
     const existingImageUrl = noticia.imagen_portada
-        ? (noticia.imagen_portada.startsWith('http') ? noticia.imagen_portada : `/storage/${noticia.imagen_portada}`)
+        ? (/^(https?:)?\//.test(noticia.imagen_portada) ? noticia.imagen_portada : `/storage/${noticia.imagen_portada}`)
         : null;
 
     const [imagePreviewUrl, setImagePreviewUrl] = useState<string | null>(existingImageUrl);

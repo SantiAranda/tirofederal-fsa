@@ -20,10 +20,6 @@ create.definition = {
 * @route '/login'
 */
 create.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return create.definition.url + queryParams(options)
 }
 
@@ -105,10 +101,6 @@ store.definition = {
 * @route '/login'
 */
 store.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return store.definition.url + queryParams(options)
 }
 
@@ -165,10 +157,6 @@ destroy.definition = {
 * @route '/logout'
 */
 destroy.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return destroy.definition.url + queryParams(options)
 }
 

@@ -23,7 +23,6 @@ local.url = (args: { path: string | number } | [path: string | number ] | string
         args = { path: args }
     }
 
-
     if (Array.isArray(args)) {
         args = {
             path: args[0],
@@ -31,7 +30,6 @@ local.url = (args: { path: string | number } | [path: string | number ] | string
     }
 
     args = applyUrlDefaults(args)
-
 
     const parsedArgs = {
         path: args.path,
@@ -93,8 +91,6 @@ localForm.head = (args: { path: string | number } | [path: string | number ] | s
 })
 
 local.form = localForm
-
-
 
 const storage = {
     local: Object.assign(local, localA91488),

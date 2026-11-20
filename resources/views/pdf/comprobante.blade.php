@@ -21,7 +21,7 @@
     <div class="header">
         <h1>Tiro Federal Formosa</h1>
         <p>Asociación de Tiro y Deportes Afines – Fundado en 1911</p>
-        <p>Ruta Nacional N.º 11, Km 1172, Formosa Capital, Argentina</p>
+        <p>Ruta Nacional N.º 11, Km 1182, Formosa Capital, Argentina</p>
         <p>Personería Jurídica N.º 124/1911 – Entidad de Tiro Afiliada a FAT</p>
     </div>
 
