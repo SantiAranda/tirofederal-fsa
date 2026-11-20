@@ -14,6 +14,9 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function ReportesIndex() {
+    const rawPeriodo = new Intl.DateTimeFormat('es-AR', { month: 'long', year: 'numeric' }).format(new Date());
+    const periodoActual = rawPeriodo.charAt(0).toUpperCase() + rawPeriodo.slice(1);
+
     return (
         <>
             <Head title="Reportes y Métricas - Tiro Federal Formosa" />
@@ -28,7 +31,7 @@ export default function ReportesIndex() {
                     </div>
                     <div className="flex gap-2">
                         <Button variant="outline" className="gap-2 text-xs">
-                            <Calendar className="w-4 h-4" /> Noviembre 2026
+                            <Calendar className="w-4 h-4" /> {periodoActual}
                         </Button>
                         <Button className="bg-blue-600 hover:bg-blue-700 text-white gap-2 text-xs">
                             <Download className="w-4 h-4" /> Exportar Informe

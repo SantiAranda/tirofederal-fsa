@@ -7,6 +7,8 @@ import InsumoController from './InsumoController'
 import PagoController from './PagoController'
 import EventoController from './EventoController'
 import NoticiaController from './NoticiaController'
+import CalendarioController from './CalendarioController'
+
 
 const Admin = {
     CluController: Object.assign(CluController, CluController),
@@ -18,6 +20,7 @@ const Admin = {
     PagoController: Object.assign(PagoController, PagoController),
     EventoController: Object.assign(EventoController, EventoController),
     NoticiaController: Object.assign(NoticiaController, NoticiaController),
+    CalendarioController: Object.assign(CalendarioController, CalendarioController),
 }
 
 export default Admin

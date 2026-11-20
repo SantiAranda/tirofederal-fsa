@@ -1,6 +1,6 @@
 import { Link, usePage } from '@inertiajs/react';
 import {
-    LayoutGrid, Users, CreditCard, Calendar,
+    LayoutGrid, Users, CreditCard, Calendar, CalendarDays,
     GraduationCap, Package, Newspaper, Settings, ShieldCheck, UserCheck
 } from 'lucide-react';
 import AppLogo from '@/components/app-logo';
@@ -23,27 +23,30 @@ export function AppSidebar() {
     const userRole = auth?.user?.rol;
 
     const adminNavItems: NavItem[] = [
-        { title: 'Inicio',            href: '/admin/dashboard',   icon: LayoutGrid },
-        { title: 'Socios',            href: '/admin/socios',      icon: Users },
-        { title: 'Validación CLU',    href: '/admin/clu',         icon: ShieldCheck },
-        { title: 'Membresías',        href: '/admin/membresias',  icon: CreditCard },
-        { title: 'Pagos y Recibos',   href: '/admin/pagos',       icon: CreditCard },
-        { title: 'Eventos y Torneos', href: '/admin/eventos',     icon: Calendar },
-        { title: 'Instructores',      href: '/admin/instructores',icon: GraduationCap },
-        { title: 'Armería / Insumos', href: '/admin/insumos',     icon: Package },
-        { title: 'Prensa y Noticias', href: '/admin/noticias',    icon: Newspaper },
-        { title: 'Configuración',     href: '/admin/configuracion',icon: Settings },
+        { title: 'Inicio',             href: '/admin/dashboard',   icon: LayoutGrid },
+        { title: 'Socios',             href: '/admin/socios',      icon: Users },
+        { title: 'Validación CLU',     href: '/admin/clu',         icon: ShieldCheck },
+        { title: 'Membresías',         href: '/admin/membresias',  icon: CreditCard },
+        { title: 'Pagos y Recibos',    href: '/admin/pagos',       icon: CreditCard },
+        { title: 'Eventos y Torneos',  href: '/admin/eventos',     icon: Calendar },
+        { title: 'Calendario General', href: '/admin/calendario',  icon: CalendarDays },
+        { title: 'Instructores',       href: '/admin/instructores',icon: GraduationCap },
+        { title: 'Armería / Insumos',  href: '/admin/insumos',     icon: Package },
+        { title: 'Prensa y Noticias',  href: '/admin/noticias',    icon: Newspaper },
+        { title: 'Configuración',      href: '/admin/configuracion',icon: Settings },
     ];
 
     const socioNavItems: NavItem[] = [
-        { title: 'Mi Panel',       href: '/panel',   icon: LayoutGrid },
-        { title: 'Reservar Turno', href: '/turnos',  icon: Calendar },
-        { title: 'Mis Pagos',      href: '/pagos',   icon: CreditCard },
-        { title: 'Mi Perfil y CLU',href: '/perfil',  icon: UserCheck },
+        { title: 'Mi Panel',       href: '/panel',            icon: LayoutGrid },
+        { title: 'Reservar Turno', href: '/turnos',           icon: Calendar },
+        { title: 'Mi Calendario',  href: '/socio/calendario', icon: CalendarDays },
+        { title: 'Mis Pagos',      href: '/pagos',            icon: CreditCard },
+        { title: 'Mi Perfil y CLU',href: '/perfil',           icon: UserCheck },
     ];
 
     const instructorNavItems: NavItem[] = [
         { title: 'Agenda de Pedanas',    href: '/instructor/agenda',       icon: Calendar },
+        { title: 'Calendario de Clases', href: '/instructor/calendario',   icon: CalendarDays },
         { title: 'Evaluaciones Técnicas',href: '/instructor/evaluaciones', icon: GraduationCap },
     ];
 

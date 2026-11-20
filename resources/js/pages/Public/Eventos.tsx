@@ -102,13 +102,21 @@ export default function Eventos({ proximos = [], anteriores = [] }: EventosProps
             <Head title="Eventos y Torneos — Tiro Federal Formosa" />
 
             {/* Hero */}
-            <section className="bg-gradient-to-br from-gray-900 to-blue-900 py-20 text-white text-center">
+            <section className="bg-gradient-to-br from-gray-900 to-blue-900 py-16 text-white text-center">
                 <div className="max-w-3xl mx-auto px-4">
                     <span className="text-blue-300 text-sm font-semibold uppercase tracking-wider">Agenda institucional</span>
-                    <h1 className="text-4xl sm:text-5xl font-bold mt-3 mb-5">Eventos y Torneos</h1>
-                    <p className="text-gray-300 text-lg">
+                    <h1 className="text-4xl sm:text-5xl font-bold mt-3 mb-4">Eventos y Torneos</h1>
+                    <p className="text-gray-300 text-base sm:text-lg mb-6">
                         Torneos, tiradas nocturnas y cursos de capacitación organizados por el club.
                     </p>
+                    <div className="flex items-center justify-center gap-3">
+                        <Link
+                            href="/calendario"
+                            className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-md shadow-blue-500/20"
+                        >
+                            <CalendarDays className="w-4 h-4" /> Abrir Calendario Completo
+                        </Link>
+                    </div>
                 </div>
             </section>
 

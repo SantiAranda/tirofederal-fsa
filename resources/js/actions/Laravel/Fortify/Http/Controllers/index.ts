@@ -5,6 +5,7 @@ import RegisteredUserController from './RegisteredUserController'
 import ConfirmablePasswordController from './ConfirmablePasswordController'
 import ConfirmedPasswordStatusController from './ConfirmedPasswordStatusController'
 
+
 const Controllers = {
     AuthenticatedSessionController: Object.assign(AuthenticatedSessionController, AuthenticatedSessionController),
     PasswordResetLinkController: Object.assign(PasswordResetLinkController, PasswordResetLinkController),

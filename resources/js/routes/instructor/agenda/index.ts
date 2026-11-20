@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Instructor\AgendaController::index
-* @see Http/Controllers/Instructor/AgendaController.php:23
+* @see app/Http/Controllers/Instructor/AgendaController.php:23
 * @route '/instructor/agenda'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,16 +16,20 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\Instructor\AgendaController::index
-* @see Http/Controllers/Instructor/AgendaController.php:23
+* @see app/Http/Controllers/Instructor/AgendaController.php:23
 * @route '/instructor/agenda'
 */
 index.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return index.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Instructor\AgendaController::index
-* @see Http/Controllers/Instructor/AgendaController.php:23
+* @see app/Http/Controllers/Instructor/AgendaController.php:23
 * @route '/instructor/agenda'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +39,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Instructor\AgendaController::index
-* @see Http/Controllers/Instructor/AgendaController.php:23
+* @see app/Http/Controllers/Instructor/AgendaController.php:23
 * @route '/instructor/agenda'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +49,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Instructor\AgendaController::index
-* @see Http/Controllers/Instructor/AgendaController.php:23
+* @see app/Http/Controllers/Instructor/AgendaController.php:23
 * @route '/instructor/agenda'
 */
 const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +59,7 @@ const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\Instructor\AgendaController::index
-* @see Http/Controllers/Instructor/AgendaController.php:23
+* @see app/Http/Controllers/Instructor/AgendaController.php:23
 * @route '/instructor/agenda'
 */
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -65,7 +69,7 @@ indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Instructor\AgendaController::index
-* @see Http/Controllers/Instructor/AgendaController.php:23
+* @see app/Http/Controllers/Instructor/AgendaController.php:23
 * @route '/instructor/agenda'
 */
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,6 +83,8 @@ indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 })
 
 index.form = indexForm
+
+
 
 const agenda = {
     index: Object.assign(index, index),

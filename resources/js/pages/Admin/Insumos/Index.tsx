@@ -168,7 +168,7 @@ export default function InsumosIndex({ insumos: serverInsumos }: Props) {
                             </div>
                         </CardHeader>
                         <CardContent className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 min-w-0">
-                            <div className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight truncate" title={formatPrecio(valorTotalInventario)}>
+                            <div className="text-lg sm:text-xl xl:text-2xl font-bold text-gray-900 tracking-tight truncate" title={formatPrecio(valorTotalInventario)}>
                                 {formatPrecio(valorTotalInventario)}
                             </div>
                             <p className="text-xs text-emerald-600 mt-0.5 font-medium truncate">Stock valorizado</p>
@@ -265,39 +265,41 @@ export default function InsumosIndex({ insumos: serverInsumos }: Props) {
                 </Card>
 
                 {/* Table */}
-                <Card className="rounded-xl border border-gray-200 shadow-sm">
+                <Card className="rounded-xl border border-gray-200 shadow-sm overflow-hidden">
                     <CardContent className="p-0 overflow-x-auto">
-                        <Table className="min-w-[650px]">
+                        <Table className="w-full text-xs sm:text-sm">
                             <TableHeader>
-                                <TableRow className="bg-gray-100">
-                                    <TableHead className="font-semibold text-gray-700">Producto</TableHead>
-                                    <TableHead className="font-semibold text-gray-700">Categoría</TableHead>
-                                    <TableHead className="font-semibold text-gray-700 text-center">Stock Actual</TableHead>
-                                    <TableHead className="font-semibold text-gray-700 text-center">Stock Mínimo</TableHead>
-                                    <TableHead className="font-semibold text-gray-700 text-right">Precio Unit.</TableHead>
-                                    <TableHead className="font-semibold text-gray-700 text-center">Estado</TableHead>
-                                    <TableHead className="font-semibold text-gray-700 text-center">Acciones</TableHead>
+                                <TableRow className="bg-gray-100/80">
+                                    <TableHead className="font-semibold text-gray-700 px-3 py-3">Producto</TableHead>
+                                    <TableHead className="font-semibold text-gray-700 px-3 py-3">Categoría</TableHead>
+                                    <TableHead className="font-semibold text-gray-700 text-center px-2 py-3">Stock Actual</TableHead>
+                                    <TableHead className="font-semibold text-gray-700 text-center px-2 py-3 hidden sm:table-cell">Stock Mínimo</TableHead>
+                                    <TableHead className="font-semibold text-gray-700 text-right px-3 py-3">Precio Unit.</TableHead>
+                                    <TableHead className="font-semibold text-gray-700 text-center px-2 py-3">Estado</TableHead>
+                                    <TableHead className="font-semibold text-gray-700 text-center px-2 py-3">Acciones</TableHead>
                                 </TableRow>
                             </TableHeader>
                             <TableBody>
                                 {insumosFiltrados.map(insumo => (
-                                    <TableRow key={insumo.id} className="hover:bg-gray-50">
-                                        <TableCell className="font-medium text-gray-900">{insumo.nombre}</TableCell>
-                                        <TableCell>
-                                            <Badge variant="outline" className="text-gray-600">{insumo.categoria}</Badge>
+                                    <TableRow key={insumo.id} className="hover:bg-gray-50/80 transition-colors">
+                                        <TableCell className="font-medium text-gray-900 px-3 py-3">
+                                            <span className="line-clamp-2 sm:line-clamp-1">{insumo.nombre}</span>
                                         </TableCell>
-                                        <TableCell className="text-center">
+                                        <TableCell className="px-3 py-3">
+                                            <Badge variant="outline" className="text-gray-600 text-[11px] whitespace-nowrap font-normal">{insumo.categoria}</Badge>
+                                        </TableCell>
+                                        <TableCell className="text-center px-2 py-3">
                                             <span className={`font-semibold ${insumo.stock < insumo.stockMinimo ? 'text-red-600' : 'text-gray-900'}`}>
                                                 {insumo.stock}
                                             </span>
                                         </TableCell>
-                                        <TableCell className="text-center text-gray-500">{insumo.stockMinimo}</TableCell>
-                                        <TableCell className="text-right font-medium text-gray-900">
+                                        <TableCell className="text-center text-gray-500 px-2 py-3 hidden sm:table-cell">{insumo.stockMinimo}</TableCell>
+                                        <TableCell className="text-right font-medium text-gray-900 px-3 py-3 whitespace-nowrap">
                                             {formatPrecio(insumo.precioUnitario)}
                                         </TableCell>
-                                        <TableCell className="text-center">{getEstadoBadge(insumo)}</TableCell>
-                                        <TableCell>
-                                            <div className="flex items-center justify-center gap-1">
+                                        <TableCell className="text-center px-2 py-3 whitespace-nowrap">{getEstadoBadge(insumo)}</TableCell>
+                                        <TableCell className="px-2 py-3">
+                                            <div className="flex items-center justify-center gap-0.5 sm:gap-1">
                                                 <Button
                                                     size="sm"
                                                     variant="ghost"

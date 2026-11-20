@@ -126,6 +126,53 @@ class PublicController extends Controller
     }
 
     /**
+     * Calendario interactivo institucional de eventos y torneos (público).
+     */
+    public function calendario(): Response
+    {
+        $eventos = Evento::where('publicado', true)
+            ->orderBy('fecha_evento')
+            ->get();
+
+        $items = $eventos->map(function ($ev) {
+            $date = \Carbon\Carbon::parse($ev->fecha_evento);
+            return [
+                'id' => 'evento-' . $ev->id,
+                'raw_id' => $ev->id,
+                'title' => $ev->titulo,
+                'date' => $date->format('Y-m-d'),
+                'time' => $date->format('H:i'),
+                'type' => $ev->tipo_evento,
+                'badgeText' => match($ev->tipo_evento) {
+                    'torneo' => 'Torneo',
+                    'tirada_nocturna' => 'Tirada Nocturna',
+                    'curso_capacitacion', 'curso' => 'Curso / Clínica',
+                    default => 'Evento'
+                },
+                'status' => 'Programado',
+                'color' => match($ev->tipo_evento) {
+                    'torneo' => 'blue',
+                    'tirada_nocturna' => 'purple',
+                    'curso_capacitacion', 'curso' => 'amber',
+                    default => 'indigo'
+                },
+                'description' => $ev->descripcion,
+                'cupos' => "{$ev->cupos_disponibles} lugares disponibles",
+                'costo' => (float) $ev->costo_inscripcion,
+                'location' => 'Polígono Principal / Pedanas',
+                'link' => route('public.eventos.show', $ev->id),
+                'linkText' => 'Ver detalles e inscribirme',
+            ];
+        });
+
+        return Inertia::render('Public/Calendario', [
+            'items' => $items,
+            'totalEventos' => $eventos->count(),
+            'proximos' => $eventos->where('fecha_evento', '>=', now())->count(),
+        ]);
+    }
+
+    /**
      * Detalle público de un evento, torneo o curso (RF26, RF27).
      */
     public function eventoDetalle(Request $request, Evento $evento): Response

@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Instructor\AgendaController::index
-* @see Http/Controllers/Instructor/AgendaController.php:23
+* @see app/Http/Controllers/Instructor/AgendaController.php:23
 * @route '/instructor/agenda'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,16 +16,20 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\Instructor\AgendaController::index
-* @see Http/Controllers/Instructor/AgendaController.php:23
+* @see app/Http/Controllers/Instructor/AgendaController.php:23
 * @route '/instructor/agenda'
 */
 index.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return index.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Instructor\AgendaController::index
-* @see Http/Controllers/Instructor/AgendaController.php:23
+* @see app/Http/Controllers/Instructor/AgendaController.php:23
 * @route '/instructor/agenda'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +39,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Instructor\AgendaController::index
-* @see Http/Controllers/Instructor/AgendaController.php:23
+* @see app/Http/Controllers/Instructor/AgendaController.php:23
 * @route '/instructor/agenda'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +49,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Instructor\AgendaController::index
-* @see Http/Controllers/Instructor/AgendaController.php:23
+* @see app/Http/Controllers/Instructor/AgendaController.php:23
 * @route '/instructor/agenda'
 */
 const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +59,7 @@ const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\Instructor\AgendaController::index
-* @see Http/Controllers/Instructor/AgendaController.php:23
+* @see app/Http/Controllers/Instructor/AgendaController.php:23
 * @route '/instructor/agenda'
 */
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -65,7 +69,7 @@ indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Instructor\AgendaController::index
-* @see Http/Controllers/Instructor/AgendaController.php:23
+* @see app/Http/Controllers/Instructor/AgendaController.php:23
 * @route '/instructor/agenda'
 */
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -82,7 +86,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\Instructor\AgendaController::confirmar
-* @see Http/Controllers/Instructor/AgendaController.php:46
+* @see app/Http/Controllers/Instructor/AgendaController.php:46
 * @route '/instructor/turnos/{turno}/asistencia'
 */
 export const confirmar = (args: { turno: number | { id: number } } | [turno: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -97,7 +101,7 @@ confirmar.definition = {
 
 /**
 * @see \App\Http\Controllers\Instructor\AgendaController::confirmar
-* @see Http/Controllers/Instructor/AgendaController.php:46
+* @see app/Http/Controllers/Instructor/AgendaController.php:46
 * @route '/instructor/turnos/{turno}/asistencia'
 */
 confirmar.url = (args: { turno: number | { id: number } } | [turno: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -117,6 +121,7 @@ confirmar.url = (args: { turno: number | { id: number } } | [turno: number | { i
 
     args = applyUrlDefaults(args)
 
+
     const parsedArgs = {
         turno: typeof args.turno === 'object'
         ? args.turno.id
@@ -130,7 +135,7 @@ confirmar.url = (args: { turno: number | { id: number } } | [turno: number | { i
 
 /**
 * @see \App\Http\Controllers\Instructor\AgendaController::confirmar
-* @see Http/Controllers/Instructor/AgendaController.php:46
+* @see app/Http/Controllers/Instructor/AgendaController.php:46
 * @route '/instructor/turnos/{turno}/asistencia'
 */
 confirmar.patch = (args: { turno: number | { id: number } } | [turno: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -140,7 +145,7 @@ confirmar.patch = (args: { turno: number | { id: number } } | [turno: number | {
 
 /**
 * @see \App\Http\Controllers\Instructor\AgendaController::confirmar
-* @see Http/Controllers/Instructor/AgendaController.php:46
+* @see app/Http/Controllers/Instructor/AgendaController.php:46
 * @route '/instructor/turnos/{turno}/asistencia'
 */
 const confirmarForm = (args: { turno: number | { id: number } } | [turno: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -155,7 +160,7 @@ const confirmarForm = (args: { turno: number | { id: number } } | [turno: number
 
 /**
 * @see \App\Http\Controllers\Instructor\AgendaController::confirmar
-* @see Http/Controllers/Instructor/AgendaController.php:46
+* @see app/Http/Controllers/Instructor/AgendaController.php:46
 * @route '/instructor/turnos/{turno}/asistencia'
 */
 confirmarForm.patch = (args: { turno: number | { id: number } } | [turno: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

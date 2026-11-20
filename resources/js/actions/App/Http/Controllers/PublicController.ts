@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\PublicController::home
-* @see Http/Controllers/PublicController.php:19
+* @see app/Http/Controllers/PublicController.php:19
 * @route '/'
 */
 export const home = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,16 +16,20 @@ home.definition = {
 
 /**
 * @see \App\Http\Controllers\PublicController::home
-* @see Http/Controllers/PublicController.php:19
+* @see app/Http/Controllers/PublicController.php:19
 * @route '/'
 */
 home.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return home.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\PublicController::home
-* @see Http/Controllers/PublicController.php:19
+* @see app/Http/Controllers/PublicController.php:19
 * @route '/'
 */
 home.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +39,7 @@ home.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::home
-* @see Http/Controllers/PublicController.php:19
+* @see app/Http/Controllers/PublicController.php:19
 * @route '/'
 */
 home.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +49,7 @@ home.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::home
-* @see Http/Controllers/PublicController.php:19
+* @see app/Http/Controllers/PublicController.php:19
 * @route '/'
 */
 const homeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +59,7 @@ const homeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::home
-* @see Http/Controllers/PublicController.php:19
+* @see app/Http/Controllers/PublicController.php:19
 * @route '/'
 */
 homeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -65,7 +69,7 @@ homeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::home
-* @see Http/Controllers/PublicController.php:19
+* @see app/Http/Controllers/PublicController.php:19
 * @route '/'
 */
 homeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -82,7 +86,7 @@ home.form = homeForm
 
 /**
 * @see \App\Http\Controllers\PublicController::historia
-* @see Http/Controllers/PublicController.php:48
+* @see app/Http/Controllers/PublicController.php:48
 * @route '/historia'
 */
 export const historia = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -97,16 +101,20 @@ historia.definition = {
 
 /**
 * @see \App\Http\Controllers\PublicController::historia
-* @see Http/Controllers/PublicController.php:48
+* @see app/Http/Controllers/PublicController.php:48
 * @route '/historia'
 */
 historia.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return historia.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\PublicController::historia
-* @see Http/Controllers/PublicController.php:48
+* @see app/Http/Controllers/PublicController.php:48
 * @route '/historia'
 */
 historia.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -116,7 +124,7 @@ historia.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::historia
-* @see Http/Controllers/PublicController.php:48
+* @see app/Http/Controllers/PublicController.php:48
 * @route '/historia'
 */
 historia.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -126,7 +134,7 @@ historia.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::historia
-* @see Http/Controllers/PublicController.php:48
+* @see app/Http/Controllers/PublicController.php:48
 * @route '/historia'
 */
 const historiaForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -136,7 +144,7 @@ const historiaForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 
 /**
 * @see \App\Http\Controllers\PublicController::historia
-* @see Http/Controllers/PublicController.php:48
+* @see app/Http/Controllers/PublicController.php:48
 * @route '/historia'
 */
 historiaForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -146,7 +154,7 @@ historiaForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 
 /**
 * @see \App\Http\Controllers\PublicController::historia
-* @see Http/Controllers/PublicController.php:48
+* @see app/Http/Controllers/PublicController.php:48
 * @route '/historia'
 */
 historiaForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -163,7 +171,7 @@ historia.form = historiaForm
 
 /**
 * @see \App\Http\Controllers\PublicController::disciplinas
-* @see Http/Controllers/PublicController.php:60
+* @see app/Http/Controllers/PublicController.php:60
 * @route '/disciplinas'
 */
 export const disciplinas = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -178,16 +186,20 @@ disciplinas.definition = {
 
 /**
 * @see \App\Http\Controllers\PublicController::disciplinas
-* @see Http/Controllers/PublicController.php:60
+* @see app/Http/Controllers/PublicController.php:60
 * @route '/disciplinas'
 */
 disciplinas.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return disciplinas.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\PublicController::disciplinas
-* @see Http/Controllers/PublicController.php:60
+* @see app/Http/Controllers/PublicController.php:60
 * @route '/disciplinas'
 */
 disciplinas.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -197,7 +209,7 @@ disciplinas.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::disciplinas
-* @see Http/Controllers/PublicController.php:60
+* @see app/Http/Controllers/PublicController.php:60
 * @route '/disciplinas'
 */
 disciplinas.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -207,7 +219,7 @@ disciplinas.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::disciplinas
-* @see Http/Controllers/PublicController.php:60
+* @see app/Http/Controllers/PublicController.php:60
 * @route '/disciplinas'
 */
 const disciplinasForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -217,7 +229,7 @@ const disciplinasForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'
 
 /**
 * @see \App\Http\Controllers\PublicController::disciplinas
-* @see Http/Controllers/PublicController.php:60
+* @see app/Http/Controllers/PublicController.php:60
 * @route '/disciplinas'
 */
 disciplinasForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -227,7 +239,7 @@ disciplinasForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 
 /**
 * @see \App\Http\Controllers\PublicController::disciplinas
-* @see Http/Controllers/PublicController.php:60
+* @see app/Http/Controllers/PublicController.php:60
 * @route '/disciplinas'
 */
 disciplinasForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -244,7 +256,7 @@ disciplinas.form = disciplinasForm
 
 /**
 * @see \App\Http\Controllers\PublicController::decalogo
-* @see Http/Controllers/PublicController.php:86
+* @see app/Http/Controllers/PublicController.php:86
 * @route '/decalogo'
 */
 export const decalogo = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -259,16 +271,20 @@ decalogo.definition = {
 
 /**
 * @see \App\Http\Controllers\PublicController::decalogo
-* @see Http/Controllers/PublicController.php:86
+* @see app/Http/Controllers/PublicController.php:86
 * @route '/decalogo'
 */
 decalogo.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return decalogo.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\PublicController::decalogo
-* @see Http/Controllers/PublicController.php:86
+* @see app/Http/Controllers/PublicController.php:86
 * @route '/decalogo'
 */
 decalogo.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -278,7 +294,7 @@ decalogo.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::decalogo
-* @see Http/Controllers/PublicController.php:86
+* @see app/Http/Controllers/PublicController.php:86
 * @route '/decalogo'
 */
 decalogo.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -288,7 +304,7 @@ decalogo.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::decalogo
-* @see Http/Controllers/PublicController.php:86
+* @see app/Http/Controllers/PublicController.php:86
 * @route '/decalogo'
 */
 const decalogoForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -298,7 +314,7 @@ const decalogoForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 
 /**
 * @see \App\Http\Controllers\PublicController::decalogo
-* @see Http/Controllers/PublicController.php:86
+* @see app/Http/Controllers/PublicController.php:86
 * @route '/decalogo'
 */
 decalogoForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -308,7 +324,7 @@ decalogoForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 
 /**
 * @see \App\Http\Controllers\PublicController::decalogo
-* @see Http/Controllers/PublicController.php:86
+* @see app/Http/Controllers/PublicController.php:86
 * @route '/decalogo'
 */
 decalogoForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -325,7 +341,7 @@ decalogo.form = decalogoForm
 
 /**
 * @see \App\Http\Controllers\PublicController::eventos
-* @see Http/Controllers/PublicController.php:109
+* @see app/Http/Controllers/PublicController.php:109
 * @route '/eventos'
 */
 export const eventos = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -340,16 +356,20 @@ eventos.definition = {
 
 /**
 * @see \App\Http\Controllers\PublicController::eventos
-* @see Http/Controllers/PublicController.php:109
+* @see app/Http/Controllers/PublicController.php:109
 * @route '/eventos'
 */
 eventos.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return eventos.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\PublicController::eventos
-* @see Http/Controllers/PublicController.php:109
+* @see app/Http/Controllers/PublicController.php:109
 * @route '/eventos'
 */
 eventos.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -359,7 +379,7 @@ eventos.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::eventos
-* @see Http/Controllers/PublicController.php:109
+* @see app/Http/Controllers/PublicController.php:109
 * @route '/eventos'
 */
 eventos.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -369,7 +389,7 @@ eventos.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::eventos
-* @see Http/Controllers/PublicController.php:109
+* @see app/Http/Controllers/PublicController.php:109
 * @route '/eventos'
 */
 const eventosForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -379,7 +399,7 @@ const eventosForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 
 /**
 * @see \App\Http\Controllers\PublicController::eventos
-* @see Http/Controllers/PublicController.php:109
+* @see app/Http/Controllers/PublicController.php:109
 * @route '/eventos'
 */
 eventosForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -389,7 +409,7 @@ eventosForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\PublicController::eventos
-* @see Http/Controllers/PublicController.php:109
+* @see app/Http/Controllers/PublicController.php:109
 * @route '/eventos'
 */
 eventosForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -405,8 +425,93 @@ eventosForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 eventos.form = eventosForm
 
 /**
+* @see \App\Http\Controllers\PublicController::calendario
+* @see app/Http/Controllers/PublicController.php:131
+* @route '/calendario'
+*/
+export const calendario = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: calendario.url(options),
+    method: 'get',
+})
+
+calendario.definition = {
+    methods: ["get","head"],
+    url: '/calendario',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\PublicController::calendario
+* @see app/Http/Controllers/PublicController.php:131
+* @route '/calendario'
+*/
+calendario.url = (options?: RouteQueryOptions) => {
+
+
+
+
+    return calendario.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\PublicController::calendario
+* @see app/Http/Controllers/PublicController.php:131
+* @route '/calendario'
+*/
+calendario.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: calendario.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\PublicController::calendario
+* @see app/Http/Controllers/PublicController.php:131
+* @route '/calendario'
+*/
+calendario.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: calendario.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Http\Controllers\PublicController::calendario
+* @see app/Http/Controllers/PublicController.php:131
+* @route '/calendario'
+*/
+const calendarioForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: calendario.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\PublicController::calendario
+* @see app/Http/Controllers/PublicController.php:131
+* @route '/calendario'
+*/
+calendarioForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: calendario.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\PublicController::calendario
+* @see app/Http/Controllers/PublicController.php:131
+* @route '/calendario'
+*/
+calendarioForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: calendario.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+calendario.form = calendarioForm
+
+/**
 * @see \App\Http\Controllers\PublicController::eventoDetalle
-* @see Http/Controllers/PublicController.php:131
+* @see app/Http/Controllers/PublicController.php:178
 * @route '/eventos/{evento}'
 */
 export const eventoDetalle = (args: { evento: number | { id: number } } | [evento: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -421,7 +526,7 @@ eventoDetalle.definition = {
 
 /**
 * @see \App\Http\Controllers\PublicController::eventoDetalle
-* @see Http/Controllers/PublicController.php:131
+* @see app/Http/Controllers/PublicController.php:178
 * @route '/eventos/{evento}'
 */
 eventoDetalle.url = (args: { evento: number | { id: number } } | [evento: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -441,6 +546,7 @@ eventoDetalle.url = (args: { evento: number | { id: number } } | [evento: number
 
     args = applyUrlDefaults(args)
 
+
     const parsedArgs = {
         evento: typeof args.evento === 'object'
         ? args.evento.id
@@ -454,7 +560,7 @@ eventoDetalle.url = (args: { evento: number | { id: number } } | [evento: number
 
 /**
 * @see \App\Http\Controllers\PublicController::eventoDetalle
-* @see Http/Controllers/PublicController.php:131
+* @see app/Http/Controllers/PublicController.php:178
 * @route '/eventos/{evento}'
 */
 eventoDetalle.get = (args: { evento: number | { id: number } } | [evento: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -464,7 +570,7 @@ eventoDetalle.get = (args: { evento: number | { id: number } } | [evento: number
 
 /**
 * @see \App\Http\Controllers\PublicController::eventoDetalle
-* @see Http/Controllers/PublicController.php:131
+* @see app/Http/Controllers/PublicController.php:178
 * @route '/eventos/{evento}'
 */
 eventoDetalle.head = (args: { evento: number | { id: number } } | [evento: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -474,7 +580,7 @@ eventoDetalle.head = (args: { evento: number | { id: number } } | [evento: numbe
 
 /**
 * @see \App\Http\Controllers\PublicController::eventoDetalle
-* @see Http/Controllers/PublicController.php:131
+* @see app/Http/Controllers/PublicController.php:178
 * @route '/eventos/{evento}'
 */
 const eventoDetalleForm = (args: { evento: number | { id: number } } | [evento: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -484,7 +590,7 @@ const eventoDetalleForm = (args: { evento: number | { id: number } } | [evento: 
 
 /**
 * @see \App\Http\Controllers\PublicController::eventoDetalle
-* @see Http/Controllers/PublicController.php:131
+* @see app/Http/Controllers/PublicController.php:178
 * @route '/eventos/{evento}'
 */
 eventoDetalleForm.get = (args: { evento: number | { id: number } } | [evento: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -494,7 +600,7 @@ eventoDetalleForm.get = (args: { evento: number | { id: number } } | [evento: nu
 
 /**
 * @see \App\Http\Controllers\PublicController::eventoDetalle
-* @see Http/Controllers/PublicController.php:131
+* @see app/Http/Controllers/PublicController.php:178
 * @route '/eventos/{evento}'
 */
 eventoDetalleForm.head = (args: { evento: number | { id: number } } | [evento: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -511,7 +617,7 @@ eventoDetalle.form = eventoDetalleForm
 
 /**
 * @see \App\Http\Controllers\PublicController::noticias
-* @see Http/Controllers/PublicController.php:164
+* @see app/Http/Controllers/PublicController.php:211
 * @route '/noticias'
 */
 export const noticias = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -526,16 +632,20 @@ noticias.definition = {
 
 /**
 * @see \App\Http\Controllers\PublicController::noticias
-* @see Http/Controllers/PublicController.php:164
+* @see app/Http/Controllers/PublicController.php:211
 * @route '/noticias'
 */
 noticias.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return noticias.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\PublicController::noticias
-* @see Http/Controllers/PublicController.php:164
+* @see app/Http/Controllers/PublicController.php:211
 * @route '/noticias'
 */
 noticias.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -545,7 +655,7 @@ noticias.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::noticias
-* @see Http/Controllers/PublicController.php:164
+* @see app/Http/Controllers/PublicController.php:211
 * @route '/noticias'
 */
 noticias.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -555,7 +665,7 @@ noticias.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\PublicController::noticias
-* @see Http/Controllers/PublicController.php:164
+* @see app/Http/Controllers/PublicController.php:211
 * @route '/noticias'
 */
 const noticiasForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -565,7 +675,7 @@ const noticiasForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 
 /**
 * @see \App\Http\Controllers\PublicController::noticias
-* @see Http/Controllers/PublicController.php:164
+* @see app/Http/Controllers/PublicController.php:211
 * @route '/noticias'
 */
 noticiasForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -575,7 +685,7 @@ noticiasForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 
 /**
 * @see \App\Http\Controllers\PublicController::noticias
-* @see Http/Controllers/PublicController.php:164
+* @see app/Http/Controllers/PublicController.php:211
 * @route '/noticias'
 */
 noticiasForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -592,7 +702,7 @@ noticias.form = noticiasForm
 
 /**
 * @see \App\Http\Controllers\PublicController::noticiaDetalle
-* @see Http/Controllers/PublicController.php:201
+* @see app/Http/Controllers/PublicController.php:248
 * @route '/noticias/{slug}'
 */
 export const noticiaDetalle = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -607,13 +717,14 @@ noticiaDetalle.definition = {
 
 /**
 * @see \App\Http\Controllers\PublicController::noticiaDetalle
-* @see Http/Controllers/PublicController.php:201
+* @see app/Http/Controllers/PublicController.php:248
 * @route '/noticias/{slug}'
 */
 noticiaDetalle.url = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { slug: args }
     }
+
 
     if (Array.isArray(args)) {
         args = {
@@ -622,6 +733,7 @@ noticiaDetalle.url = (args: { slug: string | number } | [slug: string | number ]
     }
 
     args = applyUrlDefaults(args)
+
 
     const parsedArgs = {
         slug: args.slug,
@@ -634,7 +746,7 @@ noticiaDetalle.url = (args: { slug: string | number } | [slug: string | number ]
 
 /**
 * @see \App\Http\Controllers\PublicController::noticiaDetalle
-* @see Http/Controllers/PublicController.php:201
+* @see app/Http/Controllers/PublicController.php:248
 * @route '/noticias/{slug}'
 */
 noticiaDetalle.get = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -644,7 +756,7 @@ noticiaDetalle.get = (args: { slug: string | number } | [slug: string | number ]
 
 /**
 * @see \App\Http\Controllers\PublicController::noticiaDetalle
-* @see Http/Controllers/PublicController.php:201
+* @see app/Http/Controllers/PublicController.php:248
 * @route '/noticias/{slug}'
 */
 noticiaDetalle.head = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -654,7 +766,7 @@ noticiaDetalle.head = (args: { slug: string | number } | [slug: string | number 
 
 /**
 * @see \App\Http\Controllers\PublicController::noticiaDetalle
-* @see Http/Controllers/PublicController.php:201
+* @see app/Http/Controllers/PublicController.php:248
 * @route '/noticias/{slug}'
 */
 const noticiaDetalleForm = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -664,7 +776,7 @@ const noticiaDetalleForm = (args: { slug: string | number } | [slug: string | nu
 
 /**
 * @see \App\Http\Controllers\PublicController::noticiaDetalle
-* @see Http/Controllers/PublicController.php:201
+* @see app/Http/Controllers/PublicController.php:248
 * @route '/noticias/{slug}'
 */
 noticiaDetalleForm.get = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -674,7 +786,7 @@ noticiaDetalleForm.get = (args: { slug: string | number } | [slug: string | numb
 
 /**
 * @see \App\Http\Controllers\PublicController::noticiaDetalle
-* @see Http/Controllers/PublicController.php:201
+* @see app/Http/Controllers/PublicController.php:248
 * @route '/noticias/{slug}'
 */
 noticiaDetalleForm.head = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -691,7 +803,7 @@ noticiaDetalle.form = noticiaDetalleForm
 
 /**
 * @see \App\Http\Controllers\PublicController::enviarContacto
-* @see Http/Controllers/PublicController.php:192
+* @see app/Http/Controllers/PublicController.php:239
 * @route '/contacto'
 */
 export const enviarContacto = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -706,16 +818,20 @@ enviarContacto.definition = {
 
 /**
 * @see \App\Http\Controllers\PublicController::enviarContacto
-* @see Http/Controllers/PublicController.php:192
+* @see app/Http/Controllers/PublicController.php:239
 * @route '/contacto'
 */
 enviarContacto.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return enviarContacto.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\PublicController::enviarContacto
-* @see Http/Controllers/PublicController.php:192
+* @see app/Http/Controllers/PublicController.php:239
 * @route '/contacto'
 */
 enviarContacto.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -725,7 +841,7 @@ enviarContacto.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => 
 
 /**
 * @see \App\Http\Controllers\PublicController::enviarContacto
-* @see Http/Controllers/PublicController.php:192
+* @see app/Http/Controllers/PublicController.php:239
 * @route '/contacto'
 */
 const enviarContactoForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -735,7 +851,7 @@ const enviarContactoForm = (options?: RouteQueryOptions): RouteFormDefinition<'p
 
 /**
 * @see \App\Http\Controllers\PublicController::enviarContacto
-* @see Http/Controllers/PublicController.php:192
+* @see app/Http/Controllers/PublicController.php:239
 * @route '/contacto'
 */
 enviarContactoForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -745,6 +861,6 @@ enviarContactoForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'po
 
 enviarContacto.form = enviarContactoForm
 
-const PublicController = { home, historia, disciplinas, decalogo, eventos, eventoDetalle, noticias, noticiaDetalle, enviarContacto }
+const PublicController = { home, historia, disciplinas, decalogo, eventos, calendario, eventoDetalle, noticias, noticiaDetalle, enviarContacto }
 
 export default PublicController

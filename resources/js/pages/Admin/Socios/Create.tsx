@@ -56,7 +56,7 @@ export default function CreateSocio({ membresias = [] }: Props) {
 
     return (
         <div className="space-y-6 pb-12">
-            <Head title="Añadir nuevo socio - Tiro Federal Formosa" />
+            <Head title="Agregar nuevo socio - Tiro Federal Formosa" />
 
             {/* Breadcrumbs y Título superior */}
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
@@ -65,7 +65,7 @@ export default function CreateSocio({ membresias = [] }: Props) {
                         <UserPlus className="w-6 h-6" />
                     </div>
                     <div>
-                        <h1 className="text-2xl font-bold tracking-tight text-gray-900">Añadir nuevo socio</h1>
+                        <h1 className="text-2xl font-bold tracking-tight text-gray-900">Agregar nuevo socio</h1>
                         <p className="text-sm text-muted-foreground">
                             Complete los datos para registrar un nuevo miembro del club.
                         </p>
@@ -415,5 +415,5 @@ export default function CreateSocio({ membresias = [] }: Props) {
 
 
 CreateSocio.layout = {
-    breadcrumbs: [{ title: 'Inicio', href: '/admin/dashboard' }, { title: 'Socios', href: '/admin/socios' }, { title: 'Añadir nuevo socio', href: '/admin/socios/create' }],
+    breadcrumbs: [{ title: 'Inicio', href: '/admin/dashboard' }, { title: 'Socios', href: '/admin/socios' }, { title: 'Agregar nuevo socio', href: '/admin/socios/create' }],
 };

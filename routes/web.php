@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CluController as AdminCluController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\CalendarioController as AdminCalendarioController;
 use App\Http\Controllers\Admin\EventoController as AdminEventoController;
 use App\Http\Controllers\Admin\InstructorController as AdminInstructorController;
 use App\Http\Controllers\Admin\InsumoController as AdminInsumoController;
@@ -10,8 +11,10 @@ use App\Http\Controllers\Admin\NoticiaController as AdminNoticiaController;
 use App\Http\Controllers\Admin\PagoController as AdminPagoController;
 use App\Http\Controllers\Admin\SocioController as AdminSocioController;
 use App\Http\Controllers\Instructor\AgendaController as InstructorAgendaController;
+use App\Http\Controllers\Instructor\CalendarioController as InstructorCalendarioController;
 use App\Http\Controllers\Instructor\EvaluacionController as InstructorEvaluacionController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\Socio\CalendarioController as SocioCalendarioController;
 use App\Http\Controllers\Socio\DashboardController as SocioDashboardController;
 use App\Http\Controllers\Socio\EvaluacionController as SocioEvaluacionController;
 use App\Http\Controllers\Socio\EventoController as SocioEventoController;
@@ -30,6 +33,7 @@ Route::get('/historia', [PublicController::class, 'historia'])->name('historia')
 Route::get('/disciplinas', [PublicController::class, 'disciplinas'])->name('disciplinas');
 Route::get('/decalogo', [PublicController::class, 'decalogo'])->name('decalogo');
 Route::get('/eventos', [PublicController::class, 'eventos'])->name('public.eventos');
+Route::get('/calendario', [PublicController::class, 'calendario'])->name('public.calendario');
 Route::get('/eventos/{evento}', [PublicController::class, 'eventoDetalle'])->whereNumber('evento')->name('public.eventos.show');
 Route::get('/noticias', [PublicController::class, 'noticias'])->name('public.noticias.index');
 Route::get('/noticias/{slug}', [PublicController::class, 'noticiaDetalle'])->name('public.noticias.show');
@@ -92,6 +96,7 @@ Route::middleware(['auth', 'role:socio', 'cuenta.activa'])->group(function () {
         ->middleware(['socio.habilitado'])
         ->name('socio.turnos.store');
     Route::patch('/turnos/{turno}/cancelar', [SocioTurnoController::class, 'cancel'])->name('socio.turnos.cancel');
+    Route::get('/socio/calendario', [SocioCalendarioController::class, 'index'])->name('socio.calendario');
 
     Route::get('/pagos', [SocioPagoController::class, 'index'])->name('socio.pagos.index');
     Route::get('/pagos/{pago}/pdf', [SocioPagoController::class, 'descargarPdf'])->name('socio.pagos.pdf');
@@ -109,6 +114,7 @@ Route::middleware(['auth', 'role:socio', 'cuenta.activa'])->group(function () {
 */
 Route::middleware(['auth', 'role:instructor'])->prefix('instructor')->name('instructor.')->group(function () {
     Route::get('/agenda', [InstructorAgendaController::class, 'index'])->name('agenda.index');
+    Route::get('/calendario', [InstructorCalendarioController::class, 'index'])->name('calendario');
     Route::patch('/turnos/{turno}/asistencia', [InstructorAgendaController::class, 'confirmar'])->name('turnos.asistencia');
     Route::get('/evaluaciones', [InstructorEvaluacionController::class, 'index'])->name('evaluaciones.index');
 });
@@ -149,6 +155,8 @@ Route::middleware(['auth', 'role:presidente'])->prefix('admin')->name('admin.')-
     Route::get('/reportes', function () {
         return redirect()->route('admin.dashboard');
     })->name('reportes.index');
+
+    Route::get('/calendario', [AdminCalendarioController::class, 'index'])->name('calendario');
 
     Route::get('/configuracion', function () {
         return \Inertia\Inertia::render('Admin/Configuracion/Index');

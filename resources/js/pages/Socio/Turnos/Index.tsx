@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { Head, Link, router, useForm, usePage } from '@inertiajs/react';
 import type { BreadcrumbItem } from '@/types';
 import {
-    Calendar, Clock, Target, User, AlertTriangle, CheckCircle2,
+    Calendar, CalendarDays, Clock, Target, User, AlertTriangle, CheckCircle2,
     ChevronDown, ChevronUp, Trash2, Plus, Info, XCircle,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -190,12 +190,19 @@ export default function MisTurnos({
             <div className="flex flex-col gap-6 p-6">
 
                 {/* Header */}
-                <div>
-                    <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-                        <Calendar className="w-6 h-6 text-blue-600" />
-                        Mis Turnos
-                    </h1>
-                    <p className="text-sm text-gray-500 mt-1">Reservá tu lugar en el polígono</p>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div>
+                        <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+                            <Calendar className="w-6 h-6 text-blue-600" />
+                            Mis Turnos
+                        </h1>
+                        <p className="text-sm text-gray-500 mt-1">Reservá tu lugar en el polígono</p>
+                    </div>
+                    <Button asChild variant="outline" className="gap-2 w-full sm:w-auto">
+                        <Link href="/socio/calendario">
+                            <CalendarDays className="w-4 h-4 text-blue-600" /> Ver en Mi Calendario
+                        </Link>
+                    </Button>
                 </div>
 
                 {/* Alerta deuda */}

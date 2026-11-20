@@ -79,9 +79,12 @@ export default function NoticiasIndex({ noticias: serverNoticias }: Props) {
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {rawList.map((n) => {
-                        const imgUrl = n.imagen_portada
-                            ? (n.imagen_portada.startsWith('http') ? n.imagen_portada : `/storage/${n.imagen_portada}`)
-                            : null;
+                        const imgUrl = n.imagen_url
+                            || (n.imagen_portada
+                                ? (n.imagen_portada.startsWith('http') || n.imagen_portada.startsWith('/')
+                                    ? n.imagen_portada
+                                    : `/storage/${n.imagen_portada.replace(/^\/+/, '')}`)
+                                : null);
 
                         const fechaStr = n.fecha_publicacion
                             ? new Date(n.fecha_publicacion).toLocaleDateString('es-AR', {
@@ -95,18 +98,22 @@ export default function NoticiasIndex({ noticias: serverNoticias }: Props) {
                             <Card key={n.id} className="border border-gray-200 overflow-hidden flex flex-col hover:shadow-md transition-shadow">
                                 {/* Imagen de portada */}
                                 <div className="h-44 w-full bg-gray-100 relative overflow-hidden">
-                                    {imgUrl ? (
+                                    {imgUrl && (
                                         <img
                                             src={imgUrl}
                                             alt={n.titulo}
                                             className="w-full h-full object-cover"
+                                            onError={(e) => {
+                                                e.currentTarget.style.display = 'none';
+                                                const fallback = e.currentTarget.parentElement?.querySelector('.placeholder-fallback');
+                                                if (fallback) (fallback as HTMLElement).style.display = 'flex';
+                                            }}
                                         />
-                                    ) : (
-                                        <div className="w-full h-full flex flex-col items-center justify-center text-gray-400 bg-gray-50">
-                                            <ImageIcon className="w-8 h-8 stroke-1 mb-1" />
-                                            <span className="text-[11px]">Sin imagen de portada</span>
-                                        </div>
                                     )}
+                                    <div className={`placeholder-fallback w-full h-full flex flex-col items-center justify-center text-gray-400 bg-gray-50 ${imgUrl ? 'hidden' : 'flex'}`}>
+                                        <ImageIcon className="w-8 h-8 stroke-1 mb-1 text-gray-400" />
+                                        <span className="text-[11px] text-gray-400">Sin imagen de portada</span>
+                                    </div>
                                     <div className="absolute top-2.5 left-2.5">
                                         <Badge className="bg-white/90 backdrop-blur-xs text-blue-800 font-semibold border border-blue-200 text-xs">
                                             {n.categoria || 'Institucional'}

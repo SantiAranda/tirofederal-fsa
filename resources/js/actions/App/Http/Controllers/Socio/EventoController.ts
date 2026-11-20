@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Socio\EventoController::inscribir
-* @see Http/Controllers/Socio/EventoController.php:18
+* @see app/Http/Controllers/Socio/EventoController.php:18
 * @route '/eventos/{evento}/inscribir'
 */
 export const inscribir = (args: { evento: number | { id: number } } | [evento: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -16,7 +16,7 @@ inscribir.definition = {
 
 /**
 * @see \App\Http\Controllers\Socio\EventoController::inscribir
-* @see Http/Controllers/Socio/EventoController.php:18
+* @see app/Http/Controllers/Socio/EventoController.php:18
 * @route '/eventos/{evento}/inscribir'
 */
 inscribir.url = (args: { evento: number | { id: number } } | [evento: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -36,6 +36,7 @@ inscribir.url = (args: { evento: number | { id: number } } | [evento: number | {
 
     args = applyUrlDefaults(args)
 
+
     const parsedArgs = {
         evento: typeof args.evento === 'object'
         ? args.evento.id
@@ -49,7 +50,7 @@ inscribir.url = (args: { evento: number | { id: number } } | [evento: number | {
 
 /**
 * @see \App\Http\Controllers\Socio\EventoController::inscribir
-* @see Http/Controllers/Socio/EventoController.php:18
+* @see app/Http/Controllers/Socio/EventoController.php:18
 * @route '/eventos/{evento}/inscribir'
 */
 inscribir.post = (args: { evento: number | { id: number } } | [evento: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -59,7 +60,7 @@ inscribir.post = (args: { evento: number | { id: number } } | [evento: number | 
 
 /**
 * @see \App\Http\Controllers\Socio\EventoController::inscribir
-* @see Http/Controllers/Socio/EventoController.php:18
+* @see app/Http/Controllers/Socio/EventoController.php:18
 * @route '/eventos/{evento}/inscribir'
 */
 const inscribirForm = (args: { evento: number | { id: number } } | [evento: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -69,7 +70,7 @@ const inscribirForm = (args: { evento: number | { id: number } } | [evento: numb
 
 /**
 * @see \App\Http\Controllers\Socio\EventoController::inscribir
-* @see Http/Controllers/Socio/EventoController.php:18
+* @see app/Http/Controllers/Socio/EventoController.php:18
 * @route '/eventos/{evento}/inscribir'
 */
 inscribirForm.post = (args: { evento: number | { id: number } } | [evento: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

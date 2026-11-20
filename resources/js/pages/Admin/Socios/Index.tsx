@@ -91,7 +91,7 @@ export default function SociosIndex({ socios, filtros }: Props) {
                     </Button>
                     <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white gap-2 shadow-md shadow-blue-500/20 w-full sm:w-auto">
                         <Link href="/admin/socios/create">
-                            <UserPlus className="w-4 h-4" /> Añadir nuevo socio
+                            <UserPlus className="w-4 h-4" /> Agregar nuevo socio
                         </Link>
                     </Button>
                 </div>

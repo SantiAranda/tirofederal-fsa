@@ -10,7 +10,7 @@ import { Switch } from '@/components/ui/switch';
 import {
     Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription,
 } from '@/components/ui/dialog';
-import { Calendar, Users, Target, Plus, Trophy, Clock, CheckCircle2, Sliders, Shield, X, Save } from 'lucide-react';
+import { Calendar, CalendarDays, Users, Target, Plus, Trophy, Clock, CheckCircle2, Sliders, Shield, X, Save } from 'lucide-react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     { title: 'Inicio', href: '/admin/dashboard' },
@@ -133,13 +133,20 @@ export default function EventosIndex({ eventos: serverEventos }: Props) {
                             Cronograma competitivo, cursos formativos y parametrización de líneas del polígono
                         </p>
                     </div>
-                    {tab === 'proximos' && (
-                        <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white gap-2 w-full sm:w-auto">
-                            <Link href="/admin/eventos/create">
-                                <Plus className="w-4 h-4" /> Nuevo Evento
+                    <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
+                        <Button asChild variant="outline" className="gap-2 w-full sm:w-auto">
+                            <Link href="/admin/calendario">
+                                <CalendarDays className="w-4 h-4 text-blue-600" /> Ver Calendario General
                             </Link>
                         </Button>
-                    )}
+                        {tab === 'proximos' && (
+                            <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white gap-2 w-full sm:w-auto">
+                                <Link href="/admin/eventos/create">
+                                    <Plus className="w-4 h-4" /> Nuevo Evento
+                                </Link>
+                            </Button>
+                        )}
+                    </div>
                 </div>
 
                 {/* Tabs switcher */}

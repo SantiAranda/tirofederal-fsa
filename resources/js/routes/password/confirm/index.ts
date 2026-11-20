@@ -20,6 +20,10 @@ store.definition = {
 * @route '/user/confirm-password'
 */
 store.url = (options?: RouteQueryOptions) => {
+
+
+
+
     return store.definition.url + queryParams(options)
 }
 
@@ -54,6 +58,8 @@ storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => (
 })
 
 store.form = storeForm
+
+
 
 const confirm = {
     store: Object.assign(store, store),

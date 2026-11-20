@@ -121,6 +121,11 @@ class SocioProfile extends Model
         return $this->hasMany(InscripcionEvento::class, 'socio_profile_id');
     }
 
+    public function inscripcionesEventos(): HasMany
+    {
+        return $this->inscripcionesEvento();
+    }
+
     /**
      * Evaluaciones emitidas por el socio.
      */

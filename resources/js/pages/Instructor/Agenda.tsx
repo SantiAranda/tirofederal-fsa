@@ -2,7 +2,7 @@ import { Head, Link } from '@inertiajs/react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Calendar, CheckCircle2, UserCheck, ShieldAlert } from 'lucide-react';
+import { Calendar, CalendarDays, CheckCircle2, UserCheck, ShieldAlert } from 'lucide-react';
 
 interface Turno {
     id: number;
@@ -38,6 +38,11 @@ export default function InstructorAgenda({ turnosHoy = [] }: InstructorAgendaPro
                         Supervisión técnica de seguridad, idoneidad de tiro y control de asistencia en pedana.
                     </p>
                 </div>
+                <Button asChild variant="outline" className="gap-2 shrink-0">
+                    <Link href="/instructor/calendario">
+                        <CalendarDays className="w-4 h-4 text-blue-600" /> Ver Calendario de Clases
+                    </Link>
+                </Button>
             </div>
 
             <Card>
