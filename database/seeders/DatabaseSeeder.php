@@ -7,6 +7,7 @@ use App\Enums\EstadoSocio;
 use App\Enums\MetodoPago;
 use App\Enums\RolUsuario;
 use App\Enums\TipoSector;
+use App\Models\Comprobante;
 use App\Models\CredencialLu;
 use App\Models\Evaluacion;
 use App\Models\Evento;
@@ -314,7 +315,7 @@ class DatabaseSeeder extends Seeder
         );
 
         // 11. Pagos del mes
-        Pago::firstOrCreate(
+        $pago = Pago::firstOrCreate(
             [
                 'socio_profile_id' => $socioProfile->id,
                 'periodo_imputado' => now()->format('Y-m'),
@@ -322,9 +323,17 @@ class DatabaseSeeder extends Seeder
             [
                 'monto' => 10000.00,
                 'fecha_pago' => now()->subDays(5),
-                'tipo_concepto' => 'cuota_social',
+                'tipo_concepto' => 'cuota_mensual',
                 'metodo_pago' => MetodoPago::TRANSFERENCIA,
                 'estado' => 'aprobado',
+            ]
+        );
+
+        Comprobante::firstOrCreate(
+            ['pago_id' => $pago->id],
+            [
+                'codigo_transaccion' => sprintf('TFF-%d-%06d', now()->year, $pago->id),
+                'fecha_emision' => $pago->fecha_pago,
             ]
         );
     }

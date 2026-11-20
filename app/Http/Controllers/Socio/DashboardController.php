@@ -12,13 +12,10 @@ class DashboardController extends Controller
     /**
      * Panel principal de socio / tirador (RF08, RF10, SPECS 6.2).
      */
-    public function index(Request $request): Response|\Illuminate\Http\RedirectResponse
+    public function index(Request $request): Response
     {
+        // Las cuentas no validadas se bloquean con el middleware `cuenta.activa`.
         $user = $request->user();
-
-        if (! $user->activo) {
-            return redirect()->route('solicitud.tramite');
-        }
 
         $socio = $user->socioProfile()->with(['membresia', 'credencialLu'])->first();
 

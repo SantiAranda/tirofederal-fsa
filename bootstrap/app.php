@@ -26,6 +26,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'role' => \App\Http\Middleware\EnsureUserHasRole::class,
             'socio.habilitado' => \App\Http\Middleware\EnsureSocioHabilitado::class,
+            'cuenta.activa' => \App\Http\Middleware\EnsureCuentaActiva::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

@@ -112,6 +112,9 @@ class CluAuditPolicyTest extends TestCase
 
     public function test_owner_socio_can_stream_their_own_private_file(): void
     {
+        // Las cuentas sin verificar no acceden a rutas internas (middleware cuenta.activa).
+        $this->socioUser->update(['activo' => true]);
+
         $response = $this->actingAs($this->socioUser)
             ->get(route('socio.clu.documento', ['credencial' => $this->credencial, 'tipo' => 'dni_frente']));
 

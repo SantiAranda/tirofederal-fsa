@@ -34,7 +34,8 @@ class RegistrationTest extends TestCase
         ]);
 
         $this->assertAuthenticated();
-        $response->assertRedirect(route('dashboard', absolute: false));
+        // Las cuentas nuevas quedan pendientes de validación hasta que se apruebe su CLU.
+        $response->assertRedirect(route('solicitud.tramite', absolute: false));
     }
 
     public function test_weak_passwords_are_rejected(): void

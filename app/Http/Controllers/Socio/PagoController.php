@@ -13,6 +13,14 @@ use Inertia\Response;
 
 class PagoController extends Controller
 {
+    private const CONCEPTOS = [
+        'cuota_mensual' => 'Cuota mensual',
+        'plan_inicial' => 'Plan inicial',
+        'derecho_linea_diario' => 'Derecho de línea diario',
+        'inscripcion_evento' => 'Inscripción a evento',
+        'compra_insumos' => 'Compra de insumos',
+    ];
+
     /**
      * Historial de pagos y estado de cuenta del socio (RF22, RF23, SPECS 6.2).
      */
@@ -20,19 +28,51 @@ class PagoController extends Controller
     {
         $socio = $request->user()->socioProfile;
 
-        $pagos = $socio ? $socio->pagos()
-            ->with('comprobante')
-            ->latest('fecha_pago')
-            ->paginate(15) : [];
+        $pagos = $socio
+            ? $socio->pagos()
+                ->with('comprobante')
+                ->latest('fecha_pago')
+                ->latest('id')
+                ->paginate(15)
+                ->through(fn (Pago $pago) => [
+                    'id' => $pago->id,
+                    'concepto' => self::CONCEPTOS[$pago->tipo_concepto] ?? $pago->tipo_concepto,
+                    'periodo' => $pago->periodo_imputado,
+                    'monto' => (float) $pago->monto,
+                    'metodo' => $pago->metodo_pago?->label(),
+                    'fecha_pago' => $pago->fecha_pago?->toDateString(),
+                    'estado' => $pago->estado,
+                    'codigo' => $pago->comprobante?->codigo_transaccion,
+                    'tiene_comprobante' => $pago->comprobante !== null,
+                ])
+            : null;
 
-        $totalAbonado = $socio ? $socio->pagos()
+        $totalAbonadoAnio = $socio
+            ? (float) $socio->pagos()
+                ->where('estado', 'aprobado')
+                ->whereYear('fecha_pago', now()->year)
+                ->sum('monto')
+            : 0.0;
+
+        // El próximo vencimiento solo tiene sentido si el socio ya abona cuotas.
+        $ultimaCuota = $socio?->pagos()
             ->where('estado', 'aprobado')
-            ->sum('monto') : 0;
+            ->whereIn('tipo_concepto', ['cuota_mensual', 'plan_inicial'])
+            ->latest('fecha_pago')
+            ->first();
+
+        $estado = $socio?->estado_habilitacion;
 
         return Inertia::render('Socio/Pagos/Index', [
             'pagos' => $pagos,
-            'totalAbonado' => $totalAbonado,
-            'estadoHabilitacion' => $socio?->estado_habilitacion,
+            'totalAbonadoAnio' => $totalAbonadoAnio,
+            'estadoHabilitacion' => $estado ? [
+                'valor' => $estado->value,
+                'etiqueta' => $estado->label(),
+            ] : null,
+            'proximoVencimiento' => $ultimaCuota
+                ? now()->addMonthNoOverflow()->startOfMonth()->toDateString()
+                : null,
         ]);
     }
 

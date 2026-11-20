@@ -79,7 +79,7 @@ Route::get('/solicitud-en-tramite', function () {
 | 6.2. Módulo de Socio / Tirador
 |--------------------------------------------------------------------------
 */
-Route::middleware(['auth', 'role:socio'])->group(function () {
+Route::middleware(['auth', 'role:socio', 'cuenta.activa'])->group(function () {
     Route::get('/panel', [SocioDashboardController::class, 'index'])->name('socio.dashboard');
 
     Route::get('/perfil', [SocioPerfilController::class, 'edit'])->name('socio.perfil.edit');
