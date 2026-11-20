@@ -92,7 +92,6 @@ class PerfilController extends Controller
         $user->fill([
             'email' => $validated['email'],
             'username' => $validated['username'],
-            'usuario' => $validated['username'],
             'telefono' => $validated['telefono'],
             'domicilio' => $validated['domicilio'],
         ]);

@@ -148,7 +148,7 @@ update.form = updateForm
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::actualizarClu
-* @see Http/Controllers/Socio/PerfilController.php:113
+* @see Http/Controllers/Socio/PerfilController.php:112
 * @route '/perfil/clu'
 */
 export const actualizarClu = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -163,7 +163,7 @@ actualizarClu.definition = {
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::actualizarClu
-* @see Http/Controllers/Socio/PerfilController.php:113
+* @see Http/Controllers/Socio/PerfilController.php:112
 * @route '/perfil/clu'
 */
 actualizarClu.url = (options?: RouteQueryOptions) => {
@@ -172,7 +172,7 @@ actualizarClu.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::actualizarClu
-* @see Http/Controllers/Socio/PerfilController.php:113
+* @see Http/Controllers/Socio/PerfilController.php:112
 * @route '/perfil/clu'
 */
 actualizarClu.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -182,7 +182,7 @@ actualizarClu.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => (
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::actualizarClu
-* @see Http/Controllers/Socio/PerfilController.php:113
+* @see Http/Controllers/Socio/PerfilController.php:112
 * @route '/perfil/clu'
 */
 const actualizarCluForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -192,7 +192,7 @@ const actualizarCluForm = (options?: RouteQueryOptions): RouteFormDefinition<'po
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::actualizarClu
-* @see Http/Controllers/Socio/PerfilController.php:113
+* @see Http/Controllers/Socio/PerfilController.php:112
 * @route '/perfil/clu'
 */
 actualizarCluForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -204,7 +204,7 @@ actualizarClu.form = actualizarCluForm
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::destroy
-* @see Http/Controllers/Socio/PerfilController.php:159
+* @see Http/Controllers/Socio/PerfilController.php:158
 * @route '/perfil'
 */
 export const destroy = (options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -219,7 +219,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::destroy
-* @see Http/Controllers/Socio/PerfilController.php:159
+* @see Http/Controllers/Socio/PerfilController.php:158
 * @route '/perfil'
 */
 destroy.url = (options?: RouteQueryOptions) => {
@@ -228,7 +228,7 @@ destroy.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::destroy
-* @see Http/Controllers/Socio/PerfilController.php:159
+* @see Http/Controllers/Socio/PerfilController.php:158
 * @route '/perfil'
 */
 destroy.delete = (options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -238,7 +238,7 @@ destroy.delete = (options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::destroy
-* @see Http/Controllers/Socio/PerfilController.php:159
+* @see Http/Controllers/Socio/PerfilController.php:158
 * @route '/perfil'
 */
 const destroyForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -253,7 +253,7 @@ const destroyForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> =
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::destroy
-* @see Http/Controllers/Socio/PerfilController.php:159
+* @see Http/Controllers/Socio/PerfilController.php:158
 * @route '/perfil'
 */
 destroyForm.delete = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

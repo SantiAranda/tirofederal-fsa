@@ -123,15 +123,15 @@ export default function InsumosIndex({ insumos: serverInsumos }: Props) {
     return (
         <>
             <Head title="Armería e Insumos" />
-            <div className="flex flex-col gap-6 p-6">
+            <div className="flex flex-col gap-6">
 
                 {/* Header */}
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div>
                         <h1 className="text-2xl font-bold text-gray-900">Armería e Insumos</h1>
                         <p className="text-sm text-gray-500 mt-1">Gestión de stock para venta presencial</p>
                     </div>
-                    <Button asChild className="bg-blue-600 text-white hover:bg-blue-700 gap-2">
+                    <Button asChild className="bg-blue-600 text-white hover:bg-blue-700 gap-2 w-full sm:w-auto">
                         <Link href="/admin/insumos/create">
                             <Plus className="h-4 w-4" />
                             Agregar Insumo
@@ -140,49 +140,72 @@ export default function InsumosIndex({ insumos: serverInsumos }: Props) {
                 </div>
 
                 {/* Summary Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <Card className="rounded-xl border border-gray-200 shadow-sm">
-                        <CardContent className="p-5 flex items-center gap-4">
-                            <div className="p-2 bg-blue-100 rounded-lg">
-                                <Package className="h-5 w-5 text-blue-600" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+                    <Card className="rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+                        <CardHeader className="flex flex-row items-center justify-between pb-2 p-4 sm:p-5">
+                            <CardTitle className="text-xs font-semibold text-gray-500 uppercase tracking-wider truncate">
+                                Total productos
+                            </CardTitle>
+                            <div className="p-2 bg-blue-50 text-blue-600 rounded-lg shrink-0">
+                                <Package className="h-4 w-4" />
                             </div>
-                            <div>
-                                <p className="text-sm text-gray-500">Total productos</p>
-                                <p className="text-2xl font-bold text-gray-900">{insumos.length}</p>
+                        </CardHeader>
+                        <CardContent className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 min-w-0">
+                            <div className="text-2xl font-bold text-gray-900 tracking-tight truncate">
+                                {insumos.length}
                             </div>
+                            <p className="text-xs text-gray-400 mt-0.5 truncate">En catálogo activo</p>
                         </CardContent>
                     </Card>
-                    <Card className="rounded-xl border border-gray-200 shadow-sm">
-                        <CardContent className="p-5 flex items-center gap-4">
-                            <div className="p-2 bg-green-100 rounded-lg">
-                                <DollarSign className="h-5 w-5 text-green-600" />
+
+                    <Card className="rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+                        <CardHeader className="flex flex-row items-center justify-between pb-2 p-4 sm:p-5">
+                            <CardTitle className="text-xs font-semibold text-gray-500 uppercase tracking-wider truncate">
+                                Valor inventario
+                            </CardTitle>
+                            <div className="p-2 bg-emerald-50 text-emerald-600 rounded-lg shrink-0">
+                                <DollarSign className="h-4 w-4" />
                             </div>
-                            <div>
-                                <p className="text-sm text-gray-500">Valor total inventario</p>
-                                <p className="text-2xl font-bold text-gray-900">{formatPrecio(valorTotalInventario)}</p>
+                        </CardHeader>
+                        <CardContent className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 min-w-0">
+                            <div className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight truncate" title={formatPrecio(valorTotalInventario)}>
+                                {formatPrecio(valorTotalInventario)}
                             </div>
+                            <p className="text-xs text-emerald-600 mt-0.5 font-medium truncate">Stock valorizado</p>
                         </CardContent>
                     </Card>
-                    <Card className="rounded-xl border border-gray-200 shadow-sm">
-                        <CardContent className="p-5 flex items-center gap-4">
-                            <div className="p-2 bg-yellow-100 rounded-lg">
-                                <TrendingDown className="h-5 w-5 text-yellow-600" />
+
+                    <Card className="rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+                        <CardHeader className="flex flex-row items-center justify-between pb-2 p-4 sm:p-5">
+                            <CardTitle className="text-xs font-semibold text-gray-500 uppercase tracking-wider truncate">
+                                Stock bajo
+                            </CardTitle>
+                            <div className="p-2 bg-amber-50 text-amber-600 rounded-lg shrink-0">
+                                <TrendingDown className="h-4 w-4" />
                             </div>
-                            <div>
-                                <p className="text-sm text-gray-500">Stock bajo</p>
-                                <p className="text-2xl font-bold text-gray-900">{insumosConStockBajo.length}</p>
+                        </CardHeader>
+                        <CardContent className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 min-w-0">
+                            <div className={`text-2xl font-bold tracking-tight truncate ${insumosConStockBajo.length > 0 ? 'text-amber-600' : 'text-gray-900'}`}>
+                                {insumosConStockBajo.length}
                             </div>
+                            <p className="text-xs text-gray-400 mt-0.5 truncate">Bajo umbral mínimo</p>
                         </CardContent>
                     </Card>
-                    <Card className="rounded-xl border border-gray-200 shadow-sm">
-                        <CardContent className="p-5 flex items-center gap-4">
-                            <div className="p-2 bg-purple-100 rounded-lg">
-                                <Activity className="h-5 w-5 text-purple-600" />
+
+                    <Card className="rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+                        <CardHeader className="flex flex-row items-center justify-between pb-2 p-4 sm:p-5">
+                            <CardTitle className="text-xs font-semibold text-gray-500 uppercase tracking-wider truncate">
+                                Movimientos hoy
+                            </CardTitle>
+                            <div className="p-2 bg-purple-50 text-purple-600 rounded-lg shrink-0">
+                                <Activity className="h-4 w-4" />
                             </div>
-                            <div>
-                                <p className="text-sm text-gray-500">Movimientos hoy</p>
-                                <p className="text-2xl font-bold text-gray-900">7</p>
+                        </CardHeader>
+                        <CardContent className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 min-w-0">
+                            <div className="text-2xl font-bold text-gray-900 tracking-tight truncate">
+                                7
                             </div>
+                            <p className="text-xs text-gray-400 mt-0.5 truncate">Entradas y salidas</p>
                         </CardContent>
                     </Card>
                 </div>
@@ -243,8 +266,8 @@ export default function InsumosIndex({ insumos: serverInsumos }: Props) {
 
                 {/* Table */}
                 <Card className="rounded-xl border border-gray-200 shadow-sm">
-                    <CardContent className="p-0">
-                        <Table>
+                    <CardContent className="p-0 overflow-x-auto">
+                        <Table className="min-w-[650px]">
                             <TableHeader>
                                 <TableRow className="bg-gray-100">
                                     <TableHead className="font-semibold text-gray-700">Producto</TableHead>
@@ -319,7 +342,7 @@ export default function InsumosIndex({ insumos: serverInsumos }: Props) {
 
             {/* Ajustar Stock Dialog */}
             <Dialog open={ajusteOpen} onOpenChange={setAjusteOpen}>
-                <DialogContent className="sm:max-w-md">
+                <DialogContent className="sm:max-w-md w-[95vw] sm:w-full">
                     <DialogHeader>
                         <div className="flex items-center gap-3">
                             <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${ajusteTipo === 'entrada' ? 'bg-blue-100 text-blue-600' : 'bg-rose-100 text-rose-600'}`}>

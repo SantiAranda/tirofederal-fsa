@@ -96,7 +96,6 @@ class SocioController extends Controller
                 'fecha_nacimiento' => $validated['fecha_nacimiento'],
                 'email' => $validated['email'],
                 'username' => $validated['username'],
-                'usuario' => $validated['username'],
                 'telefono' => $validated['telefono'] ?? null,
                 'domicilio' => $validated['domicilio'] ?? null,
                 'rol' => 'socio',

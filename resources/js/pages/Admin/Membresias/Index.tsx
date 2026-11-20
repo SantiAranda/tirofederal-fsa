@@ -128,14 +128,14 @@ export default function MembresiasIndex({ membresias: serverMembresias }: Props)
     return (
         <>
             <Head title="Membresías" />
-            <div className="flex flex-col gap-6 p-6">
+            <div className="flex flex-col gap-6">
                 {/* Header */}
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div>
                         <h1 className="text-2xl font-bold text-gray-900">Membresías</h1>
                         <p className="text-sm text-gray-500 mt-1">Gestión de categorías de membresía y cuotas del club.</p>
                     </div>
-                    <Button asChild className="bg-blue-600 text-white hover:bg-blue-700 gap-2">
+                    <Button asChild className="bg-blue-600 text-white hover:bg-blue-700 gap-2 w-full sm:w-auto">
                         <Link href="/admin/membresias/create">
                             <Plus className="h-4 w-4" />
                             Nueva Membresía
@@ -145,37 +145,54 @@ export default function MembresiasIndex({ membresias: serverMembresias }: Props)
 
                 {/* Stats */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <Card className="rounded-xl border border-gray-200 shadow-sm">
-                        <CardContent className="flex items-center gap-4 p-5">
-                            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-blue-100">
-                                <Tags className="h-5 w-5 text-blue-600" />
+                    <Card className="rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+                        <CardHeader className="flex flex-row items-center justify-between pb-2 p-4 sm:p-5">
+                            <CardTitle className="text-xs font-semibold text-gray-500 uppercase tracking-wider truncate">
+                                Categorías activas
+                            </CardTitle>
+                            <div className="p-2 bg-blue-50 text-blue-600 rounded-lg shrink-0">
+                                <Tags className="h-4 w-4" />
                             </div>
-                            <div>
-                                <p className="text-sm text-gray-500">Categorías activas</p>
-                                <p className="text-2xl font-bold text-gray-900">{membresias.filter(m => m.activo).length}</p>
+                        </CardHeader>
+                        <CardContent className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 min-w-0">
+                            <div className="text-2xl font-bold text-gray-900 tracking-tight truncate">
+                                {membresias.filter(m => m.activo).length}
                             </div>
+                            <p className="text-xs text-gray-400 mt-0.5 truncate">Planes societarios vigentes</p>
                         </CardContent>
                     </Card>
-                    <Card className="rounded-xl border border-gray-200 shadow-sm">
-                        <CardContent className="flex items-center gap-4 p-5">
-                            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-green-100">
-                                <Users className="h-5 w-5 text-green-600" />
+
+                    <Card className="rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+                        <CardHeader className="flex flex-row items-center justify-between pb-2 p-4 sm:p-5">
+                            <CardTitle className="text-xs font-semibold text-gray-500 uppercase tracking-wider truncate">
+                                Socios activos
+                            </CardTitle>
+                            <div className="p-2 bg-emerald-50 text-emerald-600 rounded-lg shrink-0">
+                                <Users className="h-4 w-4" />
                             </div>
-                            <div>
-                                <p className="text-sm text-gray-500">Socios activos</p>
-                                <p className="text-2xl font-bold text-gray-900">{totalSocios}</p>
+                        </CardHeader>
+                        <CardContent className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 min-w-0">
+                            <div className="text-2xl font-bold text-gray-900 tracking-tight truncate">
+                                {totalSocios}
                             </div>
+                            <p className="text-xs text-emerald-600 mt-0.5 font-medium truncate">Cuotas al día</p>
                         </CardContent>
                     </Card>
-                    <Card className="rounded-xl border border-gray-200 shadow-sm">
-                        <CardContent className="flex items-center gap-4 p-5">
-                            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-yellow-100">
-                                <DollarSign className="h-5 w-5 text-yellow-600" />
+
+                    <Card className="rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+                        <CardHeader className="flex flex-row items-center justify-between pb-2 p-4 sm:p-5">
+                            <CardTitle className="text-xs font-semibold text-gray-500 uppercase tracking-wider truncate">
+                                Ingreso mensual est.
+                            </CardTitle>
+                            <div className="p-2 bg-amber-50 text-amber-600 rounded-lg shrink-0">
+                                <DollarSign className="h-4 w-4" />
                             </div>
-                            <div>
-                                <p className="text-sm text-gray-500">Ingreso mensual estimado</p>
-                                <p className="text-2xl font-bold text-gray-900">{fmt(ingresoMensual)}</p>
+                        </CardHeader>
+                        <CardContent className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 min-w-0">
+                            <div className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight truncate" title={fmt(ingresoMensual)}>
+                                {fmt(ingresoMensual)}
                             </div>
+                            <p className="text-xs text-gray-400 mt-0.5 truncate">Proyección mensual</p>
                         </CardContent>
                     </Card>
                 </div>
@@ -185,8 +202,8 @@ export default function MembresiasIndex({ membresias: serverMembresias }: Props)
                     <CardHeader className="pb-3">
                         <CardTitle className="text-xl font-semibold text-gray-800">Categorías de Membresía</CardTitle>
                     </CardHeader>
-                    <CardContent className="p-0">
-                        <Table>
+                    <CardContent className="p-0 overflow-x-auto">
+                        <Table className="min-w-[680px]">
                             <TableHeader>
                                 <TableRow className="bg-gray-100">
                                     <TableHead className="font-semibold text-gray-700">Categoría</TableHead>
@@ -245,7 +262,7 @@ export default function MembresiasIndex({ membresias: serverMembresias }: Props)
 
             {/* Dialog */}
             <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-                <DialogContent className="max-w-lg">
+                <DialogContent className="max-w-lg w-[95vw] sm:w-full">
                     <DialogHeader>
                         <div className="flex items-center gap-3">
                             <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center shrink-0">

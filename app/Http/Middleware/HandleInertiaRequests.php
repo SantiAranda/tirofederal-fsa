@@ -55,7 +55,6 @@ class HandleInertiaRequests extends Middleware
                 'nombre_completo' => trim(($user->nombre ?? $user->name) . ' ' . $user->apellido),
                 'email' => $user->email,
                 'username' => $user->username,
-                'usuario' => $user->username,
                 'rol' => $rolValue,
                 'estado_socio' => $estadoSocioValue,
                 'alerta_clu' => $socioProfile?->credencialLu?->obtenerAlertaVencimiento(),

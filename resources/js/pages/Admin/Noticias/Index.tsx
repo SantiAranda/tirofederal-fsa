@@ -51,7 +51,7 @@ export default function NoticiasIndex({ noticias: serverNoticias }: Props) {
                         Gestión de artículos y comunicados visibles en el portal público y el club
                     </p>
                 </div>
-                <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white gap-2 shadow-sm shadow-blue-500/20">
+                <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white gap-2 shadow-sm shadow-blue-500/20 w-full sm:w-auto">
                     <Link href="/admin/noticias/create">
                         <Plus className="w-4 h-4" /> Redactar Noticia
                     </Link>

@@ -38,7 +38,7 @@ export default function ConfiguracionIndex() {
     return (
         <>
             <Head title="Configuración del Sistema - Tiro Federal Formosa" />
-            <div className="flex flex-col gap-6 p-6">
+            <div className="flex flex-col gap-6">
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div>
@@ -213,7 +213,7 @@ export default function ConfiguracionIndex() {
                             </div>
 
                             <div className="pt-2 flex justify-end">
-                                <Button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white gap-2">
+                                <Button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white gap-2 w-full sm:w-auto">
                                     <Save className="w-4 h-4" /> Guardar Todos los Cambios
                                 </Button>
                             </div>

@@ -83,13 +83,13 @@ export default function SociosIndex({ socios, filtros }: Props) {
                     </div>
                 </div>
 
-                <div className="flex items-center gap-2">
-                    <Button variant="outline" asChild className="gap-2">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto">
+                    <Button variant="outline" asChild className="gap-2 w-full sm:w-auto">
                         <a href="/admin/socios/exportar">
                             <Download className="w-4 h-4" /> Exportar Planilla
                         </a>
                     </Button>
-                    <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white gap-2 shadow-md shadow-blue-500/20">
+                    <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white gap-2 shadow-md shadow-blue-500/20 w-full sm:w-auto">
                         <Link href="/admin/socios/create">
                             <UserPlus className="w-4 h-4" /> Añadir nuevo socio
                         </Link>
@@ -110,9 +110,9 @@ export default function SociosIndex({ socios, filtros }: Props) {
                     />
                 </div>
 
-                <div className="flex gap-2 w-full md:w-auto">
+                <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
                     <select
-                        className="h-10 px-3 rounded-md border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                        className="h-10 px-3 rounded-md border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring w-full sm:w-auto"
                         value={estado}
                         onChange={(e) => setEstado(e.target.value)}
                     >
@@ -122,7 +122,7 @@ export default function SociosIndex({ socios, filtros }: Props) {
                         <option value="pendiente_validacion">Pendiente</option>
                     </select>
 
-                    <Button onClick={handleFilter} variant="secondary" className="gap-2">
+                    <Button onClick={handleFilter} variant="secondary" className="gap-2 w-full sm:w-auto">
                         <Filter className="w-4 h-4" /> Filtrar
                     </Button>
                 </div>
@@ -131,7 +131,7 @@ export default function SociosIndex({ socios, filtros }: Props) {
             {/* Tabla de Socios */}
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
                 <div className="overflow-x-auto">
-                    <table className="w-full text-sm text-left">
+                    <table className="w-full text-sm text-left min-w-[760px]">
                         <thead className="bg-gray-50/70 border-b border-gray-100 text-xs uppercase font-semibold text-gray-500">
                             <tr>
                                 <th className="px-5 py-4">Nº Socio</th>

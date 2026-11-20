@@ -66,7 +66,6 @@ class InstructorController extends Controller
                 'fecha_nacimiento' => $validated['fecha_nacimiento'],
                 'email' => $validated['email'],
                 'username' => $validated['username'],
-                'usuario' => $validated['username'],
                 'telefono' => $validated['telefono'] ?? null,
                 'rol' => 'instructor',
                 'activo' => true,
