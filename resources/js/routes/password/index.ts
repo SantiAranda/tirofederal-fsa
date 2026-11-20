@@ -21,10 +21,6 @@ request.definition = {
 * @route '/forgot-password'
 */
 request.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return request.definition.url + queryParams(options)
 }
 
@@ -110,7 +106,6 @@ reset.url = (args: { token: string | number } | [token: string | number ] | stri
         args = { token: args }
     }
 
-
     if (Array.isArray(args)) {
         args = {
             token: args[0],
@@ -118,7 +113,6 @@ reset.url = (args: { token: string | number } | [token: string | number ] | stri
     }
 
     args = applyUrlDefaults(args)
-
 
     const parsedArgs = {
         token: args.token,
@@ -207,10 +201,6 @@ email.definition = {
 * @route '/forgot-password'
 */
 email.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return email.definition.url + queryParams(options)
 }
 
@@ -267,10 +257,6 @@ update.definition = {
 * @route '/reset-password'
 */
 update.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return update.definition.url + queryParams(options)
 }
 
@@ -327,10 +313,6 @@ confirm.definition = {
 * @route '/user/confirm-password'
 */
 confirm.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return confirm.definition.url + queryParams(options)
 }
 
@@ -412,10 +394,6 @@ confirmation.definition = {
 * @route '/user/confirmed-password-status'
 */
 confirmation.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return confirmation.definition.url + queryParams(options)
 }
 
@@ -475,8 +453,6 @@ confirmationForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'
 })
 
 confirmation.form = confirmationForm
-
-
 
 const password = {
     request: Object.assign(request, request),

@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::edit
-* @see app/Http/Controllers/Socio/PerfilController.php:22
+* @see Http/Controllers/Socio/PerfilController.php:22
 * @route '/perfil'
 */
 export const edit = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,20 +16,16 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::edit
-* @see app/Http/Controllers/Socio/PerfilController.php:22
+* @see Http/Controllers/Socio/PerfilController.php:22
 * @route '/perfil'
 */
 edit.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return edit.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::edit
-* @see app/Http/Controllers/Socio/PerfilController.php:22
+* @see Http/Controllers/Socio/PerfilController.php:22
 * @route '/perfil'
 */
 edit.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -39,7 +35,7 @@ edit.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::edit
-* @see app/Http/Controllers/Socio/PerfilController.php:22
+* @see Http/Controllers/Socio/PerfilController.php:22
 * @route '/perfil'
 */
 edit.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -49,7 +45,7 @@ edit.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::edit
-* @see app/Http/Controllers/Socio/PerfilController.php:22
+* @see Http/Controllers/Socio/PerfilController.php:22
 * @route '/perfil'
 */
 const editForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -59,7 +55,7 @@ const editForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::edit
-* @see app/Http/Controllers/Socio/PerfilController.php:22
+* @see Http/Controllers/Socio/PerfilController.php:22
 * @route '/perfil'
 */
 editForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -69,7 +65,7 @@ editForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::edit
-* @see app/Http/Controllers/Socio/PerfilController.php:22
+* @see Http/Controllers/Socio/PerfilController.php:22
 * @route '/perfil'
 */
 editForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -86,7 +82,7 @@ edit.form = editForm
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::update
-* @see app/Http/Controllers/Socio/PerfilController.php:37
+* @see Http/Controllers/Socio/PerfilController.php:37
 * @route '/perfil'
 */
 export const update = (options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -101,20 +97,16 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::update
-* @see app/Http/Controllers/Socio/PerfilController.php:37
+* @see Http/Controllers/Socio/PerfilController.php:37
 * @route '/perfil'
 */
 update.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return update.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::update
-* @see app/Http/Controllers/Socio/PerfilController.php:37
+* @see Http/Controllers/Socio/PerfilController.php:37
 * @route '/perfil'
 */
 update.patch = (options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -124,7 +116,7 @@ update.patch = (options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::update
-* @see app/Http/Controllers/Socio/PerfilController.php:37
+* @see Http/Controllers/Socio/PerfilController.php:37
 * @route '/perfil'
 */
 const updateForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -139,7 +131,7 @@ const updateForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> =>
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::update
-* @see app/Http/Controllers/Socio/PerfilController.php:37
+* @see Http/Controllers/Socio/PerfilController.php:37
 * @route '/perfil'
 */
 updateForm.patch = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -156,7 +148,7 @@ update.form = updateForm
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::destroy
-* @see app/Http/Controllers/Socio/PerfilController.php:76
+* @see Http/Controllers/Socio/PerfilController.php:76
 * @route '/perfil'
 */
 export const destroy = (options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -171,20 +163,16 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::destroy
-* @see app/Http/Controllers/Socio/PerfilController.php:76
+* @see Http/Controllers/Socio/PerfilController.php:76
 * @route '/perfil'
 */
 destroy.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return destroy.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::destroy
-* @see app/Http/Controllers/Socio/PerfilController.php:76
+* @see Http/Controllers/Socio/PerfilController.php:76
 * @route '/perfil'
 */
 destroy.delete = (options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -194,7 +182,7 @@ destroy.delete = (options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::destroy
-* @see app/Http/Controllers/Socio/PerfilController.php:76
+* @see Http/Controllers/Socio/PerfilController.php:76
 * @route '/perfil'
 */
 const destroyForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -209,7 +197,7 @@ const destroyForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> =
 
 /**
 * @see \App\Http\Controllers\Socio\PerfilController::destroy
-* @see app/Http/Controllers/Socio/PerfilController.php:76
+* @see Http/Controllers/Socio/PerfilController.php:76
 * @route '/perfil'
 */
 destroyForm.delete = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -223,8 +211,6 @@ destroyForm.delete = (options?: RouteQueryOptions): RouteFormDefinition<'post'> 
 })
 
 destroy.form = destroyForm
-
-
 
 const perfil = {
     edit: Object.assign(edit, edit),

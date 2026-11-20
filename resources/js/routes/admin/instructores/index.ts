@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::index
-* @see app/Http/Controllers/Admin/InstructorController.php:21
+* @see Http/Controllers/Admin/InstructorController.php:21
 * @route '/admin/instructores'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,20 +16,16 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::index
-* @see app/Http/Controllers/Admin/InstructorController.php:21
+* @see Http/Controllers/Admin/InstructorController.php:21
 * @route '/admin/instructores'
 */
 index.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return index.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::index
-* @see app/Http/Controllers/Admin/InstructorController.php:21
+* @see Http/Controllers/Admin/InstructorController.php:21
 * @route '/admin/instructores'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -39,7 +35,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::index
-* @see app/Http/Controllers/Admin/InstructorController.php:21
+* @see Http/Controllers/Admin/InstructorController.php:21
 * @route '/admin/instructores'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -49,7 +45,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::index
-* @see app/Http/Controllers/Admin/InstructorController.php:21
+* @see Http/Controllers/Admin/InstructorController.php:21
 * @route '/admin/instructores'
 */
 const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -59,7 +55,7 @@ const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::index
-* @see app/Http/Controllers/Admin/InstructorController.php:21
+* @see Http/Controllers/Admin/InstructorController.php:21
 * @route '/admin/instructores'
 */
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -69,7 +65,7 @@ indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::index
-* @see app/Http/Controllers/Admin/InstructorController.php:21
+* @see Http/Controllers/Admin/InstructorController.php:21
 * @route '/admin/instructores'
 */
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -86,7 +82,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::create
-* @see app/Http/Controllers/Admin/InstructorController.php:0
+* @see Http/Controllers/Admin/InstructorController.php:0
 * @route '/admin/instructores/create'
 */
 export const create = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -101,20 +97,16 @@ create.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::create
-* @see app/Http/Controllers/Admin/InstructorController.php:0
+* @see Http/Controllers/Admin/InstructorController.php:0
 * @route '/admin/instructores/create'
 */
 create.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return create.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::create
-* @see app/Http/Controllers/Admin/InstructorController.php:0
+* @see Http/Controllers/Admin/InstructorController.php:0
 * @route '/admin/instructores/create'
 */
 create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -124,7 +116,7 @@ create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::create
-* @see app/Http/Controllers/Admin/InstructorController.php:0
+* @see Http/Controllers/Admin/InstructorController.php:0
 * @route '/admin/instructores/create'
 */
 create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -134,7 +126,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::create
-* @see app/Http/Controllers/Admin/InstructorController.php:0
+* @see Http/Controllers/Admin/InstructorController.php:0
 * @route '/admin/instructores/create'
 */
 const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -144,7 +136,7 @@ const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::create
-* @see app/Http/Controllers/Admin/InstructorController.php:0
+* @see Http/Controllers/Admin/InstructorController.php:0
 * @route '/admin/instructores/create'
 */
 createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -154,7 +146,7 @@ createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::create
-* @see app/Http/Controllers/Admin/InstructorController.php:0
+* @see Http/Controllers/Admin/InstructorController.php:0
 * @route '/admin/instructores/create'
 */
 createForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -171,7 +163,7 @@ create.form = createForm
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::store
-* @see app/Http/Controllers/Admin/InstructorController.php:36
+* @see Http/Controllers/Admin/InstructorController.php:36
 * @route '/admin/instructores'
 */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -186,20 +178,16 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::store
-* @see app/Http/Controllers/Admin/InstructorController.php:36
+* @see Http/Controllers/Admin/InstructorController.php:36
 * @route '/admin/instructores'
 */
 store.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return store.definition.url + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::store
-* @see app/Http/Controllers/Admin/InstructorController.php:36
+* @see Http/Controllers/Admin/InstructorController.php:36
 * @route '/admin/instructores'
 */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -209,7 +197,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::store
-* @see app/Http/Controllers/Admin/InstructorController.php:36
+* @see Http/Controllers/Admin/InstructorController.php:36
 * @route '/admin/instructores'
 */
 const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -219,7 +207,7 @@ const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => 
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::store
-* @see app/Http/Controllers/Admin/InstructorController.php:36
+* @see Http/Controllers/Admin/InstructorController.php:36
 * @route '/admin/instructores'
 */
 storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -231,7 +219,7 @@ store.form = storeForm
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::show
-* @see app/Http/Controllers/Admin/InstructorController.php:0
+* @see Http/Controllers/Admin/InstructorController.php:0
 * @route '/admin/instructores/{instructor}'
 */
 export const show = (args: { instructor: string | number } | [instructor: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -246,14 +234,13 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::show
-* @see app/Http/Controllers/Admin/InstructorController.php:0
+* @see Http/Controllers/Admin/InstructorController.php:0
 * @route '/admin/instructores/{instructor}'
 */
 show.url = (args: { instructor: string | number } | [instructor: string | number ] | string | number, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { instructor: args }
     }
-
 
     if (Array.isArray(args)) {
         args = {
@@ -262,7 +249,6 @@ show.url = (args: { instructor: string | number } | [instructor: string | number
     }
 
     args = applyUrlDefaults(args)
-
 
     const parsedArgs = {
         instructor: args.instructor,
@@ -275,7 +261,7 @@ show.url = (args: { instructor: string | number } | [instructor: string | number
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::show
-* @see app/Http/Controllers/Admin/InstructorController.php:0
+* @see Http/Controllers/Admin/InstructorController.php:0
 * @route '/admin/instructores/{instructor}'
 */
 show.get = (args: { instructor: string | number } | [instructor: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -285,7 +271,7 @@ show.get = (args: { instructor: string | number } | [instructor: string | number
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::show
-* @see app/Http/Controllers/Admin/InstructorController.php:0
+* @see Http/Controllers/Admin/InstructorController.php:0
 * @route '/admin/instructores/{instructor}'
 */
 show.head = (args: { instructor: string | number } | [instructor: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -295,7 +281,7 @@ show.head = (args: { instructor: string | number } | [instructor: string | numbe
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::show
-* @see app/Http/Controllers/Admin/InstructorController.php:0
+* @see Http/Controllers/Admin/InstructorController.php:0
 * @route '/admin/instructores/{instructor}'
 */
 const showForm = (args: { instructor: string | number } | [instructor: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -305,7 +291,7 @@ const showForm = (args: { instructor: string | number } | [instructor: string | 
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::show
-* @see app/Http/Controllers/Admin/InstructorController.php:0
+* @see Http/Controllers/Admin/InstructorController.php:0
 * @route '/admin/instructores/{instructor}'
 */
 showForm.get = (args: { instructor: string | number } | [instructor: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -315,7 +301,7 @@ showForm.get = (args: { instructor: string | number } | [instructor: string | nu
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::show
-* @see app/Http/Controllers/Admin/InstructorController.php:0
+* @see Http/Controllers/Admin/InstructorController.php:0
 * @route '/admin/instructores/{instructor}'
 */
 showForm.head = (args: { instructor: string | number } | [instructor: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -332,7 +318,7 @@ show.form = showForm
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::edit
-* @see app/Http/Controllers/Admin/InstructorController.php:0
+* @see Http/Controllers/Admin/InstructorController.php:0
 * @route '/admin/instructores/{instructor}/edit'
 */
 export const edit = (args: { instructor: string | number } | [instructor: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -347,14 +333,13 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::edit
-* @see app/Http/Controllers/Admin/InstructorController.php:0
+* @see Http/Controllers/Admin/InstructorController.php:0
 * @route '/admin/instructores/{instructor}/edit'
 */
 edit.url = (args: { instructor: string | number } | [instructor: string | number ] | string | number, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { instructor: args }
     }
-
 
     if (Array.isArray(args)) {
         args = {
@@ -363,7 +348,6 @@ edit.url = (args: { instructor: string | number } | [instructor: string | number
     }
 
     args = applyUrlDefaults(args)
-
 
     const parsedArgs = {
         instructor: args.instructor,
@@ -376,7 +360,7 @@ edit.url = (args: { instructor: string | number } | [instructor: string | number
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::edit
-* @see app/Http/Controllers/Admin/InstructorController.php:0
+* @see Http/Controllers/Admin/InstructorController.php:0
 * @route '/admin/instructores/{instructor}/edit'
 */
 edit.get = (args: { instructor: string | number } | [instructor: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -386,7 +370,7 @@ edit.get = (args: { instructor: string | number } | [instructor: string | number
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::edit
-* @see app/Http/Controllers/Admin/InstructorController.php:0
+* @see Http/Controllers/Admin/InstructorController.php:0
 * @route '/admin/instructores/{instructor}/edit'
 */
 edit.head = (args: { instructor: string | number } | [instructor: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -396,7 +380,7 @@ edit.head = (args: { instructor: string | number } | [instructor: string | numbe
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::edit
-* @see app/Http/Controllers/Admin/InstructorController.php:0
+* @see Http/Controllers/Admin/InstructorController.php:0
 * @route '/admin/instructores/{instructor}/edit'
 */
 const editForm = (args: { instructor: string | number } | [instructor: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -406,7 +390,7 @@ const editForm = (args: { instructor: string | number } | [instructor: string | 
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::edit
-* @see app/Http/Controllers/Admin/InstructorController.php:0
+* @see Http/Controllers/Admin/InstructorController.php:0
 * @route '/admin/instructores/{instructor}/edit'
 */
 editForm.get = (args: { instructor: string | number } | [instructor: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -416,7 +400,7 @@ editForm.get = (args: { instructor: string | number } | [instructor: string | nu
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::edit
-* @see app/Http/Controllers/Admin/InstructorController.php:0
+* @see Http/Controllers/Admin/InstructorController.php:0
 * @route '/admin/instructores/{instructor}/edit'
 */
 editForm.head = (args: { instructor: string | number } | [instructor: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -433,7 +417,7 @@ edit.form = editForm
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::update
-* @see app/Http/Controllers/Admin/InstructorController.php:83
+* @see Http/Controllers/Admin/InstructorController.php:83
 * @route '/admin/instructores/{instructor}'
 */
 export const update = (args: { instructor: number | { id: number } } | [instructor: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -448,7 +432,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::update
-* @see app/Http/Controllers/Admin/InstructorController.php:83
+* @see Http/Controllers/Admin/InstructorController.php:83
 * @route '/admin/instructores/{instructor}'
 */
 update.url = (args: { instructor: number | { id: number } } | [instructor: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -468,7 +452,6 @@ update.url = (args: { instructor: number | { id: number } } | [instructor: numbe
 
     args = applyUrlDefaults(args)
 
-
     const parsedArgs = {
         instructor: typeof args.instructor === 'object'
         ? args.instructor.id
@@ -482,7 +465,7 @@ update.url = (args: { instructor: number | { id: number } } | [instructor: numbe
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::update
-* @see app/Http/Controllers/Admin/InstructorController.php:83
+* @see Http/Controllers/Admin/InstructorController.php:83
 * @route '/admin/instructores/{instructor}'
 */
 update.put = (args: { instructor: number | { id: number } } | [instructor: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -492,7 +475,7 @@ update.put = (args: { instructor: number | { id: number } } | [instructor: numbe
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::update
-* @see app/Http/Controllers/Admin/InstructorController.php:83
+* @see Http/Controllers/Admin/InstructorController.php:83
 * @route '/admin/instructores/{instructor}'
 */
 update.patch = (args: { instructor: number | { id: number } } | [instructor: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -502,7 +485,7 @@ update.patch = (args: { instructor: number | { id: number } } | [instructor: num
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::update
-* @see app/Http/Controllers/Admin/InstructorController.php:83
+* @see Http/Controllers/Admin/InstructorController.php:83
 * @route '/admin/instructores/{instructor}'
 */
 const updateForm = (args: { instructor: number | { id: number } } | [instructor: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -517,7 +500,7 @@ const updateForm = (args: { instructor: number | { id: number } } | [instructor:
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::update
-* @see app/Http/Controllers/Admin/InstructorController.php:83
+* @see Http/Controllers/Admin/InstructorController.php:83
 * @route '/admin/instructores/{instructor}'
 */
 updateForm.put = (args: { instructor: number | { id: number } } | [instructor: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -532,7 +515,7 @@ updateForm.put = (args: { instructor: number | { id: number } } | [instructor: n
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::update
-* @see app/Http/Controllers/Admin/InstructorController.php:83
+* @see Http/Controllers/Admin/InstructorController.php:83
 * @route '/admin/instructores/{instructor}'
 */
 updateForm.patch = (args: { instructor: number | { id: number } } | [instructor: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -549,7 +532,7 @@ update.form = updateForm
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::destroy
-* @see app/Http/Controllers/Admin/InstructorController.php:126
+* @see Http/Controllers/Admin/InstructorController.php:126
 * @route '/admin/instructores/{instructor}'
 */
 export const destroy = (args: { instructor: number | { id: number } } | [instructor: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -564,7 +547,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::destroy
-* @see app/Http/Controllers/Admin/InstructorController.php:126
+* @see Http/Controllers/Admin/InstructorController.php:126
 * @route '/admin/instructores/{instructor}'
 */
 destroy.url = (args: { instructor: number | { id: number } } | [instructor: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -584,7 +567,6 @@ destroy.url = (args: { instructor: number | { id: number } } | [instructor: numb
 
     args = applyUrlDefaults(args)
 
-
     const parsedArgs = {
         instructor: typeof args.instructor === 'object'
         ? args.instructor.id
@@ -598,7 +580,7 @@ destroy.url = (args: { instructor: number | { id: number } } | [instructor: numb
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::destroy
-* @see app/Http/Controllers/Admin/InstructorController.php:126
+* @see Http/Controllers/Admin/InstructorController.php:126
 * @route '/admin/instructores/{instructor}'
 */
 destroy.delete = (args: { instructor: number | { id: number } } | [instructor: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -608,7 +590,7 @@ destroy.delete = (args: { instructor: number | { id: number } } | [instructor: n
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::destroy
-* @see app/Http/Controllers/Admin/InstructorController.php:126
+* @see Http/Controllers/Admin/InstructorController.php:126
 * @route '/admin/instructores/{instructor}'
 */
 const destroyForm = (args: { instructor: number | { id: number } } | [instructor: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -623,7 +605,7 @@ const destroyForm = (args: { instructor: number | { id: number } } | [instructor
 
 /**
 * @see \App\Http\Controllers\Admin\InstructorController::destroy
-* @see app/Http/Controllers/Admin/InstructorController.php:126
+* @see Http/Controllers/Admin/InstructorController.php:126
 * @route '/admin/instructores/{instructor}'
 */
 destroyForm.delete = (args: { instructor: number | { id: number } } | [instructor: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -637,8 +619,6 @@ destroyForm.delete = (args: { instructor: number | { id: number } } | [instructo
 })
 
 destroy.form = destroyForm
-
-
 
 const instructores = {
     index: Object.assign(index, index),

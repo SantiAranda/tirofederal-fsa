@@ -18,10 +18,6 @@ tramite.definition = {
 * @route '/solicitud-en-tramite'
 */
 tramite.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return tramite.definition.url + queryParams(options)
 }
 
@@ -76,8 +72,6 @@ tramiteForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 })
 
 tramite.form = tramiteForm
-
-
 
 const solicitud = {
     tramite: Object.assign(tramite, tramite),

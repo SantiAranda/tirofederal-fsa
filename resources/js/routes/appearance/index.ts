@@ -20,10 +20,6 @@ edit.definition = {
 * @route '/settings/appearance'
 */
 edit.url = (options?: RouteQueryOptions) => {
-
-
-
-
     return edit.definition.url + queryParams(options)
 }
 
@@ -83,8 +79,6 @@ editForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 })
 
 edit.form = editForm
-
-
 
 const appearance = {
     edit: Object.assign(edit, edit),

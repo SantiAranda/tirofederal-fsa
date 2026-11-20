@@ -29,6 +29,15 @@ export default defineConfig({
         }),
     ]),
     server: {
+        // En Docker Vite escucha en 0.0.0.0, pero el navegador debe pedir
+        // los assets a localhost (0.0.0.0 lo bloquea como error de CORS).
+        hmr: {
+            host: 'localhost',
+        },
+        // Permitir abrir la app tanto en localhost como en 0.0.0.0 / 127.0.0.1.
+        cors: {
+            origin: /^https?:\/\/(localhost|127\.0\.0\.1|0\.0\.0\.0|\[::1\])(:\d+)?$/,
+        },
         watch: {
             ignored: [
                 '**/.agents/**',
