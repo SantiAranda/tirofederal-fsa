@@ -7,12 +7,12 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import {
-    Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter,
+    Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription,
 } from '@/components/ui/dialog';
 import {
     Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from '@/components/ui/table';
-import { CreditCard, DollarSign, Download, Plus, Search, Trash2, CheckCircle2, Clock, AlertCircle } from 'lucide-react';
+import { CreditCard, DollarSign, Download, Plus, Search, Trash2, CheckCircle2, Clock, AlertCircle, X, Save } from 'lucide-react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     { title: 'Inicio', href: '/admin/dashboard' },
@@ -322,7 +322,15 @@ export default function PagosIndex({ pagos: serverPagos, totalRecaudadoMes }: Pr
                 <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
                     <DialogContent>
                         <DialogHeader>
-                            <DialogTitle>Registrar Nuevo Cobro</DialogTitle>
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center shrink-0">
+                                    <CreditCard className="w-5 h-5 text-blue-600" />
+                                </div>
+                                <div>
+                                    <DialogTitle>Registrar Nuevo Cobro</DialogTitle>
+                                    <DialogDescription>Cargá un pago de cuota, insumos o torneo para emitir el comprobante</DialogDescription>
+                                </div>
+                            </div>
                         </DialogHeader>
                         <form onSubmit={handleRegistrar} className="space-y-4 pt-2">
                             <div>
@@ -377,11 +385,11 @@ export default function PagosIndex({ pagos: serverPagos, totalRecaudadoMes }: Pr
                                 </div>
                             </div>
                             <DialogFooter className="pt-2">
-                                <Button type="button" variant="outline" onClick={() => setDialogOpen(false)}>
-                                    Cancelar
+                                <Button type="button" variant="outline" onClick={() => setDialogOpen(false)} className="gap-1.5">
+                                    <X className="w-4 h-4" /> Cancelar
                                 </Button>
-                                <Button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white">
-                                    Emitir Recibo y Guardar
+                                <Button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white gap-2">
+                                    <Save className="w-4 h-4" /> Emitir Recibo y Guardar
                                 </Button>
                             </DialogFooter>
                         </form>

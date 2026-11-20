@@ -42,10 +42,13 @@ class NoticiaController extends Controller
     {
         $validated = $request->validate([
             'titulo' => ['required', 'string', 'max:200'],
+            'categoria' => ['nullable', 'string', 'max:100'],
+            'copete' => ['nullable', 'string', 'max:500'],
             'contenido' => ['required', 'string'],
+            'epigrafe' => ['nullable', 'string', 'max:255'],
             'fecha_publicacion' => ['required', 'date'],
             'publicada' => ['boolean'],
-            'imagen' => ['nullable', 'image', 'max:2048'],
+            'imagen' => ['nullable', 'image', 'max:5120'],
         ]);
 
         $imagenPath = null;
@@ -65,13 +68,16 @@ class NoticiaController extends Controller
             'user_id' => $request->user()->id,
             'titulo' => $validated['titulo'],
             'slug' => $slug,
+            'categoria' => $validated['categoria'] ?? 'Institucional',
+            'copete' => $validated['copete'] ?? null,
             'contenido' => $validated['contenido'],
+            'epigrafe' => $validated['epigrafe'] ?? null,
             'imagen_portada' => $imagenPath,
             'publicada' => $validated['publicada'] ?? true,
             'fecha_publicacion' => $validated['fecha_publicacion'],
         ]);
 
-        return redirect()->route('admin.noticias.index')->with('success', "Comunicado '{$validated['titulo']}' publicado.");
+        return redirect()->route('admin.noticias.index')->with('success', "Noticia '{$validated['titulo']}' guardada con éxito.");
     }
 
     /**
@@ -91,10 +97,13 @@ class NoticiaController extends Controller
     {
         $validated = $request->validate([
             'titulo' => ['required', 'string', 'max:200'],
+            'categoria' => ['nullable', 'string', 'max:100'],
+            'copete' => ['nullable', 'string', 'max:500'],
             'contenido' => ['required', 'string'],
+            'epigrafe' => ['nullable', 'string', 'max:255'],
             'fecha_publicacion' => ['required', 'date'],
             'publicada' => ['boolean'],
-            'imagen' => ['nullable', 'image', 'max:2048'],
+            'imagen' => ['nullable', 'image', 'max:5120'],
         ]);
 
         $imagenPath = $noticia->imagen_portada;
@@ -120,13 +129,33 @@ class NoticiaController extends Controller
         $noticia->update([
             'titulo' => $validated['titulo'],
             'slug' => $slug,
+            'categoria' => $validated['categoria'] ?? $noticia->categoria ?? 'Institucional',
+            'copete' => $validated['copete'] ?? null,
             'contenido' => $validated['contenido'],
+            'epigrafe' => $validated['epigrafe'] ?? null,
             'imagen_portada' => $imagenPath,
             'publicada' => $validated['publicada'] ?? $noticia->publicada,
             'fecha_publicacion' => $validated['fecha_publicacion'],
         ]);
 
         return redirect()->route('admin.noticias.index')->with('success', "Comunicado '{$noticia->titulo}' actualizado.");
+    }
+
+    /**
+     * Sube una imagen para incrustar dentro del editor de contenidos.
+     */
+    public function uploadImage(Request $request)
+    {
+        $request->validate([
+            'image' => ['required', 'image', 'max:5120'],
+        ]);
+
+        $path = $request->file('image')->store('noticias/contenido', 'public');
+        $url = asset('storage/' . $path);
+
+        return response()->json([
+            'url' => $url,
+        ]);
     }
 
     /**

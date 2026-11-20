@@ -3,6 +3,8 @@ import {
     ArrowLeft,
     Calendar,
     Trophy,
+    Moon,
+    BookOpen,
     Users,
     DollarSign,
     FileText,
@@ -23,10 +25,10 @@ interface FormData {
     publicado: boolean;
 }
 
-const TIPOS_EVENTO: { value: TipoEvento; label: string; icon: string }[] = [
-    { value: 'torneo', label: 'Torneo Deportivo', icon: '🏆' },
-    { value: 'tirada_nocturna', label: 'Tirada Nocturna', icon: '🌙' },
-    { value: 'curso_capacitacion', label: 'Curso de Capacitación', icon: '📚' },
+const TIPOS_EVENTO: { value: TipoEvento; label: string; Icon: React.ComponentType<{ className?: string }> }[] = [
+    { value: 'torneo', label: 'Torneo Deportivo', Icon: Trophy },
+    { value: 'tirada_nocturna', label: 'Tirada Nocturna', Icon: Moon },
+    { value: 'curso_capacitacion', label: 'Curso de Capacitación', Icon: BookOpen },
 ];
 
 export default function EventosCreate() {
@@ -125,7 +127,9 @@ export default function EventosCreate() {
                                                     : 'border-gray-200 bg-gray-50 text-gray-600 hover:border-gray-300 hover:bg-gray-100'
                                             }`}
                                         >
-                                            <span className="text-2xl">{tipo.icon}</span>
+                                            <div className={`p-2.5 rounded-xl ${data.tipo_evento === tipo.value ? 'bg-blue-100 text-blue-700' : 'bg-white text-gray-500 shadow-2xs'}`}>
+                                                <tipo.Icon className="w-6 h-6" />
+                                            </div>
                                             <span className="text-center leading-tight">{tipo.label}</span>
                                         </button>
                                     ))}

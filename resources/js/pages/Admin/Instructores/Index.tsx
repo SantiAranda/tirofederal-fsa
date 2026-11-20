@@ -7,9 +7,9 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import {
-    Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter,
+    Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription,
 } from '@/components/ui/dialog';
-import { GraduationCap, Award, Calendar, Phone, Mail, Plus, CheckCircle2, AlertTriangle, ShieldCheck } from 'lucide-react';
+import { GraduationCap, Award, Calendar, Phone, Mail, Plus, CheckCircle2, AlertTriangle, ShieldCheck, Star, X, Save } from 'lucide-react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     { title: 'Inicio', href: '/admin/dashboard' },
@@ -215,7 +215,10 @@ export default function InstructoresIndex({ instructores: serverInstructores }: 
                                     </div>
                                     <div className="flex items-center justify-between">
                                         <span className="text-gray-500 font-medium">Calificación:</span>
-                                        <span className="font-bold text-amber-600">★ {inst.calificacionPromedio}</span>
+                                        <span className="font-bold text-amber-600 flex items-center gap-1">
+                                            <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-500" />
+                                            {inst.calificacionPromedio}
+                                        </span>
                                     </div>
                                 </div>
 
@@ -247,7 +250,15 @@ export default function InstructoresIndex({ instructores: serverInstructores }: 
                 <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
                     <DialogContent>
                         <DialogHeader>
-                            <DialogTitle>Registrar Instructor Matriculado</DialogTitle>
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center shrink-0">
+                                    <GraduationCap className="w-5 h-5 text-blue-600" />
+                                </div>
+                                <div>
+                                    <DialogTitle>Registrar Instructor Matriculado</DialogTitle>
+                                    <DialogDescription>Cargá un instructor habilitado por ANMaC con su matrícula correspondiente</DialogDescription>
+                                </div>
+                            </div>
                         </DialogHeader>
                         <form onSubmit={handleCrear} className="space-y-4 pt-2">
                             <div>
@@ -313,11 +324,11 @@ export default function InstructoresIndex({ instructores: serverInstructores }: 
                                 </div>
                             </div>
                             <DialogFooter className="pt-2">
-                                <Button type="button" variant="outline" onClick={() => setDialogOpen(false)}>
-                                    Cancelar
+                                <Button type="button" variant="outline" onClick={() => setDialogOpen(false)} className="gap-1.5">
+                                    <X className="w-4 h-4" /> Cancelar
                                 </Button>
-                                <Button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white">
-                                    Guardar Instructor
+                                <Button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white gap-2">
+                                    <Save className="w-4 h-4" /> Guardar Instructor
                                 </Button>
                             </DialogFooter>
                         </form>

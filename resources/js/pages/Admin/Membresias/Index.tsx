@@ -11,12 +11,12 @@ import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
 import { Textarea } from '@/components/ui/textarea';
 import {
-    Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter,
+    Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription,
 } from '@/components/ui/dialog';
 import {
     Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from '@/components/ui/table';
-import { Tags, Users, DollarSign, Pencil, Plus, ToggleLeft } from 'lucide-react';
+import { Tags, Users, DollarSign, Pencil, Plus, ToggleLeft, Save, X } from 'lucide-react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     { title: 'Inicio', href: '/admin/dashboard' },
@@ -245,7 +245,15 @@ export default function MembresiasIndex({ membresias: serverMembresias }: Props)
             <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
                 <DialogContent className="max-w-lg">
                     <DialogHeader>
-                        <DialogTitle>{editTarget ? 'Editar Categoría' : 'Nueva Categoría'}</DialogTitle>
+                        <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center shrink-0">
+                                <Tags className="w-5 h-5 text-blue-600" />
+                            </div>
+                            <div>
+                                <DialogTitle>{editTarget ? 'Editar Categoría' : 'Nueva Categoría'}</DialogTitle>
+                                <DialogDescription>Definí aranceles y parámetros del plan societario</DialogDescription>
+                            </div>
+                        </div>
                     </DialogHeader>
                     <div className="flex flex-col gap-4 py-2">
                         <div className="flex flex-col gap-1.5">
@@ -299,9 +307,11 @@ export default function MembresiasIndex({ membresias: serverMembresias }: Props)
                         </div>
                     </div>
                     <DialogFooter>
-                        <Button variant="outline" onClick={() => setDialogOpen(false)}>Cancelar</Button>
-                        <Button className="bg-blue-600 text-white hover:bg-blue-700" onClick={handleSave}>
-                            {editTarget ? 'Guardar cambios' : 'Crear categoría'}
+                        <Button variant="outline" onClick={() => setDialogOpen(false)} className="gap-1.5">
+                            <X className="w-4 h-4" /> Cancelar
+                        </Button>
+                        <Button className="bg-blue-600 text-white hover:bg-blue-700 gap-1.5" onClick={handleSave}>
+                            <Save className="w-4 h-4" /> {editTarget ? 'Guardar cambios' : 'Crear categoría'}
                         </Button>
                     </DialogFooter>
                 </DialogContent>

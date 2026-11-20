@@ -1,5 +1,65 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
+* @see \App\Http\Controllers\Admin\NoticiaController::uploadImage
+* @see app/Http/Controllers/Admin/NoticiaController.php:147
+* @route '/admin/noticias/upload-image'
+*/
+export const uploadImage = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: uploadImage.url(options),
+    method: 'post',
+})
+
+uploadImage.definition = {
+    methods: ["post"],
+    url: '/admin/noticias/upload-image',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Http\Controllers\Admin\NoticiaController::uploadImage
+* @see app/Http/Controllers/Admin/NoticiaController.php:147
+* @route '/admin/noticias/upload-image'
+*/
+uploadImage.url = (options?: RouteQueryOptions) => {
+
+
+
+
+    return uploadImage.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Admin\NoticiaController::uploadImage
+* @see app/Http/Controllers/Admin/NoticiaController.php:147
+* @route '/admin/noticias/upload-image'
+*/
+uploadImage.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: uploadImage.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\NoticiaController::uploadImage
+* @see app/Http/Controllers/Admin/NoticiaController.php:147
+* @route '/admin/noticias/upload-image'
+*/
+const uploadImageForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: uploadImage.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\Admin\NoticiaController::uploadImage
+* @see app/Http/Controllers/Admin/NoticiaController.php:147
+* @route '/admin/noticias/upload-image'
+*/
+uploadImageForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: uploadImage.url(options),
+    method: 'post',
+})
+
+uploadImage.form = uploadImageForm
+
+/**
 * @see \App\Http\Controllers\Admin\NoticiaController::index
 * @see app/Http/Controllers/Admin/NoticiaController.php:19
 * @route '/admin/noticias'
@@ -332,7 +392,7 @@ show.form = showForm
 
 /**
 * @see \App\Http\Controllers\Admin\NoticiaController::edit
-* @see app/Http/Controllers/Admin/NoticiaController.php:80
+* @see app/Http/Controllers/Admin/NoticiaController.php:86
 * @route '/admin/noticias/{noticia}/edit'
 */
 export const edit = (args: { noticia: number | { id: number } } | [noticia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -347,7 +407,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\NoticiaController::edit
-* @see app/Http/Controllers/Admin/NoticiaController.php:80
+* @see app/Http/Controllers/Admin/NoticiaController.php:86
 * @route '/admin/noticias/{noticia}/edit'
 */
 edit.url = (args: { noticia: number | { id: number } } | [noticia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -381,7 +441,7 @@ edit.url = (args: { noticia: number | { id: number } } | [noticia: number | { id
 
 /**
 * @see \App\Http\Controllers\Admin\NoticiaController::edit
-* @see app/Http/Controllers/Admin/NoticiaController.php:80
+* @see app/Http/Controllers/Admin/NoticiaController.php:86
 * @route '/admin/noticias/{noticia}/edit'
 */
 edit.get = (args: { noticia: number | { id: number } } | [noticia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -391,7 +451,7 @@ edit.get = (args: { noticia: number | { id: number } } | [noticia: number | { id
 
 /**
 * @see \App\Http\Controllers\Admin\NoticiaController::edit
-* @see app/Http/Controllers/Admin/NoticiaController.php:80
+* @see app/Http/Controllers/Admin/NoticiaController.php:86
 * @route '/admin/noticias/{noticia}/edit'
 */
 edit.head = (args: { noticia: number | { id: number } } | [noticia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -401,7 +461,7 @@ edit.head = (args: { noticia: number | { id: number } } | [noticia: number | { i
 
 /**
 * @see \App\Http\Controllers\Admin\NoticiaController::edit
-* @see app/Http/Controllers/Admin/NoticiaController.php:80
+* @see app/Http/Controllers/Admin/NoticiaController.php:86
 * @route '/admin/noticias/{noticia}/edit'
 */
 const editForm = (args: { noticia: number | { id: number } } | [noticia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -411,7 +471,7 @@ const editForm = (args: { noticia: number | { id: number } } | [noticia: number 
 
 /**
 * @see \App\Http\Controllers\Admin\NoticiaController::edit
-* @see app/Http/Controllers/Admin/NoticiaController.php:80
+* @see app/Http/Controllers/Admin/NoticiaController.php:86
 * @route '/admin/noticias/{noticia}/edit'
 */
 editForm.get = (args: { noticia: number | { id: number } } | [noticia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -421,7 +481,7 @@ editForm.get = (args: { noticia: number | { id: number } } | [noticia: number | 
 
 /**
 * @see \App\Http\Controllers\Admin\NoticiaController::edit
-* @see app/Http/Controllers/Admin/NoticiaController.php:80
+* @see app/Http/Controllers/Admin/NoticiaController.php:86
 * @route '/admin/noticias/{noticia}/edit'
 */
 editForm.head = (args: { noticia: number | { id: number } } | [noticia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -438,7 +498,7 @@ edit.form = editForm
 
 /**
 * @see \App\Http\Controllers\Admin\NoticiaController::update
-* @see app/Http/Controllers/Admin/NoticiaController.php:90
+* @see app/Http/Controllers/Admin/NoticiaController.php:96
 * @route '/admin/noticias/{noticia}'
 */
 export const update = (args: { noticia: number | { id: number } } | [noticia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -453,7 +513,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\NoticiaController::update
-* @see app/Http/Controllers/Admin/NoticiaController.php:90
+* @see app/Http/Controllers/Admin/NoticiaController.php:96
 * @route '/admin/noticias/{noticia}'
 */
 update.url = (args: { noticia: number | { id: number } } | [noticia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -487,7 +547,7 @@ update.url = (args: { noticia: number | { id: number } } | [noticia: number | { 
 
 /**
 * @see \App\Http\Controllers\Admin\NoticiaController::update
-* @see app/Http/Controllers/Admin/NoticiaController.php:90
+* @see app/Http/Controllers/Admin/NoticiaController.php:96
 * @route '/admin/noticias/{noticia}'
 */
 update.put = (args: { noticia: number | { id: number } } | [noticia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -497,7 +557,7 @@ update.put = (args: { noticia: number | { id: number } } | [noticia: number | { 
 
 /**
 * @see \App\Http\Controllers\Admin\NoticiaController::update
-* @see app/Http/Controllers/Admin/NoticiaController.php:90
+* @see app/Http/Controllers/Admin/NoticiaController.php:96
 * @route '/admin/noticias/{noticia}'
 */
 update.patch = (args: { noticia: number | { id: number } } | [noticia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -507,7 +567,7 @@ update.patch = (args: { noticia: number | { id: number } } | [noticia: number | 
 
 /**
 * @see \App\Http\Controllers\Admin\NoticiaController::update
-* @see app/Http/Controllers/Admin/NoticiaController.php:90
+* @see app/Http/Controllers/Admin/NoticiaController.php:96
 * @route '/admin/noticias/{noticia}'
 */
 const updateForm = (args: { noticia: number | { id: number } } | [noticia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -522,7 +582,7 @@ const updateForm = (args: { noticia: number | { id: number } } | [noticia: numbe
 
 /**
 * @see \App\Http\Controllers\Admin\NoticiaController::update
-* @see app/Http/Controllers/Admin/NoticiaController.php:90
+* @see app/Http/Controllers/Admin/NoticiaController.php:96
 * @route '/admin/noticias/{noticia}'
 */
 updateForm.put = (args: { noticia: number | { id: number } } | [noticia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -537,7 +597,7 @@ updateForm.put = (args: { noticia: number | { id: number } } | [noticia: number 
 
 /**
 * @see \App\Http\Controllers\Admin\NoticiaController::update
-* @see app/Http/Controllers/Admin/NoticiaController.php:90
+* @see app/Http/Controllers/Admin/NoticiaController.php:96
 * @route '/admin/noticias/{noticia}'
 */
 updateForm.patch = (args: { noticia: number | { id: number } } | [noticia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -554,7 +614,7 @@ update.form = updateForm
 
 /**
 * @see \App\Http\Controllers\Admin\NoticiaController::destroy
-* @see app/Http/Controllers/Admin/NoticiaController.php:135
+* @see app/Http/Controllers/Admin/NoticiaController.php:164
 * @route '/admin/noticias/{noticia}'
 */
 export const destroy = (args: { noticia: number | { id: number } } | [noticia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -569,7 +629,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Admin\NoticiaController::destroy
-* @see app/Http/Controllers/Admin/NoticiaController.php:135
+* @see app/Http/Controllers/Admin/NoticiaController.php:164
 * @route '/admin/noticias/{noticia}'
 */
 destroy.url = (args: { noticia: number | { id: number } } | [noticia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -603,7 +663,7 @@ destroy.url = (args: { noticia: number | { id: number } } | [noticia: number | {
 
 /**
 * @see \App\Http\Controllers\Admin\NoticiaController::destroy
-* @see app/Http/Controllers/Admin/NoticiaController.php:135
+* @see app/Http/Controllers/Admin/NoticiaController.php:164
 * @route '/admin/noticias/{noticia}'
 */
 destroy.delete = (args: { noticia: number | { id: number } } | [noticia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -613,7 +673,7 @@ destroy.delete = (args: { noticia: number | { id: number } } | [noticia: number 
 
 /**
 * @see \App\Http\Controllers\Admin\NoticiaController::destroy
-* @see app/Http/Controllers/Admin/NoticiaController.php:135
+* @see app/Http/Controllers/Admin/NoticiaController.php:164
 * @route '/admin/noticias/{noticia}'
 */
 const destroyForm = (args: { noticia: number | { id: number } } | [noticia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -628,7 +688,7 @@ const destroyForm = (args: { noticia: number | { id: number } } | [noticia: numb
 
 /**
 * @see \App\Http\Controllers\Admin\NoticiaController::destroy
-* @see app/Http/Controllers/Admin/NoticiaController.php:135
+* @see app/Http/Controllers/Admin/NoticiaController.php:164
 * @route '/admin/noticias/{noticia}'
 */
 destroyForm.delete = (args: { noticia: number | { id: number } } | [noticia: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -646,6 +706,7 @@ destroy.form = destroyForm
 
 
 const noticias = {
+    uploadImage: Object.assign(uploadImage, uploadImage),
     index: Object.assign(index, index),
     create: Object.assign(create, create),
     store: Object.assign(store, store),

@@ -9,7 +9,7 @@ import {
     Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from '@/components/ui/table';
 import {
-    Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter,
+    Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription,
 } from '@/components/ui/dialog';
 import { ShieldCheck, AlertTriangle, FileText, CheckCircle2, XCircle, Eye, Search, Clock } from 'lucide-react';
 
@@ -240,12 +240,28 @@ export default function CluIndex({ credenciales: serverCredenciales }: Props) {
                                             {c.vencimientoClu}
                                         </TableCell>
                                         <TableCell>
-                                            <div className="flex gap-1.5 text-[11px]">
-                                                <span className={`px-1.5 py-0.5 rounded ${c.archivosSubidos.dniFrente && c.archivosSubidos.dniDorso ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'}`}>
-                                                    DNI {c.archivosSubidos.dniFrente && c.archivosSubidos.dniDorso ? '✓' : 'Incompleto'}
+                                            <div className="flex gap-1.5 flex-wrap">
+                                                <span className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[11px] font-medium ${
+                                                    c.archivosSubidos.dniFrente && c.archivosSubidos.dniDorso
+                                                        ? 'bg-emerald-50 text-emerald-700'
+                                                        : 'bg-rose-50 text-rose-700'
+                                                }`}>
+                                                    {c.archivosSubidos.dniFrente && c.archivosSubidos.dniDorso
+                                                        ? <CheckCircle2 className="w-3 h-3" />
+                                                        : <XCircle className="w-3 h-3" />
+                                                    }
+                                                    DNI
                                                 </span>
-                                                <span className={`px-1.5 py-0.5 rounded ${c.archivosSubidos.cluFrente && c.archivosSubidos.cluDorso ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'}`}>
-                                                    CLU {c.archivosSubidos.cluFrente && c.archivosSubidos.cluDorso ? '✓' : 'Incompleto'}
+                                                <span className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[11px] font-medium ${
+                                                    c.archivosSubidos.cluFrente && c.archivosSubidos.cluDorso
+                                                        ? 'bg-emerald-50 text-emerald-700'
+                                                        : 'bg-rose-50 text-rose-700'
+                                                }`}>
+                                                    {c.archivosSubidos.cluFrente && c.archivosSubidos.cluDorso
+                                                        ? <CheckCircle2 className="w-3 h-3" />
+                                                        : <XCircle className="w-3 h-3" />
+                                                    }
+                                                    CLU
                                                 </span>
                                             </div>
                                         </TableCell>
@@ -285,7 +301,15 @@ export default function CluIndex({ credenciales: serverCredenciales }: Props) {
                     {selected && (
                         <DialogContent className="max-w-xl">
                             <DialogHeader>
-                                <DialogTitle>Legajo Digital - {selected.socio}</DialogTitle>
+                                <div className="flex items-center gap-3">
+                                    <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center shrink-0">
+                                        <ShieldCheck className="w-5 h-5 text-blue-600" />
+                                    </div>
+                                    <div>
+                                        <DialogTitle>Legajo Digital</DialogTitle>
+                                        <DialogDescription>{selected.socio} — {selected.numeroClu}</DialogDescription>
+                                    </div>
+                                </div>
                             </DialogHeader>
                             <div className="space-y-4 pt-2">
                                 <div className="grid grid-cols-2 gap-3 text-xs bg-gray-50 p-3 rounded-lg border border-gray-100">

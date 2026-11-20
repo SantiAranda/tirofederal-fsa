@@ -1,4 +1,4 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\PublicController::home
 * @see app/Http/Controllers/PublicController.php:19
@@ -425,6 +425,107 @@ eventosForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 eventos.form = eventosForm
 
 /**
+* @see \App\Http\Controllers\PublicController::noticiaDetalle
+* @see app/Http/Controllers/PublicController.php:132
+* @route '/noticias/{slug}'
+*/
+export const noticiaDetalle = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: noticiaDetalle.url(args, options),
+    method: 'get',
+})
+
+noticiaDetalle.definition = {
+    methods: ["get","head"],
+    url: '/noticias/{slug}',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\PublicController::noticiaDetalle
+* @see app/Http/Controllers/PublicController.php:132
+* @route '/noticias/{slug}'
+*/
+noticiaDetalle.url = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { slug: args }
+    }
+
+
+    if (Array.isArray(args)) {
+        args = {
+            slug: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+
+    const parsedArgs = {
+        slug: args.slug,
+    }
+
+    return noticiaDetalle.definition.url
+            .replace('{slug}', parsedArgs.slug.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\PublicController::noticiaDetalle
+* @see app/Http/Controllers/PublicController.php:132
+* @route '/noticias/{slug}'
+*/
+noticiaDetalle.get = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: noticiaDetalle.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\PublicController::noticiaDetalle
+* @see app/Http/Controllers/PublicController.php:132
+* @route '/noticias/{slug}'
+*/
+noticiaDetalle.head = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: noticiaDetalle.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \App\Http\Controllers\PublicController::noticiaDetalle
+* @see app/Http/Controllers/PublicController.php:132
+* @route '/noticias/{slug}'
+*/
+const noticiaDetalleForm = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: noticiaDetalle.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\PublicController::noticiaDetalle
+* @see app/Http/Controllers/PublicController.php:132
+* @route '/noticias/{slug}'
+*/
+noticiaDetalleForm.get = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: noticiaDetalle.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\PublicController::noticiaDetalle
+* @see app/Http/Controllers/PublicController.php:132
+* @route '/noticias/{slug}'
+*/
+noticiaDetalleForm.head = (args: { slug: string | number } | [slug: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: noticiaDetalle.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+noticiaDetalle.form = noticiaDetalleForm
+
+/**
 * @see \App\Http\Controllers\PublicController::enviarContacto
 * @see app/Http/Controllers/PublicController.php:123
 * @route '/contacto'
@@ -484,6 +585,6 @@ enviarContactoForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'po
 
 enviarContacto.form = enviarContactoForm
 
-const PublicController = { home, historia, disciplinas, decalogo, eventos, enviarContacto }
+const PublicController = { home, historia, disciplinas, decalogo, eventos, noticiaDetalle, enviarContacto }
 
 export default PublicController

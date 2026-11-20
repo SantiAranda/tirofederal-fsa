@@ -30,6 +30,7 @@ Route::get('/historia', [PublicController::class, 'historia'])->name('historia')
 Route::get('/disciplinas', [PublicController::class, 'disciplinas'])->name('disciplinas');
 Route::get('/decalogo', [PublicController::class, 'decalogo'])->name('decalogo');
 Route::get('/eventos', [PublicController::class, 'eventos'])->name('public.eventos');
+Route::get('/noticias/{slug}', [PublicController::class, 'noticiaDetalle'])->name('public.noticias.show');
 Route::post('/contacto', [PublicController::class, 'enviarContacto'])->name('contacto.enviar');
 
 /*
@@ -139,6 +140,7 @@ Route::middleware(['auth', 'role:presidente'])->prefix('admin')->name('admin.')-
     Route::patch('/eventos/inscripciones/{inscripcion}/asistencia', [AdminEventoController::class, 'confirmarAsistencia'])->name('eventos.inscripciones.asistencia');
     Route::resource('eventos', AdminEventoController::class);
 
+    Route::post('noticias/upload-image', [AdminNoticiaController::class, 'uploadImage'])->name('noticias.upload-image');
     Route::resource('noticias', AdminNoticiaController::class);
 
     Route::get('/reportes', function () {

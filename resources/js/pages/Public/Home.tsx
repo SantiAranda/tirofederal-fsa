@@ -35,6 +35,7 @@ interface Testimonio {
 interface Noticia {
     id: number;
     titulo: string;
+    slug?: string;
     resumen: string | null;
     fecha_publicacion: string;
     imagen_url: string | null;
@@ -392,7 +393,11 @@ export default function Home({ eventosProximos, testimonios, noticiasRecientes }
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             {noticiasRecientes.map((noticia) => (
-                                <article key={noticia.id} className="group cursor-pointer">
+                                <Link
+                                    key={noticia.id}
+                                    href={noticia.slug ? `/noticias/${noticia.slug}` : '#'}
+                                    className="group block"
+                                >
                                     <div className="rounded-2xl overflow-hidden aspect-video bg-gray-100 mb-5">
                                         <img
                                             src={noticia.imagen_url ?? `https://placehold.co/800x450/1e3a5f/ffffff?text=${encodeURIComponent(noticia.titulo)}`}
@@ -410,7 +415,7 @@ export default function Home({ eventosProximos, testimonios, noticiasRecientes }
                                     {noticia.resumen && (
                                         <p className="text-gray-500 text-sm leading-relaxed line-clamp-2">{noticia.resumen}</p>
                                     )}
-                                </article>
+                                </Link>
                             ))}
                         </div>
                     </div>

@@ -12,13 +12,13 @@ import {
     Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from '@/components/ui/table';
 import {
-    Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter,
+    Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription,
 } from '@/components/ui/dialog';
 import {
     Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from '@/components/ui/select';
 import {
-    Plus, Search, Pencil, Trash2, AlertTriangle, Package, DollarSign, TrendingDown, Activity,
+    Plus, Search, Pencil, Trash2, AlertTriangle, Package, DollarSign, TrendingDown, Activity, X, Check,
 } from 'lucide-react';
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -319,7 +319,15 @@ export default function InsumosIndex({ insumos: serverInsumos }: Props) {
             <Dialog open={ajusteOpen} onOpenChange={setAjusteOpen}>
                 <DialogContent className="sm:max-w-md">
                     <DialogHeader>
-                        <DialogTitle>Ajustar Stock — {insumoSeleccionado?.nombre}</DialogTitle>
+                        <div className="flex items-center gap-3">
+                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${ajusteTipo === 'entrada' ? 'bg-blue-100 text-blue-600' : 'bg-rose-100 text-rose-600'}`}>
+                                <Package className="w-5 h-5" />
+                            </div>
+                            <div>
+                                <DialogTitle>Ajustar Stock</DialogTitle>
+                                <DialogDescription>{insumoSeleccionado?.nombre}</DialogDescription>
+                            </div>
+                        </div>
                     </DialogHeader>
                     <div className="flex flex-col gap-4 py-2">
                         <div>
@@ -385,13 +393,15 @@ export default function InsumosIndex({ insumos: serverInsumos }: Props) {
                         )}
                     </div>
                     <DialogFooter>
-                        <Button variant="outline" onClick={() => setAjusteOpen(false)}>Cancelar</Button>
+                        <Button variant="outline" onClick={() => setAjusteOpen(false)} className="gap-1.5">
+                            <X className="w-4 h-4" /> Cancelar
+                        </Button>
                         <Button
-                            className="bg-blue-600 text-white hover:bg-blue-700"
+                            className="bg-blue-600 text-white hover:bg-blue-700 gap-1.5"
                             onClick={aplicarAjuste}
                             disabled={!ajusteCantidad || parseInt(ajusteCantidad) <= 0}
                         >
-                            Aplicar ajuste
+                            <Check className="w-4 h-4" /> Aplicar ajuste
                         </Button>
                     </DialogFooter>
                 </DialogContent>

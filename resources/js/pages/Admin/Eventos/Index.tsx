@@ -8,9 +8,9 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
 import {
-    Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter,
+    Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription,
 } from '@/components/ui/dialog';
-import { Calendar, Users, Target, Plus, Trophy, Clock, CheckCircle2, Sliders, Shield } from 'lucide-react';
+import { Calendar, Users, Target, Plus, Trophy, Clock, CheckCircle2, Sliders, Shield, X, Save } from 'lucide-react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     { title: 'Inicio', href: '/admin/dashboard' },
@@ -319,7 +319,15 @@ export default function EventosIndex({ eventos: serverEventos }: Props) {
                 <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
                     <DialogContent>
                         <DialogHeader>
-                            <DialogTitle>Programar Nuevo Evento o Torneo</DialogTitle>
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center shrink-0">
+                                    <Trophy className="w-5 h-5 text-blue-600" />
+                                </div>
+                                <div>
+                                    <DialogTitle>Programar Nuevo Evento o Torneo</DialogTitle>
+                                    <DialogDescription>Configurá la disciplina, cupos y fecha para habilitar inscripciones</DialogDescription>
+                                </div>
+                            </div>
                         </DialogHeader>
                         <form onSubmit={handleCrearEvento} className="space-y-4 pt-2">
                             <div>
@@ -385,11 +393,11 @@ export default function EventosIndex({ eventos: serverEventos }: Props) {
                                 </div>
                             </div>
                             <DialogFooter className="pt-2">
-                                <Button type="button" variant="outline" onClick={() => setDialogOpen(false)}>
-                                    Cancelar
+                                <Button type="button" variant="outline" onClick={() => setDialogOpen(false)} className="gap-1.5">
+                                    <X className="w-4 h-4" /> Cancelar
                                 </Button>
-                                <Button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white">
-                                    Publicar Evento
+                                <Button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white gap-2">
+                                    <Save className="w-4 h-4" /> Publicar Evento
                                 </Button>
                             </DialogFooter>
                         </form>

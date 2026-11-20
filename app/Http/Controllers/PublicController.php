@@ -125,4 +125,28 @@ class PublicController extends Controller
         // En una etapa posterior se despacha correo electrónico vía SMTP
         return back()->with('success', 'Su consulta ha sido enviada con éxito a la secretaría del club.');
     }
+
+    /**
+     * Detalle de un artículo o noticia pública (RF28, RF31).
+     */
+    public function noticiaDetalle(string $slug): Response
+    {
+        $noticia = Noticia::query()
+            ->publicadas()
+            ->where('slug', $slug)
+            ->with(['user:id,nombre,apellido,name'])
+            ->firstOrFail();
+
+        $relacionadas = Noticia::query()
+            ->publicadas()
+            ->where('id', '!=', $noticia->id)
+            ->latest('fecha_publicacion')
+            ->take(3)
+            ->get();
+
+        return Inertia::render('Public/NoticiaDetalle', [
+            'noticia' => $noticia,
+            'relacionadas' => $relacionadas,
+        ]);
+    }
 }

@@ -1,4 +1,5 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../wayfinder'
+import noticias from './noticias'
 /**
 * @see \App\Http\Controllers\PublicController::eventos
 * @see app/Http/Controllers/PublicController.php:109
@@ -88,6 +89,7 @@ eventos.form = eventosForm
 
 const publicMethod = {
     eventos: Object.assign(eventos, eventos),
+    noticias: Object.assign(noticias, noticias),
 }
 
 export default publicMethod

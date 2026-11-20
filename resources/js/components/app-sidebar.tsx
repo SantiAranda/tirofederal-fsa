@@ -55,7 +55,7 @@ export function AppSidebar() {
     return (
         <Sidebar collapsible="icon" variant="inset">
             {/* ── Header: logo + nombre club ── */}
-            <SidebarHeader className="pb-3 pt-4 px-4 border-b border-white/10">
+            <SidebarHeader className="py-3 px-4 border-b border-white/10">
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton size="lg" asChild>

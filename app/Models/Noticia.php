@@ -27,8 +27,11 @@ class Noticia extends Model
         'user_id',
         'titulo',
         'slug',
+        'categoria',
+        'copete',
         'contenido',
         'imagen_portada',
+        'epigrafe',
         'publicada',
         'fecha_publicacion',
     ];
@@ -63,6 +66,9 @@ class Noticia extends Model
      */
     public function getResumenAttribute(): string
     {
+        if (!empty($this->copete)) {
+            return $this->copete;
+        }
         return \Illuminate\Support\Str::limit(strip_tags((string) $this->contenido), 140);
     }
 
